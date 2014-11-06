@@ -1,12 +1,3 @@
-NodeSDK
-=======
-
-Playfab SDK for node.js applications
-
-This SDK includes all PlayFab APIs (Client, Server, Admin) in a single javascript file suitable for using in node.js.
-
-Usage:
-```
 var playfab = require('./playfab.js')
 
 playfab.settings.title_id = "F00";
@@ -22,5 +13,3 @@ playfab.server.GetTitleData({Keys : ["Sample"]}, function(error, result)
 
 	console.log("Reply: ",result);
 });
-
-```
