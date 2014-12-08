@@ -118,7 +118,19 @@ exports.admin.GetUserAccountInfo = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetUserAccountInfo", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.ResetUsers = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/ResetUsers", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -130,7 +142,7 @@ exports.admin.SendAccountRecoveryEmail = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/SendAccountRecoveryEmail", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -142,7 +154,7 @@ exports.admin.UpdateUserTitleDisplayName = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/UpdateUserTitleDisplayName", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -154,7 +166,7 @@ exports.admin.GetUserData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetUserData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -166,7 +178,7 @@ exports.admin.GetUserInternalData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetUserInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -178,7 +190,7 @@ exports.admin.GetUserReadOnlyData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetUserReadOnlyData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -190,7 +202,7 @@ exports.admin.ResetUserStatistics = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/ResetUserStatistics", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -202,7 +214,7 @@ exports.admin.UpdateUserData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/UpdateUserData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -214,7 +226,7 @@ exports.admin.UpdateUserInternalData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/UpdateUserInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -226,7 +238,7 @@ exports.admin.UpdateUserReadOnlyData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/UpdateUserReadOnlyData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -238,7 +250,7 @@ exports.admin.AddNews = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/AddNews", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -250,7 +262,7 @@ exports.admin.AddVirtualCurrencyTypes = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/AddVirtualCurrencyTypes", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -262,7 +274,7 @@ exports.admin.GetCatalogItems = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetCatalogItems", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -274,7 +286,7 @@ exports.admin.GetRandomResultTables = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetRandomResultTables", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -286,7 +298,7 @@ exports.admin.GetStoreItems = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetStoreItems", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -298,7 +310,7 @@ exports.admin.GetTitleData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -310,7 +322,7 @@ exports.admin.ListVirtualCurrencyTypes = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/ListVirtualCurrencyTypes", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -322,7 +334,7 @@ exports.admin.SetCatalogItems = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/SetCatalogItems", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -334,7 +346,7 @@ exports.admin.SetStoreItems = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/SetStoreItems", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -346,7 +358,7 @@ exports.admin.SetTitleData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/SetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -358,7 +370,7 @@ exports.admin.UpdateCatalogItems = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/UpdateCatalogItems", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -370,7 +382,7 @@ exports.admin.UpdateRandomResultTables = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/UpdateRandomResultTables", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -382,7 +394,7 @@ exports.admin.UpdateStoreItems = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/UpdateStoreItems", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -394,7 +406,7 @@ exports.admin.AddUserVirtualCurrency = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/AddUserVirtualCurrency", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -406,7 +418,7 @@ exports.admin.GetUserInventory = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetUserInventory", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -418,7 +430,7 @@ exports.admin.GrantItemsToUsers = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GrantItemsToUsers", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -430,7 +442,7 @@ exports.admin.RevokeInventoryItem = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/RevokeInventoryItem", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -442,7 +454,7 @@ exports.admin.SubtractUserVirtualCurrency = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/SubtractUserVirtualCurrency", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -454,7 +466,7 @@ exports.admin.GetMatchmakerGameInfo = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetMatchmakerGameInfo", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -466,7 +478,7 @@ exports.admin.GetMatchmakerGameModes = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetMatchmakerGameModes", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -478,7 +490,7 @@ exports.admin.ModifyMatchmakerGameModes = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/ModifyMatchmakerGameModes", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -490,7 +502,7 @@ exports.admin.AddServerBuild = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/AddServerBuild", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -502,7 +514,7 @@ exports.admin.GetServerBuildInfo = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetServerBuildInfo", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -514,7 +526,7 @@ exports.admin.GetServerBuildUploadUrl = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/GetServerBuildUploadUrl", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -526,7 +538,7 @@ exports.admin.ListServerBuilds = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/ListServerBuilds", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -538,7 +550,7 @@ exports.admin.ModifyServerBuild = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/ModifyServerBuild", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -550,43 +562,7 @@ exports.admin.RemoveServerBuild = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
-	{
-		
-		if(callback != null)
-			callback(error, result);
-	});
-};
-
-exports.admin.DeleteServerLogicFile = function(request, callback)
-{	
-	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
-
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
-	{
-		
-		if(callback != null)
-			callback(error, result);
-	});
-};
-
-exports.admin.ListServerLogicFiles = function(request, callback)
-{	
-	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
-
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
-	{
-		
-		if(callback != null)
-			callback(error, result);
-	});
-};
-
-exports.admin.UpdateServerLogicFile = function(request, callback)
-{	
-	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
-
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Admin/RemoveServerBuild", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -601,7 +577,7 @@ exports.matchmaker.AuthUser = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Matchmaker/AuthUser", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -613,7 +589,7 @@ exports.matchmaker.PlayerJoined = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Matchmaker/PlayerJoined", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -625,7 +601,7 @@ exports.matchmaker.PlayerLeft = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Matchmaker/PlayerLeft", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -637,7 +613,7 @@ exports.matchmaker.StartGame = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Matchmaker/StartGame", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -649,7 +625,7 @@ exports.matchmaker.UserInfo = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Matchmaker/UserInfo", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -660,11 +636,23 @@ exports.matchmaker.UserInfo = function(request, callback)
 
 exports.server = {};
 
+exports.server.AuthenticateSessionTicket = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/AuthenticateSessionTicket", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.server.GetUserAccountInfo = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GetUserAccountInfo", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -676,7 +664,7 @@ exports.server.SendPushNotification = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/SendPushNotification", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -688,7 +676,7 @@ exports.server.GetLeaderboard = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GetLeaderboard", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -700,7 +688,7 @@ exports.server.GetLeaderboardAroundUser = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GetLeaderboardAroundUser", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -712,7 +700,7 @@ exports.server.GetUserData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GetUserData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -724,7 +712,7 @@ exports.server.GetUserInternalData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GetUserInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -736,7 +724,7 @@ exports.server.GetUserReadOnlyData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GetUserReadOnlyData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -748,7 +736,7 @@ exports.server.GetUserStatistics = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GetUserStatistics", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -760,7 +748,7 @@ exports.server.UpdateUserData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/UpdateUserData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -772,7 +760,7 @@ exports.server.UpdateUserInternalData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/UpdateUserInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -784,7 +772,7 @@ exports.server.UpdateUserReadOnlyData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/UpdateUserReadOnlyData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -796,7 +784,7 @@ exports.server.UpdateUserStatistics = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/UpdateUserStatistics", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -808,7 +796,7 @@ exports.server.GetCatalogItems = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GetCatalogItems", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -832,7 +820,7 @@ exports.server.SetTitleData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/SetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -844,7 +832,7 @@ exports.server.AddUserVirtualCurrency = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/AddUserVirtualCurrency", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -856,7 +844,19 @@ exports.server.GetUserInventory = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GetUserInventory", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.GrantItemsToUser = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GrantItemsToUser", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -868,7 +868,19 @@ exports.server.GrantItemsToUsers = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/GrantItemsToUsers", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.ModifyItemUses = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/ModifyItemUses", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -880,7 +892,7 @@ exports.server.SubtractUserVirtualCurrency = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/SubtractUserVirtualCurrency", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -892,7 +904,7 @@ exports.server.NotifyMatchmakerPlayerLeft = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/NotifyMatchmakerPlayerLeft", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -904,7 +916,7 @@ exports.server.RedeemMatchmakerTicket = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/RedeemMatchmakerTicket", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -916,7 +928,79 @@ exports.server.AwardSteamAchievement = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Server/AwardSteamAchievement", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.AddSharedGroupMembers = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/AddSharedGroupMembers", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.CreateSharedGroup = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/CreateSharedGroup", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.DeleteSharedGroup = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/DeleteSharedGroup", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.GetSharedGroupData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GetSharedGroupData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.RemoveSharedGroupMembers = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/RemoveSharedGroupMembers", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.UpdateSharedGroupData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/UpdateSharedGroupData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -927,23 +1011,11 @@ exports.server.AwardSteamAchievement = function(request, callback)
 
 exports.client = {};
 
-exports.client.AddUsernamePassword = function(request, callback)
-{	
-	if (settings.session_ticket == null) throw "Must be logged in to call this method";
-
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
-	{
-		
-		if(callback != null)
-			callback(error, result);
-	});
-};
-
 exports.client.LoginWithAndroidDeviceID = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, null, null, function(error, result)
+	make_request(get_server_url() + "/Client/LoginWithAndroidDeviceID", request, null, null, function(error, result)
 	{
 		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
 
@@ -956,7 +1028,7 @@ exports.client.LoginWithFacebook = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, null, null, function(error, result)
+	make_request(get_server_url() + "/Client/LoginWithFacebook", request, null, null, function(error, result)
 	{
 		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
 
@@ -969,7 +1041,7 @@ exports.client.LoginWithGameCenter = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, null, null, function(error, result)
+	make_request(get_server_url() + "/Client/LoginWithGameCenter", request, null, null, function(error, result)
 	{
 		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
 
@@ -982,7 +1054,7 @@ exports.client.LoginWithGoogleAccount = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, null, null, function(error, result)
+	make_request(get_server_url() + "/Client/LoginWithGoogleAccount", request, null, null, function(error, result)
 	{
 		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
 
@@ -995,7 +1067,7 @@ exports.client.LoginWithIOSDeviceID = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, null, null, function(error, result)
+	make_request(get_server_url() + "/Client/LoginWithIOSDeviceID", request, null, null, function(error, result)
 	{
 		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
 
@@ -1008,7 +1080,7 @@ exports.client.LoginWithPlayFab = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, null, null, function(error, result)
+	make_request(get_server_url() + "/Client/LoginWithPlayFab", request, null, null, function(error, result)
 	{
 		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
 
@@ -1021,7 +1093,7 @@ exports.client.LoginWithSteam = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, null, null, function(error, result)
+	make_request(get_server_url() + "/Client/LoginWithSteam", request, null, null, function(error, result)
 	{
 		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
 
@@ -1034,7 +1106,7 @@ exports.client.RegisterPlayFabUser = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, null, null, function(error, result)
+	make_request(get_server_url() + "/Client/RegisterPlayFabUser", request, null, null, function(error, result)
 	{
 		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
 
@@ -1043,10 +1115,11 @@ exports.client.RegisterPlayFabUser = function(request, callback)
 	});
 };
 
-exports.client.SendAccountRecoveryEmail = function(request, callback)
+exports.client.AddUsernamePassword = function(request, callback)
 {	
-	
-	make_request(get_server_url() + "/Server/GetTitleData", request, null, null, function(error, result)
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/AddUsernamePassword", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1058,7 +1131,19 @@ exports.client.GetAccountInfo = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetAccountInfo", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.GetPlayFabIDsFromFacebookIDs = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetPlayFabIDsFromFacebookIDs", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1070,7 +1155,7 @@ exports.client.GetUserCombinedInfo = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetUserCombinedInfo", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1082,7 +1167,7 @@ exports.client.LinkFacebookAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/LinkFacebookAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1094,7 +1179,7 @@ exports.client.LinkGameCenterAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/LinkGameCenterAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1106,7 +1191,18 @@ exports.client.LinkSteamAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/LinkSteamAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.SendAccountRecoveryEmail = function(request, callback)
+{	
+	
+	make_request(get_server_url() + "/Client/SendAccountRecoveryEmail", request, null, null, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1118,7 +1214,7 @@ exports.client.UnlinkFacebookAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UnlinkFacebookAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1130,7 +1226,7 @@ exports.client.UnlinkGameCenterAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UnlinkGameCenterAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1142,7 +1238,7 @@ exports.client.UnlinkSteamAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UnlinkSteamAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1154,7 +1250,7 @@ exports.client.UpdateEmailAddress = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UpdateEmailAddress", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1166,7 +1262,7 @@ exports.client.UpdatePassword = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UpdatePassword", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1178,7 +1274,7 @@ exports.client.UpdateUserTitleDisplayName = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UpdateUserTitleDisplayName", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1190,7 +1286,7 @@ exports.client.GetFriendLeaderboard = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetFriendLeaderboard", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1202,7 +1298,7 @@ exports.client.GetLeaderboard = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetLeaderboard", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1214,7 +1310,7 @@ exports.client.GetLeaderboardAroundCurrentUser = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetLeaderboardAroundCurrentUser", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1226,7 +1322,7 @@ exports.client.GetUserData = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetUserData", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1238,7 +1334,7 @@ exports.client.GetUserReadOnlyData = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetUserReadOnlyData", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1250,7 +1346,7 @@ exports.client.GetUserStatistics = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetUserStatistics", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1262,7 +1358,7 @@ exports.client.UpdateUserData = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UpdateUserData", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1274,7 +1370,7 @@ exports.client.UpdateUserStatistics = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UpdateUserStatistics", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1286,7 +1382,7 @@ exports.client.GetCatalogItems = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetCatalogItems", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1298,7 +1394,7 @@ exports.client.GetStoreItems = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetStoreItems", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1310,7 +1406,7 @@ exports.client.GetTitleData = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1322,7 +1418,7 @@ exports.client.GetTitleNews = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetTitleNews", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1334,7 +1430,7 @@ exports.client.AddUserVirtualCurrency = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/AddUserVirtualCurrency", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1346,7 +1442,7 @@ exports.client.ConfirmPurchase = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/ConfirmPurchase", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1358,7 +1454,7 @@ exports.client.ConsumeItem = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/ConsumeItem", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1370,7 +1466,7 @@ exports.client.GetUserInventory = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetUserInventory", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1382,7 +1478,7 @@ exports.client.PayForPurchase = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/PayForPurchase", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1394,7 +1490,7 @@ exports.client.PurchaseItem = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/PurchaseItem", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1406,7 +1502,7 @@ exports.client.RedeemCoupon = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/RedeemCoupon", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1418,7 +1514,7 @@ exports.client.StartPurchase = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/StartPurchase", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1430,7 +1526,7 @@ exports.client.SubtractUserVirtualCurrency = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/SubtractUserVirtualCurrency", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1442,7 +1538,7 @@ exports.client.UnlockContainerItem = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UnlockContainerItem", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1454,7 +1550,7 @@ exports.client.AddFriend = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/AddFriend", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1466,7 +1562,7 @@ exports.client.GetFriendsList = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetFriendsList", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1478,7 +1574,7 @@ exports.client.RemoveFriend = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/RemoveFriend", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1490,7 +1586,7 @@ exports.client.SetFriendTags = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/SetFriendTags", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1502,7 +1598,7 @@ exports.client.RegisterForIOSPushNotification = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/RegisterForIOSPushNotification", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1514,7 +1610,7 @@ exports.client.ValidateIOSReceipt = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/ValidateIOSReceipt", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1526,7 +1622,7 @@ exports.client.GetCurrentGames = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetCurrentGames", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1538,7 +1634,7 @@ exports.client.GetGameServerRegions = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetGameServerRegions", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1550,7 +1646,7 @@ exports.client.Matchmake = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/Matchmake", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1562,7 +1658,7 @@ exports.client.StartGame = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/StartGame", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1574,7 +1670,7 @@ exports.client.AndroidDevicePushNotificationRegistration = function(request, cal
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/AndroidDevicePushNotificationRegistration", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1586,7 +1682,7 @@ exports.client.ValidateGooglePlayPurchase = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/ValidateGooglePlayPurchase", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1598,7 +1694,7 @@ exports.client.LogEvent = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/LogEvent", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1610,7 +1706,7 @@ exports.client.AddSharedGroupMembers = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/AddSharedGroupMembers", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1622,7 +1718,7 @@ exports.client.CreateSharedGroup = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/CreateSharedGroup", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1634,7 +1730,7 @@ exports.client.GetSharedGroupData = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetSharedGroupData", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1646,7 +1742,7 @@ exports.client.RemoveSharedGroupMembers = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/RemoveSharedGroupMembers", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1658,7 +1754,7 @@ exports.client.UpdateSharedGroupData = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/UpdateSharedGroupData", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1670,7 +1766,7 @@ exports.client.GetLogicServerUrl = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetLogicServerUrl", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		settings.logic_server_url = result.Url;
 
@@ -1683,7 +1779,7 @@ exports.client.ServerAction = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_logic_server_url() + "/Server/GetTitleData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_logic_server_url() + "/Client/ServerAction", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
