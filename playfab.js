@@ -162,6 +162,18 @@ exports.admin.UpdateUserTitleDisplayName = function(request, callback)
 	});
 };
 
+exports.admin.GetDataReport = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/GetDataReport", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.admin.GetUserData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -1762,11 +1774,11 @@ exports.client.UpdateSharedGroupData = function(request, callback)
 	});
 };
 
-exports.client.GetLogicServerUrl = function(request, callback)
+exports.client.GetCloudScriptUrl = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Client/GetLogicServerUrl", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_server_url() + "/Client/GetCloudScriptUrl", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		settings.logic_server_url = result.Url;
 
@@ -1775,11 +1787,11 @@ exports.client.GetLogicServerUrl = function(request, callback)
 	});
 };
 
-exports.client.ServerAction = function(request, callback)
+exports.client.RunCloudScript = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_logic_server_url() + "/Client/ServerAction", request, "X-Authorization", settings.session_ticket, function(error, result)
+	make_request(get_logic_server_url() + "/Client/RunCloudScript", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
