@@ -198,6 +198,42 @@ exports.admin.GetUserInternalData = function(request, callback)
 	});
 };
 
+exports.admin.GetUserPublisherData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/GetUserPublisherData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.GetUserPublisherInternalData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/GetUserPublisherInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.GetUserPublisherReadOnlyData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/GetUserPublisherReadOnlyData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.admin.GetUserReadOnlyData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -239,6 +275,42 @@ exports.admin.UpdateUserInternalData = function(request, callback)
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
 	make_request(get_server_url() + "/Admin/UpdateUserInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.UpdateUserPublisherData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/UpdateUserPublisherData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.UpdateUserPublisherInternalData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/UpdateUserPublisherInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.UpdateUserPublisherReadOnlyData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/UpdateUserPublisherReadOnlyData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -582,6 +654,30 @@ exports.admin.RemoveServerBuild = function(request, callback)
 	});
 };
 
+exports.admin.GetPublisherData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/GetPublisherData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.SetPublisherData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/SetPublisherData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 
 exports.matchmaker = {};
 
@@ -732,6 +828,42 @@ exports.server.GetUserInternalData = function(request, callback)
 	});
 };
 
+exports.server.GetUserPublisherData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GetUserPublisherData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.GetUserPublisherInternalData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GetUserPublisherInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.GetUserPublisherReadOnlyData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GetUserPublisherReadOnlyData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.server.GetUserReadOnlyData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -773,6 +905,42 @@ exports.server.UpdateUserInternalData = function(request, callback)
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
 	make_request(get_server_url() + "/Server/UpdateUserInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.UpdateUserPublisherData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/UpdateUserPublisherData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.UpdateUserPublisherInternalData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/UpdateUserPublisherInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.UpdateUserPublisherReadOnlyData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/UpdateUserPublisherReadOnlyData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -900,6 +1068,18 @@ exports.server.ModifyItemUses = function(request, callback)
 	});
 };
 
+exports.server.ReportPlayer = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/ReportPlayer", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.server.SubtractUserVirtualCurrency = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -984,6 +1164,18 @@ exports.server.DeleteSharedGroup = function(request, callback)
 	});
 };
 
+exports.server.GetPublisherData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GetPublisherData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.server.GetSharedGroupData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -1001,6 +1193,18 @@ exports.server.RemoveSharedGroupMembers = function(request, callback)
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
 	make_request(get_server_url() + "/Server/RemoveSharedGroupMembers", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.SetPublisherData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/SetPublisherData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1175,6 +1379,18 @@ exports.client.GetUserCombinedInfo = function(request, callback)
 	});
 };
 
+exports.client.LinkAndroidDeviceID = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/LinkAndroidDeviceID", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.LinkFacebookAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -1192,6 +1408,18 @@ exports.client.LinkGameCenterAccount = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/LinkGameCenterAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.LinkIOSDeviceID = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/LinkIOSDeviceID", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1222,6 +1450,18 @@ exports.client.SendAccountRecoveryEmail = function(request, callback)
 	});
 };
 
+exports.client.UnlinkAndroidDeviceID = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/UnlinkAndroidDeviceID", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.UnlinkFacebookAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -1239,6 +1479,18 @@ exports.client.UnlinkGameCenterAccount = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/UnlinkGameCenterAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.UnlinkIOSDeviceID = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/UnlinkIOSDeviceID", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1342,6 +1594,30 @@ exports.client.GetUserData = function(request, callback)
 	});
 };
 
+exports.client.GetUserPublisherData = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetUserPublisherData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.GetUserPublisherReadOnlyData = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetUserPublisherReadOnlyData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.GetUserReadOnlyData = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -1371,6 +1647,18 @@ exports.client.UpdateUserData = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/UpdateUserData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.UpdateUserPublisherData = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/UpdateUserPublisherData", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1522,6 +1810,18 @@ exports.client.RedeemCoupon = function(request, callback)
 	});
 };
 
+exports.client.ReportPlayer = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/ReportPlayer", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.StartPurchase = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -1618,6 +1918,18 @@ exports.client.RegisterForIOSPushNotification = function(request, callback)
 	});
 };
 
+exports.client.RestoreIOSPurchases = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/RestoreIOSPurchases", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.ValidateIOSReceipt = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -1632,9 +1944,8 @@ exports.client.ValidateIOSReceipt = function(request, callback)
 
 exports.client.GetCurrentGames = function(request, callback)
 {	
-	if (settings.session_ticket == null) throw "Must be logged in to call this method";
-
-	make_request(get_server_url() + "/Client/GetCurrentGames", request, "X-Authorization", settings.session_ticket, function(error, result)
+	
+	make_request(get_server_url() + "/Client/GetCurrentGames", request, null, null, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1704,9 +2015,8 @@ exports.client.ValidateGooglePlayPurchase = function(request, callback)
 
 exports.client.LogEvent = function(request, callback)
 {	
-	if (settings.session_ticket == null) throw "Must be logged in to call this method";
-
-	make_request(get_server_url() + "/Client/LogEvent", request, "X-Authorization", settings.session_ticket, function(error, result)
+	
+	make_request(get_server_url() + "/Client/LogEvent", request, null, null, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1731,6 +2041,18 @@ exports.client.CreateSharedGroup = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/CreateSharedGroup", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.GetPublisherData = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetPublisherData", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1767,6 +2089,18 @@ exports.client.UpdateSharedGroupData = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/UpdateSharedGroupData", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.RefreshPSNAuthToken = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/RefreshPSNAuthToken", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
