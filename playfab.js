@@ -678,6 +678,54 @@ exports.admin.SetPublisherData = function(request, callback)
 	});
 };
 
+exports.admin.GetCloudScriptRevision = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/GetCloudScriptRevision", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.GetCloudScriptVersions = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/GetCloudScriptVersions", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.SetPublishedRevision = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/SetPublishedRevision", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.admin.UpdateCloudScript = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/UpdateCloudScript", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 
 exports.matchmaker = {};
 
@@ -1522,18 +1570,6 @@ exports.client.UpdateEmailAddress = function(request, callback)
 	});
 };
 
-exports.client.UpdatePassword = function(request, callback)
-{	
-	if (settings.session_ticket == null) throw "Must be logged in to call this method";
-
-	make_request(get_server_url() + "/Client/UpdatePassword", request, "X-Authorization", settings.session_ticket, function(error, result)
-	{
-		
-		if(callback != null)
-			callback(error, result);
-	});
-};
-
 exports.client.UpdateUserTitleDisplayName = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -1944,8 +1980,9 @@ exports.client.ValidateIOSReceipt = function(request, callback)
 
 exports.client.GetCurrentGames = function(request, callback)
 {	
-	
-	make_request(get_server_url() + "/Client/GetCurrentGames", request, null, null, function(error, result)
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetCurrentGames", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
