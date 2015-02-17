@@ -596,9 +596,8 @@ exports.admin.AddServerBuild = function(request, callback)
 
 exports.admin.GetServerBuildInfo = function(request, callback)
 {	
-	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
-
-	make_request(get_server_url() + "/Admin/GetServerBuildInfo", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	
+	make_request(get_server_url() + "/Admin/GetServerBuildInfo", request, null, null, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1288,6 +1287,19 @@ exports.client.LoginWithAndroidDeviceID = function(request, callback)
 	});
 };
 
+exports.client.LoginWithEmailAddress = function(request, callback)
+{	
+	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
+
+	make_request(get_server_url() + "/Client/LoginWithEmailAddress", request, null, null, function(error, result)
+	{
+		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.LoginWithFacebook = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
@@ -1551,18 +1563,6 @@ exports.client.UnlinkSteamAccount = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/UnlinkSteamAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
-	{
-		
-		if(callback != null)
-			callback(error, result);
-	});
-};
-
-exports.client.UpdateEmailAddress = function(request, callback)
-{	
-	if (settings.session_ticket == null) throw "Must be logged in to call this method";
-
-	make_request(get_server_url() + "/Client/UpdateEmailAddress", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -2052,8 +2052,9 @@ exports.client.ValidateGooglePlayPurchase = function(request, callback)
 
 exports.client.LogEvent = function(request, callback)
 {	
-	
-	make_request(get_server_url() + "/Client/LogEvent", request, null, null, function(error, result)
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/LogEvent", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
