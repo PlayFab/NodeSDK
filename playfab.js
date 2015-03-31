@@ -2496,9 +2496,9 @@ exports.client.GetLeaderboardForUserCharacters = function(request, callback)
 
 exports.client.GrantCharacterToUser = function(request, callback)
 {	
-	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
-	make_request(get_server_url() + "/Client/GrantCharacterToUser", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	make_request(get_server_url() + "/Client/GrantCharacterToUser", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
