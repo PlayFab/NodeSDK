@@ -450,6 +450,18 @@ exports.admin.SetTitleData = function(request, callback)
 	});
 };
 
+exports.admin.SetupPushNotification = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/SetupPushNotification", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.admin.UpdateCatalogItems = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -1091,11 +1103,35 @@ exports.server.SetTitleData = function(request, callback)
 	});
 };
 
+exports.server.AddCharacterVirtualCurrency = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/AddCharacterVirtualCurrency", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.server.AddUserVirtualCurrency = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
 	make_request(get_server_url() + "/Server/AddUserVirtualCurrency", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.GetCharacterInventory = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GetCharacterInventory", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1204,6 +1240,18 @@ exports.server.ReportPlayer = function(request, callback)
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
 	make_request(get_server_url() + "/Server/ReportPlayer", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.SubtractCharacterVirtualCurrency = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/SubtractCharacterVirtualCurrency", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -2066,6 +2114,18 @@ exports.client.ConsumeItem = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/ConsumeItem", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.GetCharacterInventory = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetCharacterInventory", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
