@@ -1007,6 +1007,18 @@ exports.server.UpdateUserInternalData = function(request, callback)
 	});
 };
 
+exports.server.UpdateUserInventoryItemCustomData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/UpdateUserInventoryItemCustomData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.server.UpdateUserPublisherData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -1091,11 +1103,35 @@ exports.server.GetTitleData = function(request, callback)
 	});
 };
 
+exports.server.GetTitleInternalData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GetTitleInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.server.SetTitleData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
 	make_request(get_server_url() + "/Server/SetTitleData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.SetTitleInternalData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/SetTitleInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
@@ -1798,6 +1834,18 @@ exports.client.LinkGameCenterAccount = function(request, callback)
 	});
 };
 
+exports.client.LinkGoogleAccount = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/LinkGoogleAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.LinkIOSDeviceID = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -1862,6 +1910,18 @@ exports.client.UnlinkGameCenterAccount = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/UnlinkGameCenterAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.UnlinkGoogleAccount = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/UnlinkGoogleAccount", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
