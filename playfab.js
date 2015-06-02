@@ -1007,18 +1007,6 @@ exports.server.UpdateUserInternalData = function(request, callback)
 	});
 };
 
-exports.server.UpdateUserInventoryItemCustomData = function(request, callback)
-{	
-	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
-
-	make_request(get_server_url() + "/Server/UpdateUserInventoryItemCustomData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
-	{
-		
-		if(callback != null)
-			callback(error, result);
-	});
-};
-
 exports.server.UpdateUserPublisherData = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -1300,6 +1288,18 @@ exports.server.SubtractUserVirtualCurrency = function(request, callback)
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
 	make_request(get_server_url() + "/Server/SubtractUserVirtualCurrency", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.UpdateUserInventoryItemCustomData = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/UpdateUserInventoryItemCustomData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
