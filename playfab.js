@@ -1786,6 +1786,42 @@ exports.client.GetPlayFabIDsFromFacebookIDs = function(request, callback)
 	});
 };
 
+exports.client.GetPlayFabIDsFromGameCenterIDs = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetPlayFabIDsFromGameCenterIDs", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.GetPlayFabIDsFromGoogleIDs = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetPlayFabIDsFromGoogleIDs", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.GetPlayFabIDsFromSteamIDs = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetPlayFabIDsFromSteamIDs", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.GetUserCombinedInfo = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -2522,18 +2558,6 @@ exports.client.UpdateSharedGroupData = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/UpdateSharedGroupData", request, "X-Authorization", settings.session_ticket, function(error, result)
-	{
-		
-		if(callback != null)
-			callback(error, result);
-	});
-};
-
-exports.client.RefreshPSNAuthToken = function(request, callback)
-{	
-	if (settings.session_ticket == null) throw "Must be logged in to call this method";
-
-	make_request(get_server_url() + "/Client/RefreshPSNAuthToken", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
