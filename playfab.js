@@ -773,6 +773,18 @@ exports.admin.GetContentUploadUrl = function(request, callback)
 	});
 };
 
+exports.admin.ResetCharacterStatistics = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/ResetCharacterStatistics", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 
 exports.matchmaker = {};
 
@@ -1711,6 +1723,19 @@ exports.client.LoginWithIOSDeviceID = function(request, callback)
 	});
 };
 
+exports.client.LoginWithKongregate = function(request, callback)
+{	
+	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
+
+	make_request(get_server_url() + "/Client/LoginWithKongregate", request, null, null, function(error, result)
+	{
+		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.LoginWithPlayFab = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
@@ -1894,6 +1919,18 @@ exports.client.LinkIOSDeviceID = function(request, callback)
 	});
 };
 
+exports.client.LinkKongregate = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/LinkKongregate", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.LinkSteamAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -1970,6 +2007,18 @@ exports.client.UnlinkIOSDeviceID = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/UnlinkIOSDeviceID", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.UnlinkKongregate = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/UnlinkKongregate", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
@@ -2222,6 +2271,18 @@ exports.client.GetCharacterInventory = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/GetCharacterInventory", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.GetPurchase = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetPurchase", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
