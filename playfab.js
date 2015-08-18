@@ -162,6 +162,18 @@ exports.admin.UpdateUserTitleDisplayName = function(request, callback)
 	});
 };
 
+exports.admin.DeleteUsers = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Admin/DeleteUsers", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.admin.GetDataReport = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -1671,6 +1683,19 @@ exports.client.LoginWithAndroidDeviceID = function(request, callback)
 	});
 };
 
+exports.client.LoginWithCustomID = function(request, callback)
+{	
+	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
+
+	make_request(get_server_url() + "/Client/LoginWithCustomID", request, null, null, function(error, result)
+	{
+		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.LoginWithEmailAddress = function(request, callback)
 {	
 	request.TitleId = settings.title_id != null ? settings.title_id : request.TitleId; if(request.TitleId == null) throw "Must be have settings.title_id set to call this method";
@@ -1871,6 +1896,18 @@ exports.client.LinkAndroidDeviceID = function(request, callback)
 	});
 };
 
+exports.client.LinkCustomID = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/LinkCustomID", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.LinkFacebookAccount = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
@@ -1959,6 +1996,18 @@ exports.client.UnlinkAndroidDeviceID = function(request, callback)
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
 
 	make_request(get_server_url() + "/Client/UnlinkAndroidDeviceID", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.client.UnlinkCustomID = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/UnlinkCustomID", request, "X-Authorization", settings.session_ticket, function(error, result)
 	{
 		
 		if(callback != null)
