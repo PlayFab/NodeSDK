@@ -2712,6 +2712,18 @@ exports.client.GetContentDownloadUrl = function(request, callback)
 	});
 };
 
+exports.client.GetAllUsersCharacters = function(request, callback)
+{	
+	if (settings.session_ticket == null) throw "Must be logged in to call this method";
+
+	make_request(get_server_url() + "/Client/GetAllUsersCharacters", request, "X-Authorization", settings.session_ticket, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.client.GetCharacterLeaderboard = function(request, callback)
 {	
 	if (settings.session_ticket == null) throw "Must be logged in to call this method";
