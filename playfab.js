@@ -875,6 +875,18 @@ exports.server.AuthenticateSessionTicket = function(request, callback)
 	});
 };
 
+exports.server.GetPlayFabIDsFromFacebookIDs = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GetPlayFabIDsFromFacebookIDs", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
 exports.server.GetUserAccountInfo = function(request, callback)
 {	
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
@@ -1120,6 +1132,18 @@ exports.server.GetTitleInternalData = function(request, callback)
 	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
 
 	make_request(get_server_url() + "/Server/GetTitleInternalData", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
+	{
+		
+		if(callback != null)
+			callback(error, result);
+	});
+};
+
+exports.server.GetTitleNews = function(request, callback)
+{	
+	if (settings.developer_secret_key == null) throw "Must have PlayFabSettings.DeveloperSecretKey set to call this method";
+
+	make_request(get_server_url() + "/Server/GetTitleNews", request, "X-SecretKey", settings.developer_secret_key, function(error, result)
 	{
 		
 		if(callback != null)
