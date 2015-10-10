@@ -1,0 +1,11 @@
+{
+  "name": "NodeSDK",
+  "version": "1.0.0",
+  "description": "Playfab SDK for node.js applications",
+  "license": "Apache-2.0",
+  "main": "playfab.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/playfab/NodeSDK"
+  }
+}
