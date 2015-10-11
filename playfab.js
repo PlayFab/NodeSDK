@@ -1700,7 +1700,7 @@ exports.client.LoginWithAndroidDeviceID = function(request, callback)
 
 	make_request(get_server_url() + "/Client/LoginWithAndroidDeviceID", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
@@ -1713,7 +1713,7 @@ exports.client.LoginWithCustomID = function(request, callback)
 
 	make_request(get_server_url() + "/Client/LoginWithCustomID", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
@@ -1726,7 +1726,7 @@ exports.client.LoginWithEmailAddress = function(request, callback)
 
 	make_request(get_server_url() + "/Client/LoginWithEmailAddress", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
@@ -1739,7 +1739,7 @@ exports.client.LoginWithFacebook = function(request, callback)
 
 	make_request(get_server_url() + "/Client/LoginWithFacebook", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
@@ -1752,7 +1752,7 @@ exports.client.LoginWithGoogleAccount = function(request, callback)
 
 	make_request(get_server_url() + "/Client/LoginWithGoogleAccount", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
@@ -1765,7 +1765,7 @@ exports.client.LoginWithIOSDeviceID = function(request, callback)
 
 	make_request(get_server_url() + "/Client/LoginWithIOSDeviceID", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
@@ -1778,7 +1778,7 @@ exports.client.LoginWithKongregate = function(request, callback)
 
 	make_request(get_server_url() + "/Client/LoginWithKongregate", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
@@ -1791,7 +1791,7 @@ exports.client.LoginWithPlayFab = function(request, callback)
 
 	make_request(get_server_url() + "/Client/LoginWithPlayFab", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
@@ -1804,7 +1804,7 @@ exports.client.LoginWithSteam = function(request, callback)
 
 	make_request(get_server_url() + "/Client/LoginWithSteam", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
@@ -1817,7 +1817,7 @@ exports.client.RegisterPlayFabUser = function(request, callback)
 
 	make_request(get_server_url() + "/Client/RegisterPlayFabUser", request, null, null, function(error, result)
 	{
-		settings.session_ticket = result.SessionTicket != null ? settings.session_ticket : settings.session_ticket;
+		settings.session_ticket = result.SessionTicket;
 
 		if(callback != null)
 			callback(error, result);
