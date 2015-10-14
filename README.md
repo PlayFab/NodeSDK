@@ -17,13 +17,12 @@ To connect to the PlayFab service, your machine must be running TLS v1.2 or bett
 
 3. Usage Instructions:
 ----
-```
-var playfab = require('./playfab.js')
+'''
+var PlayFabClient = require('./PlayFabClient.js')
 
-playfab.settings.title_id = "F00";
-playfab.settings.developer_secret_key = "XXX";
+PlayFabClient.settings.titleId = "F00";
 
-playfab.server.GetTitleData({Keys : ["Sample"]}, function(error, result)
+PlayFabClient.GetTitleData({Keys : ["Sample"]}, function(error, result)
 {
 	if(error)
 	{
@@ -33,7 +32,15 @@ playfab.server.GetTitleData({Keys : ["Sample"]}, function(error, result)
 
 	console.log("Reply: ",result);
 });
-```
+'''
+
+Use similar steps to gain access to the PlayFabServer, PlayFabAdmin, and PlayFabMatchmaker APIs.  Additionally, you will need to set your developerSecretKey.  For security reasons you must never expose this value to players.
+
+'''
+PlayFabClient.settings.developerSecretKey = "your secret key";
+'''
+
+You can find your titleId and developerSecretKey in the Game Manager -> Settings -> Credentials section for your title: https://developer.playfab.com/en-us/studios
 
 4. Troubleshooting:
 ----

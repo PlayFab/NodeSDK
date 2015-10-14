@@ -1,4 +1,6 @@
 var PlayFab = require('./PlayFab.js');
+var PlayFabAdmin = require('./PlayFabAdmin.js'); // Not strictly needed for this test, but I want to make sure it compiles/loads
+var PlayFabMatchmaker = require('./PlayFabMatchmaker.js'); // Not strictly needed for this test, but I want to make sure it compiles/loads
 var PlayFabClient = require('./PlayFabClient.js');
 var PlayFabServer = require('./PlayFabServer.js');
 var fs = require('fs');
