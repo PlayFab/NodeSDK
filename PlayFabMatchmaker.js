@@ -3,7 +3,7 @@ var PlayFab = require('./PlayFab.js');
 exports.Settings = PlayFab.Settings;
 
 exports.AuthUser = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Matchmaker/AuthUser", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -13,7 +13,7 @@ exports.AuthUser = function (request, callback) {
 };
 
 exports.PlayerJoined = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Matchmaker/PlayerJoined", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -23,7 +23,7 @@ exports.PlayerJoined = function (request, callback) {
 };
 
 exports.PlayerLeft = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Matchmaker/PlayerLeft", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -33,7 +33,7 @@ exports.PlayerLeft = function (request, callback) {
 };
 
 exports.StartGame = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Matchmaker/StartGame", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -43,7 +43,7 @@ exports.StartGame = function (request, callback) {
 };
 
 exports.UserInfo = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Matchmaker/UserInfo", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -51,3 +51,4 @@ exports.UserInfo = function (request, callback) {
             callback(error, result);
     });
 };
+

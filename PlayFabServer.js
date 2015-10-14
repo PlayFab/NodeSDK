@@ -3,7 +3,7 @@ var PlayFab = require('./PlayFab.js');
 exports.Settings = PlayFab.Settings;
 
 exports.AuthenticateSessionTicket = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/AuthenticateSessionTicket", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -13,7 +13,7 @@ exports.AuthenticateSessionTicket = function (request, callback) {
 };
 
 exports.GetPlayFabIDsFromFacebookIDs = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetPlayFabIDsFromFacebookIDs", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -23,7 +23,7 @@ exports.GetPlayFabIDsFromFacebookIDs = function (request, callback) {
 };
 
 exports.GetUserAccountInfo = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserAccountInfo", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -33,7 +33,7 @@ exports.GetUserAccountInfo = function (request, callback) {
 };
 
 exports.SendPushNotification = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/SendPushNotification", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -43,7 +43,7 @@ exports.SendPushNotification = function (request, callback) {
 };
 
 exports.GetLeaderboard = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetLeaderboard", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -53,7 +53,7 @@ exports.GetLeaderboard = function (request, callback) {
 };
 
 exports.GetLeaderboardAroundUser = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetLeaderboardAroundUser", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -63,7 +63,7 @@ exports.GetLeaderboardAroundUser = function (request, callback) {
 };
 
 exports.GetUserData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -73,7 +73,7 @@ exports.GetUserData = function (request, callback) {
 };
 
 exports.GetUserInternalData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserInternalData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -83,7 +83,7 @@ exports.GetUserInternalData = function (request, callback) {
 };
 
 exports.GetUserPublisherData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserPublisherData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -93,7 +93,7 @@ exports.GetUserPublisherData = function (request, callback) {
 };
 
 exports.GetUserPublisherInternalData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserPublisherInternalData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -103,7 +103,7 @@ exports.GetUserPublisherInternalData = function (request, callback) {
 };
 
 exports.GetUserPublisherReadOnlyData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserPublisherReadOnlyData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -113,7 +113,7 @@ exports.GetUserPublisherReadOnlyData = function (request, callback) {
 };
 
 exports.GetUserReadOnlyData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserReadOnlyData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -123,7 +123,7 @@ exports.GetUserReadOnlyData = function (request, callback) {
 };
 
 exports.GetUserStatistics = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserStatistics", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -133,7 +133,7 @@ exports.GetUserStatistics = function (request, callback) {
 };
 
 exports.UpdateUserData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateUserData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -143,7 +143,7 @@ exports.UpdateUserData = function (request, callback) {
 };
 
 exports.UpdateUserInternalData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateUserInternalData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -153,7 +153,7 @@ exports.UpdateUserInternalData = function (request, callback) {
 };
 
 exports.UpdateUserPublisherData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateUserPublisherData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -163,7 +163,7 @@ exports.UpdateUserPublisherData = function (request, callback) {
 };
 
 exports.UpdateUserPublisherInternalData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateUserPublisherInternalData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -173,7 +173,7 @@ exports.UpdateUserPublisherInternalData = function (request, callback) {
 };
 
 exports.UpdateUserPublisherReadOnlyData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateUserPublisherReadOnlyData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -183,7 +183,7 @@ exports.UpdateUserPublisherReadOnlyData = function (request, callback) {
 };
 
 exports.UpdateUserReadOnlyData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateUserReadOnlyData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -193,7 +193,7 @@ exports.UpdateUserReadOnlyData = function (request, callback) {
 };
 
 exports.UpdateUserStatistics = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateUserStatistics", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -203,7 +203,7 @@ exports.UpdateUserStatistics = function (request, callback) {
 };
 
 exports.GetCatalogItems = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetCatalogItems", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -213,7 +213,7 @@ exports.GetCatalogItems = function (request, callback) {
 };
 
 exports.GetTitleData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetTitleData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -223,7 +223,7 @@ exports.GetTitleData = function (request, callback) {
 };
 
 exports.GetTitleInternalData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetTitleInternalData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -233,7 +233,7 @@ exports.GetTitleInternalData = function (request, callback) {
 };
 
 exports.GetTitleNews = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetTitleNews", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -243,7 +243,7 @@ exports.GetTitleNews = function (request, callback) {
 };
 
 exports.SetTitleData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/SetTitleData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -253,7 +253,7 @@ exports.SetTitleData = function (request, callback) {
 };
 
 exports.SetTitleInternalData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/SetTitleInternalData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -263,7 +263,7 @@ exports.SetTitleInternalData = function (request, callback) {
 };
 
 exports.AddCharacterVirtualCurrency = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/AddCharacterVirtualCurrency", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -273,7 +273,7 @@ exports.AddCharacterVirtualCurrency = function (request, callback) {
 };
 
 exports.AddUserVirtualCurrency = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/AddUserVirtualCurrency", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -283,7 +283,7 @@ exports.AddUserVirtualCurrency = function (request, callback) {
 };
 
 exports.GetCharacterInventory = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetCharacterInventory", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -293,7 +293,7 @@ exports.GetCharacterInventory = function (request, callback) {
 };
 
 exports.GetUserInventory = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserInventory", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -303,7 +303,7 @@ exports.GetUserInventory = function (request, callback) {
 };
 
 exports.GrantItemsToCharacter = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GrantItemsToCharacter", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -313,7 +313,7 @@ exports.GrantItemsToCharacter = function (request, callback) {
 };
 
 exports.GrantItemsToUser = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GrantItemsToUser", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -323,7 +323,7 @@ exports.GrantItemsToUser = function (request, callback) {
 };
 
 exports.GrantItemsToUsers = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GrantItemsToUsers", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -333,7 +333,7 @@ exports.GrantItemsToUsers = function (request, callback) {
 };
 
 exports.ModifyItemUses = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/ModifyItemUses", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -343,7 +343,7 @@ exports.ModifyItemUses = function (request, callback) {
 };
 
 exports.MoveItemToCharacterFromCharacter = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/MoveItemToCharacterFromCharacter", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -353,7 +353,7 @@ exports.MoveItemToCharacterFromCharacter = function (request, callback) {
 };
 
 exports.MoveItemToCharacterFromUser = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/MoveItemToCharacterFromUser", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -363,7 +363,7 @@ exports.MoveItemToCharacterFromUser = function (request, callback) {
 };
 
 exports.MoveItemToUserFromCharacter = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/MoveItemToUserFromCharacter", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -373,7 +373,7 @@ exports.MoveItemToUserFromCharacter = function (request, callback) {
 };
 
 exports.ReportPlayer = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/ReportPlayer", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -383,7 +383,7 @@ exports.ReportPlayer = function (request, callback) {
 };
 
 exports.SubtractCharacterVirtualCurrency = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/SubtractCharacterVirtualCurrency", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -393,7 +393,7 @@ exports.SubtractCharacterVirtualCurrency = function (request, callback) {
 };
 
 exports.SubtractUserVirtualCurrency = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/SubtractUserVirtualCurrency", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -403,7 +403,7 @@ exports.SubtractUserVirtualCurrency = function (request, callback) {
 };
 
 exports.UpdateUserInventoryItemCustomData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateUserInventoryItemCustomData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -413,7 +413,7 @@ exports.UpdateUserInventoryItemCustomData = function (request, callback) {
 };
 
 exports.NotifyMatchmakerPlayerLeft = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/NotifyMatchmakerPlayerLeft", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -423,7 +423,7 @@ exports.NotifyMatchmakerPlayerLeft = function (request, callback) {
 };
 
 exports.RedeemMatchmakerTicket = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/RedeemMatchmakerTicket", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -433,7 +433,7 @@ exports.RedeemMatchmakerTicket = function (request, callback) {
 };
 
 exports.AwardSteamAchievement = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/AwardSteamAchievement", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -443,7 +443,7 @@ exports.AwardSteamAchievement = function (request, callback) {
 };
 
 exports.LogEvent = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/LogEvent", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -453,7 +453,7 @@ exports.LogEvent = function (request, callback) {
 };
 
 exports.AddSharedGroupMembers = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/AddSharedGroupMembers", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -463,7 +463,7 @@ exports.AddSharedGroupMembers = function (request, callback) {
 };
 
 exports.CreateSharedGroup = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/CreateSharedGroup", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -473,7 +473,7 @@ exports.CreateSharedGroup = function (request, callback) {
 };
 
 exports.DeleteSharedGroup = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/DeleteSharedGroup", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -483,7 +483,7 @@ exports.DeleteSharedGroup = function (request, callback) {
 };
 
 exports.GetPublisherData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetPublisherData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -493,7 +493,7 @@ exports.GetPublisherData = function (request, callback) {
 };
 
 exports.GetSharedGroupData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetSharedGroupData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -503,7 +503,7 @@ exports.GetSharedGroupData = function (request, callback) {
 };
 
 exports.RemoveSharedGroupMembers = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/RemoveSharedGroupMembers", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -513,7 +513,7 @@ exports.RemoveSharedGroupMembers = function (request, callback) {
 };
 
 exports.SetPublisherData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/SetPublisherData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -523,7 +523,7 @@ exports.SetPublisherData = function (request, callback) {
 };
 
 exports.UpdateSharedGroupData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateSharedGroupData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -533,7 +533,7 @@ exports.UpdateSharedGroupData = function (request, callback) {
 };
 
 exports.GetContentDownloadUrl = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetContentDownloadUrl", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -543,7 +543,7 @@ exports.GetContentDownloadUrl = function (request, callback) {
 };
 
 exports.DeleteCharacterFromUser = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/DeleteCharacterFromUser", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -553,7 +553,7 @@ exports.DeleteCharacterFromUser = function (request, callback) {
 };
 
 exports.GetAllUsersCharacters = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetAllUsersCharacters", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -563,7 +563,7 @@ exports.GetAllUsersCharacters = function (request, callback) {
 };
 
 exports.GetCharacterLeaderboard = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetCharacterLeaderboard", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -573,7 +573,7 @@ exports.GetCharacterLeaderboard = function (request, callback) {
 };
 
 exports.GetCharacterStatistics = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetCharacterStatistics", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -583,7 +583,7 @@ exports.GetCharacterStatistics = function (request, callback) {
 };
 
 exports.GetLeaderboardAroundCharacter = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetLeaderboardAroundCharacter", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -593,7 +593,7 @@ exports.GetLeaderboardAroundCharacter = function (request, callback) {
 };
 
 exports.GetLeaderboardForUserCharacters = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetLeaderboardForUserCharacters", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -603,7 +603,7 @@ exports.GetLeaderboardForUserCharacters = function (request, callback) {
 };
 
 exports.GrantCharacterToUser = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GrantCharacterToUser", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -613,7 +613,7 @@ exports.GrantCharacterToUser = function (request, callback) {
 };
 
 exports.UpdateCharacterStatistics = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateCharacterStatistics", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -623,7 +623,7 @@ exports.UpdateCharacterStatistics = function (request, callback) {
 };
 
 exports.GetCharacterData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetCharacterData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -633,7 +633,7 @@ exports.GetCharacterData = function (request, callback) {
 };
 
 exports.GetCharacterInternalData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetCharacterInternalData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -643,7 +643,7 @@ exports.GetCharacterInternalData = function (request, callback) {
 };
 
 exports.GetCharacterReadOnlyData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetCharacterReadOnlyData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -653,7 +653,7 @@ exports.GetCharacterReadOnlyData = function (request, callback) {
 };
 
 exports.UpdateCharacterData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateCharacterData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -663,7 +663,7 @@ exports.UpdateCharacterData = function (request, callback) {
 };
 
 exports.UpdateCharacterInternalData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateCharacterInternalData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -673,7 +673,7 @@ exports.UpdateCharacterInternalData = function (request, callback) {
 };
 
 exports.UpdateCharacterReadOnlyData = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFabPlayFab.settings.DeveloperSecretKey set to call this method";
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateCharacterReadOnlyData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
@@ -681,3 +681,4 @@ exports.UpdateCharacterReadOnlyData = function (request, callback) {
             callback(error, result);
     });
 };
+
