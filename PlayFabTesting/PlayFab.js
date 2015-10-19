@@ -1,7 +1,7 @@
 var url = require('url');
 var https = require('https');
 
-exports.sdk_version = "1.0.0";
+exports.sdk_version = "0.1.151019";
 exports.api_version = "1.7.20151019";
 
 exports.settings = {
