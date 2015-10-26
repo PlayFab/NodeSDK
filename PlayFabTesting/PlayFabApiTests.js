@@ -138,7 +138,7 @@ exports.PlayFabApiTests = {
             test.ok(error == null, "Valid login failed");
             test.ok(result != null, "Valid login failed");
             test.ok(PlayFab.settings.sessionTicket != null, "Login credentials not saved correctly");
-            testData.playFabId = result.PlayFabId; // Save the PlayFabId, it will be used in other tests
+            testData.playFabId = result.data.PlayFabId; // Save the PlayFabId, it will be used in other tests
             test.done();
         };
         PlayFabClient.LoginWithEmailAddress(loginRequest, CallbackWrapper(OptionalLoginCallback, test));
@@ -149,11 +149,11 @@ exports.PlayFabApiTests = {
         var GetDataCallback1 = function (error, result) {
             test.ok(error == null, "GetUserData failed");
             test.ok(result != null, "GetUserData failed");
-            test.ok(result.Data != null, "GetUserData failed");
-            test.ok(result.Data.hasOwnProperty(testConstants.TEST_KEY), "GetUserData failed");
+            test.ok(result.data.Data != null, "GetUserData failed");
+            test.ok(result.data.Data.hasOwnProperty(testConstants.TEST_KEY), "GetUserData failed");
 
-            testData.testNumber = parseInt(result.Data[testConstants.TEST_KEY].Value, 10);
-            testData.testTimeStamp = new Date(result.Data[testConstants.TEST_KEY].LastUpdated);
+            testData.testNumber = parseInt(result.data.Data[testConstants.TEST_KEY].Value, 10);
+            testData.testTimeStamp = new Date(result.data.Data[testConstants.TEST_KEY].LastUpdated);
             testData.testNumber = (testData.testNumber + 1) % 100; // This test is about the expected value changing - but not testing more complicated issues like bounds
 
             var updateDataRequest = {}; // Can't create this until we have the testNumber value
@@ -169,11 +169,11 @@ exports.PlayFabApiTests = {
         var GetDataCallback2 = function (error, result) {
             test.ok(result != null, "GetUserData failed");
             test.ok(error == null, "GetUserData failed");
-            test.ok(result.Data != null, "GetUserData failed");
-            test.ok(result.Data.hasOwnProperty(testConstants.TEST_KEY), "GetUserData failed");
+            test.ok(result.data.Data != null, "GetUserData failed");
+            test.ok(result.data.Data.hasOwnProperty(testConstants.TEST_KEY), "GetUserData failed");
 
-            var actualtestNumber = parseInt(result.Data[testConstants.TEST_KEY].Value, 10);
-            var actualTimeStamp = new Date(result.Data[testConstants.TEST_KEY].LastUpdated);
+            var actualtestNumber = parseInt(result.data.Data[testConstants.TEST_KEY].Value, 10);
+            var actualTimeStamp = new Date(result.data.Data[testConstants.TEST_KEY].LastUpdated);
 
             test.equal(testData.testNumber, actualtestNumber, "" + testData.testNumber + "!=" + actualtestNumber);
             test.ok(actualTimeStamp > testData.testTimeStamp, "Timestamp did not increase when incrementing: " + actualTimeStamp + " !> " + testData.testTimeStamp);
@@ -189,10 +189,10 @@ exports.PlayFabApiTests = {
         var GetStatsCallback1 = function (error, result) {
             test.ok(error == null, "GetUserStats failed");
             test.ok(result != null, "GetUserStats failed");
-            test.ok(result.UserStatistics != null, "GetUserStats failed");
-            test.ok(result.UserStatistics.hasOwnProperty(testConstants.TEST_STAT_NAME), "GetUserStats failed");
+            test.ok(result.data.UserStatistics != null, "GetUserStats failed");
+            test.ok(result.data.UserStatistics.hasOwnProperty(testConstants.TEST_STAT_NAME), "GetUserStats failed");
 
-            testData.testNumber = result.UserStatistics[testConstants.TEST_STAT_NAME];
+            testData.testNumber = result.data.UserStatistics[testConstants.TEST_STAT_NAME];
             testData.testNumber = (testData.testNumber + 1) % 100; // This test is about the expected value changing - but not testing more complicated issues like bounds
 
             var updateStatsRequest = {}; // Can't create this until we have the testNumber value
@@ -208,10 +208,10 @@ exports.PlayFabApiTests = {
         var GetStatsCallback2 = function (error, result) {
             test.ok(error == null, "GetUserStats failed");
             test.ok(result != null, "GetUserStats failed");
-            test.ok(result.UserStatistics != null, "GetUserStats failed");
-            test.ok(result.UserStatistics.hasOwnProperty(testConstants.TEST_STAT_NAME), "GetUserStats failed");
+            test.ok(result.data.UserStatistics != null, "GetUserStats failed");
+            test.ok(result.data.UserStatistics.hasOwnProperty(testConstants.TEST_STAT_NAME), "GetUserStats failed");
 
-            var actualtestNumber = result.UserStatistics[testConstants.TEST_STAT_NAME];
+            var actualtestNumber = result.data.UserStatistics[testConstants.TEST_STAT_NAME];
 
             test.equal(testData.testNumber, actualtestNumber, "" + testData.testNumber + "!=" + actualtestNumber);
             test.done();
@@ -253,9 +253,9 @@ exports.PlayFabApiTests = {
             test.ok(error == null, "GetChars failed");
             test.ok(result != null, "GetChars failed");
 
-            for (var i in result.Characters)
-                if (result.Characters[i].CharacterName == titleData.characterName)
-                    testData.characterId = result.Characters[i].CharacterId; // Save the characterId, it will be used in other tests
+            for (var i in result.data.Characters)
+                if (result.data.Characters[i].CharacterName == titleData.characterName)
+                    testData.characterId = result.data.Characters[i].CharacterId; // Save the characterId, it will be used in other tests
 
             test.ok(testData.characterId != null, "Cannot find " + titleData.characterName + " on this account.");
             test.done();
@@ -279,8 +279,8 @@ exports.PlayFabApiTests = {
         var GetLeaderboardCallback = function (error, result) {
             test.ok(error == null, "GetLeaderboard failed");
             test.ok(result != null, "GetLeaderboard failed");
-            test.ok(result.Leaderboard != null, "GetLeaderboard failed");
-            test.ok(result.Leaderboard.length > 0, "Leaderboard had insufficient entries");
+            test.ok(result.data.Leaderboard != null, "GetLeaderboard failed");
+            test.ok(result.data.Leaderboard.length > 0, "Leaderboard had insufficient entries");
 
             callsCompleted += 1;
 
@@ -295,10 +295,10 @@ exports.PlayFabApiTests = {
         var GetAccountInfoCallback = function (error, result) {
             test.ok(error == null, "GetAccountInfo failed");
             test.ok(result != null, "GetAccountInfo failed");
-            test.ok(result.AccountInfo != null, "GetAccountInfo failed");
-            test.ok(result.AccountInfo.TitleInfo != null, "GetAccountInfo failed");
-            test.ok(result.AccountInfo.TitleInfo.Origination != null, "GetAccountInfo failed");
-            test.ok(result.AccountInfo.TitleInfo.Origination.length > 0, "GetAccountInfo string-Enum failed");
+            test.ok(result.data.AccountInfo != null, "GetAccountInfo failed");
+            test.ok(result.data.AccountInfo.TitleInfo != null, "GetAccountInfo failed");
+            test.ok(result.data.AccountInfo.TitleInfo.Origination != null, "GetAccountInfo failed");
+            test.ok(result.data.AccountInfo.TitleInfo.Origination.length > 0, "GetAccountInfo string-Enum failed");
             test.done();
         };
 
@@ -326,9 +326,9 @@ exports.PlayFabApiTests = {
             var HelloWorldCallback = function (error, result) {
                 test.ok(error == null, "HelloWorld failed");
                 test.ok(result != null, "HelloWorld failed");
-                test.ok(result.Results != null, "HelloWorld failed");
-                test.ok(result.Results.messageValue != null, "HelloWorld failed");
-                test.equal(result.Results.messageValue, "Hello " + testData.playFabId + "!", "Unexpected HelloWorld cloudscript result: " + result.Results.messageValue);
+                test.ok(result.data.Results != null, "HelloWorld failed");
+                test.ok(result.data.Results.messageValue != null, "HelloWorld failed");
+                test.equal(result.data.Results.messageValue, "Hello " + testData.playFabId + "!", "Unexpected HelloWorld cloudscript result: " + result.data.Results.messageValue);
                 test.done();
             };
 

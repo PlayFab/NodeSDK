@@ -17,7 +17,7 @@ exports.LoginWithAndroidDeviceID = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithAndroidDeviceID", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -29,7 +29,7 @@ exports.LoginWithCustomID = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithCustomID", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -41,7 +41,7 @@ exports.LoginWithEmailAddress = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithEmailAddress", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -53,7 +53,7 @@ exports.LoginWithFacebook = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithFacebook", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -65,7 +65,7 @@ exports.LoginWithGoogleAccount = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithGoogleAccount", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -77,7 +77,7 @@ exports.LoginWithIOSDeviceID = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithIOSDeviceID", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -89,7 +89,7 @@ exports.LoginWithKongregate = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithKongregate", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -101,7 +101,7 @@ exports.LoginWithPlayFab = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithPlayFab", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -113,7 +113,7 @@ exports.LoginWithSteam = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithSteam", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -125,7 +125,7 @@ exports.RegisterPlayFabUser = function (request, callback) {
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RegisterPlayFabUser", request, null, null, function (error, result) {
-        PlayFab.settings.sessionTicket = result != null && result.hasOwnProperty("SessionTicket") ? result.SessionTicket : PlayFab.settings.sessionTicket;
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
 
         if (callback != null)
             callback(error, result);
@@ -865,7 +865,7 @@ exports.GetCloudScriptUrl = function (request, callback) {
     if (PlayFab.settings.sessionTicket == null) throw "Must be logged in to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetCloudScriptUrl", request, "X-Authorization", PlayFab.settings.sessionTicket, function (error, result) {
-        PlayFab.settings.logicServerUrl = result != null && result.hasOwnProperty("Url") ? result.Url : PlayFab.settings.logicServerUrl;
+        PlayFab.settings.logicServerUrl = result != null && result.data.hasOwnProperty("Url") ? result.data.Url : PlayFab.settings.logicServerUrl;
 
         if (callback != null)
             callback(error, result);
