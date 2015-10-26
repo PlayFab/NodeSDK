@@ -176,7 +176,7 @@ exports.PlayFabApiTests = {
             var actualTimeStamp = new Date(result.data.Data[testConstants.TEST_KEY].LastUpdated);
 
             test.equal(testData.testNumber, actualtestNumber, "" + testData.testNumber + "!=" + actualtestNumber);
-            test.ok(actualTimeStamp > testData.testTimeStamp, "Timestamp did not increase when incrementing: " + actualTimeStamp + " !> " + testData.testTimestamp);
+            test.ok(actualTimeStamp > testData.testTimeStamp, "Timestamp did not increase when incrementing: " + actualTimeStamp + " !> " + testData.testTimeStamp);
             test.done();
         };
 
@@ -230,7 +230,7 @@ exports.PlayFabApiTests = {
         };
 
         var OptionalGetCharsCallback = function (error, result) {
-            // First login falls back upon registration if login failed
+            // First get chars falls back upon grant-char if target character not present
             if (result == null) {
                 // Register the character and try again
                 PlayFabServer.GrantCharacterToUser(grantCharRequest, CallbackWrapper(GrantCharCallback, test));
@@ -241,18 +241,17 @@ exports.PlayFabApiTests = {
             }
         };
         var GrantCharCallback = function (error, result) {
-            // Second login MUST succeed
+            // Second character callback MUST succeed
             test.ok(error == null, "GrantCharacter failed");
             test.ok(result != null, "GrantCharacter failed");
 
-            // Log in again, this time with the newly registered account
-            PlayFabClient.LoginWithEmailAddress(getCharsRequest, CallbackWrapper(MandatoryGetCharsCallback, test));
+            // Get chars again, this time with the newly granted character
+            PlayFabClient.GetAllUsersCharacters(getCharsRequest, CallbackWrapper(MandatoryGetCharsCallback, test));
         };
         var MandatoryGetCharsCallback = function (error, result) {
             // GetChars MUST succeed at some point during this test
             test.ok(error == null, "GetChars failed");
             test.ok(result != null, "GetChars failed");
-            test.ok(PlayFab.settings.sessionTicket != null, "Login credentials not saved correctly");
 
             for (var i in result.data.Characters)
                 if (result.data.Characters[i].CharacterName == titleData.characterName)
