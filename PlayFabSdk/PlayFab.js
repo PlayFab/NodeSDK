@@ -1,8 +1,8 @@
 var url = require('url');
 var https = require('https');
 
-exports.sdk_version = "1.0.0";
-exports.api_version = "1.7.20151019";
+exports.sdk_version = "0.3.151109";
+exports.api_version = "1.9.20151109";
 
 exports.settings = {
     useDevEnv: false,
@@ -68,7 +68,7 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
             if (replyEnvelope.hasOwnProperty("error") || !replyEnvelope.hasOwnProperty("data"))
                 callback(replyEnvelope, null);
             else
-                callback(null, replyEnvelope.data);
+                callback(null, replyEnvelope);
         });
     });
 
