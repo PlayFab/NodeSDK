@@ -1,8 +1,8 @@
 var url = require('url');
 var https = require('https');
 
-exports.sdk_version = "0.2.151026";
-exports.api_version = "1.8.20151026";
+exports.sdk_version = "0.3.151109";
+exports.api_version = "1.9.20151109";
 
 exports.settings = {
     useDevEnv: false,
