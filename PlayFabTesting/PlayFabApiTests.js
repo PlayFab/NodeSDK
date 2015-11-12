@@ -150,10 +150,14 @@ exports.PlayFabApiTests = {
             test.ok(error == null, "GetUserData failed");
             test.ok(result != null, "GetUserData failed");
             test.ok(result.data.Data != null, "GetUserData failed");
-            test.ok(result.data.Data.hasOwnProperty(testConstants.TEST_KEY), "GetUserData failed");
 
-            testData.testNumber = parseInt(result.data.Data[testConstants.TEST_KEY].Value, 10);
-            testData.testTimeStamp = new Date(result.data.Data[testConstants.TEST_KEY].LastUpdated);
+            if (result.data.Data.hasOwnProperty(testConstants.TEST_KEY)) {
+                testData.testNumber = parseInt(result.data.Data[testConstants.TEST_KEY].Value, 10);
+                testData.testTimeStamp = new Date(result.data.Data[testConstants.TEST_KEY].LastUpdated);
+            } else {
+                testData.testNumber = 1;
+                testData.testTimeStamp = new Date();
+            }
             testData.testNumber = (testData.testNumber + 1) % 100; // This test is about the expected value changing - but not testing more complicated issues like bounds
 
             var updateDataRequest = {}; // Can't create this until we have the testNumber value
