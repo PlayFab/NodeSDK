@@ -156,7 +156,7 @@ exports.PlayFabApiTests = {
                 testData.testTimeStamp = new Date(result.data.Data[testConstants.TEST_KEY].LastUpdated);
             } else {
                 testData.testNumber = 1;
-                testData.testTimeStamp = new Date();
+                testData.testTimeStamp = new Date.now();
             }
             testData.testNumber = (testData.testNumber + 1) % 100; // This test is about the expected value changing - but not testing more complicated issues like bounds
 
@@ -180,7 +180,11 @@ exports.PlayFabApiTests = {
             var actualTimeStamp = new Date(result.data.Data[testConstants.TEST_KEY].LastUpdated);
 
             test.equal(testData.testNumber, actualtestNumber, "" + testData.testNumber + "!=" + actualtestNumber);
-            test.ok(actualTimeStamp > testData.testTimeStamp, "Timestamp did not increase when incrementing: " + actualTimeStamp + " !> " + testData.testTimeStamp);
+
+            var timeUpdated = testData.testTimeStamp;
+            var testMin = Date.now() - (1000*60*5);
+            var testMax = testMin + (1000*60*10);
+            test.ok(testMin <= timeUpdated && timeUpdated <= testMax);
             test.done();
         };
 
