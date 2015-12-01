@@ -60,6 +60,18 @@ exports.LoginWithFacebook = function (request, callback) {
     });
 };
 
+exports.LoginWithGameCenter = function (request, callback) {
+    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithGameCenter", request, null, null, function (error, result) {
+        PlayFab.settings.sessionTicket = result != null && result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab.settings.sessionTicket;
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.LoginWithGoogleAccount = function (request, callback) {
     request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
@@ -385,6 +397,16 @@ exports.GetFriendLeaderboard = function (request, callback) {
     if (PlayFab.settings.sessionTicket == null) throw "Must be logged in to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetFriendLeaderboard", request, "X-Authorization", PlayFab.settings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.GetFriendLeaderboardAroundCurrentUser = function (request, callback) {
+    if (PlayFab.settings.sessionTicket == null) throw "Must be logged in to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetFriendLeaderboardAroundCurrentUser", request, "X-Authorization", PlayFab.settings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
