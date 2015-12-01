@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.2
+4 verbose stack Error: EPERM: operation not permitted, mkdir 'C:\Windows\system32\config\systemprofile\AppData\Roaming\npm'
+4 verbose stack     at Error (native)
+5 verbose cwd c:\depot\sdks\NodeSDK\PlayFabSdk
+6 error Windows_NT 6.3.9600
+7 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+8 error node v4.2.2
+9 error npm  v2.14.7
+10 error path C:\Windows\system32\config\systemprofile\AppData\Roaming\npm
+11 error code EPERM
+12 error errno -4048
+13 error syscall mkdir
+14 error Error: EPERM: operation not permitted, mkdir 'C:\Windows\system32\config\systemprofile\AppData\Roaming\npm'
+14 error     at Error (native)
+14 error  { [Error: EPERM: operation not permitted, mkdir 'C:\Windows\system32\config\systemprofile\AppData\Roaming\npm']
+14 error   errno: -4048,
+14 error   code: 'EPERM',
+14 error   syscall: 'mkdir',
+14 error   path: 'C:\\Windows\\system32\\config\\systemprofile\\AppData\\Roaming\\npm' }
+15 error Please try running this command again as root/Administrator.
+16 verbose exit [ -4048, true ]
