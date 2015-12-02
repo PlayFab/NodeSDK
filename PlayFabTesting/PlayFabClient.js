@@ -1044,3 +1044,13 @@ exports.OpenTrade = function (request, callback) {
     });
 };
 
+exports.AttributeInstall = function (request, callback) {
+    if (PlayFab.settings.sessionTicket == null) throw "Must be logged in to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AttributeInstall", request, "X-Authorization", PlayFab.settings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
