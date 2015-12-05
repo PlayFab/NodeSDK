@@ -1,4 +1,4 @@
-var PlayFab = require('./PlayFab.js');
+var PlayFab = require("./PlayFab.js");
 
 exports.Settings = PlayFab.Settings;
 
