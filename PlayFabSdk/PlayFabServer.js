@@ -52,16 +52,6 @@ exports.DeleteUsers = function (request, callback) {
     });
 };
 
-exports.GetFriendLeaderboard = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetFriendLeaderboard", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.GetLeaderboard = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -76,16 +66,6 @@ exports.GetLeaderboardAroundUser = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetLeaderboardAroundUser", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetPlayerStatistics = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetPlayerStatistics", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -156,16 +136,6 @@ exports.GetUserStatistics = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetUserStatistics", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.UpdatePlayerStatistics = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdatePlayerStatistics", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -456,36 +426,6 @@ exports.UpdateUserInventoryItemCustomData = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateUserInventoryItemCustomData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.AddFriend = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/AddFriend", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetFriendsList = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetFriendsList", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.RemoveFriend = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/RemoveFriend", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
