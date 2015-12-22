@@ -1,6 +1,6 @@
 var PlayFab = require("./PlayFab.js");
 
-exports.Settings = PlayFab.Settings;
+exports.settings = PlayFab.settings;
 
 exports.GetUserAccountInfo = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
