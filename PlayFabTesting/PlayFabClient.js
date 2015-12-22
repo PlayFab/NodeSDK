@@ -1,6 +1,6 @@
 var PlayFab = require("./PlayFab.js");
 
-exports.Settings = PlayFab.Settings;
+exports.settings = PlayFab.settings;
 
 exports.GetPhotonAuthenticationToken = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
@@ -1066,6 +1066,7 @@ exports.OpenTrade = function (request, callback) {
 exports.AttributeInstall = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AttributeInstall", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+        // Modify advertisingIdType:  Prevents us from sending the id multiple times, and allows automated tests to determine id was sent successfully
         PlayFab.settings.advertisingIdType += "_Successful";
 
         if (callback != null)
