@@ -225,6 +225,15 @@ exports.GetPlayFabIDsFromGoogleIDs = function (request, callback) {
     });
 };
 
+exports.GetPlayFabIDsFromKongregateIDs = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromKongregateIDs", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetPlayFabIDsFromPSNAccountIDs = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromPSNAccountIDs", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -973,6 +982,15 @@ exports.GetCharacterLeaderboard = function (request, callback) {
     });
 };
 
+exports.GetCharacterStatistics = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetCharacterStatistics", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetLeaderboardAroundCharacter = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetLeaderboardAroundCharacter", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -994,6 +1012,15 @@ exports.GetLeaderboardForUserCharacters = function (request, callback) {
 exports.GrantCharacterToUser = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GrantCharacterToUser", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.UpdateCharacterStatistics = function (request, callback) {
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UpdateCharacterStatistics", request, null, null, function (error, result) {
 
         if (callback != null)
             callback(error, result);
