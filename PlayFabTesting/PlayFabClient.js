@@ -1019,8 +1019,8 @@ exports.GrantCharacterToUser = function (request, callback) {
 };
 
 exports.UpdateCharacterStatistics = function (request, callback) {
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UpdateCharacterStatistics", request, null, null, function (error, result) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UpdateCharacterStatistics", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
