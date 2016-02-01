@@ -423,8 +423,9 @@ exports.AddServerBuild = function (request, callback) {
 };
 
 exports.GetServerBuildInfo = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/GetServerBuildInfo", request, null, null, function (error, result) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/GetServerBuildInfo", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
