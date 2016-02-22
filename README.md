@@ -18,22 +18,23 @@ To connect to the PlayFab service, your machine must be running TLS v1.2 or bett
 3. Installation:
 
 The following console command will install the PlayFab NodeSDK.  It requires that you have correctly [installed node](https://nodejs.org/en/download/).
-'''
+
+```
 npm install playfab-sdk
-'''
+```
 
 3b. Example testing project:
 ----
 
 The following console command will install the PlayFab NodeSDK example automated-testing project.  It requires that you have correctly [installed node](https://nodejs.org/en/download/).
-'''
+```
 npm install playfab-testing
-'''
+```
 
 To run the test, you need to create a testTitleData.json file, explained below.  You will need to change the testing code to load your file:
-'''
+```
 var filename = "C:/depot/pf-main/tools/SDKBuildScripts/testTitleData.json";
-'''
+```
 
 Replace the file path with the location of your testTitleData.json file.
 
@@ -44,7 +45,7 @@ This file provides your secret title information to the unit-test project, so it
 
 The format is as follows:
 
-'''
+```
 {
     "titleId": "your Game Title ID, found in the settings/credentials section of your dashboard on the website",
     "developerSecretKey": "your PlayFab API Secret Key, found in the settings/credentials section of your dashboard on the website - NEVER SHARE THIS KEY WITH PLAYERS",
@@ -54,11 +55,11 @@ The format is as follows:
     "userPassword": "testPassword", // This must be the correct password for the testUser above (if that user does not exist yet, this will be the new password)
     "characterName": "testCharacter" // Arbitrary characterName, you can change this to any valid characterName
 }
-'''
+```
 
 5. Usage Instructions:
 ----
-'''
+```javascript
 var PlayFabClient = require('./PlayFabClient.js')
 
 PlayFabClient.settings.titleId = "F00";
@@ -73,13 +74,13 @@ PlayFabClient.GetTitleData({Keys : ["Sample"]}, function(error, result)
 
 	console.log("Reply: ",result);
 });
-'''
+```
 
 Use similar steps to gain access to the PlayFabServer, PlayFabAdmin, and PlayFabMatchmaker APIs.  Additionally, you will need to set your developerSecretKey.  For security reasons you must never expose this value to players.
 
-'''
+```
 PlayFabClient.settings.developerSecretKey = "your secret key";
-'''
+```
 
 You can find your titleId and developerSecretKey in the Game Manager -> Settings -> Credentials section for your title: https://developer.playfab.com/en-us/studios
 
