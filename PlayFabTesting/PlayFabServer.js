@@ -62,16 +62,6 @@ exports.DeleteUsers = function (request, callback) {
     });
 };
 
-exports.GetFriendLeaderboard = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetFriendLeaderboard", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.GetLeaderboard = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -512,36 +502,6 @@ exports.UpdateUserInventoryItemCustomData = function (request, callback) {
     });
 };
 
-exports.AddFriend = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/AddFriend", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetFriendsList = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetFriendsList", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.RemoveFriend = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/RemoveFriend", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.NotifyMatchmakerPlayerLeft = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -656,26 +616,6 @@ exports.UpdateSharedGroupData = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/UpdateSharedGroupData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetCloudScriptUrl = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetCloudScriptUrl", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.RunServerCloudScript = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetLogicServerUrl() + "/Server/RunServerCloudScript", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
