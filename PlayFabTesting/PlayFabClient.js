@@ -298,6 +298,15 @@ exports.LinkSteamAccount = function (request, callback) {
     });
 };
 
+exports.ReportPlayer = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ReportPlayer", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.SendAccountRecoveryEmail = function (request, callback) {
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/SendAccountRecoveryEmail", request, null, null, function (error, result) {
@@ -550,6 +559,15 @@ exports.GetCatalogItems = function (request, callback) {
     });
 };
 
+exports.GetPublisherData = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPublisherData", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetStoreItems = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetStoreItems", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -652,15 +670,6 @@ exports.PurchaseItem = function (request, callback) {
 exports.RedeemCoupon = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RedeemCoupon", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.ReportPlayer = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ReportPlayer", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -841,15 +850,6 @@ exports.AddSharedGroupMembers = function (request, callback) {
 exports.CreateSharedGroup = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/CreateSharedGroup", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetPublisherData = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPublisherData", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
