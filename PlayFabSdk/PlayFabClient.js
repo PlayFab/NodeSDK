@@ -128,36 +128,10 @@ exports.LoginWithPlayFab = function (request, callback) {
     });
 };
 
-exports.LoginWithPSN = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
-    if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithPSN", request, null, null, function (error, result) {
-        if (result != null && result.data != null) {
-            PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
-            exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
-        }
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.LoginWithSteam = function (request, callback) {
     request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithSteam", request, null, null, function (error, result) {
-        if (result != null && result.data != null) {
-            PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
-            exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
-        }
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.LoginWithXbox = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
-    if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithXbox", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
@@ -228,15 +202,6 @@ exports.GetPlayFabIDsFromGoogleIDs = function (request, callback) {
 exports.GetPlayFabIDsFromKongregateIDs = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromKongregateIDs", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetPlayFabIDsFromPSNAccountIDs = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromPSNAccountIDs", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -324,27 +289,9 @@ exports.LinkKongregate = function (request, callback) {
     });
 };
 
-exports.LinkPSNAccount = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkPSNAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.LinkSteamAccount = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkSteamAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.LinkXboxAccount = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkXboxAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -432,27 +379,9 @@ exports.UnlinkKongregate = function (request, callback) {
     });
 };
 
-exports.UnlinkPSNAccount = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkPSNAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.UnlinkSteamAccount = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkSteamAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.UnlinkXboxAccount = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkXboxAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -981,24 +910,6 @@ exports.UpdateSharedGroupData = function (request, callback) {
     });
 };
 
-exports.ConsumePSNEntitlements = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ConsumePSNEntitlements", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.RefreshPSNAuthToken = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RefreshPSNAuthToken", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.ExecuteCloudScript = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ExecuteCloudScript", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -1185,195 +1096,6 @@ exports.AttributeInstall = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AttributeInstall", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
         // Modify advertisingIdType:  Prevents us from sending the id multiple times, and allows automated tests to determine id was sent successfully
         PlayFab.settings.advertisingIdType += "_Successful";
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.ApproveGuildRoleChange = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ApproveGuildRoleChange", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.ChangeGuildMemberRole = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ChangeGuildMemberRole", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.CreateGuild = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/CreateGuild", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.DeleteGuild = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/DeleteGuild", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.DenyGuildRoleChange = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/DenyGuildRoleChange", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetGuildData = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetGuildData", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetGuildInventory = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetGuildInventory", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetGuildMembershipLeaderboard = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetGuildMembershipLeaderboard", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetGuildReadOnlyData = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetGuildReadOnlyData", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetGuildsLeaderboard = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetGuildsLeaderboard", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetGuildsLeaderboardAroundGuild = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetGuildsLeaderboardAroundGuild", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetGuildStatistics = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetGuildStatistics", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.GetLeaderboardOfPlayersGuilds = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetLeaderboardOfPlayersGuilds", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.LeaveGuild = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LeaveGuild", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.ListGuildMembers = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ListGuildMembers", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.ListPendingGuildRoleChangeRequests = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ListPendingGuildRoleChangeRequests", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.ListPlayerGuildMemberships = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ListPlayerGuildMemberships", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.RemoveGuildMember = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RemoveGuildMember", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.RequestGuildRoleChange = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RequestGuildRoleChange", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.UpdateGuildData = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UpdateGuildData", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.UpdateGuildStatistics = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UpdateGuildStatistics", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
