@@ -1,3 +1,9 @@
+.vs/
+bin/
+obj/
+
+.ntvs_analysis.dat
+
 npm-debug.log
 *.sln
 *.njsproj

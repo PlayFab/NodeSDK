@@ -2,6 +2,10 @@ var PlayFab = require("./PlayFab.js");
 
 exports.settings = PlayFab.settings;
 
+exports.IsClientLoggedIn = function () {
+    return PlayFab._internalSettings.sessionTicket != null || PlayFab._internalSettings.sessionTicket.length > 0
+}
+
 exports.GetPhotonAuthenticationToken = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPhotonAuthenticationToken", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
