@@ -2,7 +2,7 @@ var url = require("url");
 var https = require("https");
 
 exports.sdk_version = "0.20.160606";
-exports.buildIdentifier = "jbuild_nodesdk_1227";
+exports.buildIdentifier = "jbuild_nodesdk_1228";
 
 var settings = exports.settings = {
     useDevEnv: false,
@@ -23,7 +23,7 @@ var _internalSettings = exports._internalSettings = {
     devEnvUrl: ".playfabsandbox.com",
     liveUrl: ".playfabapi.com",
     sessionTicket: null,
-    logicServerUrl: null, // Assigned by GetCloudScriptUrl, used by RunCloudScript
+    logicServerUrl: null, // Deprecated
 };
 
 exports.GetServerUrl = function () {
