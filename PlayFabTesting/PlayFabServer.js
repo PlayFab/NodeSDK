@@ -562,6 +562,16 @@ exports.RedeemMatchmakerTicket = function (request, callback) {
     });
 };
 
+exports.SetGameServerInstanceData = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/SetGameServerInstanceData", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.SetGameServerInstanceState = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
