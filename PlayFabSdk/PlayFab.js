@@ -1,7 +1,7 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "0.21.160613";
+exports.sdk_version = "0.22.160627";
 exports.buildIdentifier = "jbuild_0";
 
 var settings = exports.settings = {
