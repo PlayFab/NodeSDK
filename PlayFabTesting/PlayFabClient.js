@@ -171,6 +171,15 @@ exports.RegisterPlayFabUser = function (request, callback) {
     });
 };
 
+exports.AddGenericID = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AddGenericID", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.AddUsernamePassword = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AddUsernamePassword", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -210,6 +219,15 @@ exports.GetPlayFabIDsFromFacebookIDs = function (request, callback) {
 exports.GetPlayFabIDsFromGameCenterIDs = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromGameCenterIDs", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.GetPlayFabIDsFromGenericIDs = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromGenericIDs", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -336,6 +354,15 @@ exports.LinkSteamAccount = function (request, callback) {
 exports.LinkTwitch = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkTwitch", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.RemoveGenericID = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RemoveGenericID", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
