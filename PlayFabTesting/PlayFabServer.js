@@ -222,6 +222,9 @@ exports.GetUserReadOnlyData = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use GetPlayerStatistics instead. 
+ */
 exports.GetUserStatistics = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -302,6 +305,9 @@ exports.UpdateUserReadOnlyData = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use UpdatePlayerStatistics instead. 
+ */
 exports.UpdateUserStatistics = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -662,6 +668,9 @@ exports.AwardSteamAchievement = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use WritePlayerEvent instead. 
+ */
 exports.LogEvent = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 

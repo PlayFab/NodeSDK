@@ -270,6 +270,9 @@ exports.GetPlayFabIDsFromTwitchIDs = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use GetPlayerCombinedInfo instead. 
+ */
 exports.GetUserCombinedInfo = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetUserCombinedInfo", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -486,6 +489,9 @@ exports.GetFriendLeaderboard = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use GetFriendLeaderboardAroundPlayer instead. 
+ */
 exports.GetFriendLeaderboardAroundCurrentUser = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetFriendLeaderboardAroundCurrentUser", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -513,6 +519,9 @@ exports.GetLeaderboard = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use GetLeaderboardAroundPlayer instead. 
+ */
 exports.GetLeaderboardAroundCurrentUser = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetLeaderboardAroundCurrentUser", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -585,6 +594,9 @@ exports.GetUserReadOnlyData = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use GetPlayerStatistics instead. 
+ */
 exports.GetUserStatistics = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetUserStatistics", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -621,6 +633,9 @@ exports.UpdateUserPublisherData = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use UpdatePlayerStatistics instead. 
+ */
 exports.UpdateUserStatistics = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UpdateUserStatistics", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -909,6 +924,9 @@ exports.ValidateGooglePlayPurchase = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use WritePlayerEvent instead. 
+ */
 exports.LogEvent = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LogEvent", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -999,6 +1017,9 @@ exports.ExecuteCloudScript = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use ExecuteCloudScript instead. 
+ */
 exports.GetCloudScriptUrl = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetCloudScriptUrl", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -1009,6 +1030,9 @@ exports.GetCloudScriptUrl = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use ExecuteCloudScript instead. 
+ */
 exports.RunCloudScript = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetLogicServerUrl() + "/Client/RunCloudScript", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
