@@ -3,7 +3,7 @@ var PlayFab = require("./PlayFab.js");
 exports.settings = PlayFab.settings;
 
 exports.IsClientLoggedIn = function () {
-    return PlayFab._internalSettings.sessionTicket != null || PlayFab._internalSettings.sessionTicket.length > 0
+    return PlayFab._internalSettings.sessionTicket != null && PlayFab._internalSettings.sessionTicket.length > 0
 }
 
 exports.GetPhotonAuthenticationToken = function (request, callback) {
