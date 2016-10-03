@@ -672,6 +672,15 @@ exports.GetStoreItems = function (request, callback) {
     });
 };
 
+exports.GetTime = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetTime", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetTitleData = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetTitleData", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
