@@ -1,7 +1,7 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "0.32.161003";
+exports.sdk_version = "0.33.161017";
 exports.buildIdentifier = "jbuild_nodesdk_1";
 
 var settings = exports.settings = {
@@ -16,23 +16,18 @@ var settings = exports.settings = {
     // Disabling this may prevent your advertising-related PlayFab marketplace partners from working correctly
     disableAdvertising: false,
     AD_TYPE_IDFA: "Idfa",
-    AD_TYPE_ANDROID_ID: "Android_Id",
+    AD_TYPE_ANDROID_ID: "Adid",
 };
 
 var _internalSettings = exports._internalSettings = {
     devEnvUrl: ".playfabsandbox.com",
     liveUrl: ".playfabapi.com",
     sessionTicket: null,
-    logicServerUrl: null, // Deprecated
 };
 
 exports.GetServerUrl = function () {
     var baseUrl = exports.settings.useDevEnv ? exports._internalSettings.devEnvUrl : exports._internalSettings.liveUrl;
     return "https://" + exports.settings.titleId + baseUrl;
-}
-
-exports.GetLogicServerUrl = function () {
-    return exports._internalSettings.logicServerUrl;
 }
 
 exports.MakeRequest = function (urlStr, request, authType, authValue, callback) {
