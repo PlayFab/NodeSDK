@@ -489,18 +489,6 @@ exports.GetFriendLeaderboard = function (request, callback) {
     });
 };
 
-/**
- * @deprecated Please use GetFriendLeaderboardAroundPlayer instead. 
- */
-exports.GetFriendLeaderboardAroundCurrentUser = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetFriendLeaderboardAroundCurrentUser", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.GetFriendLeaderboardAroundPlayer = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetFriendLeaderboardAroundPlayer", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -513,18 +501,6 @@ exports.GetFriendLeaderboardAroundPlayer = function (request, callback) {
 exports.GetLeaderboard = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetLeaderboard", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-/**
- * @deprecated Please use GetLeaderboardAroundPlayer instead. 
- */
-exports.GetLeaderboardAroundCurrentUser = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetLeaderboardAroundCurrentUser", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -594,18 +570,6 @@ exports.GetUserReadOnlyData = function (request, callback) {
     });
 };
 
-/**
- * @deprecated Please use GetPlayerStatistics instead. 
- */
-exports.GetUserStatistics = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetUserStatistics", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.UpdatePlayerStatistics = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UpdatePlayerStatistics", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -627,18 +591,6 @@ exports.UpdateUserData = function (request, callback) {
 exports.UpdateUserPublisherData = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UpdateUserPublisherData", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-/**
- * @deprecated Please use UpdatePlayerStatistics instead. 
- */
-exports.UpdateUserStatistics = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UpdateUserStatistics", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -933,18 +885,6 @@ exports.ValidateGooglePlayPurchase = function (request, callback) {
     });
 };
 
-/**
- * @deprecated Please use WritePlayerEvent instead. 
- */
-exports.LogEvent = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LogEvent", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.WriteCharacterEvent = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/WriteCharacterEvent", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -1020,31 +960,6 @@ exports.UpdateSharedGroupData = function (request, callback) {
 exports.ExecuteCloudScript = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ExecuteCloudScript", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-/**
- * @deprecated Please use ExecuteCloudScript instead. 
- */
-exports.GetCloudScriptUrl = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetCloudScriptUrl", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-        PlayFab._internalSettings.logicServerUrl = result != null && result.data.hasOwnProperty("Url") ? result.data.Url : PlayFab._internalSettings.logicServerUrl;
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-/**
- * @deprecated Please use ExecuteCloudScript instead. 
- */
-exports.RunCloudScript = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetLogicServerUrl() + "/Client/RunCloudScript", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -1240,7 +1155,7 @@ exports._MultiStepClientLogin = function (needsAttribution) {
         if (PlayFab.settings.advertisingIdType === PlayFab.settings.AD_TYPE_IDFA)
             request.Idfa = PlayFab.settings.advertisingIdValue;
         else if (PlayFab.settings.advertisingIdType === PlayFab.settings.AD_TYPE_ANDROID_ID)
-            request.Android_Id = PlayFab.settings.advertisingIdValue;
+            request.Adid = PlayFab.settings.advertisingIdValue;
         else
             return;
         exports.AttributeInstall(request);

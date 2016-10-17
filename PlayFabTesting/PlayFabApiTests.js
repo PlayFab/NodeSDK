@@ -102,7 +102,10 @@ function CompileErrorReport(error) {
 
 exports.PlayFabApiTests = {
     setUp: function (callback) {
-        var filename = "C:/depot/pf-main/tools/SDKBuildScripts/testTitleData.json"; // TODO: Do not hard code the location of this file
+
+        var filename = process.env.PF_TEST_TITLE_DATA_JSON; // Set the PF_TEST_TITLE_DATA_JSON env-var to the path of a testTitleData.json file (described here: https://github.com/PlayFab/SDKGenerator/blob/master/JenkinsConsoleUtility/testTitleData.md)
+        if (!filename)
+            throw "testTitleData.json file location not defined.";
         var prefix = "testTitleData=";
         for (var arg in process.argv)
             if (arg.toLowerCase().indexOf(prefix) === 0)
@@ -462,6 +465,30 @@ exports.PlayFabApiTests = {
         };
         
         PlayFabClient.ExecuteCloudScript(helloWorldRequest, CallbackWrapper("helloWorldCallback", helloWorldCallback, test));
+    }),
+    
+    /// <summary>
+    /// CLIENT API
+    /// Test that CloudScript errors can be deciphered
+    /// </summary>
+    CloudScriptError: TestWrapper(function (test) {
+        var errRequest = {
+            // Currently, you need to look up the correct format for this object in the API-docs:
+            //   https://api.playfab.com/Documentation/Client/method/ExecuteCloudScript
+            FunctionName: "throwError"
+        };
+        
+        var errCallback = function (error, result) {
+            VerifyNullError(result, error, test, "Testing Cloud Script Error result");
+            if (result != null) {
+                test.ok(result.data.FunctionResult == null, "Cloud Script Error failed");
+                test.ok(result.data.Error != null, "Cloud Script Error failed");
+                test.equal(result.data.Error.Error, "JavascriptException", "Cloud Script Error failed");
+            }
+            test.done();
+        };
+        
+        PlayFabClient.ExecuteCloudScript(errRequest, CallbackWrapper("errCallback", errCallback, test));
     }),
     
     /// <summary>
