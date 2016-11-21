@@ -2,6 +2,26 @@ var PlayFab = require("./PlayFab.js");
 
 exports.settings = PlayFab.settings;
 
+exports.GetPolicy = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/GetPolicy", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.UpdatePolicy = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/UpdatePolicy", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.BanUsers = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
