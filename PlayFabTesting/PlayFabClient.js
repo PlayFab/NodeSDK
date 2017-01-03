@@ -270,18 +270,6 @@ exports.GetPlayFabIDsFromTwitchIDs = function (request, callback) {
     });
 };
 
-/**
- * @deprecated Please use GetPlayerCombinedInfo instead. 
- */
-exports.GetUserCombinedInfo = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetUserCombinedInfo", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.LinkAndroidDeviceID = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkAndroidDeviceID", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
