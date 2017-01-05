@@ -16,7 +16,7 @@ Node Project Setup
   * Create a new folder for your project {NodeProjLocation}:
     * GettingStarted.js
   * Open a command window in your project folder
-  * ![Node image](/SdkQuickStart/images/Node/CmdExe.png)
+  * ![Node image](/images/Node/CmdExe.png)
     * Run this command:
       * npm install playfab-sdk
     * Keep this window open (We'll use it again later)
