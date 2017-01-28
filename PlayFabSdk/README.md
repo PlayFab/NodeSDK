@@ -27,16 +27,19 @@ npm install playfab-sdk
 ----
 
 The following console command will install the PlayFab NodeSDK example automated-testing project.  It requires that you have correctly [installed node](https://nodejs.org/en/download/).
+
 ```
 npm install playfab-testing
 ```
 
-To run the test, you need to create a testTitleData.json file, explained below.  You will need to change the testing code to load your file:
+To run the test, you need to create a testTitleData.json file, explained below.  You can place that file in the root of the example beside PlayFabApiTests.ts, or set the full-path location in an environment variable:
+
 ```
-var filename = "C:/depot/pf-main/tools/SDKBuildScripts/testTitleData.json";
+set PF_TEST_TITLE_DATA_JSON="C:/YOUR_PATH/testTitleData.json";
 ```
 
-Replace the file path with the location of your testTitleData.json file.
+Replace "C:/YOUR_PATH" with the location of your testTitleData.json file.
+
 
 4. testTitleData.json file required for example unit-test-project
 ----
@@ -49,6 +52,11 @@ See the previous section for how to use this file in the example test project.
 
 5. Usage Instructions:
 ----
+
+Please read our [Node Getting Started Guide](NodeGettingStarted.md) for step by step instructions on how to set up a Node environment using our PlayFab NodeSDK.
+
+Below an older guide with less detail:
+
 ```javascript
 var PlayFabClient = require('./PlayFabClient.js')
 
@@ -56,13 +64,13 @@ PlayFabClient.settings.titleId = "F00";
 
 PlayFabClient.GetTitleData({Keys : ["Sample"]}, function(error, result)
 {
-	if(error)
-	{
-		console.log("Got an error: ",error);
-		return;
-	}
+    if(error)
+    {
+        console.log("Got an error: ",error);
+        return;
+    }
 
-	console.log("Reply: ",result);
+    console.log("Reply: ",result);
 });
 ```
 
