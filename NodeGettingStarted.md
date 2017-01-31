@@ -66,7 +66,7 @@ function CompileErrorReport(error) {
     return fullErrors;
 }
 
-// Kick off the acutla login call
+// Kick off the actual login call
 DoExampleLoginWithCustomID();
 ```
 
