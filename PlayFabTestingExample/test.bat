@@ -1,0 +1,2 @@
+node PlayFabApiTests.js
+pause
