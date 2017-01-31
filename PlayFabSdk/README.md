@@ -58,7 +58,7 @@ Please read our [Node Getting Started Guide](NodeGettingStarted.md) for step by 
 Below an older guide with less detail:
 
 ```javascript
-var PlayFabClient = require('./PlayFabClient.js')
+var PlayFabClient = require('./Scripts/PlayFab/PlayFabClient.js')
 
 PlayFabClient.settings.titleId = "F00";
 
