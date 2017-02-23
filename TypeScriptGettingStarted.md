@@ -1,43 +1,52 @@
 
-Node Getting Started Guide
+JavaScript with TypeScript Getting Started Guide
 ----
 
-This guide will help you make your first API call in Node.
+This guide will help you make your first API call using a Web TypeScript environment.  
 
-Node Project Setup
+TypeScript Project Setup
 ----
 
-* OS: This guide is written for Windows 10, however it should also work fine with a Mac
-* Download and install Node.js
-  * https://nodejs.org/en/download/
-  * Install, and verify that Node is in your PATH environment variable
-    * If you used the installer, it's probably set for you, and it's probably set to the default location: C:/Program Files (x86)/nodejs/
+* OS: This guide is written for Windows 10 and Visual Studio
+  * The "Project Setup" section of this guide will not be very useful for other operating systems and environments (sorry!)
+  * TypeScript works on a wide variety of Operating Systems, Environments, and tools
+* Installation
+  * Download and install Visual Studio 2015
+    * Update TypeScript within VS to the [latest version](https://www.microsoft.com/en-us/download/details.aspx?id=48593) (2.1.5 when this document was written)
+    * [OPTIONAL] Install the [Node.js tools](https://www.visualstudio.com/vs/node-js/) into Visual Studio
+  * Download and extract the [PlayFab JavaScriptSDK](https://github.com/PlayFab/JavaScriptSDK/archive/master.zip) to a local folder of your choosing {playFabSdkLocation}
 * New Project Setup
-  * Create a new folder for your project {NodeProjLocation}:
-    * GettingStarted.js
-  * Open a command window in your project folder
-  * ![Node image](/images/Node/CmdExe.png)
-    * Run this command:
-      * npm install playfab-sdk
-    * Keep this window open (We'll use it again later)
-* PlayFab installation complete
+  * Open Visual Studio and create a new "Blank Node.js Console Application"
+    * ![TS image](/images/TypeScript/NewNodeProj.png)
+  * Install the "playfab-sdk" npm module
+    * There are several ways to do this, but we'll cover the way that works directly in Visual Studio
+    * Right-Click on "npm" in your VS-project, and "Install New npm Packages..." (There may be a long download here)
+    * Once the new "Install New npm Packages" popup window opens, search "playfab"
+    * Find the "playfab-sdk" and select the latest version, and click "Install Package"
+    * ![TS image](/images/TypeScript/InstallPlayFabNpm.png)
+* Include the "playfab-sdk" typings files from the npm module in your project
+  * You must do this In order to get the benefit of type-checking and intellisense (Otherwise, you're just using basic Node/JS)
+  * Expand the following folders: node-Modules/playfab-sdk/Scripts
+  * Right click the "Scripts" folder and "Include In Project"
+    * You may get a performance warning popup suggesting you "Do Nothing".  For this example, this action is safe: "include 'node_modules' folder in project"
+  * ![TS image](/images/TypeScript/IncludeTypings.png)
+* If you run your project now, you'll see the default "Hello World" which is part of the Microsoft Example.  We will set up an api call in the next section.
+* Installation Complete!
 
 Set up your first API call
 ----
 
-This guide will provide the minimum steps to make your first PlayFab API call, without any GUI or on-screen feedback. Confirmation will be done with the Console log.
+This guide will provide the minimum steps to make your first PlayFab API call. Confirmation will be done with the Console log.
 
-In your favorite text-editor, update the contents of GettingStarted.js as follows:
-```JavaScript
-var PlayFab = require("playfab-sdk/PlayFab");
-var PlayFabClient = require("playfab-sdk/PlayFabClient");
+Double click app.ts, and replace the contents with this:
 
-function DoExampleLoginWithCustomID() {
+```TypeScript
+var PlayFab: PlayFabModule.IPlayFab = require("PlayFab-sdk/Scripts/PlayFab/PlayFab");
+var PlayFabClient: PlayFabClientModule.IPlayFabClient = require("PlayFab-sdk/Scripts/PlayFab/PlayFabClient");
+
+function DoExampleLoginWithCustomID(): void {
     PlayFab.settings.titleId = "144";
-    var loginRequest = {
-        // Currently, you need to look up the correct format for this object in the API-docs:
-        // https://api.playfab.com/Documentation/Client/method/LoginWithCustomID
-        TitleId: PlayFab.settings.titleId,
+    var loginRequest: PlayFabClientModels.LoginWithCustomIDRequest = {
         CustomId: "GettingStartedGuide",
         CreateAccount: true
     };
@@ -45,7 +54,7 @@ function DoExampleLoginWithCustomID() {
     PlayFabClient.LoginWithCustomID(loginRequest, LoginCallback);
 }
 
-function LoginCallback(error, result) {
+function LoginCallback(error: PlayFabModule.IPlayFabError, result: PlayFabModule.IPlayFabSuccessContainer<PlayFabClientModels.LoginResult>): void {
     if (result !== null) {
         console.log("Congratulations, you made your first successful API call!");
     } else if (error !== null) {
@@ -56,10 +65,10 @@ function LoginCallback(error, result) {
 }
 
 // This is a utility function we haven't put into the core SDK yet.  Feel free to use it.
-function CompileErrorReport(error) {
+function CompileErrorReport(error: PlayFabModule.IPlayFabError): string {
     if (error == null)
         return "";
-    var fullErrors = error.errorMessage;
+    var fullErrors: string = error.errorMessage;
     for (var paramName in error.errorDetails)
         for (var msgIdx in error.errorDetails[paramName])
             fullErrors += "\n" + paramName + ": " + error.errorDetails[paramName][msgIdx];
@@ -73,8 +82,8 @@ DoExampleLoginWithCustomID();
 Finish and Execute
 ----
 
-* In the console window we opened during installation, run the command:
-  * node GettingStarted.js
+* Run your project:
+  * Dropdown -> Debug -> Start Debugging
 * You should see the following text as a result:
   * Congratulations, you made your first successful API call!
 * At this point, you can start making other api calls, and building your game
@@ -82,13 +91,15 @@ Finish and Execute
   * https://api.playfab.com/
 * Happy coding!
 
+
 Deconstruct the code
 ----
 
-* Line by line breakdown for GettingStarted.js
+* Line by line breakdown for app.ts
   * PlayFab.settings.titleId = "xxxx";
     * Every PlayFab developer creates a title in Game Manager.  When you publish your game, you must code that titleId into your game.  This lets the client know how to access the correct data within PlayFab.  For most users, just consider it a mandatory step that makes PlayFab work.
-  * var loginRequest = { TitleId: PlayFab.settings.titleId, CustomId: "GettingStartedGuide", CreateAccount: true };
+  * var loginRequest: PlayFabClientModels.LoginWithCustomIDRequest = { CustomId: "GettingStartedGuide", CreateAccount: true };
+    * Defines the loginRequest as a LoginWithCustomIDRequest type object
     * Most PlayFab API methods require input parameters, and those input parameters are packed into a request object
     * Every API method requires a unique request object, with a mix of optional and mandatory parameters
       * For LoginWithCustomIDRequest, there is a mandatory parameter of CustomId, which uniquely identifies a player and CreateAccount, which allows the creation of a new account with this call.  TitleId is another mandatory parameter in JavaScript, and it must match PlayFab.settings.titleId

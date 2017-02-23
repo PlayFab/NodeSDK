@@ -2867,7 +2867,8 @@ declare module PlayFabAdminModels {
         | "Facebook"
         | "IOSDevice"
         | "AndroidDevice"
-        | "Twitch";
+        | "Twitch"
+        | "WindowsHello";
 
     /**
      / https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.LogStatement
@@ -3172,6 +3173,10 @@ declare module PlayFabAdminModels {
          / Banned until UTC Date. If permanent ban this is set for 20 years after the original ban date.
          */
         BannedUntil?: string;
+        /**
+         / Image URL of the player's avatar.
+         */
+        AvatarUrl?: string;
         /**
          / Dictionary of player's statistics using only the latest version's value
          */
@@ -4539,7 +4544,8 @@ declare module PlayFabAdminModels {
         | "CustomId"
         | "XboxLive"
         | "Parse"
-        | "Twitch";
+        | "Twitch"
+        | "WindowsHello";
 
     /**
      / https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserPrivateAccountInfo
@@ -4618,6 +4624,10 @@ declare module PlayFabAdminModels {
          / boolean indicating whether or not the user is currently banned for a title
          */
         isBanned?: boolean;
+        /**
+         / URL to the player's avatar.
+         */
+        AvatarUrl?: string;
 
     }
 
