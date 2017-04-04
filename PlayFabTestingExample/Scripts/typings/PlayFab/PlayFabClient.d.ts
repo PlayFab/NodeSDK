@@ -14,11 +14,6 @@
          */
         GetWindowsHelloChallenge(request: PlayFabClientModels.GetWindowsHelloChallengeRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetWindowsHelloChallengeResponse>): void;
         /**
-         / Link Windows Hello to the current PlayFab Account
-         / https://api.playfab.com/Documentation/Client/method/LinkWindowsHello
-         */
-        LinkWindowsHello(request: PlayFabClientModels.LinkWindowsHelloAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkWindowsHelloAccountResponse>): void;
-        /**
          / Signs the user in using the Android device identifier, returning a session identifier that can subsequently be used for API calls which require an authenticated user
          / https://api.playfab.com/Documentation/Client/method/LoginWithAndroidDeviceID
          */
@@ -29,7 +24,7 @@
          */
         LoginWithCustomID(request: PlayFabClientModels.LoginWithCustomIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
         /**
-         / Signs the user into the PlayFab account, returning a session identifier that can subsequently be used for API calls which require an authenticated user
+         / Signs the user into the PlayFab account, returning a session identifier that can subsequently be used for API calls which require an authenticated user. Unlike most other login API calls, LoginWithEmailAddress does not permit the  creation of new accounts via the CreateAccountFlag. Email addresses may be used to create accounts via RegisterPlayFabUser.
          / https://api.playfab.com/Documentation/Client/method/LoginWithEmailAddress
          */
         LoginWithEmailAddress(request: PlayFabClientModels.LoginWithEmailAddressRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
@@ -59,7 +54,7 @@
          */
         LoginWithKongregate(request: PlayFabClientModels.LoginWithKongregateRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
         /**
-         / Signs the user into the PlayFab account, returning a session identifier that can subsequently be used for API calls which require an authenticated user. Unlike other login API calls, LoginWithEmailAddress does not permit the creation of new accounts via the CreateAccountFlag. Email accounts must be created using the RegisterPlayFabUser API or added to existing accounts using AddUsernamePassword.
+         / Signs the user into the PlayFab account, returning a session identifier that can subsequently be used for API calls which require an authenticated user. Unlike most other login API calls, LoginWithPlayFab does not permit the  creation of new accounts via the CreateAccountFlag. Username/Password credentials may be used to create accounts via  RegisterPlayFabUser, or added to existing accounts using AddUsernamePassword.
          / https://api.playfab.com/Documentation/Client/method/LoginWithPlayFab
          */
         LoginWithPlayFab(request: PlayFabClientModels.LoginWithPlayFabRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
@@ -84,15 +79,10 @@
          */
         RegisterPlayFabUser(request: PlayFabClientModels.RegisterPlayFabUserRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RegisterPlayFabUserResult>): void;
         /**
-         / Register using Windows Hello authentication. Before a user can request a challenge or perform a signin the user must first either register or link a Windows Hello account.
+         / Registers a new PlayFab user account using Windows Hello authentication, returning a session ticket  that can subsequently be used for API calls which require an authenticated user
          / https://api.playfab.com/Documentation/Client/method/RegisterWithWindowsHello
          */
         RegisterWithWindowsHello(request: PlayFabClientModels.RegisterWithWindowsHelloRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
-        /**
-         / Unlink Windows Hello from the current PlayFab Account
-         / https://api.playfab.com/Documentation/Client/method/UnlinkWindowsHello
-         */
-        UnlinkWindowsHello(request: PlayFabClientModels.UnlinkWindowsHelloAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkWindowsHelloAccountResponse>): void;
         /**
          / Adds the specified generic service identifier to the player's PlayFab account. This is designed to allow for a PlayFab ID lookup of any arbitrary service identifier a title wants to add. This identifier should never be used as authentication credentials, as the intent is that it is easily accessible by other players.
          / https://api.playfab.com/Documentation/Client/method/AddGenericID
@@ -194,6 +184,11 @@
          */
         LinkTwitch(request: PlayFabClientModels.LinkTwitchAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkTwitchAccountResult>): void;
         /**
+         / Link Windows Hello authentication to the current PlayFab Account
+         / https://api.playfab.com/Documentation/Client/method/LinkWindowsHello
+         */
+        LinkWindowsHello(request: PlayFabClientModels.LinkWindowsHelloAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkWindowsHelloAccountResponse>): void;
+        /**
          / Removes the specified generic service identifier from the player's PlayFab account.
          / https://api.playfab.com/Documentation/Client/method/RemoveGenericID
          */
@@ -253,6 +248,11 @@
          / https://api.playfab.com/Documentation/Client/method/UnlinkTwitch
          */
         UnlinkTwitch(request: PlayFabClientModels.UnlinkTwitchAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkTwitchAccountResult>): void;
+        /**
+         / Unlink Windows Hello authentication from the current PlayFab Account
+         / https://api.playfab.com/Documentation/Client/method/UnlinkWindowsHello
+         */
+        UnlinkWindowsHello(request: PlayFabClientModels.UnlinkWindowsHelloAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkWindowsHelloAccountResponse>): void;
         /**
          / Update the avatar URL of the player
          / https://api.playfab.com/Documentation/Client/method/UpdateAvatarUrl
@@ -379,7 +379,7 @@
          */
         GetCharacterInventory(request: PlayFabClientModels.GetCharacterInventoryRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterInventoryResult>): void;
         /**
-         / Retrieves a completed purchase along with its current PlayFab status.
+         / Retrieves a purchase along with its current PlayFab status.
          / https://api.playfab.com/Documentation/Client/method/GetPurchase
          */
         GetPurchase(request: PlayFabClientModels.GetPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPurchaseResult>): void;
@@ -449,7 +449,7 @@
          */
         RegisterForIOSPushNotification(request: PlayFabClientModels.RegisterForIOSPushNotificationRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RegisterForIOSPushNotificationResult>): void;
         /**
-         / Restores all in-app purchases based on the given refresh receipt.
+         / Restores all in-app purchases based on the given restore receipt
          / https://api.playfab.com/Documentation/Client/method/RestoreIOSPurchases
          */
         RestoreIOSPurchases(request: PlayFabClientModels.RestoreIOSPurchasesRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RestoreIOSPurchasesResult>): void;
@@ -2227,11 +2227,11 @@ declare module PlayFabClientModels {
         /**
          / The version of the leaderboard to get, when UseSpecificVersion is true.
          */
-        Version: number;
+        Version?: number;
         /**
          / If true, uses the specified version. If false, gets the most recent version.
          */
-        UseSpecificVersion: boolean;
+        UseSpecificVersion?: boolean;
         /**
          / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. On client, only ShowDisplayName, ShowStatistics, ShowAvatarUrl are allowed.
          */
@@ -2285,11 +2285,11 @@ declare module PlayFabClientModels {
         /**
          / The version of the leaderboard to get, when UseSpecificVersion is true.
          */
-        Version: number;
+        Version?: number;
         /**
          / If true, uses the specified version. If false, gets the most recent version.
          */
-        UseSpecificVersion: boolean;
+        UseSpecificVersion?: boolean;
         /**
          / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. On client, only ShowDisplayName, ShowStatistics, ShowAvatarUrl are allowed.
          */
@@ -2376,11 +2376,11 @@ declare module PlayFabClientModels {
         /**
          / The version of the leaderboard to get, when UseSpecificVersion is true.
          */
-        Version: number;
+        Version?: number;
         /**
          / If true, uses the specified version. If false, gets the most recent version.
          */
-        UseSpecificVersion: boolean;
+        UseSpecificVersion?: boolean;
         /**
          / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. On client, only ShowDisplayName, ShowStatistics, ShowAvatarUrl are allowed.
          */
@@ -2452,11 +2452,11 @@ declare module PlayFabClientModels {
         /**
          / The version of the leaderboard to get, when UseSpecificVersion is true.
          */
-        Version: number;
+        Version?: number;
         /**
          / If true, uses the specified version. If false, gets the most recent version.
          */
-        UseSpecificVersion: boolean;
+        UseSpecificVersion?: boolean;
         /**
          / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. On client, only ShowDisplayName, ShowStatistics, ShowAvatarUrl are allowed.
          */
@@ -3544,10 +3544,6 @@ declare module PlayFabClientModels {
          */
         ServerAuthCode?: string;
         /**
-         / OAuth 2.0 access token obtained on the client by calling the getAccessToken() Google client API.
-         */
-        AccessToken?: string;
-        /**
          / If another user is already linked to the account, unlink the other user and re-link.
          */
         ForceLink?: boolean;
@@ -3828,11 +3824,19 @@ declare module PlayFabClientModels {
         /**
          / Custom unique identifier for the user, generated by the title.
          */
-        CustomId: string;
+        CustomId?: string;
         /**
          / Automatically create a PlayFab account if one is not currently linked to this Custom ID.
          */
         CreateAccount?: boolean;
+        /**
+         / Player secret that is used to verify API request signatures
+         */
+        PlayerSecret?: string;
+        /**
+         / Base64 encoded body that is encrypted with the Title's public RSA key
+         */
+        EncryptedRequest?: string;
         /**
          / Flags for which pieces of info to return for the user.
          */
@@ -3921,10 +3925,6 @@ declare module PlayFabClientModels {
          / OAuth 2.0 server authentication code obtained on the client by calling the getServerAuthCode() (https://developers.google.com/identity/sign-in/android/offline-access) Google client API.
          */
         ServerAuthCode?: string;
-        /**
-         / OAuth 2.0 access token obtained on the client by calling the getAccessToken() Google client API.
-         */
-        AccessToken?: string;
         /**
          / Automatically create a PlayFab account if one is not currently linked to this Google account.
          */

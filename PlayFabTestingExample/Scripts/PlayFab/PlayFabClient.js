@@ -26,15 +26,6 @@ exports.GetWindowsHelloChallenge = function (request, callback) {
     });
 };
 
-exports.LinkWindowsHello = function (request, callback) {
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkWindowsHello", request, null, null, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.LoginWithAndroidDeviceID = function (request, callback) {
     request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
@@ -212,15 +203,6 @@ exports.RegisterWithWindowsHello = function (request, callback) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.UnlinkWindowsHello = function (request, callback) {
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkWindowsHello", request, null, null, function (error, result) {
-
         if (callback != null)
             callback(error, result);
     });
@@ -406,6 +388,15 @@ exports.LinkTwitch = function (request, callback) {
     });
 };
 
+exports.LinkWindowsHello = function (request, callback) {
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkWindowsHello", request, null, null, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.RemoveGenericID = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RemoveGenericID", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -508,6 +499,15 @@ exports.UnlinkSteamAccount = function (request, callback) {
 exports.UnlinkTwitch = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkTwitch", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.UnlinkWindowsHello = function (request, callback) {
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkWindowsHello", request, null, null, function (error, result) {
 
         if (callback != null)
             callback(error, result);

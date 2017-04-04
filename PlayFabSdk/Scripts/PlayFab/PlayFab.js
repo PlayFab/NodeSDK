@@ -3,7 +3,7 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "1.2.170313";
+exports.sdk_version = "1.3.170403";
 exports.buildIdentifier = "jbuild_nodesdk_1";
 
 var settings = exports.settings = {
@@ -39,7 +39,7 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
 
     var options = url.parse(urlStr);
     if (options.protocol !== "https:")
-        throw "Unsupported protocol: " + urlInfo.protocol;
+        throw "Unsupported protocol: " + options.protocol;
     options.method = "POST";
     options.port = 443;
     options.headers = {
