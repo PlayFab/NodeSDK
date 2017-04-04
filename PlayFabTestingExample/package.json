@@ -1,6 +1,6 @@
 {
   "name": "playfab-testing",
-  "version": "1.2.170313",
+  "version": "1.3.170403",
   "description": "Playfab SDK automated testing example",
   "license": "Apache-2.0",
   "main": "PlayFabApiTests.js",

@@ -2129,11 +2129,11 @@ declare module PlayFabServerModels {
         /**
          / The version of the leaderboard to get, when UseSpecificVersion is true.
          */
-        Version: number;
+        Version?: number;
         /**
          / If true, uses the specified version. If false, gets the most recent version.
          */
-        UseSpecificVersion: boolean;
+        UseSpecificVersion?: boolean;
         /**
          / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. On client, only ShowDisplayName, ShowStatistics, ShowAvatarUrl are allowed.
          */
@@ -2232,11 +2232,11 @@ declare module PlayFabServerModels {
         /**
          / The version of the leaderboard to get, when UseSpecificVersion is true.
          */
-        Version: number;
+        Version?: number;
         /**
          / If true, uses the specified version. If false, gets the most recent version.
          */
-        UseSpecificVersion: boolean;
+        UseSpecificVersion?: boolean;
 
     }
 
@@ -2312,11 +2312,11 @@ declare module PlayFabServerModels {
         /**
          / The version of the leaderboard to get, when UseSpecificVersion is true.
          */
-        Version: number;
+        Version?: number;
         /**
          / If true, uses the specified version. If false, gets the most recent version.
          */
-        UseSpecificVersion: boolean;
+        UseSpecificVersion?: boolean;
 
     }
 

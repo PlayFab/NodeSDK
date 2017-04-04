@@ -338,16 +338,12 @@ exports.PlayFabApiTests = {
         var clientRequest = {
             MaxResultsCount: 3,
             StartPosition: 0,
-            StatisticName: TestConstants.TEST_STAT_NAME,
-            Version: 0,
-            UseSpecificVersion: false
+            StatisticName: TestConstants.TEST_STAT_NAME
         };
         var serverRequest = {
             MaxResultsCount: 3,
             StartPosition: 0,
-            StatisticName: TestConstants.TEST_STAT_NAME,
-            Version: 0,
-            UseSpecificVersion: false
+            StatisticName: TestConstants.TEST_STAT_NAME
         };
         var callsCompleted = 0;
         var getLeaderboardCallback = function (error, result) {
