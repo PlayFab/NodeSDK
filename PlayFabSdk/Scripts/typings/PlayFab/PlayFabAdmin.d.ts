@@ -731,6 +731,17 @@ declare module PlayFabAdminModels {
     }
 
     /**
+     / https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ApiCondition
+     */
+    export interface ApiCondition {
+        /**
+         / Require that API calls contain an RSA encrypted payload or signed headers.
+         */
+        HasSignatureOrEncryption?: string;
+
+    }
+
+    /**
      / https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.BanInfo
      */
     export interface BanInfo {
@@ -1056,6 +1067,10 @@ declare module PlayFabAdminModels {
         LatestRevision: number;
 
     }
+
+    type Conditionals = "Any"
+        | "True"
+        | "False";
 
     /**
      / https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ContentInfo
@@ -3085,6 +3100,10 @@ declare module PlayFabAdminModels {
          / A comment about the statement. Intended solely for bookeeping and debugging.
          */
         Comment?: string;
+        /**
+         / Additional conditions to be applied for API Resources.
+         */
+        ApiConditions?: ApiCondition;
 
     }
 
