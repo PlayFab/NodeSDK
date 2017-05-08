@@ -389,8 +389,8 @@ exports.LinkTwitch = function (request, callback) {
 };
 
 exports.LinkWindowsHello = function (request, callback) {
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkWindowsHello", request, null, null, function (error, result) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkWindowsHello", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -506,8 +506,8 @@ exports.UnlinkTwitch = function (request, callback) {
 };
 
 exports.UnlinkWindowsHello = function (request, callback) {
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkWindowsHello", request, null, null, function (error, result) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkWindowsHello", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -1201,8 +1201,8 @@ exports.GetPlayerTags = function (request, callback) {
 };
 
 exports.ValidateWindowsStoreReceipt = function (request, callback) {
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ValidateWindowsStoreReceipt", request, null, null, function (error, result) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ValidateWindowsStoreReceipt", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
