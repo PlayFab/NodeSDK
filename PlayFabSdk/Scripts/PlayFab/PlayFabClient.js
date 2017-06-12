@@ -865,33 +865,6 @@ exports.SetFriendTags = function (request, callback) {
     });
 };
 
-exports.RegisterForIOSPushNotification = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RegisterForIOSPushNotification", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.RestoreIOSPurchases = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RestoreIOSPurchases", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.ValidateIOSReceipt = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ValidateIOSReceipt", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.GetCurrentGames = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetCurrentGames", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -922,24 +895,6 @@ exports.Matchmake = function (request, callback) {
 exports.StartGame = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/StartGame", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.AndroidDevicePushNotificationRegistration = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AndroidDevicePushNotificationRegistration", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-exports.ValidateGooglePlayPurchase = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ValidateGooglePlayPurchase", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -1126,15 +1081,6 @@ exports.UpdateCharacterData = function (request, callback) {
     });
 };
 
-exports.ValidateAmazonIAPReceipt = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ValidateAmazonIAPReceipt", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.AcceptTrade = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AcceptTrade", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -1203,6 +1149,60 @@ exports.GetPlayerSegments = function (request, callback) {
 exports.GetPlayerTags = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPlayerTags", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.AndroidDevicePushNotificationRegistration = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AndroidDevicePushNotificationRegistration", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.RegisterForIOSPushNotification = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RegisterForIOSPushNotification", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.RestoreIOSPurchases = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RestoreIOSPurchases", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.ValidateAmazonIAPReceipt = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ValidateAmazonIAPReceipt", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.ValidateGooglePlayPurchase = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ValidateGooglePlayPurchase", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.ValidateIOSReceipt = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ValidateIOSReceipt", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);

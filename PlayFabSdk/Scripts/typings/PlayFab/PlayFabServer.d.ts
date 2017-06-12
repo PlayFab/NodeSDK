@@ -377,11 +377,6 @@
          */
         SetGameServerInstanceTags(request: PlayFabServerModels.SetGameServerInstanceTagsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.SetGameServerInstanceTagsResult>): void;
         /**
-         / Awards the specified users the specified Steam achievements
-         / https://api.playfab.com/Documentation/Server/method/AwardSteamAchievement
-         */
-        AwardSteamAchievement(request: PlayFabServerModels.AwardSteamAchievementRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.AwardSteamAchievementResult>): void;
-        /**
          / Writes a character-based event into PlayStream.
          / https://api.playfab.com/Documentation/Server/method/WriteCharacterEvent
          */
@@ -541,6 +536,11 @@
          / https://api.playfab.com/Documentation/Server/method/RemovePlayerTag
          */
         RemovePlayerTag(request: PlayFabServerModels.RemovePlayerTagRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.RemovePlayerTagResult>): void;
+        /**
+         / Awards the specified users the specified Steam achievements
+         / https://api.playfab.com/Documentation/Server/method/AwardSteamAchievement
+         */
+        AwardSteamAchievement(request: PlayFabServerModels.AwardSteamAchievementRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.AwardSteamAchievementResult>): void;
 
     }
 }
@@ -2148,7 +2148,7 @@ declare module PlayFabServerModels {
          */
         UseSpecificVersion?: boolean;
         /**
-         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. On client, only ShowDisplayName, ShowStatistics, ShowAvatarUrl are allowed.
+         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. For API calls from the client, only ShowDisplayName, ShowAvatarUrl are allowed at this time.
          */
         ProfileConstraints?: number;
 
@@ -2239,7 +2239,7 @@ declare module PlayFabServerModels {
          */
         MaxResultsCount: number;
         /**
-         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. On client, only ShowDisplayName, ShowStatistics, ShowAvatarUrl are allowed.
+         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. For API calls from the client, only ShowDisplayName, ShowAvatarUrl are allowed at this time.
          */
         ProfileConstraints?: number;
         /**
@@ -2319,7 +2319,7 @@ declare module PlayFabServerModels {
          */
         MaxResultsCount: number;
         /**
-         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. On client, only ShowDisplayName, ShowStatistics, ShowAvatarUrl are allowed.
+         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. For API calls from the client, only ShowDisplayName, ShowAvatarUrl are allowed at this time.
          */
         ProfileConstraints?: number;
         /**
@@ -2517,7 +2517,7 @@ declare module PlayFabServerModels {
          */
         PlayFabId: string;
         /**
-         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. On client, only ShowDisplayName, ShowStatistics, ShowAvatarUrl are allowed.
+         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. For API calls from the client, only ShowDisplayName, ShowAvatarUrl are allowed at this time.
          */
         ProfileConstraints?: number;
 
@@ -3016,7 +3016,7 @@ declare module PlayFabServerModels {
          */
         PlayFabId: string;
         /**
-         / Non-unique display name of the character being granted.
+         / Non-unique display name of the character being granted (1-20 characters in length).
          */
         CharacterName: string;
         /**
@@ -3778,11 +3778,11 @@ declare module PlayFabServerModels {
          */
         PublisherId?: string;
         /**
-         / Title ID this profile applies to
+         / Title ID this player profile applies to
          */
         TitleId?: string;
         /**
-         / PlayFab Player ID
+         / PlayFab player account unique identifier
          */
         PlayerId?: string;
         /**
@@ -3794,7 +3794,7 @@ declare module PlayFabServerModels {
          */
         Origination?: string;
         /**
-         / Last login
+         / UTC time when the player most recently logged in to the title
          */
         LastLogin?: string;
         /**
@@ -3802,15 +3802,15 @@ declare module PlayFabServerModels {
          */
         BannedUntil?: string;
         /**
-         / List of geographic locations where the player has logged-in
+         / List of geographic locations from which the player has logged in to the title
          */
         Locations?: LocationModel[];
         /**
-         / Player Display Name
+         / Player display name
          */
         DisplayName?: string;
         /**
-         / Image URL of the player's avatar
+         / URL of the player's avatar image
          */
         AvatarUrl?: string;
         /**
@@ -3822,7 +3822,7 @@ declare module PlayFabServerModels {
          */
         PushNotificationRegistrations?: PushNotificationRegistrationModel[];
         /**
-         / List of third party accounts linked to this player
+         / List of all authentication systems linked to this player account
          */
         LinkedAccounts?: LinkedPlatformAccountModel[];
         /**
@@ -3830,15 +3830,15 @@ declare module PlayFabServerModels {
          */
         AdCampaignAttributions?: AdCampaignAttributionModel[];
         /**
-         / A sum of player's total purchases across all real-money currencies, converted to US Dollars equivalent
+         / Sum of the player's purchases made with real-money currencies, converted to US dollars equivalent and represented as a whole number of cents (1/100 USD).              For example, 999 indicates nine dollars and ninety-nine cents.
          */
         TotalValueToDateInUSD?: number;
         /**
-         / List of player's total lifetime real-money purchases by currency
+         / List of the player's lifetime purchase totals, summed by real-money currency
          */
         ValuesToDate?: ValueToDateModel[];
         /**
-         / List of player's virtual currency balances
+         / List of the player's virtual currency balances
          */
         VirtualCurrencyBalances?: VirtualCurrencyBalanceModel[];
         /**
@@ -5384,11 +5384,11 @@ declare module PlayFabServerModels {
          */
         Currency?: string;
         /**
-         / Total value of the purchases in a whole number of 1/100 monetary units. For example 999 indicates nine dollars and ninety-nine cents when Currency is 'USD')
+         / Total value of the purchases in a whole number of 1/100 monetary units. For example, 999 indicates nine dollars and ninety-nine cents when Currency is 'USD')
          */
         TotalValue: number;
         /**
-         / Total value of the purchases in a string representation of decimal monetary units (e.g. '9.99' indicates nine dollars and ninety-nine cents when Currency is 'USD'))
+         / Total value of the purchases in a string representation of decimal monetary units. For example, '9.99' indicates nine dollars and ninety-nine cents when Currency is 'USD'.
          */
         TotalValueAsDecimal?: string;
 
