@@ -754,16 +754,6 @@ exports.SetGameServerInstanceTags = function (request, callback) {
     });
 };
 
-exports.AwardSteamAchievement = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/AwardSteamAchievement", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.WriteCharacterEvent = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -1078,6 +1068,16 @@ exports.RemovePlayerTag = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/RemovePlayerTag", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.AwardSteamAchievement = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/AwardSteamAchievement", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
