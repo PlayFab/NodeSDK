@@ -17,6 +17,15 @@ exports.GetPhotonAuthenticationToken = function (request, callback) {
     });
 };
 
+exports.GetTitlePublicKey = function (request, callback) {
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetTitlePublicKey", request, null, null, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetWindowsHelloChallenge = function (request, callback) {
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetWindowsHelloChallenge", request, null, null, function (error, result) {
@@ -203,6 +212,15 @@ exports.RegisterWithWindowsHello = function (request, callback) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.SetPlayerSecret = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/SetPlayerSecret", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
         if (callback != null)
             callback(error, result);
     });
