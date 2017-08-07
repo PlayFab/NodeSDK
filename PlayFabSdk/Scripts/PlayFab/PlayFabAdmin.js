@@ -84,6 +84,16 @@ exports.BanUsers = function (request, callback) {
     });
 };
 
+exports.DeletePlayer = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/DeletePlayer", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetUserAccountInfo = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -104,6 +114,9 @@ exports.GetUserBans = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use DeletePlayer instead. 
+ */
 exports.ResetUsers = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -174,6 +187,9 @@ exports.CreatePlayerStatisticDefinition = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use DeleteUser instead. 
+ */
 exports.DeleteUsers = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
