@@ -1866,6 +1866,10 @@ declare module PlayFabServerModels {
          / Available Game Center information (if the user and PlayFab friend are also connected in Game Center).
          */
         GameCenterInfo?: UserGameCenterInfo;
+        /**
+         / The profile of the user, if requested.
+         */
+        Profile?: PlayerProfileModel;
 
     }
 
@@ -2172,7 +2176,7 @@ declare module PlayFabServerModels {
          */
         Version?: number;
         /**
-         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. For API calls from the client, only ShowDisplayName, ShowAvatarUrl are allowed at this time.
+         / If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client, only the allowed client profile properties for the title may be requested. These allowed properties are configured in the Game Manager "Client Profile Options" tab in the "Settings" section.
          */
         ProfileConstraints?: number;
 
@@ -2194,6 +2198,10 @@ declare module PlayFabServerModels {
          / Indicates whether Facebook friends should be included in the response. Default is true.
          */
         IncludeFacebookFriends?: boolean;
+        /**
+         / If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client, only the allowed client profile properties for the title may be requested. These allowed properties are configured in the Game Manager "Client Profile Options" tab in the "Settings" section.
+         */
+        ProfileConstraints?: number;
 
     }
 
@@ -2263,7 +2271,7 @@ declare module PlayFabServerModels {
          */
         MaxResultsCount: number;
         /**
-         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. For API calls from the client, only ShowDisplayName, ShowAvatarUrl are allowed at this time.
+         / If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client, only the allowed client profile properties for the title may be requested. These allowed properties are configured in the Game Manager "Client Profile Options" tab in the "Settings" section.
          */
         ProfileConstraints?: number;
         /**
@@ -2339,7 +2347,7 @@ declare module PlayFabServerModels {
          */
         MaxResultsCount: number;
         /**
-         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. For API calls from the client, only ShowDisplayName, ShowAvatarUrl are allowed at this time.
+         / If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client, only the allowed client profile properties for the title may be requested. These allowed properties are configured in the Game Manager "Client Profile Options" tab in the "Settings" section.
          */
         ProfileConstraints?: number;
         /**
@@ -2533,7 +2541,7 @@ declare module PlayFabServerModels {
          */
         PlayFabId: string;
         /**
-         / If non-null, this determines which properties of the profile to return. If null, playfab will only include display names. For API calls from the client, only ShowDisplayName, ShowAvatarUrl are allowed at this time.
+         / If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client, only the allowed client profile properties for the title may be requested. These allowed properties are configured in the Game Manager "Client Profile Options" tab in the "Settings" section.
          */
         ProfileConstraints?: number;
 
