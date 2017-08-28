@@ -1024,6 +1024,9 @@ exports.AddPlayerTag = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use GetAllSegments instead. 
+ */
 exports.GetAllActionGroups = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
