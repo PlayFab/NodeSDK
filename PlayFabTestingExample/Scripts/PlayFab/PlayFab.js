@@ -3,8 +3,8 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "1.11.170828";
-exports.buildIdentifier = "jbuild_nodesdk_1";
+exports.sdk_version = "1.12.170925";
+exports.buildIdentifier = "jbuild_nodesdk_0";
 
 var settings = exports.settings = {
     useDevEnv: false,
@@ -35,7 +35,11 @@ exports.GetServerUrl = function () {
 exports.MakeRequest = function (urlStr, request, authType, authValue, callback) {
     if (request == null)
         request = {};
-    var requestBody = JSON.stringify(request);
+    var requestBody = null;
+    if (Number(process.version.match(/^v(\d+\.\d+)/)[1]) >= 4.7)
+        requestBody = Buffer.from(JSON.stringify(request), 'utf8');
+    else
+        requestBody = JSON.stringify(request);
 
     var options = url.parse(urlStr);
     if (options.protocol !== "https:")
