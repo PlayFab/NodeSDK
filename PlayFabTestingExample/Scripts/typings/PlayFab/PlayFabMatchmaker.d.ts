@@ -80,6 +80,38 @@ declare module PlayFabMatchmakerModels {
      */
     export interface ItemInstance {
         /**
+         / Game specific comment associated with this instance when it was added to the user inventory.
+         */
+        Annotation?: string;
+        /**
+         / Array of unique items that were awarded when this catalog item was purchased.
+         */
+        BundleContents?: string[];
+        /**
+         / Unique identifier for the parent inventory item, as defined in the catalog, for object which were added from a bundle or container.
+         */
+        BundleParent?: string;
+        /**
+         / Catalog version for the inventory item, when this instance was created.
+         */
+        CatalogVersion?: string;
+        /**
+         / A set of custom key-value pairs on the inventory item.
+         */
+        CustomData?: { [key: string]: string };
+        /**
+         / CatalogItem.DisplayName at the time this item was purchased.
+         */
+        DisplayName?: string;
+        /**
+         / Timestamp for when this instance will expire.
+         */
+        Expiration?: string;
+        /**
+         / Class name for the inventory item, as defined in the catalog.
+         */
+        ItemClass?: string;
+        /**
          / Unique identifier for the inventory item, as defined in the catalog.
          */
         ItemId?: string;
@@ -88,41 +120,13 @@ declare module PlayFabMatchmakerModels {
          */
         ItemInstanceId?: string;
         /**
-         / Class name for the inventory item, as defined in the catalog.
-         */
-        ItemClass?: string;
-        /**
          / Timestamp for when this instance was purchased.
          */
         PurchaseDate?: string;
         /**
-         / Timestamp for when this instance will expire.
-         */
-        Expiration?: string;
-        /**
          / Total number of remaining uses, if this is a consumable item.
          */
         RemainingUses?: number;
-        /**
-         / The number of uses that were added or removed to this item in this call.
-         */
-        UsesIncrementedBy?: number;
-        /**
-         / Game specific comment associated with this instance when it was added to the user inventory.
-         */
-        Annotation?: string;
-        /**
-         / Catalog version for the inventory item, when this instance was created.
-         */
-        CatalogVersion?: string;
-        /**
-         / Unique identifier for the parent inventory item, as defined in the catalog, for object which were added from a bundle or container.
-         */
-        BundleParent?: string;
-        /**
-         / CatalogItem.DisplayName at the time this item was purchased.
-         */
-        DisplayName?: string;
         /**
          / Currency type for the cost of the catalog item.
          */
@@ -132,13 +136,9 @@ declare module PlayFabMatchmakerModels {
          */
         UnitPrice: number;
         /**
-         / Array of unique items that were awarded when this catalog item was purchased.
+         / The number of uses that were added or removed to this item in this call.
          */
-        BundleContents?: string[];
-        /**
-         / A set of custom key-value pairs on the inventory item.
-         */
-        CustomData?: { [key: string]: string };
+        UsesIncrementedBy?: number;
 
     }
 
@@ -199,9 +199,21 @@ declare module PlayFabMatchmakerModels {
      */
     export interface RegisterGameRequest extends PlayFabModule.IPlayFabRequestCommon {
         /**
+         / Unique identifier of the build running on the Game Server Instance.
+         */
+        Build: string;
+        /**
+         / Game Mode the Game Server instance is running. Note that this must be defined in the Game Modes tab in the PlayFab Game Manager, along with the Build ID (the same Game Mode can be defined for multiple Build IDs).
+         */
+        GameMode: string;
+        /**
          / Previous lobby id if re-registering an existing game.
          */
         LobbyId?: string;
+        /**
+         / Region in which the Game Server Instance is running. For matchmaking using non-AWS region names, set this to any AWS region and use Tags (below) to specify your custom region.
+         */
+        Region: string;
         /**
          / IP address of the Game Server Instance.
          */
@@ -210,18 +222,6 @@ declare module PlayFabMatchmakerModels {
          / Port number for communication with the Game Server Instance.
          */
         ServerPort: string;
-        /**
-         / Unique identifier of the build running on the Game Server Instance.
-         */
-        Build: string;
-        /**
-         / Region in which the Game Server Instance is running. For matchmaking using non-AWS region names, set this to any AWS region and use Tags (below) to specify your custom region.
-         */
-        Region: string;
-        /**
-         / Game Mode the Game Server instance is running. Note that this must be defined in the Game Modes tab in the PlayFab Game Manager, along with the Build ID (the same Game Mode can be defined for multiple Build IDs).
-         */
-        GameMode: string;
         /**
          / Tags for the Game Server Instance
          */
@@ -249,14 +249,6 @@ declare module PlayFabMatchmakerModels {
          */
         Build: string;
         /**
-         / Region with which to associate the server, for filtering.
-         */
-        Region: string;
-        /**
-         / Game mode for this Game Server Instance.
-         */
-        GameMode: string;
-        /**
          / Custom command line argument when starting game server process.
          */
         CustomCommandLineData?: string;
@@ -264,6 +256,14 @@ declare module PlayFabMatchmakerModels {
          / HTTP endpoint URL for receiving game status events, if using an external matchmaker. When the game ends, PlayFab will make a POST request to this URL with the X-SecretKey header set to the value of the game's secret and an application/json body of { "EventName": "game_ended", "GameID": "<gameid>" }.
          */
         ExternalMatchmakerEventEndpoint: string;
+        /**
+         / Game mode for this Game Server Instance.
+         */
+        GameMode: string;
+        /**
+         / Region with which to associate the server, for filtering.
+         */
+        Region: string;
 
     }
 
@@ -291,13 +291,13 @@ declare module PlayFabMatchmakerModels {
      */
     export interface UserInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
         /**
-         / PlayFab unique identifier of the user whose information is being requested.
-         */
-        PlayFabId: string;
-        /**
          / Minimum catalog version for which data is requested (filters the results to only contain inventory items which have a catalog version of this or higher).
          */
         MinCatalogVersion: number;
+        /**
+         / PlayFab unique identifier of the user whose information is being requested.
+         */
+        PlayFabId: string;
 
     }
 
@@ -306,21 +306,29 @@ declare module PlayFabMatchmakerModels {
      */
     export interface UserInfoResponse extends PlayFabModule.IPlayFabResultCommon  {
         /**
+         / Array of inventory items in the user's current inventory.
+         */
+        Inventory?: ItemInstance[];
+        /**
+         / Boolean indicating whether the user is a developer.
+         */
+        IsDeveloper: boolean;
+        /**
          / PlayFab unique identifier of the user whose information was requested.
          */
         PlayFabId?: string;
         /**
-         / PlayFab unique user name.
+         / Steam unique identifier, if the user has an associated Steam account.
          */
-        Username?: string;
+        SteamId?: string;
         /**
          / Title specific display name, if set.
          */
         TitleDisplayName?: string;
         /**
-         / Array of inventory items in the user's current inventory.
+         / PlayFab unique user name.
          */
-        Inventory?: ItemInstance[];
+        Username?: string;
         /**
          / Array of virtual currency balance(s) belonging to the user.
          */
@@ -329,14 +337,6 @@ declare module PlayFabMatchmakerModels {
          / Array of remaining times and timestamps for virtual currencies.
          */
         VirtualCurrencyRechargeTimes?: { [key: string]: VirtualCurrencyRechargeTime };
-        /**
-         / Boolean indicating whether the user is a developer.
-         */
-        IsDeveloper: boolean;
-        /**
-         / Steam unique identifier, if the user has an associated Steam account.
-         */
-        SteamId?: string;
 
     }
 
@@ -345,17 +345,17 @@ declare module PlayFabMatchmakerModels {
      */
     export interface VirtualCurrencyRechargeTime {
         /**
-         / Time remaining (in seconds) before the next recharge increment of the virtual currency.
+         / Maximum value to which the regenerating currency will automatically increment. Note that it can exceed this value through use of the AddUserVirtualCurrency API call. However, it will not regenerate automatically until it has fallen below this value.
          */
-        SecondsToRecharge: number;
+        RechargeMax: number;
         /**
          / Server timestamp in UTC indicating the next time the virtual currency will be incremented.
          */
         RechargeTime: string;
         /**
-         / Maximum value to which the regenerating currency will automatically increment. Note that it can exceed this value through use of the AddUserVirtualCurrency API call. However, it will not regenerate automatically until it has fallen below this value.
+         / Time remaining (in seconds) before the next recharge increment of the virtual currency.
          */
-        RechargeMax: number;
+        SecondsToRecharge: number;
 
     }
 
