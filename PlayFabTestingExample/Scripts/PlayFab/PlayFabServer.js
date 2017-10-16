@@ -164,19 +164,6 @@ exports.ExecuteCloudScript = function (request, callback) {
     });
 };
 
-/**
- * @deprecated Please use GetAllSegments instead. 
- */
-exports.GetAllActionGroups = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/GetAllActionGroups", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
 exports.GetAllSegments = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
