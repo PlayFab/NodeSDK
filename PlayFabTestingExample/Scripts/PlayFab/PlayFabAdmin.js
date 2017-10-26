@@ -164,13 +164,10 @@ exports.DeleteTask = function (request, callback) {
     });
 };
 
-/**
- * @deprecated Please use DeleteUser instead. 
- */
-exports.DeleteUsers = function (request, callback) {
+exports.DeleteTitle = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/DeleteUsers", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/DeleteTitle", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -641,19 +638,6 @@ exports.ResetCharacterStatistics = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/ResetCharacterStatistics", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
-
-        if (callback != null)
-            callback(error, result);
-    });
-};
-
-/**
- * @deprecated Please use DeletePlayer instead. 
- */
-exports.ResetUsers = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-
-    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/ResetUsers", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
