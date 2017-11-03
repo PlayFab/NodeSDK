@@ -35,6 +35,15 @@ exports.AddGenericID = function (request, callback) {
     });
 };
 
+exports.AddOrUpdateContactEmail = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AddOrUpdateContactEmail", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.AddSharedGroupMembers = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/AddSharedGroupMembers", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -889,6 +898,15 @@ exports.RegisterWithWindowsHello = function (request, callback) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.RemoveContactEmail = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RemoveContactEmail", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
         if (callback != null)
             callback(error, result);
     });
