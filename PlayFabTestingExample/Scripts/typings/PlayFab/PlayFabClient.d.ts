@@ -24,6 +24,11 @@ declare module PlayFabClientModule {
          */
         AddGenericID(request: PlayFabClientModels.AddGenericIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddGenericIDResult>): void;
         /**
+         * Adds or updates a contact email to the player's profile
+         * https://api.playfab.com/Documentation/Client/method/AddOrUpdateContactEmail
+         */
+        AddOrUpdateContactEmail(request: PlayFabClientModels.AddOrUpdateContactEmailRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddOrUpdateContactEmailResult>): void;
+        /**
          * Adds users to the set of those able to update both the shared data, as well as the set of users  in the group. Only
          * users in the group can add new members. Shared Groups are designed for sharing data between a very  small number of
          * players, please see our guide: https://api.playfab.com/docs/tutorials/landing-players/shared-groups
@@ -529,6 +534,11 @@ declare module PlayFabClientModule {
          */
         RegisterWithWindowsHello(request: PlayFabClientModels.RegisterWithWindowsHelloRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
         /**
+         * Removes a contact email from the player's profile
+         * https://api.playfab.com/Documentation/Client/method/RemoveContactEmail
+         */
+        RemoveContactEmail(request: PlayFabClientModels.RemoveContactEmailRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveContactEmailResult>): void;
+        /**
          * Removes a specified user from the friend list of the local user
          * https://api.playfab.com/Documentation/Client/method/RemoveFriend
          */
@@ -806,6 +816,18 @@ declare module PlayFabClientModels {
 
     /** https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.AddGenericIDResult */
     export interface AddGenericIDResult extends PlayFabModule.IPlayFabResultCommon  {
+
+    }
+
+    /** https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.AddOrUpdateContactEmailRequest */
+    export interface AddOrUpdateContactEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
+        /** The new contact email to associate with the player. */
+        EmailAddress: string;
+
+    }
+
+    /** https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.AddOrUpdateContactEmailResult */
+    export interface AddOrUpdateContactEmailResult extends PlayFabModule.IPlayFabResultCommon  {
 
     }
 
@@ -3661,6 +3683,16 @@ declare module PlayFabClientModels {
         TitleId: string;
         /** Player's user name used by Windows Hello. */
         UserName?: string;
+
+    }
+
+    /** https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.RemoveContactEmailRequest */
+    export interface RemoveContactEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
+
+    }
+
+    /** https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.RemoveContactEmailResult */
+    export interface RemoveContactEmailResult extends PlayFabModule.IPlayFabResultCommon  {
 
     }
 
