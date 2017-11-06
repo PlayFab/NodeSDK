@@ -426,6 +426,11 @@ declare module PlayFabServerModule {
          */
         SendCustomAccountRecoveryEmail(request: PlayFabServerModels.SendCustomAccountRecoveryEmailRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.SendCustomAccountRecoveryEmailResult>): void;
         /**
+         * Sends an email based on an email template to a player's contact email
+         * https://api.playfab.com/Documentation/Server/method/SendEmailFromTemplate
+         */
+        SendEmailFromTemplate(request: PlayFabServerModels.SendEmailFromTemplateRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.SendEmailFromTemplateResult>): void;
+        /**
          * Sends an iOS/Android Push Notification to a specific user, if that user's device has been configured for Push
          * Notifications in PlayFab. If a user has linked both Android and iOS devices, both will be notified.
          * https://api.playfab.com/Documentation/Server/method/SendPushNotification
@@ -3196,6 +3201,20 @@ declare module PlayFabServerModels {
 
     /** https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.SendCustomAccountRecoveryEmailResult */
     export interface SendCustomAccountRecoveryEmailResult extends PlayFabModule.IPlayFabResultCommon  {
+
+    }
+
+    /** https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.SendEmailFromTemplateRequest */
+    export interface SendEmailFromTemplateRequest extends PlayFabModule.IPlayFabRequestCommon {
+        /** The email template id of the email template to send. */
+        EmailTemplateId: string;
+        /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
+        PlayFabId: string;
+
+    }
+
+    /** https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.SendEmailFromTemplateResult */
+    export interface SendEmailFromTemplateResult extends PlayFabModule.IPlayFabResultCommon  {
 
     }
 
