@@ -3,8 +3,8 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "1.15.171102";
-exports.buildIdentifier = "jbuild_nodesdk_0";
+exports.sdk_version = "1.16.171106";
+exports.buildIdentifier = "jbuild_nodesdk_2";
 
 var settings = exports.settings = {
     useDevEnv: false,
