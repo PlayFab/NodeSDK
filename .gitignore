@@ -3,5 +3,5 @@ bin/
 obj/
 node_modules/
 .ntvs_analysis.dat
-
+.vscode
 npm-debug.log

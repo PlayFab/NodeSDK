@@ -7,19 +7,12 @@ var PlayFabMatchmaker = pf.PlayFabAdmin; // Not strictly needed for this test, b
 var PlayFabClient = pf.PlayFabClient;
 var PlayFabServer = pf.PlayFabServer;
 var fs = require("fs");
-var reporter = require('./PlayFabMinimal');
+var reporter = require('./reporter');
+var nodeunit = require('nodeunit');
 // These tests require that you have installed nodeunit
-try {
-    var nodeunit = require("nodeunit");
-    var reporter = nodeunit.reporters['playfab'] = reporter;
-    reporter.PfTestReport[0].name = PlayFab.buildIdentifier;
-}
-catch (e) {
-    console.log(JSON.stringify(nodeunit.reporters));
-    console.log("Could not load nodeunit module: " + e.message);
-    console.log("Install via Command line: npm install nodeunit -g");
-    process.exit();
-}
+
+nodeunit.reporters['playfab'] = reporter;
+
 var TitleData = {
     // You can set default values for testing here
     // Or you can provide the same structure in a json-file and load with LoadTitleData
@@ -437,6 +430,8 @@ exports.PlayFabApiTests = {
     }
 };
 nodeunit.on('complete', function () {
+
+    reporter.PfTestReport[0].name = PlayFab.buildIdentifier
     var saveResultsRequest = {
         FunctionName: "SaveTestData",
         FunctionParameter: { customId: PlayFab.buildIdentifier, testReport: reporter.PfTestReport },
@@ -450,4 +445,3 @@ nodeunit.on('complete', function () {
         console.log(TestData.playFabId, ", Failed to save test report to CloudScript: ", PlayFab.buildIdentifier); //, "\n", JSON.stringify(reporter.PfTestReport, null, 4));
     }
 });
-reporter.run(["PlayFabApiTests.js"]);

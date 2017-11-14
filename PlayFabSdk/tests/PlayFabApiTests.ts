@@ -1,11 +1,12 @@
 import * as pf from '../index';
+import * as reporter from './playfab-reporter';
+
 var PlayFab = <PlayFabModule.IPlayFab>pf.PlayFab;
 var PlayFabAdmin = <PlayFabAdminModule.IPlayFabAdmin>pf.PlayFabAdmin; // Not strictly needed for this test, but I want to make sure it compiles/loads
 var PlayFabMatchmaker = <PlayFabMatchmakerModule.IPlayFabMatchmaker>pf.PlayFabAdmin; // Not strictly needed for this test, but I want to make sure it compiles/loads
 var PlayFabClient = <PlayFabClientModule.IPlayFabClient>pf.PlayFabClient;
 var PlayFabServer = <PlayFabServerModule.IPlayFabServer>pf.PlayFabServer;
 var fs = require("fs");
-var reporter = require('./PlayFabMinimal');
 interface IAction { (): void }
 
 // These tests require that you have installed nodeunit

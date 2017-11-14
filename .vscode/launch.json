@@ -10,7 +10,7 @@
             "name": "Launch Program",
             "program": "${workspaceFolder}/PlayFabSdk/tests/PlayFabApiTests.js",
             "args" : [
-                "--reporter playfab"
+                "--reporter PlayFabMinimal.js"
             ],
             "cwd": "${workspaceFolder}/PlayFabSdk/tests"
         },
