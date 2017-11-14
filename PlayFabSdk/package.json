@@ -3,7 +3,6 @@
   "version": "1.16.171106",
   "description": "Playfab SDK for node.js applications",
   "license": "Apache-2.0",
-  "main": "main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/playfab/NodeSDK"
