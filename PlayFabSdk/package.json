@@ -7,7 +7,7 @@
     "nodeunit": "0.9.1"
   },
   "scripts": {
-    "test": "cd tests&&run.bat"
+    "test": ".\\tests\\run.bat"
   },
   "repository": {
     "type": "git",

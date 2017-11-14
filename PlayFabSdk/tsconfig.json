@@ -3,7 +3,7 @@
         "module": "commonjs"
     },
     "files": [
-        "tests/PlayFabApiTests.ts",
+        "tests/tests.ts",
         "Scripts/typings/PlayFab/PlayFab.d.ts",
         "Scripts/typings/PlayFab/index.d.ts",
         "Scripts/typings/PlayFab/PlayFabAdmin.d.ts",

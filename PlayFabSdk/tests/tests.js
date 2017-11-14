@@ -1,18 +1,14 @@
 "use strict";
 exports.__esModule = true;
 var pf = require("../index");
+var reporter = require("./reporter");
+var nodeunit = require("nodeunit");
 var PlayFab = pf.PlayFab;
 var PlayFabAdmin = pf.PlayFabAdmin; // Not strictly needed for this test, but I want to make sure it compiles/loads
 var PlayFabMatchmaker = pf.PlayFabAdmin; // Not strictly needed for this test, but I want to make sure it compiles/loads
 var PlayFabClient = pf.PlayFabClient;
 var PlayFabServer = pf.PlayFabServer;
 var fs = require("fs");
-var reporter = require('./reporter');
-var nodeunit = require('nodeunit');
-// These tests require that you have installed nodeunit
-
-nodeunit.reporters['playfab'] = reporter;
-
 var TitleData = {
     // You can set default values for testing here
     // Or you can provide the same structure in a json-file and load with LoadTitleData
@@ -430,8 +426,7 @@ exports.PlayFabApiTests = {
     }
 };
 nodeunit.on('complete', function () {
-
-    reporter.PfTestReport[0].name = PlayFab.buildIdentifier
+    reporter.PfTestReport[0].name = PlayFab.buildIdentifier;
     var saveResultsRequest = {
         FunctionName: "SaveTestData",
         FunctionParameter: { customId: PlayFab.buildIdentifier, testReport: reporter.PfTestReport },

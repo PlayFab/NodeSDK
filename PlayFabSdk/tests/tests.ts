@@ -1,5 +1,6 @@
 import * as pf from '../index';
-import * as reporter from './playfab-reporter';
+import * as reporter from './reporter';
+import * as nodeunit from 'nodeunit';
 
 var PlayFab = <PlayFabModule.IPlayFab>pf.PlayFab;
 var PlayFabAdmin = <PlayFabAdminModule.IPlayFabAdmin>pf.PlayFabAdmin; // Not strictly needed for this test, but I want to make sure it compiles/loads
@@ -7,20 +8,9 @@ var PlayFabMatchmaker = <PlayFabMatchmakerModule.IPlayFabMatchmaker>pf.PlayFabAd
 var PlayFabClient = <PlayFabClientModule.IPlayFabClient>pf.PlayFabClient;
 var PlayFabServer = <PlayFabServerModule.IPlayFabServer>pf.PlayFabServer;
 var fs = require("fs");
+
 interface IAction { (): void }
 
-// These tests require that you have installed nodeunit
-try {
-    var nodeunit = require("nodeunit");
-    var reporter = nodeunit.reporters.push(reporter);
-    reporter.PfTestReport[0].name = PlayFab.buildIdentifier;
-}
-catch (e) {
-    console.log(JSON.stringify(nodeunit.reporters));
-    console.log("Could not load nodeunit module: " + e.message);
-    console.log("Install via Command line: npm install nodeunit -g");
-    process.exit();
-}
 
 var TitleData = {
     // You can set default values for testing here
@@ -493,6 +483,7 @@ exports.PlayFabApiTests = {
 };
 
 nodeunit.on('complete', function (): void {
+    reporter.PfTestReport[0].name = PlayFab.buildIdentifier;
     var saveResultsRequest = {
         FunctionName: "SaveTestData",
         FunctionParameter: { customId: PlayFab.buildIdentifier, testReport: reporter.PfTestReport },
@@ -505,5 +496,3 @@ nodeunit.on('complete', function (): void {
         console.log(TestData.playFabId, ", Failed to save test report to CloudScript: ", PlayFab.buildIdentifier);//, "\n", JSON.stringify(reporter.PfTestReport, null, 4));
     }
 });
-
-reporter.run(["PlayFabApiTests.js"]);
