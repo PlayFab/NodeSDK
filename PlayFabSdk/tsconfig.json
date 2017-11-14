@@ -3,8 +3,9 @@
         "module": "commonjs"
     },
     "files": [
-        "PlayFabApiTests.ts",
+        "tests/PlayFabApiTests.ts",
         "Scripts/typings/PlayFab/PlayFab.d.ts",
+        "Scripts/typings/PlayFab/index.d.ts",
         "Scripts/typings/PlayFab/PlayFabAdmin.d.ts",
         "Scripts/typings/PlayFab/PlayFabClient.d.ts",
         "Scripts/typings/PlayFab/PlayFabMatchmaker.d.ts",

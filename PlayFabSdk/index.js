@@ -6,7 +6,7 @@ var PlayFabMatchmaker = require('./Scripts/PlayFab/PlayFabMatchmaker.js');
 var PlayFabClient = require('./Scripts/PlayFab/PlayFabClient.js');
 var PlayFabServer = require('./Scripts/PlayFab/PlayFabServer.js');
 
-exports = {
+module.exports = {
     PlayFab : PlayFab,
     PlayFabAdmin : PlayFabAdmin,
     PlayFabMatchmaker : PlayFabMatchmaker,
