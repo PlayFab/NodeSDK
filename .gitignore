@@ -3,5 +3,9 @@ bin/
 obj/
 node_modules/
 .ntvs_analysis.dat
-.vscode
+.vscode/
 npm-debug.log
+
+PlayFabSdk/node_modules/
+PlayFabSdk/npm-debug.log
+PlayFabSdk/tests/testTitleData.json
