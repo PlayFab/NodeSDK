@@ -2838,8 +2838,6 @@ declare module PlayFabServerModels {
         TotalValueToDateInUSD?: number;
         /** List of the player's lifetime purchase totals, summed by real-money currency */
         ValuesToDate?: ValueToDateModel[];
-        /** List of the player's virtual currency balances */
-        VirtualCurrencyBalances?: VirtualCurrencyBalanceModel[];
 
     }
 
@@ -2920,11 +2918,6 @@ declare module PlayFabServerModels {
         Icon?: string;
         /** Content of the message (all platforms) */
         Message: string;
-        /**
-         * This field was solely for use with the PlayFab custom Push Plugin, which has been deprecated in favor of the supported
-         * platform-specific fields
-         */
-        ScheduleDate?: string;
         /** Sound file to play with the message (all platforms) */
         Sound?: string;
         /** Title/Subject of the message. Not supported for iOS */
@@ -3960,15 +3953,6 @@ declare module PlayFabServerModels {
          * dollars and ninety-nine cents when Currency is 'USD'.
          */
         TotalValueAsDecimal?: string;
-
-    }
-
-    /** https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.VirtualCurrencyBalanceModel */
-    export interface VirtualCurrencyBalanceModel {
-        /** Name of the virtual currency */
-        Currency?: string;
-        /** Balance of the virtual currency */
-        TotalValue: number;
 
     }
 
