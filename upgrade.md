@@ -15,6 +15,7 @@ For example:
 ```
 var playfab = require("playfab-sdk");
 var PlayFabClient = playfab.PlayFabClient;
+// These will replace any existing PlayFab require lines in your SDK
 
 console.log("PlayFab Exists: " + (playfab != null));
 console.log("PlayFab settings Exists: " + (playfab.settings != null));
@@ -44,6 +45,7 @@ Additionally, on some very rare environments, there were issues with multiple re
 ```
 var playfab = require("./node_modules/playfab-sdk/scripts/PlayFab/PlayFab.js");
 var PlayFabClient = require("./node_modules/playfab-sdk/scripts/PlayFab/PlayFabClient.js");
+// (Replace these two lines with the require lines from the code block above)
 
 for(var each in playfab)
 {
