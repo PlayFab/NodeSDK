@@ -8,3 +8,4 @@ obj/
 
 npm-debug.log
 *.tgz
+test.js
