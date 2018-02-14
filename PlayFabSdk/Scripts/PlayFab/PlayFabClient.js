@@ -506,7 +506,6 @@ exports.GetTitleNews = function (request, callback) {
 };
 
 exports.GetTitlePublicKey = function (request, callback) {
-
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetTitlePublicKey", request, null, null, function (error, result) {
 
         if (callback != null)
@@ -569,7 +568,6 @@ exports.GetUserReadOnlyData = function (request, callback) {
 };
 
 exports.GetWindowsHelloChallenge = function (request, callback) {
-
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetWindowsHelloChallenge", request, null, null, function (error, result) {
 
         if (callback != null)
@@ -976,7 +974,6 @@ exports.RestoreIOSPurchases = function (request, callback) {
 };
 
 exports.SendAccountRecoveryEmail = function (request, callback) {
-
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/SendAccountRecoveryEmail", request, null, null, function (error, result) {
 
         if (callback != null)
