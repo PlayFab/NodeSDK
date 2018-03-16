@@ -774,6 +774,16 @@ exports.RevokeInventoryItem = function (request, callback) {
     });
 };
 
+exports.RevokeInventoryItems = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/RevokeInventoryItems", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.SendCustomAccountRecoveryEmail = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
