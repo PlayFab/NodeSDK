@@ -5,7 +5,7 @@ declare module PlayFabClientModule {
 
         // Accepts an open trade (one that has not yet been accepted or cancelled), if the locally signed-in player is in the
         // allowed player list for the trade, or it is open to all players. If the call is successful, the offered and accepted
-        // items will be swapped  between the two players' inventories.
+        // items will be swapped between the two players' inventories.
         // https://api.playfab.com/Documentation/Client/method/AcceptTrade
         AcceptTrade(request: PlayFabClientModels.AcceptTradeRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AcceptTradeResponse>): void;
         // Adds the PlayFab user, based upon a match against a supplied unique identifier, to the friend list of the local user. At
@@ -20,9 +20,9 @@ declare module PlayFabClientModule {
         // Adds or updates a contact email to the player's profile.
         // https://api.playfab.com/Documentation/Client/method/AddOrUpdateContactEmail
         AddOrUpdateContactEmail(request: PlayFabClientModels.AddOrUpdateContactEmailRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddOrUpdateContactEmailResult>): void;
-        // Adds users to the set of those able to update both the shared data, as well as the set of users  in the group. Only
-        // users in the group can add new members. Shared Groups are designed for sharing data between a very  small number of
-        // players, please see our guide: https://api.playfab.com/docs/tutorials/landing-players/shared-groups
+        // Adds users to the set of those able to update both the shared data, as well as the set of users in the group. Only users
+        // in the group can add new members. Shared Groups are designed for sharing data between a very small number of players,
+        // please see our guide: https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Client/method/AddSharedGroupMembers
         AddSharedGroupMembers(request: PlayFabClientModels.AddSharedGroupMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddSharedGroupMembersResult>): void;
         // Adds playfab username/password auth to an existing account created via an anonymous auth method, e.g. automatic device
@@ -40,19 +40,19 @@ declare module PlayFabClientModule {
         AttributeInstall(request: PlayFabClientModels.AttributeInstallRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AttributeInstallResult>): void;
         // Cancels an open trade (one that has not yet been accepted or cancelled). Note that only the player who created the trade
         // can cancel it via this API call, to prevent griefing of the trade system (cancelling trades in order to prevent other
-        // players from accepting  them, for trades that can be claimed by more than one player).
+        // players from accepting them, for trades that can be claimed by more than one player).
         // https://api.playfab.com/Documentation/Client/method/CancelTrade
         CancelTrade(request: PlayFabClientModels.CancelTradeRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.CancelTradeResponse>): void;
-        // Confirms with the payment provider that the purchase was approved (if applicable) and adjusts inventory and  virtual
+        // Confirms with the payment provider that the purchase was approved (if applicable) and adjusts inventory and virtual
         // currency balances as appropriate
         // https://api.playfab.com/Documentation/Client/method/ConfirmPurchase
         ConfirmPurchase(request: PlayFabClientModels.ConfirmPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConfirmPurchaseResult>): void;
         // Consume uses of a consumable item. When all uses are consumed, it will be removed from the player's inventory.
         // https://api.playfab.com/Documentation/Client/method/ConsumeItem
         ConsumeItem(request: PlayFabClientModels.ConsumeItemRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumeItemResult>): void;
-        // Requests the creation of a shared group object, containing key/value pairs which may be updated by  all members of the
-        // group. Upon creation, the current user will be the only member of the group. Shared Groups are designed  for sharing
-        // data between a very small number of players, please see our guide:
+        // Requests the creation of a shared group object, containing key/value pairs which may be updated by all members of the
+        // group. Upon creation, the current user will be the only member of the group. Shared Groups are designed for sharing data
+        // between a very small number of players, please see our guide:
         // https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Client/method/CreateSharedGroup
         CreateSharedGroup(request: PlayFabClientModels.CreateSharedGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.CreateSharedGroupResult>): void;
@@ -84,13 +84,12 @@ declare module PlayFabClientModule {
         // Retrieves the details of all title-specific statistics for the user
         // https://api.playfab.com/Documentation/Client/method/GetCharacterStatistics
         GetCharacterStatistics(request: PlayFabClientModels.GetCharacterStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterStatisticsResult>): void;
-        // This API retrieves a pre-signed URL for accessing a content file for the title. A subsequent  HTTP GET to the returned
-        // URL will attempt to download the content. A HEAD query to the returned URL will attempt to  retrieve the metadata of the
-        // content. Note that a successful result does not guarantee the existence of this content -  if it has not been uploaded,
+        // This API retrieves a pre-signed URL for accessing a content file for the title. A subsequent HTTP GET to the returned
+        // URL will attempt to download the content. A HEAD query to the returned URL will attempt to retrieve the metadata of the
+        // content. Note that a successful result does not guarantee the existence of this content - if it has not been uploaded,
         // the query to retrieve the data will fail. See this post for more information:
-        // https://community.playfab.com/hc/en-us/community/posts/205469488-How-to-upload-files-to-PlayFab-s-Content-Service.
-        // Also, please be aware that the Content service is specifically PlayFab's CDN offering, for which standard CDN rates
-        // apply.
+        // https://community.playfab.com/hc/en-us/community/posts/205469488-How-to-upload-files-to-PlayFab-s-Content-Service. Also,
+        // please be aware that the Content service is specifically PlayFab's CDN offering, for which standard CDN rates apply.
         // https://api.playfab.com/Documentation/Client/method/GetContentDownloadUrl
         GetContentDownloadUrl(request: PlayFabClientModels.GetContentDownloadUrlRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetContentDownloadUrlResult>): void;
         // Get details about all current running game servers matching the given parameters.
@@ -176,7 +175,7 @@ declare module PlayFabClientModule {
         // http://developers.kongregate.com/docs/client/getUserId).
         // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromKongregateIDs
         GetPlayFabIDsFromKongregateIDs(request: PlayFabClientModels.GetPlayFabIDsFromKongregateIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromKongregateIDsResult>): void;
-        // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers  are the profile
+        // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers are the profile
         // IDs for the user accounts, available as SteamId in the Steamworks Community API calls.
         // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromSteamIDs
         GetPlayFabIDsFromSteamIDs(request: PlayFabClientModels.GetPlayFabIDsFromSteamIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromSteamIDsResult>): void;
@@ -192,9 +191,9 @@ declare module PlayFabClientModule {
         // active.
         // https://api.playfab.com/Documentation/Client/method/GetPurchase
         GetPurchase(request: PlayFabClientModels.GetPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPurchaseResult>): void;
-        // Retrieves data stored in a shared group object, as well as the list of members in  the group. Non-members of the group
-        // may use this to retrieve group data, including membership, but they  will not receive data for keys marked as private.
-        // Shared Groups are designed for sharing data between a  very small number of players, please see our guide:
+        // Retrieves data stored in a shared group object, as well as the list of members in the group. Non-members of the group
+        // may use this to retrieve group data, including membership, but they will not receive data for keys marked as private.
+        // Shared Groups are designed for sharing data between a very small number of players, please see our guide:
         // https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Client/method/GetSharedGroupData
         GetSharedGroupData(request: PlayFabClientModels.GetSharedGroupDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetSharedGroupDataResult>): void;
@@ -301,8 +300,8 @@ declare module PlayFabClientModule {
         // https://api.playfab.com/Documentation/Client/method/LoginWithKongregate
         LoginWithKongregate(request: PlayFabClientModels.LoginWithKongregateRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
         // Signs the user into the PlayFab account, returning a session identifier that can subsequently be used for API calls
-        // which require an authenticated user. Unlike most other login API calls, LoginWithPlayFab does not permit the  creation
-        // of new accounts via the CreateAccountFlag. Username/Password credentials may be used to create accounts via
+        // which require an authenticated user. Unlike most other login API calls, LoginWithPlayFab does not permit the creation of
+        // new accounts via the CreateAccountFlag. Username/Password credentials may be used to create accounts via
         // RegisterPlayFabUser, or added to existing accounts using AddUsernamePassword.
         // https://api.playfab.com/Documentation/Client/method/LoginWithPlayFab
         LoginWithPlayFab(request: PlayFabClientModels.LoginWithPlayFabRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
@@ -333,11 +332,11 @@ declare module PlayFabClientModule {
         // Selects a payment option for purchase order created via StartPurchase
         // https://api.playfab.com/Documentation/Client/method/PayForPurchase
         PayForPurchase(request: PlayFabClientModels.PayForPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.PayForPurchaseResult>): void;
-        // Buys a single item with virtual currency. You must specify both the virtual currency to use to purchase,  as well as
-        // what the client believes the price to be. This lets the server fail the purchase if the price has changed.
+        // Buys a single item with virtual currency. You must specify both the virtual currency to use to purchase, as well as what
+        // the client believes the price to be. This lets the server fail the purchase if the price has changed.
         // https://api.playfab.com/Documentation/Client/method/PurchaseItem
         PurchaseItem(request: PlayFabClientModels.PurchaseItemRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.PurchaseItemResult>): void;
-        // Adds the virtual goods associated with the coupon to the user's inventory. Coupons can be generated  via the
+        // Adds the virtual goods associated with the coupon to the user's inventory. Coupons can be generated via the
         // Economy->Catalogs tab in the PlayFab Game Manager.
         // https://api.playfab.com/Documentation/Client/method/RedeemCoupon
         RedeemCoupon(request: PlayFabClientModels.RedeemCouponRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RedeemCouponResult>): void;
@@ -348,7 +347,7 @@ declare module PlayFabClientModule {
         // require an authenticated user. You must supply either a username or an email address.
         // https://api.playfab.com/Documentation/Client/method/RegisterPlayFabUser
         RegisterPlayFabUser(request: PlayFabClientModels.RegisterPlayFabUserRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RegisterPlayFabUserResult>): void;
-        // Registers a new PlayFab user account using Windows Hello authentication, returning a session ticket  that can
+        // Registers a new PlayFab user account using Windows Hello authentication, returning a session ticket that can
         // subsequently be used for API calls which require an authenticated user
         // https://api.playfab.com/Documentation/Client/method/RegisterWithWindowsHello
         RegisterWithWindowsHello(request: PlayFabClientModels.RegisterWithWindowsHelloRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
@@ -361,9 +360,9 @@ declare module PlayFabClientModule {
         // Removes the specified generic service identifier from the player's PlayFab account.
         // https://api.playfab.com/Documentation/Client/method/RemoveGenericID
         RemoveGenericID(request: PlayFabClientModels.RemoveGenericIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveGenericIDResult>): void;
-        // Removes users from the set of those able to update the shared data and the set of users  in the group. Only users in the
-        // group can remove members. If as a result of the call, zero users remain with  access, the group and its associated data
-        // will be deleted. Shared Groups are designed for sharing data between  a very small number of players, please see our
+        // Removes users from the set of those able to update the shared data and the set of users in the group. Only users in the
+        // group can remove members. If as a result of the call, zero users remain with access, the group and its associated data
+        // will be deleted. Shared Groups are designed for sharing data between a very small number of players, please see our
         // guide: https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Client/method/RemoveSharedGroupMembers
         RemoveSharedGroupMembers(request: PlayFabClientModels.RemoveSharedGroupMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveSharedGroupMembersResult>): void;
@@ -444,8 +443,7 @@ declare module PlayFabClientModule {
         // Update the avatar URL of the player
         // https://api.playfab.com/Documentation/Client/method/UpdateAvatarUrl
         UpdateAvatarUrl(request: PlayFabClientModels.UpdateAvatarUrlRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResult>): void;
-        // Creates and updates the title-specific custom data for the user's character which is readable  and writable by the
-        // client
+        // Creates and updates the title-specific custom data for the user's character which is readable and writable by the client
         // https://api.playfab.com/Documentation/Client/method/UpdateCharacterData
         UpdateCharacterData(request: PlayFabClientModels.UpdateCharacterDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateCharacterDataResult>): void;
         // Updates the values of the specified title-specific statistics for the specific character. By default, clients are not
@@ -458,7 +456,7 @@ declare module PlayFabClientModule {
         UpdatePlayerStatistics(request: PlayFabClientModels.UpdatePlayerStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdatePlayerStatisticsResult>): void;
         // Adds, updates, and removes data keys for a shared group object. If the permission is set to Public, all fields updated
         // or added in this call will be readable by users not in the group. By default, data permissions are set to Private.
-        // Regardless of the permission setting, only members of the group can update the data. Shared Groups are designed  for
+        // Regardless of the permission setting, only members of the group can update the data. Shared Groups are designed for
         // sharing data between a very small number of players, please see our guide:
         // https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Client/method/UpdateSharedGroupData
@@ -1358,18 +1356,33 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.EntityKey
+    export interface EntityKey {
+        // Entity profile ID.
+        Id: string;
+        // Entity type. Optional to be used but one of EntityType or EntityTypeString must be set.
+        Type?: string;
+        // Entity type. Optional to be used but one of EntityType or EntityTypeString must be set.
+        TypeString?: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.EntityTokenResponse
     export interface EntityTokenResponse extends PlayFabModule.IPlayFabResultCommon {
-        // The identifier of the entity the token was issued for.
-        EntityId?: string;
+        // The entity id and type.
+        Entity?: EntityKey;
         // The token used to set X-EntityToken for all entity based API calls.
         EntityToken?: string;
-        // The type of entity the token was issued for.
-        EntityType?: string;
         // The time the token will expire, if it is an expiring token, in UTC.
         TokenExpiration?: string;
 
     }
+
+    type EntityTypes = "title"
+        | "master_player_account"
+        | "title_player_account"
+        | "character"
+        | "group";
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.ExecuteCloudScriptRequest
     export interface ExecuteCloudScriptRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2317,7 +2330,7 @@ declare module PlayFabClientModels {
         // The version that currently exists according to the caller. The call will return the data for all of the keys if the
         // version in the system is greater than this.
         IfChangedFromDataVersion?: number;
-        // Specific keys to search for in the custom data. Leave null to get all keys.
+        // List of unique keys to load from.
         Keys?: string[];
         // Unique PlayFab identifier of the user to load data for. Optional, defaults to yourself if not set. When specified to a
         // PlayFab id of another player, then this will only return public keys for that account.
@@ -3148,7 +3161,7 @@ declare module PlayFabClientModels {
         // Title ID this player profile applies to
         TitleId?: string;
         // Sum of the player's purchases made with real-money currencies, converted to US dollars equivalent and represented as a
-        // whole number of cents (1/100 USD).              For example, 999 indicates nine dollars and ninety-nine cents.
+        // whole number of cents (1/100 USD).       For example, 999 indicates nine dollars and ninety-nine cents.
         TotalValueToDateInUSD?: number;
         // List of the player's lifetime purchase totals, summed by real-money currency
         ValuesToDate?: ValueToDateModel[];
@@ -3723,7 +3736,7 @@ declare module PlayFabClientModels {
         AcceptedInventoryInstanceIds?: string[];
         // The PlayFab ID of the player who accepted the trade. If null, no one has accepted the trade.
         AcceptedPlayerId?: string;
-        // An optional list of players allowed to complete this trade.  If null, anybody can complete the trade.
+        // An optional list of players allowed to complete this trade. If null, anybody can complete the trade.
         AllowedPlayerIds?: string[];
         // If set, The UTC time when this trade was canceled.
         CancelledAt?: string;
@@ -3899,14 +3912,14 @@ declare module PlayFabClientModels {
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlockContainerInstanceRequest
     export interface UnlockContainerInstanceRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Specifies the catalog version that should be used to determine container contents.  If unspecified, uses catalog
+        // Specifies the catalog version that should be used to determine container contents. If unspecified, uses catalog
         // associated with the item instance.
         CatalogVersion?: string;
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId?: string;
         // ItemInstanceId of the container to unlock.
         ContainerItemInstanceId: string;
-        // ItemInstanceId of the key that will be consumed by unlocking this container.  If the container requires a key, this
+        // ItemInstanceId of the key that will be consumed by unlocking this container. If the container requires a key, this
         // parameter is required.
         KeyItemInstanceId?: string;
 
@@ -3914,7 +3927,7 @@ declare module PlayFabClientModels {
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlockContainerItemRequest
     export interface UnlockContainerItemRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Specifies the catalog version that should be used to determine container contents.  If unspecified, uses default/primary
+        // Specifies the catalog version that should be used to determine container contents. If unspecified, uses default/primary
         // catalog.
         CatalogVersion?: string;
         // Unique PlayFab assigned ID for a specific character owned by a user
@@ -3951,8 +3964,8 @@ declare module PlayFabClientModels {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
-        // Optional list of Data-keys to remove from UserData.  Some SDKs cannot insert null-values into Data due to language
-        // constraints.  Use this to delete the keys directly.
+        // Optional list of Data-keys to remove from UserData. Some SDKs cannot insert null-values into Data due to language
+        // constraints. Use this to delete the keys directly.
         KeysToRemove?: string[];
         // Permission to be applied to all user data keys written in this request. Defaults to "private" if not set.
         Permission?: string;
@@ -3998,8 +4011,8 @@ declare module PlayFabClientModels {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
-        // Optional list of Data-keys to remove from UserData.  Some SDKs cannot insert null-values into Data due to language
-        // constraints.  Use this to delete the keys directly.
+        // Optional list of Data-keys to remove from UserData. Some SDKs cannot insert null-values into Data due to language
+        // constraints. Use this to delete the keys directly.
         KeysToRemove?: string[];
         // Permission to be applied to all user data keys in this request.
         Permission?: string;
@@ -4018,8 +4031,8 @@ declare module PlayFabClientModels {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
-        // Optional list of Data-keys to remove from UserData.  Some SDKs cannot insert null-values into Data due to language
-        // constraints.  Use this to delete the keys directly.
+        // Optional list of Data-keys to remove from UserData. Some SDKs cannot insert null-values into Data due to language
+        // constraints. Use this to delete the keys directly.
         KeysToRemove?: string[];
         // Permission to be applied to all user data keys written in this request. Defaults to "private" if not set. This is used
         // for requests by one player for information about another player; those requests will only return Public keys.

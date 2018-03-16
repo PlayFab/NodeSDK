@@ -1,7 +1,7 @@
 declare module PlayFabServerModule {
     export interface IPlayFabServer {
         settings: PlayFabModule.IPlayFabSettings;
-        // Increments  the character's balance of the specified virtual currency by the stated amount
+        // Increments the character's balance of the specified virtual currency by the stated amount
         // https://api.playfab.com/Documentation/Server/method/AddCharacterVirtualCurrency
         AddCharacterVirtualCurrency(request: PlayFabServerModels.AddCharacterVirtualCurrencyRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.ModifyCharacterVirtualCurrencyResult>): void;
         // Adds the Friend user to the friendlist of the user with PlayFabId. At least one of
@@ -11,12 +11,12 @@ declare module PlayFabServerModule {
         // Adds a given tag to a player profile. The tag's namespace is automatically generated based on the source of the tag.
         // https://api.playfab.com/Documentation/Server/method/AddPlayerTag
         AddPlayerTag(request: PlayFabServerModels.AddPlayerTagRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.AddPlayerTagResult>): void;
-        // Adds users to the set of those able to update both the shared data, as well as the set of users  in the group. Only
-        // users in the group (and the server) can add new members. Shared Groups are designed for sharing data  between a very
-        // small number of players, please see our guide: https://api.playfab.com/docs/tutorials/landing-players/shared-groups
+        // Adds users to the set of those able to update both the shared data, as well as the set of users in the group. Only users
+        // in the group (and the server) can add new members. Shared Groups are designed for sharing data between a very small
+        // number of players, please see our guide: https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Server/method/AddSharedGroupMembers
         AddSharedGroupMembers(request: PlayFabServerModels.AddSharedGroupMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.AddSharedGroupMembersResult>): void;
-        // Increments  the user's balance of the specified virtual currency by the stated amount
+        // Increments the user's balance of the specified virtual currency by the stated amount
         // https://api.playfab.com/Documentation/Server/method/AddUserVirtualCurrency
         AddUserVirtualCurrency(request: PlayFabServerModels.AddUserVirtualCurrencyRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.ModifyUserVirtualCurrencyResult>): void;
         // Validated a client's session ticket, and if successful, returns details for that user
@@ -31,8 +31,8 @@ declare module PlayFabServerModule {
         // Consume uses of a consumable item. When all uses are consumed, it will be removed from the player's inventory.
         // https://api.playfab.com/Documentation/Server/method/ConsumeItem
         ConsumeItem(request: PlayFabServerModels.ConsumeItemRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.ConsumeItemResult>): void;
-        // Requests the creation of a shared group object, containing key/value pairs which may  be updated by all members of the
-        // group. When created by a server, the group will initially have no members.  Shared Groups are designed for sharing data
+        // Requests the creation of a shared group object, containing key/value pairs which may be updated by all members of the
+        // group. When created by a server, the group will initially have no members. Shared Groups are designed for sharing data
         // between a very small number of players, please see our guide:
         // https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Server/method/CreateSharedGroup
@@ -40,7 +40,7 @@ declare module PlayFabServerModule {
         // Deletes the specific character ID from the specified user.
         // https://api.playfab.com/Documentation/Server/method/DeleteCharacterFromUser
         DeleteCharacterFromUser(request: PlayFabServerModels.DeleteCharacterFromUserRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.DeleteCharacterFromUserResult>): void;
-        // Deletes a shared group, freeing up the shared group ID to be reused for a new group.  Shared Groups are designed for
+        // Deletes a shared group, freeing up the shared group ID to be reused for a new group. Shared Groups are designed for
         // sharing data between a very small number of players, please see our guide:
         // https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Server/method/DeleteSharedGroup
@@ -87,13 +87,12 @@ declare module PlayFabServerModule {
         // Retrieves the details of all title-specific statistics for the specific character
         // https://api.playfab.com/Documentation/Server/method/GetCharacterStatistics
         GetCharacterStatistics(request: PlayFabServerModels.GetCharacterStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetCharacterStatisticsResult>): void;
-        // This API retrieves a pre-signed URL for accessing a content file for the title. A subsequent  HTTP GET to the returned
-        // URL will attempt to download the content. A HEAD query to the returned URL will attempt to  retrieve the metadata of the
-        // content. Note that a successful result does not guarantee the existence of this content -  if it has not been uploaded,
+        // This API retrieves a pre-signed URL for accessing a content file for the title. A subsequent HTTP GET to the returned
+        // URL will attempt to download the content. A HEAD query to the returned URL will attempt to retrieve the metadata of the
+        // content. Note that a successful result does not guarantee the existence of this content - if it has not been uploaded,
         // the query to retrieve the data will fail. See this post for more information:
-        // https://community.playfab.com/hc/en-us/community/posts/205469488-How-to-upload-files-to-PlayFab-s-Content-Service.
-        // Also, please be aware that the Content service is specifically PlayFab's CDN offering, for which standard CDN rates
-        // apply.
+        // https://community.playfab.com/hc/en-us/community/posts/205469488-How-to-upload-files-to-PlayFab-s-Content-Service. Also,
+        // please be aware that the Content service is specifically PlayFab's CDN offering, for which standard CDN rates apply.
         // https://api.playfab.com/Documentation/Server/method/GetContentDownloadUrl
         GetContentDownloadUrl(request: PlayFabServerModels.GetContentDownloadUrlRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetContentDownloadUrlResult>): void;
         // Retrieves a list of ranked friends of the given player for the given statistic, starting from the indicated point in the
@@ -144,7 +143,7 @@ declare module PlayFabServerModule {
         // Retrieves the unique PlayFab identifiers for the given set of Facebook identifiers.
         // https://api.playfab.com/Documentation/Server/method/GetPlayFabIDsFromFacebookIDs
         GetPlayFabIDsFromFacebookIDs(request: PlayFabServerModels.GetPlayFabIDsFromFacebookIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromFacebookIDsResult>): void;
-        // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers  are the profile
+        // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers are the profile
         // IDs for the user accounts, available as SteamId in the Steamworks Community API calls.
         // https://api.playfab.com/Documentation/Server/method/GetPlayFabIDsFromSteamIDs
         GetPlayFabIDsFromSteamIDs(request: PlayFabServerModels.GetPlayFabIDsFromSteamIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromSteamIDsResult>): void;
@@ -155,8 +154,8 @@ declare module PlayFabServerModule {
         // values and weights
         // https://api.playfab.com/Documentation/Server/method/GetRandomResultTables
         GetRandomResultTables(request: PlayFabServerModels.GetRandomResultTablesRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetRandomResultTablesResult>): void;
-        // Retrieves data stored in a shared group object, as well as the list of members in the group.  The server can access all
-        // public and private group data. Shared Groups are designed for sharing data between a very  small number of players,
+        // Retrieves data stored in a shared group object, as well as the list of members in the group. The server can access all
+        // public and private group data. Shared Groups are designed for sharing data between a very small number of players,
         // please see our guide: https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Server/method/GetSharedGroupData
         GetSharedGroupData(request: PlayFabServerModels.GetSharedGroupDataRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetSharedGroupDataResult>): void;
@@ -227,7 +226,7 @@ declare module PlayFabServerModule {
         // Informs the PlayFab match-making service that the user specified has left the Game Server Instance
         // https://api.playfab.com/Documentation/Server/method/NotifyMatchmakerPlayerLeft
         NotifyMatchmakerPlayerLeft(request: PlayFabServerModels.NotifyMatchmakerPlayerLeftRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.NotifyMatchmakerPlayerLeftResult>): void;
-        // Adds the virtual goods associated with the coupon to the user's inventory. Coupons can be generated  via the
+        // Adds the virtual goods associated with the coupon to the user's inventory. Coupons can be generated via the
         // Economy->Catalogs tab in the PlayFab Game Manager.
         // https://api.playfab.com/Documentation/Server/method/RedeemCoupon
         RedeemCoupon(request: PlayFabServerModels.RedeemCouponRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.RedeemCouponResult>): void;
@@ -248,7 +247,7 @@ declare module PlayFabServerModule {
         RemovePlayerTag(request: PlayFabServerModels.RemovePlayerTagRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.RemovePlayerTagResult>): void;
         // Removes users from the set of those able to update the shared data and the set of users in the group. Only users in the
         // group can remove members. If as a result of the call, zero users remain with access, the group and its associated data
-        // will be deleted. Shared Groups are designed for sharing data between a very small number of players,  please see our
+        // will be deleted. Shared Groups are designed for sharing data between a very small number of players, please see our
         // guide: https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Server/method/RemoveSharedGroupMembers
         RemoveSharedGroupMembers(request: PlayFabServerModels.RemoveSharedGroupMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.RemoveSharedGroupMembersResult>): void;
@@ -265,6 +264,9 @@ declare module PlayFabServerModule {
         // Revokes access to an item in a user's inventory
         // https://api.playfab.com/Documentation/Server/method/RevokeInventoryItem
         RevokeInventoryItem(request: PlayFabServerModels.RevokeInventoryItemRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.RevokeInventoryResult>): void;
+        // Revokes access for up to 25 items across multiple users and characters.
+        // https://api.playfab.com/Documentation/Server/method/RevokeInventoryItems
+        RevokeInventoryItems(request: PlayFabServerModels.RevokeInventoryItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.RevokeInventoryItemsResult>): void;
         // Forces an email to be sent to the registered contact email address for the user's account based on an account recovery
         // email template
         // https://api.playfab.com/Documentation/Server/method/SendCustomAccountRecoveryEmail
@@ -329,7 +331,7 @@ declare module PlayFabServerModule {
         // Updates the title-specific custom data for the user's character which is readable and writable by the client
         // https://api.playfab.com/Documentation/Server/method/UpdateCharacterData
         UpdateCharacterData(request: PlayFabServerModels.UpdateCharacterDataRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.UpdateCharacterDataResult>): void;
-        // Updates the title-specific custom data for the user's character which cannot  be accessed by the client
+        // Updates the title-specific custom data for the user's character which cannot be accessed by the client
         // https://api.playfab.com/Documentation/Server/method/UpdateCharacterInternalData
         UpdateCharacterInternalData(request: PlayFabServerModels.UpdateCharacterDataRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.UpdateCharacterDataResult>): void;
         // Updates the title-specific custom data for the user's character which can only be read by the client
@@ -343,7 +345,7 @@ declare module PlayFabServerModule {
         UpdatePlayerStatistics(request: PlayFabServerModels.UpdatePlayerStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.UpdatePlayerStatisticsResult>): void;
         // Adds, updates, and removes data keys for a shared group object. If the permission is set to Public, all fields updated
         // or added in this call will be readable by users not in the group. By default, data permissions are set to Private.
-        // Regardless of the permission setting, only members of the group (and the server) can update the data.  Shared Groups are
+        // Regardless of the permission setting, only members of the group (and the server) can update the data. Shared Groups are
         // designed for sharing data between a very small number of players, please see our guide:
         // https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Server/method/UpdateSharedGroupData
@@ -1246,7 +1248,7 @@ declare module PlayFabServerModels {
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.EvaluateRandomResultTableRequest
     export interface EvaluateRandomResultTableRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Specifies the catalog version that should be used to evaluate the Random Result Table.  If unspecified, uses
+        // Specifies the catalog version that should be used to evaluate the Random Result Table. If unspecified, uses
         // default/primary catalog.
         CatalogVersion?: string;
         // The unique identifier of the Random Result Table to use.
@@ -1346,6 +1348,367 @@ declare module PlayFabServerModels {
 
     type GameInstanceState = "Open"
         | "Closed";
+
+    type GenericErrorCodes = "Success"
+        | "InvalidParams"
+        | "AccountNotFound"
+        | "AccountBanned"
+        | "InvalidUsernameOrPassword"
+        | "InvalidTitleId"
+        | "InvalidEmailAddress"
+        | "EmailAddressNotAvailable"
+        | "InvalidUsername"
+        | "InvalidPassword"
+        | "UsernameNotAvailable"
+        | "InvalidSteamTicket"
+        | "AccountAlreadyLinked"
+        | "LinkedAccountAlreadyClaimed"
+        | "InvalidFacebookToken"
+        | "AccountNotLinked"
+        | "FailedByPaymentProvider"
+        | "CouponCodeNotFound"
+        | "InvalidContainerItem"
+        | "ContainerNotOwned"
+        | "KeyNotOwned"
+        | "InvalidItemIdInTable"
+        | "InvalidReceipt"
+        | "ReceiptAlreadyUsed"
+        | "ReceiptCancelled"
+        | "GameNotFound"
+        | "GameModeNotFound"
+        | "InvalidGoogleToken"
+        | "UserIsNotPartOfDeveloper"
+        | "InvalidTitleForDeveloper"
+        | "TitleNameConflicts"
+        | "UserisNotValid"
+        | "ValueAlreadyExists"
+        | "BuildNotFound"
+        | "PlayerNotInGame"
+        | "InvalidTicket"
+        | "InvalidDeveloper"
+        | "InvalidOrderInfo"
+        | "RegistrationIncomplete"
+        | "InvalidPlatform"
+        | "UnknownError"
+        | "SteamApplicationNotOwned"
+        | "WrongSteamAccount"
+        | "TitleNotActivated"
+        | "RegistrationSessionNotFound"
+        | "NoSuchMod"
+        | "FileNotFound"
+        | "DuplicateEmail"
+        | "ItemNotFound"
+        | "ItemNotOwned"
+        | "ItemNotRecycleable"
+        | "ItemNotAffordable"
+        | "InvalidVirtualCurrency"
+        | "WrongVirtualCurrency"
+        | "WrongPrice"
+        | "NonPositiveValue"
+        | "InvalidRegion"
+        | "RegionAtCapacity"
+        | "ServerFailedToStart"
+        | "NameNotAvailable"
+        | "InsufficientFunds"
+        | "InvalidDeviceID"
+        | "InvalidPushNotificationToken"
+        | "NoRemainingUses"
+        | "InvalidPaymentProvider"
+        | "PurchaseInitializationFailure"
+        | "DuplicateUsername"
+        | "InvalidBuyerInfo"
+        | "NoGameModeParamsSet"
+        | "BodyTooLarge"
+        | "ReservedWordInBody"
+        | "InvalidTypeInBody"
+        | "InvalidRequest"
+        | "ReservedEventName"
+        | "InvalidUserStatistics"
+        | "NotAuthenticated"
+        | "StreamAlreadyExists"
+        | "ErrorCreatingStream"
+        | "StreamNotFound"
+        | "InvalidAccount"
+        | "PurchaseDoesNotExist"
+        | "InvalidPurchaseTransactionStatus"
+        | "APINotEnabledForGameClientAccess"
+        | "NoPushNotificationARNForTitle"
+        | "BuildAlreadyExists"
+        | "BuildPackageDoesNotExist"
+        | "CustomAnalyticsEventsNotEnabledForTitle"
+        | "InvalidSharedGroupId"
+        | "NotAuthorized"
+        | "MissingTitleGoogleProperties"
+        | "InvalidItemProperties"
+        | "InvalidPSNAuthCode"
+        | "InvalidItemId"
+        | "PushNotEnabledForAccount"
+        | "PushServiceError"
+        | "ReceiptDoesNotContainInAppItems"
+        | "ReceiptContainsMultipleInAppItems"
+        | "InvalidBundleID"
+        | "JavascriptException"
+        | "InvalidSessionTicket"
+        | "UnableToConnectToDatabase"
+        | "InternalServerError"
+        | "InvalidReportDate"
+        | "ReportNotAvailable"
+        | "DatabaseThroughputExceeded"
+        | "InvalidGameTicket"
+        | "ExpiredGameTicket"
+        | "GameTicketDoesNotMatchLobby"
+        | "LinkedDeviceAlreadyClaimed"
+        | "DeviceAlreadyLinked"
+        | "DeviceNotLinked"
+        | "PartialFailure"
+        | "PublisherNotSet"
+        | "ServiceUnavailable"
+        | "VersionNotFound"
+        | "RevisionNotFound"
+        | "InvalidPublisherId"
+        | "DownstreamServiceUnavailable"
+        | "APINotIncludedInTitleUsageTier"
+        | "DAULimitExceeded"
+        | "APIRequestLimitExceeded"
+        | "InvalidAPIEndpoint"
+        | "BuildNotAvailable"
+        | "ConcurrentEditError"
+        | "ContentNotFound"
+        | "CharacterNotFound"
+        | "CloudScriptNotFound"
+        | "ContentQuotaExceeded"
+        | "InvalidCharacterStatistics"
+        | "PhotonNotEnabledForTitle"
+        | "PhotonApplicationNotFound"
+        | "PhotonApplicationNotAssociatedWithTitle"
+        | "InvalidEmailOrPassword"
+        | "FacebookAPIError"
+        | "InvalidContentType"
+        | "KeyLengthExceeded"
+        | "DataLengthExceeded"
+        | "TooManyKeys"
+        | "FreeTierCannotHaveVirtualCurrency"
+        | "MissingAmazonSharedKey"
+        | "AmazonValidationError"
+        | "InvalidPSNIssuerId"
+        | "PSNInaccessible"
+        | "ExpiredAuthToken"
+        | "FailedToGetEntitlements"
+        | "FailedToConsumeEntitlement"
+        | "TradeAcceptingUserNotAllowed"
+        | "TradeInventoryItemIsAssignedToCharacter"
+        | "TradeInventoryItemIsBundle"
+        | "TradeStatusNotValidForCancelling"
+        | "TradeStatusNotValidForAccepting"
+        | "TradeDoesNotExist"
+        | "TradeCancelled"
+        | "TradeAlreadyFilled"
+        | "TradeWaitForStatusTimeout"
+        | "TradeInventoryItemExpired"
+        | "TradeMissingOfferedAndAcceptedItems"
+        | "TradeAcceptedItemIsBundle"
+        | "TradeAcceptedItemIsStackable"
+        | "TradeInventoryItemInvalidStatus"
+        | "TradeAcceptedCatalogItemInvalid"
+        | "TradeAllowedUsersInvalid"
+        | "TradeInventoryItemDoesNotExist"
+        | "TradeInventoryItemIsConsumed"
+        | "TradeInventoryItemIsStackable"
+        | "TradeAcceptedItemsMismatch"
+        | "InvalidKongregateToken"
+        | "FeatureNotConfiguredForTitle"
+        | "NoMatchingCatalogItemForReceipt"
+        | "InvalidCurrencyCode"
+        | "NoRealMoneyPriceForCatalogItem"
+        | "TradeInventoryItemIsNotTradable"
+        | "TradeAcceptedCatalogItemIsNotTradable"
+        | "UsersAlreadyFriends"
+        | "LinkedIdentifierAlreadyClaimed"
+        | "CustomIdNotLinked"
+        | "TotalDataSizeExceeded"
+        | "DeleteKeyConflict"
+        | "InvalidXboxLiveToken"
+        | "ExpiredXboxLiveToken"
+        | "ResettableStatisticVersionRequired"
+        | "NotAuthorizedByTitle"
+        | "NoPartnerEnabled"
+        | "InvalidPartnerResponse"
+        | "APINotEnabledForGameServerAccess"
+        | "StatisticNotFound"
+        | "StatisticNameConflict"
+        | "StatisticVersionClosedForWrites"
+        | "StatisticVersionInvalid"
+        | "APIClientRequestRateLimitExceeded"
+        | "InvalidJSONContent"
+        | "InvalidDropTable"
+        | "StatisticVersionAlreadyIncrementedForScheduledInterval"
+        | "StatisticCountLimitExceeded"
+        | "StatisticVersionIncrementRateExceeded"
+        | "ContainerKeyInvalid"
+        | "CloudScriptExecutionTimeLimitExceeded"
+        | "NoWritePermissionsForEvent"
+        | "CloudScriptFunctionArgumentSizeExceeded"
+        | "CloudScriptAPIRequestCountExceeded"
+        | "CloudScriptAPIRequestError"
+        | "CloudScriptHTTPRequestError"
+        | "InsufficientGuildRole"
+        | "GuildNotFound"
+        | "OverLimit"
+        | "EventNotFound"
+        | "InvalidEventField"
+        | "InvalidEventName"
+        | "CatalogNotConfigured"
+        | "OperationNotSupportedForPlatform"
+        | "SegmentNotFound"
+        | "StoreNotFound"
+        | "InvalidStatisticName"
+        | "TitleNotQualifiedForLimit"
+        | "InvalidServiceLimitLevel"
+        | "ServiceLimitLevelInTransition"
+        | "CouponAlreadyRedeemed"
+        | "GameServerBuildSizeLimitExceeded"
+        | "GameServerBuildCountLimitExceeded"
+        | "VirtualCurrencyCountLimitExceeded"
+        | "VirtualCurrencyCodeExists"
+        | "TitleNewsItemCountLimitExceeded"
+        | "InvalidTwitchToken"
+        | "TwitchResponseError"
+        | "ProfaneDisplayName"
+        | "UserAlreadyAdded"
+        | "InvalidVirtualCurrencyCode"
+        | "VirtualCurrencyCannotBeDeleted"
+        | "IdentifierAlreadyClaimed"
+        | "IdentifierNotLinked"
+        | "InvalidContinuationToken"
+        | "ExpiredContinuationToken"
+        | "InvalidSegment"
+        | "InvalidSessionId"
+        | "SessionLogNotFound"
+        | "InvalidSearchTerm"
+        | "TwoFactorAuthenticationTokenRequired"
+        | "GameServerHostCountLimitExceeded"
+        | "PlayerTagCountLimitExceeded"
+        | "RequestAlreadyRunning"
+        | "ActionGroupNotFound"
+        | "MaximumSegmentBulkActionJobsRunning"
+        | "NoActionsOnPlayersInSegmentJob"
+        | "DuplicateStatisticName"
+        | "ScheduledTaskNameConflict"
+        | "ScheduledTaskCreateConflict"
+        | "InvalidScheduledTaskName"
+        | "InvalidTaskSchedule"
+        | "SteamNotEnabledForTitle"
+        | "LimitNotAnUpgradeOption"
+        | "NoSecretKeyEnabledForCloudScript"
+        | "TaskNotFound"
+        | "TaskInstanceNotFound"
+        | "InvalidIdentityProviderId"
+        | "MisconfiguredIdentityProvider"
+        | "InvalidScheduledTaskType"
+        | "BillingInformationRequired"
+        | "LimitedEditionItemUnavailable"
+        | "InvalidAdPlacementAndReward"
+        | "AllAdPlacementViewsAlreadyConsumed"
+        | "GoogleOAuthNotConfiguredForTitle"
+        | "GoogleOAuthError"
+        | "UserNotFriend"
+        | "InvalidSignature"
+        | "InvalidPublicKey"
+        | "GoogleOAuthNoIdTokenIncludedInResponse"
+        | "StatisticUpdateInProgress"
+        | "LeaderboardVersionNotAvailable"
+        | "StatisticAlreadyHasPrizeTable"
+        | "PrizeTableHasOverlappingRanks"
+        | "PrizeTableHasMissingRanks"
+        | "PrizeTableRankStartsAtZero"
+        | "InvalidStatistic"
+        | "ExpressionParseFailure"
+        | "ExpressionInvokeFailure"
+        | "ExpressionTooLong"
+        | "DataUpdateRateExceeded"
+        | "RestrictedEmailDomain"
+        | "EncryptionKeyDisabled"
+        | "EncryptionKeyMissing"
+        | "EncryptionKeyBroken"
+        | "NoSharedSecretKeyConfigured"
+        | "SecretKeyNotFound"
+        | "PlayerSecretAlreadyConfigured"
+        | "APIRequestsDisabledForTitle"
+        | "InvalidSharedSecretKey"
+        | "PrizeTableHasNoRanks"
+        | "ProfileDoesNotExist"
+        | "ContentS3OriginBucketNotConfigured"
+        | "InvalidEnvironmentForReceipt"
+        | "EncryptedRequestNotAllowed"
+        | "SignedRequestNotAllowed"
+        | "RequestViewConstraintParamsNotAllowed"
+        | "BadPartnerConfiguration"
+        | "XboxBPCertificateFailure"
+        | "XboxXASSExchangeFailure"
+        | "InvalidEntityId"
+        | "StatisticValueAggregationOverflow"
+        | "EmailMessageFromAddressIsMissing"
+        | "EmailMessageToAddressIsMissing"
+        | "SmtpServerAuthenticationError"
+        | "SmtpServerLimitExceeded"
+        | "SmtpServerInsufficientStorage"
+        | "SmtpServerCommunicationError"
+        | "SmtpServerGeneralFailure"
+        | "EmailClientTimeout"
+        | "EmailClientCanceledTask"
+        | "EmailTemplateMissing"
+        | "InvalidHostForTitleId"
+        | "EmailConfirmationTokenDoesNotExist"
+        | "EmailConfirmationTokenExpired"
+        | "AccountDeleted"
+        | "PlayerSecretNotConfigured"
+        | "InvalidSignatureTime"
+        | "NoContactEmailAddressFound"
+        | "InvalidAuthToken"
+        | "AuthTokenDoesNotExist"
+        | "AuthTokenExpired"
+        | "AuthTokenAlreadyUsedToResetPassword"
+        | "MembershipNameTooLong"
+        | "MembershipNotFound"
+        | "GoogleServiceAccountInvalid"
+        | "GoogleServiceAccountParseFailure"
+        | "EntityTokenMissing"
+        | "EntityTokenInvalid"
+        | "EntityTokenExpired"
+        | "EntityTokenRevoked"
+        | "InvalidProductForSubscription"
+        | "XboxInaccessible"
+        | "SubscriptionAlreadyTaken"
+        | "SmtpAddonNotEnabled"
+        | "APIConcurrentRequestLimitExceeded"
+        | "XboxRejectedXSTSExchangeRequest"
+        | "VariableNotDefined"
+        | "TemplateVersionNotDefined"
+        | "FileTooLarge"
+        | "TitleDeleted"
+        | "TitleContainsUserAccounts"
+        | "TitleDeletionPlayerCleanupFailure"
+        | "EntityFileOperationPending"
+        | "NoEntityFileOperationPending"
+        | "EntityProfileVersionMismatch"
+        | "TemplateVersionTooOld"
+        | "MembershipDefinitionInUse"
+        | "PaymentPageNotConfigured"
+        | "FailedLoginAttemptRateLimitExceeded"
+        | "EntityBlockedByGroup"
+        | "RoleDoesNotExist"
+        | "EntityIsAlreadyMember"
+        | "DuplicateRoleId"
+        | "GroupInvitationNotFound"
+        | "GroupApplicationNotFound"
+        | "OutstandingInvitationAcceptedInstead"
+        | "OutstandingApplicationAcceptedInstead"
+        | "RoleIsGroupDefaultMember"
+        | "RoleIsGroupAdmin"
+        | "RoleNameNotAvailable"
+        | "GroupNameNotAvailable"
+        | "EmailReportAlreadySent"
+        | "EmailReportRecipientBlacklisted";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetAllSegmentsRequest
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1870,7 +2233,7 @@ declare module PlayFabServerModels {
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetRandomResultTablesRequest
     export interface GetRandomResultTablesRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Specifies the catalog version that should be used to retrieve the Random Result Tables.  If unspecified, uses
+        // Specifies the catalog version that should be used to retrieve the Random Result Tables. If unspecified, uses
         // default/primary catalog.
         CatalogVersion?: string;
         // The unique identifier of the Random Result Table to use.
@@ -2158,8 +2521,8 @@ declare module PlayFabServerModels {
         Data?: { [key: string]: string | null };
         // Unique identifier of the catalog item to be granted to the user.
         ItemId: string;
-        // Optional list of Data-keys to remove from UserData.  Some SDKs cannot insert null-values into Data due to language
-        // constraints.  Use this to delete the keys directly.
+        // Optional list of Data-keys to remove from UserData. Some SDKs cannot insert null-values into Data due to language
+        // constraints. Use this to delete the keys directly.
         KeysToRemove?: string[];
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
@@ -2524,7 +2887,7 @@ declare module PlayFabServerModels {
         // Title ID this player profile applies to
         TitleId?: string;
         // Sum of the player's purchases made with real-money currencies, converted to US dollars equivalent and represented as a
-        // whole number of cents (1/100 USD).              For example, 999 indicates nine dollars and ninety-nine cents.
+        // whole number of cents (1/100 USD).       For example, 999 indicates nine dollars and ninety-nine cents.
         TotalValueToDateInUSD?: number;
         // List of the player's lifetime purchase totals, summed by real-money currency
         ValuesToDate?: ValueToDateModel[];
@@ -2835,6 +3198,17 @@ declare module PlayFabServerModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.RevokeInventoryItem
+    export interface RevokeInventoryItem {
+        // Unique PlayFab assigned ID for a specific character owned by a user
+        CharacterId?: string;
+        // Unique PlayFab assigned instance identifier of the item
+        ItemInstanceId: string;
+        // Unique PlayFab assigned ID of the user on whom the operation will be performed.
+        PlayFabId: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.RevokeInventoryItemRequest
     export interface RevokeInventoryItemRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID for a specific character owned by a user
@@ -2846,8 +3220,31 @@ declare module PlayFabServerModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.RevokeInventoryItemsRequest
+    export interface RevokeInventoryItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of player items to revoke, between 1 and 25 items.
+        Items: RevokeInventoryItem[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.RevokeInventoryItemsResult
+    export interface RevokeInventoryItemsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Collection of any errors that occurred during processing.
+        Errors?: RevokeItemError[];
+
+    }
+
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.RevokeInventoryResult
     export interface RevokeInventoryResult extends PlayFabModule.IPlayFabResultCommon {
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.RevokeItemError
+    export interface RevokeItemError {
+        // Specific error that was encountered.
+        Error?: string;
+        // Item information that failed to be revoked.
+        Item?: RevokeInventoryItem;
 
     }
 
@@ -3160,14 +3557,14 @@ declare module PlayFabServerModels {
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.UnlockContainerInstanceRequest
     export interface UnlockContainerInstanceRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Specifies the catalog version that should be used to determine container contents.  If unspecified, uses catalog
+        // Specifies the catalog version that should be used to determine container contents. If unspecified, uses catalog
         // associated with the item instance.
         CatalogVersion?: string;
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId?: string;
         // ItemInstanceId of the container to unlock.
         ContainerItemInstanceId: string;
-        // ItemInstanceId of the key that will be consumed by unlocking this container.  If the container requires a key, this
+        // ItemInstanceId of the key that will be consumed by unlocking this container. If the container requires a key, this
         // parameter is required.
         KeyItemInstanceId?: string;
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
@@ -3177,7 +3574,7 @@ declare module PlayFabServerModels {
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.UnlockContainerItemRequest
     export interface UnlockContainerItemRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Specifies the catalog version that should be used to determine container contents.  If unspecified, uses default/primary
+        // Specifies the catalog version that should be used to determine container contents. If unspecified, uses default/primary
         // catalog.
         CatalogVersion?: string;
         // Unique PlayFab assigned ID for a specific character owned by a user
@@ -3251,8 +3648,8 @@ declare module PlayFabServerModels {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
-        // Optional list of Data-keys to remove from UserData.  Some SDKs cannot insert null-values into Data due to language
-        // constraints.  Use this to delete the keys directly.
+        // Optional list of Data-keys to remove from UserData. Some SDKs cannot insert null-values into Data due to language
+        // constraints. Use this to delete the keys directly.
         KeysToRemove?: string[];
         // Permission to be applied to all user data keys written in this request. Defaults to "private" if not set.
         Permission?: string;
@@ -3307,8 +3704,8 @@ declare module PlayFabServerModels {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
-        // Optional list of Data-keys to remove from UserData.  Some SDKs cannot insert null-values into Data due to language
-        // constraints.  Use this to delete the keys directly.
+        // Optional list of Data-keys to remove from UserData. Some SDKs cannot insert null-values into Data due to language
+        // constraints. Use this to delete the keys directly.
         KeysToRemove?: string[];
         // Permission to be applied to all user data keys in this request.
         Permission?: string;
@@ -3327,8 +3724,8 @@ declare module PlayFabServerModels {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
-        // Optional list of Data-keys to remove from UserData.  Some SDKs cannot insert null-values into Data due to language
-        // constraints.  Use this to delete the keys directly.
+        // Optional list of Data-keys to remove from UserData. Some SDKs cannot insert null-values into Data due to language
+        // constraints. Use this to delete the keys directly.
         KeysToRemove?: string[];
         // Permission to be applied to all user data keys written in this request. Defaults to "private" if not set.
         Permission?: string;
@@ -3350,8 +3747,8 @@ declare module PlayFabServerModels {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
-        // Optional list of Data-keys to remove from UserData.  Some SDKs cannot insert null-values into Data due to language
-        // constraints.  Use this to delete the keys directly.
+        // Optional list of Data-keys to remove from UserData. Some SDKs cannot insert null-values into Data due to language
+        // constraints. Use this to delete the keys directly.
         KeysToRemove?: string[];
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
@@ -3367,8 +3764,8 @@ declare module PlayFabServerModels {
         Data?: { [key: string]: string | null };
         // Unique PlayFab assigned instance identifier of the item
         ItemInstanceId: string;
-        // Optional list of Data-keys to remove from UserData.  Some SDKs cannot insert null-values into Data due to language
-        // constraints.  Use this to delete the keys directly.
+        // Optional list of Data-keys to remove from UserData. Some SDKs cannot insert null-values into Data due to language
+        // constraints. Use this to delete the keys directly.
         KeysToRemove?: string[];
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;

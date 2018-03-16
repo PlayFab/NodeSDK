@@ -680,6 +680,7 @@ exports.LoginWithAndroidDeviceID = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithAndroidDeviceID", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -693,6 +694,7 @@ exports.LoginWithCustomID = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithCustomID", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -706,6 +708,7 @@ exports.LoginWithEmailAddress = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithEmailAddress", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -719,6 +722,7 @@ exports.LoginWithFacebook = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithFacebook", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -732,6 +736,7 @@ exports.LoginWithGameCenter = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithGameCenter", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -745,6 +750,7 @@ exports.LoginWithGoogleAccount = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithGoogleAccount", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -758,6 +764,7 @@ exports.LoginWithIOSDeviceID = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithIOSDeviceID", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -771,6 +778,7 @@ exports.LoginWithKongregate = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithKongregate", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -784,6 +792,7 @@ exports.LoginWithPlayFab = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithPlayFab", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -797,6 +806,7 @@ exports.LoginWithSteam = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithSteam", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -810,6 +820,7 @@ exports.LoginWithTwitch = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithTwitch", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -823,6 +834,7 @@ exports.LoginWithWindowsHello = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithWindowsHello", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -890,6 +902,7 @@ exports.RegisterPlayFabUser = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RegisterPlayFabUser", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
@@ -903,6 +916,7 @@ exports.RegisterWithWindowsHello = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RegisterWithWindowsHello", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
         }
         if (callback != null)
