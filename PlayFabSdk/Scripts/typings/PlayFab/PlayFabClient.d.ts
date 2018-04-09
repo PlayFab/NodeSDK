@@ -4248,6 +4248,8 @@ declare module PlayFabClientModels {
         LastLogin?: string;
         // source by which the user first joined the game, if known
         Origination?: string;
+        // Title player account entity for this user
+        TitlePlayerAccount?: EntityKey;
 
     }
 
