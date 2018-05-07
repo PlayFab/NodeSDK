@@ -1406,6 +1406,7 @@ declare module PlayFabAdminModels {
     }
 
     type GenericErrorCodes = "Success"
+        | "UnkownError"
         | "InvalidParams"
         | "AccountNotFound"
         | "AccountBanned"
@@ -1766,7 +1767,13 @@ declare module PlayFabAdminModels {
         | "EmailReportAlreadySent"
         | "EmailReportRecipientBlacklisted"
         | "EventNamespaceNotAllowed"
-        | "EventEntityNotAllowed";
+        | "EventEntityNotAllowed"
+        | "InvalidEntityType"
+        | "NullTokenResultFromAad"
+        | "InvalidTokenResultFromAad"
+        | "NoValidCertificateForAad"
+        | "InvalidCertificateForAad"
+        | "DuplicateDropTableId";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetActionsOnPlayersInSegmentTaskInstanceResult
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {

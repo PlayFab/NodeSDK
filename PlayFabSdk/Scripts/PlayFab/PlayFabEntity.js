@@ -163,6 +163,14 @@ exports.GetProfile = function (request, callback) {
     });
 };
 
+exports.GetProfiles = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Profile/GetProfiles", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.InitiateFileUploads = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/File/InitiateFileUploads", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 

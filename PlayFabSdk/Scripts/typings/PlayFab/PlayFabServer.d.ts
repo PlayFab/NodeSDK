@@ -1367,6 +1367,7 @@ declare module PlayFabServerModels {
         | "Closed";
 
     type GenericErrorCodes = "Success"
+        | "UnkownError"
         | "InvalidParams"
         | "AccountNotFound"
         | "AccountBanned"
@@ -1727,7 +1728,13 @@ declare module PlayFabServerModels {
         | "EmailReportAlreadySent"
         | "EmailReportRecipientBlacklisted"
         | "EventNamespaceNotAllowed"
-        | "EventEntityNotAllowed";
+        | "EventEntityNotAllowed"
+        | "InvalidEntityType"
+        | "NullTokenResultFromAad"
+        | "InvalidTokenResultFromAad"
+        | "NoValidCertificateForAad"
+        | "InvalidCertificateForAad"
+        | "DuplicateDropTableId";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetAllSegmentsRequest
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
