@@ -1382,7 +1382,8 @@ declare module PlayFabClientModels {
         | "master_player_account"
         | "title_player_account"
         | "character"
-        | "group";
+        | "group"
+        | "service";
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.ExecuteCloudScriptRequest
     export interface ExecuteCloudScriptRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1454,6 +1455,8 @@ declare module PlayFabClientModels {
         GameCenterInfo?: UserGameCenterInfo;
         // The profile of the user, if requested.
         Profile?: PlayerProfileModel;
+        // Available PSN information, if the user and PlayFab friend are both connected to PSN.
+        PSNInfo?: UserPsnInfo;
         // Available Steam information (if the user and PlayFab friend are also connected in Steam).
         SteamInfo?: UserSteamInfo;
         // Tags which have been associated with this friend.
@@ -1462,6 +1465,8 @@ declare module PlayFabClientModels {
         TitleDisplayName?: string;
         // PlayFab unique username for this friend.
         Username?: string;
+        // Available Xbox information, if the user and PlayFab friend are both connected to Xbox Live.
+        XboxInfo?: UserXboxInfo;
 
     }
 
@@ -1702,6 +1707,8 @@ declare module PlayFabClientModels {
         StatisticName: string;
         // The version of the leaderboard to get.
         Version?: number;
+        // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
+        XboxToken?: string;
 
     }
 
@@ -1734,6 +1741,8 @@ declare module PlayFabClientModels {
         StatisticName: string;
         // The version of the leaderboard to get.
         Version?: number;
+        // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
+        XboxToken?: string;
 
     }
 
@@ -1747,6 +1756,8 @@ declare module PlayFabClientModels {
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
         ProfileConstraints?: number;
+        // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
+        XboxToken?: string;
 
     }
 

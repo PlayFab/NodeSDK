@@ -44,6 +44,9 @@ declare module PlayFabAdminModule {
         // Delete a content file from the title. When deleting a file that does not exist, it returns success.
         // https://api.playfab.com/Documentation/Admin/method/DeleteContent
         DeleteContent(request: PlayFabAdminModels.DeleteContentRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.BlankResult>): void;
+        // Removes a master player account entirely from all titles and deletes all associated data
+        // https://api.playfab.com/Documentation/Admin/method/DeleteMasterPlayerAccount
+        DeleteMasterPlayerAccount(request: PlayFabAdminModels.DeleteMasterPlayerAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteMasterPlayerAccountResult>): void;
         // Removes a user's player account from a title and deletes all associated data
         // https://api.playfab.com/Documentation/Admin/method/DeletePlayer
         DeletePlayer(request: PlayFabAdminModels.DeletePlayerRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeletePlayerResult>): void;
@@ -60,6 +63,9 @@ declare module PlayFabAdminModule {
         // Permanently deletes a title and all associated configuration
         // https://api.playfab.com/Documentation/Admin/method/DeleteTitle
         DeleteTitle(request: PlayFabAdminModels.DeleteTitleRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteTitleResult>): void;
+        // Exports all associated data of a master player account
+        // https://api.playfab.com/Documentation/Admin/method/ExportMasterPlayerData
+        ExportMasterPlayerData(request: PlayFabAdminModels.ExportMasterPlayerDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ExportMasterPlayerDataResult>): void;
         // Get information about a ActionsOnPlayersInSegment task instance.
         // https://api.playfab.com/Documentation/Admin/method/GetActionsOnPlayersInSegmentTaskInstance
         GetActionsOnPlayersInSegmentTaskInstance(request: PlayFabAdminModels.GetTaskInstanceRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetActionsOnPlayersInSegmentTaskInstanceResult>): void;
@@ -97,6 +103,9 @@ declare module PlayFabAdminModule {
         // Retrieves the details of defined game modes for the specified game server executable
         // https://api.playfab.com/Documentation/Admin/method/GetMatchmakerGameModes
         GetMatchmakerGameModes(request: PlayFabAdminModels.GetMatchmakerGameModesRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetMatchmakerGameModesResult>): void;
+        // Get the list of titles that the player has played
+        // https://api.playfab.com/Documentation/Admin/method/GetPlayedTitleList
+        GetPlayedTitleList(request: PlayFabAdminModels.GetPlayedTitleListRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayedTitleListResult>): void;
         // Gets a player's ID from an auth token.
         // https://api.playfab.com/Documentation/Admin/method/GetPlayerIdFromAuthToken
         GetPlayerIdFromAuthToken(request: PlayFabAdminModels.GetPlayerIdFromAuthTokenRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayerIdFromAuthTokenResult>): void;
@@ -1256,6 +1265,23 @@ declare module PlayFabAdminModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteMasterPlayerAccountRequest
+    export interface DeleteMasterPlayerAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Unique PlayFab assigned ID of the user on whom the operation will be performed.
+        PlayFabId: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteMasterPlayerAccountResult
+    export interface DeleteMasterPlayerAccountResult extends PlayFabModule.IPlayFabResultCommon {
+        // A notification email with this job receipt Id will be sent to the title notification email address when deletion is
+        // complete.
+        JobReceiptId?: string;
+        // List of titles from which the player's data will be deleted.
+        TitleIds?: string[];
+
+    }
+
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeletePlayerRequest
     export interface DeletePlayerRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
@@ -1353,7 +1379,8 @@ declare module PlayFabAdminModels {
         | "master_player_account"
         | "title_player_account"
         | "character"
-        | "group";
+        | "group"
+        | "service";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ExecuteCloudScriptResult
     export interface ExecuteCloudScriptResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1383,6 +1410,21 @@ declare module PlayFabAdminModels {
         ProcessorTimeSeconds: number;
         // The revision of the CloudScript that executed
         Revision: number;
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ExportMasterPlayerDataRequest
+    export interface ExportMasterPlayerDataRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Unique PlayFab assigned ID of the user on whom the operation will be performed.
+        PlayFabId: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ExportMasterPlayerDataResult
+    export interface ExportMasterPlayerDataResult extends PlayFabModule.IPlayFabResultCommon {
+        // An email with this job receipt Id containing the export download link will be sent to the title notification email
+        // address when the export is complete.
+        JobReceiptId?: string;
 
     }
 
@@ -1773,7 +1815,17 @@ declare module PlayFabAdminModels {
         | "InvalidTokenResultFromAad"
         | "NoValidCertificateForAad"
         | "InvalidCertificateForAad"
-        | "DuplicateDropTableId";
+        | "DuplicateDropTableId"
+        | "ComputeOK"
+        | "ComputeAccepted"
+        | "ComputeNoContent"
+        | "ComputeBadRequest"
+        | "ComputeUnauthorized"
+        | "ComputeForbidden"
+        | "ComputeNotFound"
+        | "ComputeConflict"
+        | "ComputeInternalServerError"
+        | "ComputeServiceUnavailable";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetActionsOnPlayersInSegmentTaskInstanceResult
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1954,6 +2006,20 @@ declare module PlayFabAdminModels {
     export interface GetMatchmakerGameModesResult extends PlayFabModule.IPlayFabResultCommon {
         // array of game modes available for the specified build
         GameModes?: GameModeInfo[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayedTitleListRequest
+    export interface GetPlayedTitleListRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Unique PlayFab assigned ID of the user on whom the operation will be performed.
+        PlayFabId: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayedTitleListResult
+    export interface GetPlayedTitleListResult extends PlayFabModule.IPlayFabResultCommon {
+        // List of titles the player has played
+        TitleIds?: string[];
 
     }
 
