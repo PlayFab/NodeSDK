@@ -1261,7 +1261,8 @@ declare module PlayFabServerModels {
         | "master_player_account"
         | "title_player_account"
         | "character"
-        | "group";
+        | "group"
+        | "service";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.EvaluateRandomResultTableRequest
     export interface EvaluateRandomResultTableRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1352,6 +1353,8 @@ declare module PlayFabServerModels {
         GameCenterInfo?: UserGameCenterInfo;
         // The profile of the user, if requested.
         Profile?: PlayerProfileModel;
+        // Available PSN information, if the user and PlayFab friend are both connected to PSN.
+        PSNInfo?: UserPsnInfo;
         // Available Steam information (if the user and PlayFab friend are also connected in Steam).
         SteamInfo?: UserSteamInfo;
         // Tags which have been associated with this friend.
@@ -1360,6 +1363,8 @@ declare module PlayFabServerModels {
         TitleDisplayName?: string;
         // PlayFab unique username for this friend.
         Username?: string;
+        // Available Xbox information, if the user and PlayFab friend are both connected to Xbox Live.
+        XboxInfo?: UserXboxInfo;
 
     }
 
@@ -1734,7 +1739,17 @@ declare module PlayFabServerModels {
         | "InvalidTokenResultFromAad"
         | "NoValidCertificateForAad"
         | "InvalidCertificateForAad"
-        | "DuplicateDropTableId";
+        | "DuplicateDropTableId"
+        | "ComputeOK"
+        | "ComputeAccepted"
+        | "ComputeNoContent"
+        | "ComputeBadRequest"
+        | "ComputeUnauthorized"
+        | "ComputeForbidden"
+        | "ComputeNotFound"
+        | "ComputeConflict"
+        | "ComputeInternalServerError"
+        | "ComputeServiceUnavailable";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetAllSegmentsRequest
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1897,6 +1912,8 @@ declare module PlayFabServerModels {
         StatisticName: string;
         // The version of the leaderboard to get.
         Version?: number;
+        // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
+        XboxToken?: string;
 
     }
 
@@ -1912,6 +1929,8 @@ declare module PlayFabServerModels {
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
         ProfileConstraints?: number;
+        // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
+        XboxToken?: string;
 
     }
 
