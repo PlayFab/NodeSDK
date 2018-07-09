@@ -100,6 +100,14 @@ exports.DeleteRole = function (request, callback) {
     });
 };
 
+exports.ExecuteEntityCloudScript = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/CloudScript/ExecuteEntityCloudScript", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.FinalizeFileUploads = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/File/FinalizeFileUploads", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 
@@ -309,6 +317,14 @@ exports.UpdateGroup = function (request, callback) {
 
 exports.UpdateRole = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Group/UpdateRole", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.WriteEvents = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Event/WriteEvents", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 
         if (callback != null)
             callback(error, result);

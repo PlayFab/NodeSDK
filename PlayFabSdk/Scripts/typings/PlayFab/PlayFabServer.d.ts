@@ -1372,7 +1372,6 @@ declare module PlayFabServerModels {
         | "Closed";
 
     type GenericErrorCodes = "Success"
-        | "MatchmakingHopperIdInvalid"
         | "UnkownError"
         | "InvalidParams"
         | "AccountNotFound"
@@ -1751,9 +1750,11 @@ declare module PlayFabServerModels {
         | "GameServerConflict"
         | "GameServerInternalServerError"
         | "GameServerServiceUnavailable"
-        | "MatchmakingInvalidEntityKeyList"
-        | "MatchmakingInvalidTicketCreatorProfile"
-        | "MatchmakingInvalidUserAttributes"
+        | "ExplicitContentDetected"
+        | "PIIContentDetected"
+        | "InvalidScheduledTaskParameter"
+        | "MatchmakingEntityInvalid"
+        | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingCreateRequestMissing"
         | "MatchmakingCreateRequestCreatorMissing"
         | "MatchmakingCreateRequestCreatorIdMissing"
@@ -1765,7 +1766,7 @@ declare module PlayFabServerModels {
         | "MatchmakingHopperIdMissing"
         | "MatchmakingTitleIdMissing"
         | "MatchmakingTicketIdIdMissing"
-        | "MatchmakingUserIdMissing"
+        | "MatchmakingPlayerIdMissing"
         | "MatchmakingJoinRequestUserMissing"
         | "MatchmakingHopperConfigNotFound"
         | "MatchmakingMatchNotFound"
@@ -1778,10 +1779,12 @@ declare module PlayFabServerModels {
         | "MatchmakingCancelTicketServerIdentityInvalid"
         | "MatchmakingCancelTicketUserIdentityMismatch"
         | "MatchmakingGetMatchIdentityMismatch"
-        | "MatchmakingUserIdentityMismatch"
+        | "MatchmakingPlayerIdentityMismatch"
         | "MatchmakingAlreadyJoinedTicket"
         | "MatchmakingTicketAlreadyCompleted"
-        | "MatchmakingHopperConfigInvalid";
+        | "MatchmakingHopperIdInvalid"
+        | "MatchmakingHopperConfigInvalid"
+        | "MatchmakingMemberProfileInvalid";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetAllSegmentsRequest
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {

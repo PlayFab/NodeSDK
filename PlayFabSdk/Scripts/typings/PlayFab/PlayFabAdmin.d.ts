@@ -1433,7 +1433,6 @@ declare module PlayFabAdminModels {
     }
 
     type GenericErrorCodes = "Success"
-        | "MatchmakingHopperIdInvalid"
         | "UnkownError"
         | "InvalidParams"
         | "AccountNotFound"
@@ -1812,9 +1811,11 @@ declare module PlayFabAdminModels {
         | "GameServerConflict"
         | "GameServerInternalServerError"
         | "GameServerServiceUnavailable"
-        | "MatchmakingInvalidEntityKeyList"
-        | "MatchmakingInvalidTicketCreatorProfile"
-        | "MatchmakingInvalidUserAttributes"
+        | "ExplicitContentDetected"
+        | "PIIContentDetected"
+        | "InvalidScheduledTaskParameter"
+        | "MatchmakingEntityInvalid"
+        | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingCreateRequestMissing"
         | "MatchmakingCreateRequestCreatorMissing"
         | "MatchmakingCreateRequestCreatorIdMissing"
@@ -1826,7 +1827,7 @@ declare module PlayFabAdminModels {
         | "MatchmakingHopperIdMissing"
         | "MatchmakingTitleIdMissing"
         | "MatchmakingTicketIdIdMissing"
-        | "MatchmakingUserIdMissing"
+        | "MatchmakingPlayerIdMissing"
         | "MatchmakingJoinRequestUserMissing"
         | "MatchmakingHopperConfigNotFound"
         | "MatchmakingMatchNotFound"
@@ -1839,10 +1840,12 @@ declare module PlayFabAdminModels {
         | "MatchmakingCancelTicketServerIdentityInvalid"
         | "MatchmakingCancelTicketUserIdentityMismatch"
         | "MatchmakingGetMatchIdentityMismatch"
-        | "MatchmakingUserIdentityMismatch"
+        | "MatchmakingPlayerIdentityMismatch"
         | "MatchmakingAlreadyJoinedTicket"
         | "MatchmakingTicketAlreadyCompleted"
-        | "MatchmakingHopperConfigInvalid";
+        | "MatchmakingHopperIdInvalid"
+        | "MatchmakingHopperConfigInvalid"
+        | "MatchmakingMemberProfileInvalid";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetActionsOnPlayersInSegmentTaskInstanceResult
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
@@ -3403,7 +3406,9 @@ declare module PlayFabAdminModels {
         | "BackEnd"
         | "GameClient"
         | "GameServer"
-        | "Partner";
+        | "Partner"
+        | "Custom"
+        | "API";
 
     type StatisticAggregationMethod = "Last"
         | "Min"
