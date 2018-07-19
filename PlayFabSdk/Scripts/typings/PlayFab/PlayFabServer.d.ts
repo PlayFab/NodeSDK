@@ -1753,6 +1753,7 @@ declare module PlayFabServerModels {
         | "ExplicitContentDetected"
         | "PIIContentDetected"
         | "InvalidScheduledTaskParameter"
+        | "PerEntityEventRateLimitExceeded"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingCreateRequestMissing"
@@ -1784,7 +1785,8 @@ declare module PlayFabServerModels {
         | "MatchmakingTicketAlreadyCompleted"
         | "MatchmakingHopperIdInvalid"
         | "MatchmakingHopperConfigInvalid"
-        | "MatchmakingMemberProfileInvalid";
+        | "MatchmakingMemberProfileInvalid"
+        | "WriteAttemptedDuringExport";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetAllSegmentsRequest
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2700,7 +2702,9 @@ declare module PlayFabServerModels {
         | "IOSDevice"
         | "AndroidDevice"
         | "Twitch"
-        | "WindowsHello";
+        | "WindowsHello"
+        | "GameServer"
+        | "CustomServer";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.LogStatement
     export interface LogStatement {
@@ -3980,7 +3984,8 @@ declare module PlayFabServerModels {
         | "XboxLive"
         | "Parse"
         | "Twitch"
-        | "WindowsHello";
+        | "WindowsHello"
+        | "ServerCustomId";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.UserPrivateAccountInfo
     export interface UserPrivateAccountInfo {
