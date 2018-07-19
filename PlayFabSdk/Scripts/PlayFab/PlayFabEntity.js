@@ -291,6 +291,14 @@ exports.SetObjects = function (request, callback) {
     });
 };
 
+exports.SetProfileLocale = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Profile/SetProfileLocale", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.SetProfilePolicy = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Profile/SetProfilePolicy", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 

@@ -107,6 +107,9 @@ declare module PlayFabEntityModule {
         // Sets objects on an entity's profile.
         // https://api.playfab.com/Documentation/Entity/method/SetObjects
         SetObjects(request: PlayFabEntityModels.SetObjectsRequest, callback: PlayFabModule.ApiCallback<PlayFabEntityModels.SetObjectsResponse>): void;
+        // Updates the entity's locale
+        // https://api.playfab.com/Documentation/Entity/method/SetProfileLocale
+        SetProfileLocale(request: PlayFabEntityModels.SetProfileLocaleRequest, callback: PlayFabModule.ApiCallback<PlayFabEntityModels.SetProfileLocaleResponse>): void;
         // Sets the profiles access policy
         // https://api.playfab.com/Documentation/Entity/method/SetProfilePolicy
         SetProfilePolicy(request: PlayFabEntityModels.SetEntityProfilePolicyRequest, callback: PlayFabModule.ApiCallback<PlayFabEntityModels.SetEntityProfilePolicyResponse>): void;
@@ -389,6 +392,8 @@ declare module PlayFabEntityModels {
         EntityChain?: string;
         // The files on this profile.
         Files?: { [key: string]: EntityProfileFileMetadata };
+        // The locale on this profile.
+        Locale?: string;
         // The objects on this profile.
         Objects?: { [key: string]: EntityDataObject };
         // The permissions that govern access to this entity profile and its properties. Only includes permissions set on this
@@ -1032,6 +1037,26 @@ declare module PlayFabEntityModels {
         ProfileVersion: number;
         // New version of the entity profile.
         SetResults?: SetObjectInfo[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Entity/datatype/PlayFab.Entity.Models/PlayFab.Entity.Models.SetProfileLocaleRequest
+    export interface SetProfileLocaleRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The entity to perform this action on.
+        Entity?: EntityKey;
+        // The expected version of a profile to perform this update on
+        ExpectedVersion: number;
+        // The locale to set on the given entity. Deletes the profile's locale if passed in a null or empty string.
+        Locale?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Entity/datatype/PlayFab.Entity.Models/PlayFab.Entity.Models.SetProfileLocaleResponse
+    export interface SetProfileLocaleResponse extends PlayFabModule.IPlayFabResultCommon {
+        // The type of operation that occured on the profile's locale
+        OperationResult?: string;
+        // The updated version of the profile after the locale update
+        VersionNumber?: number;
 
     }
 

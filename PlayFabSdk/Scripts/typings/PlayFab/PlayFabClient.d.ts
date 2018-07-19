@@ -2693,7 +2693,9 @@ declare module PlayFabClientModels {
         | "IOSDevice"
         | "AndroidDevice"
         | "Twitch"
-        | "WindowsHello";
+        | "WindowsHello"
+        | "GameServer"
+        | "CustomServer";
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LoginResult
     export interface LoginResult extends PlayFabModule.IPlayFabResultCommon {
@@ -4199,7 +4201,8 @@ declare module PlayFabClientModels {
         | "XboxLive"
         | "Parse"
         | "Twitch"
-        | "WindowsHello";
+        | "WindowsHello"
+        | "ServerCustomId";
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UserPrivateAccountInfo
     export interface UserPrivateAccountInfo {
