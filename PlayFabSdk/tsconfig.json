@@ -6,12 +6,14 @@
         "Scripts/typings/PlayFab/PlayFab.d.ts",
         "Scripts/typings/PlayFab/PlayFabAdmin.d.ts",
         "Scripts/typings/PlayFab/PlayFabClient.d.ts",
-        "Scripts/typings/PlayFab/PlayFabEntity.d.ts",
         "Scripts/typings/PlayFab/PlayFabMatchmaker.d.ts",
         "Scripts/typings/PlayFab/PlayFabServer.d.ts",
-        "Scripts/typings/PlayFab/PlayFabClient.d.ts",
-        "Scripts/typings/PlayFab/PlayFabMatchmaker.d.ts",
-        "Scripts/typings/PlayFab/PlayFabServer.d.ts",
+        "Scripts/typings/PlayFab/PlayFabAuthentication.d.ts",
+        "Scripts/typings/PlayFab/PlayFabCloudScript.d.ts",
+        "Scripts/typings/PlayFab/PlayFabData.d.ts",
+        "Scripts/typings/PlayFab/PlayFabEvents.d.ts",
+        "Scripts/typings/PlayFab/PlayFabGroups.d.ts",
+        "Scripts/typings/PlayFab/PlayFabProfiles.d.ts",
         "test/test.ts"
     ]
 }

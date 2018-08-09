@@ -2,17 +2,27 @@ var PlayFab = require("./Scripts/PlayFab/PlayFab.js");
 
 var PlayFabAdmin = require("./Scripts/PlayFab/PlayFabAdmin.js");
 var PlayFabClient = require("./Scripts/PlayFab/PlayFabClient.js");
-var PlayFabEntity = require("./Scripts/PlayFab/PlayFabEntity.js");
 var PlayFabMatchmaker = require("./Scripts/PlayFab/PlayFabMatchmaker.js");
 var PlayFabServer = require("./Scripts/PlayFab/PlayFabServer.js");
+var PlayFabAuthentication = require("./Scripts/PlayFab/PlayFabAuthentication.js");
+var PlayFabCloudScript = require("./Scripts/PlayFab/PlayFabCloudScript.js");
+var PlayFabData = require("./Scripts/PlayFab/PlayFabData.js");
+var PlayFabEvents = require("./Scripts/PlayFab/PlayFabEvents.js");
+var PlayFabGroups = require("./Scripts/PlayFab/PlayFabGroups.js");
+var PlayFabProfiles = require("./Scripts/PlayFab/PlayFabProfiles.js");
 
 module.exports = {
     PlayFab : PlayFab,
     PlayFabAdmin : PlayFabAdmin,
     PlayFabClient : PlayFabClient,
-    PlayFabEntity : PlayFabEntity,
     PlayFabMatchmaker : PlayFabMatchmaker,
     PlayFabServer : PlayFabServer,
+    PlayFabAuthentication : PlayFabAuthentication,
+    PlayFabCloudScript : PlayFabCloudScript,
+    PlayFabData : PlayFabData,
+    PlayFabEvents : PlayFabEvents,
+    PlayFabGroups : PlayFabGroups,
+    PlayFabProfiles : PlayFabProfiles,
     get settings() {
         return PlayFab.settings;
     },

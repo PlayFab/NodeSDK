@@ -115,8 +115,8 @@ declare module PlayFabServerModule {
         // Retrieves a list of all of the user's characters for the given statistic.
         // https://api.playfab.com/Documentation/Server/method/GetLeaderboardForUserCharacters
         GetLeaderboardForUserCharacters(request: PlayFabServerModels.GetLeaderboardForUsersCharactersRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetLeaderboardForUsersCharactersResult>): void;
-        // Returns whatever info is requested in the response for the user. Note that PII (like email address, facebook id)
-        // may be returned. All parameters default to false.
+        // Returns whatever info is requested in the response for the user. Note that PII (like email address, facebook id) may be
+        // returned. All parameters default to false.
         // https://api.playfab.com/Documentation/Server/method/GetPlayerCombinedInfo
         GetPlayerCombinedInfo(request: PlayFabServerModels.GetPlayerCombinedInfoRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayerCombinedInfoResult>): void;
         // Retrieves the player's profile
@@ -143,6 +143,12 @@ declare module PlayFabServerModule {
         // Retrieves the unique PlayFab identifiers for the given set of Facebook identifiers.
         // https://api.playfab.com/Documentation/Server/method/GetPlayFabIDsFromFacebookIDs
         GetPlayFabIDsFromFacebookIDs(request: PlayFabServerModels.GetPlayFabIDsFromFacebookIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromFacebookIDsResult>): void;
+        // Retrieves the unique PlayFab identifiers for the given set of Facebook Instant Games identifiers.
+        // https://api.playfab.com/Documentation/Server/method/GetPlayFabIDsFromFacebookInstantGamesIds
+        GetPlayFabIDsFromFacebookInstantGamesIds(request: PlayFabServerModels.GetPlayFabIDsFromFacebookInstantGamesIdsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromFacebookInstantGamesIdsResult>): void;
+        // Retrieves the unique PlayFab identifiers for the given set of Nintendo Switch Device identifiers.
+        // https://api.playfab.com/Documentation/Server/method/GetPlayFabIDsFromNintendoSwitchDeviceIds
+        GetPlayFabIDsFromNintendoSwitchDeviceIds(request: PlayFabServerModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult>): void;
         // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers are the profile
         // IDs for the user accounts, available as SteamId in the Steamworks Community API calls.
         // https://api.playfab.com/Documentation/Server/method/GetPlayFabIDsFromSteamIDs
@@ -1332,6 +1338,15 @@ declare module PlayFabServerModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.FacebookInstantGamesPlayFabIdPair
+    export interface FacebookInstantGamesPlayFabIdPair {
+        // Unique Facebook Instant Games identifier for a user.
+        FacebookInstantGamesId?: string;
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Facebook Instant Games identifier.
+        PlayFabId?: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.FacebookPlayFabIdPair
     export interface FacebookPlayFabIdPair {
         // Unique Facebook identifier for a user.
@@ -1754,6 +1769,11 @@ declare module PlayFabServerModels {
         | "PIIContentDetected"
         | "InvalidScheduledTaskParameter"
         | "PerEntityEventRateLimitExceeded"
+        | "TitleDefaultLanguageNotSet"
+        | "EmailTemplateMissingDefaultVersion"
+        | "FacebookInstantGamesIdNotLinked"
+        | "InvalidFacebookInstantGamesSignature"
+        | "FacebookInstantGamesAuthNotConfiguredForTitle"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingCreateRequestMissing"
@@ -1764,12 +1784,12 @@ declare module PlayFabServerModels {
         | "MatchmakingTicketIdMissing"
         | "MatchmakingMatchIdMissing"
         | "MatchmakingMatchIdIdMissing"
-        | "MatchmakingHopperIdMissing"
+        | "MatchmakingQueueNameMissing"
         | "MatchmakingTitleIdMissing"
         | "MatchmakingTicketIdIdMissing"
         | "MatchmakingPlayerIdMissing"
         | "MatchmakingJoinRequestUserMissing"
-        | "MatchmakingHopperConfigNotFound"
+        | "MatchmakingQueueConfigNotFound"
         | "MatchmakingMatchNotFound"
         | "MatchmakingTicketNotFound"
         | "MatchmakingCreateTicketServerIdentityInvalid"
@@ -1783,10 +1803,12 @@ declare module PlayFabServerModels {
         | "MatchmakingPlayerIdentityMismatch"
         | "MatchmakingAlreadyJoinedTicket"
         | "MatchmakingTicketAlreadyCompleted"
-        | "MatchmakingHopperIdInvalid"
-        | "MatchmakingHopperConfigInvalid"
+        | "MatchmakingQueueNameInvalid"
+        | "MatchmakingQueueConfigInvalid"
         | "MatchmakingMemberProfileInvalid"
-        | "WriteAttemptedDuringExport";
+        | "WriteAttemptedDuringExport"
+        | "NintendoSwitchDeviceIdNotLinked"
+        | "MatchmakingNotEnabled";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetAllSegmentsRequest
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2285,6 +2307,34 @@ declare module PlayFabServerModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetPlayFabIDsFromFacebookInstantGamesIdsRequest
+    export interface GetPlayFabIDsFromFacebookInstantGamesIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique Facebook Instant Games identifiers for which the title needs to get PlayFab identifiers.
+        FacebookInstantGamesIds: string[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetPlayFabIDsFromFacebookInstantGamesIdsResult
+    export interface GetPlayFabIDsFromFacebookInstantGamesIdsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of Facebook Instant Games identifiers to PlayFab identifiers.
+        Data?: FacebookInstantGamesPlayFabIdPair[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest
+    export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique Nintendo Switch Device identifiers for which the title needs to get PlayFab identifiers.
+        NintendoSwitchDeviceIds: string[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult
+    export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of Nintendo Switch Device identifiers to PlayFab identifiers.
+        Data?: number[];
+
+    }
+
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetPlayFabIDsFromSteamIDsRequest
     export interface GetPlayFabIDsFromSteamIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Steam identifiers (Steam profile IDs) for which the title needs to get PlayFab identifiers.
@@ -2704,7 +2754,9 @@ declare module PlayFabServerModels {
         | "Twitch"
         | "WindowsHello"
         | "GameServer"
-        | "CustomServer";
+        | "CustomServer"
+        | "NintendoSwitch"
+        | "FacebookInstantGames";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.LogStatement
     export interface LogStatement {
@@ -2822,6 +2874,15 @@ declare module PlayFabServerModels {
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.MoveItemToUserFromCharacterResult
     export interface MoveItemToUserFromCharacterResult extends PlayFabModule.IPlayFabResultCommon {
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.NintendoSwitchPlayFabIdPair
+    export interface NintendoSwitchPlayFabIdPair {
+        // Unique Nintendo Switch Device identifier for a user.
+        NintendoSwitchDeviceId?: string;
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Nintendo Switch Device identifier.
+        PlayFabId?: string;
 
     }
 
@@ -2971,7 +3032,7 @@ declare module PlayFabServerModels {
         // Title ID this player profile applies to
         TitleId?: string;
         // Sum of the player's purchases made with real-money currencies, converted to US dollars equivalent and represented as a
-        // whole number of cents (1/100 USD).       For example, 999 indicates nine dollars and ninety-nine cents.
+        // whole number of cents (1/100 USD). For example, 999 indicates nine dollars and ninety-nine cents.
         TotalValueToDateInUSD?: number;
         // List of the player's lifetime purchase totals, summed by real-money currency
         ValuesToDate?: ValueToDateModel[];
@@ -3167,11 +3228,15 @@ declare module PlayFabServerModels {
         // region and use Tags (below) to specify your custom region.
         Region: string;
         // IPV4 address of the Game Server Instance.
-        ServerHost: string;
-        // IPV6 address of the Game Server Instance.
+        ServerHost?: string;
+        // IPV4 address of the game server instance.
+        ServerIPV4Address?: string;
+        // IPV6 address (if any) of the game server instance.
         ServerIPV6Address?: string;
         // Port number for communication with the Game Server Instance.
         ServerPort: string;
+        // Public DNS name (if any) of the server
+        ServerPublicDNSName?: string;
         // Tags for the Game Server Instance
         Tags?: { [key: string]: string | null };
 
@@ -3985,7 +4050,9 @@ declare module PlayFabServerModels {
         | "Parse"
         | "Twitch"
         | "WindowsHello"
-        | "ServerCustomId";
+        | "ServerCustomId"
+        | "NintendoSwitchDeviceId"
+        | "FacebookInstantGamesId";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.UserPrivateAccountInfo
     export interface UserPrivateAccountInfo {
