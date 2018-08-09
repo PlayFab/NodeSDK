@@ -157,6 +157,9 @@ declare module PlayFabClientModule {
         // Retrieves the unique PlayFab identifiers for the given set of Facebook identifiers.
         // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromFacebookIDs
         GetPlayFabIDsFromFacebookIDs(request: PlayFabClientModels.GetPlayFabIDsFromFacebookIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromFacebookIDsResult>): void;
+        // Retrieves the unique PlayFab identifiers for the given set of Facebook Instant Game identifiers.
+        // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromFacebookInstantGamesIds
+        GetPlayFabIDsFromFacebookInstantGamesIds(request: PlayFabClientModels.GetPlayFabIDsFromFacebookInstantGamesIdsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromFacebookInstantGamesIdsResult>): void;
         // Retrieves the unique PlayFab identifiers for the given set of Game Center identifiers (referenced in the Game Center
         // Programming Guide as the Player Identifier).
         // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromGameCenterIDs
@@ -175,6 +178,9 @@ declare module PlayFabClientModule {
         // http://developers.kongregate.com/docs/client/getUserId).
         // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromKongregateIDs
         GetPlayFabIDsFromKongregateIDs(request: PlayFabClientModels.GetPlayFabIDsFromKongregateIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromKongregateIDsResult>): void;
+        // Retrieves the unique PlayFab identifiers for the given set of Nintendo Switch identifiers.
+        // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromNintendoSwitchDeviceIds
+        GetPlayFabIDsFromNintendoSwitchDeviceIds(request: PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult>): void;
         // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers are the profile
         // IDs for the user accounts, available as SteamId in the Steamworks Community API calls.
         // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromSteamIDs
@@ -246,6 +252,9 @@ declare module PlayFabClientModule {
         // Links the Facebook account associated with the provided Facebook access token to the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/LinkFacebookAccount
         LinkFacebookAccount(request: PlayFabClientModels.LinkFacebookAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkFacebookAccountResult>): void;
+        // Links the Facebook Instant Games Id to the user's PlayFab account
+        // https://api.playfab.com/Documentation/Client/method/LinkFacebookInstantGamesId
+        LinkFacebookInstantGamesId(request: PlayFabClientModels.LinkFacebookInstantGamesIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkFacebookInstantGamesIdResult>): void;
         // Links the Game Center account associated with the provided Game Center ID to the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/LinkGameCenterAccount
         LinkGameCenterAccount(request: PlayFabClientModels.LinkGameCenterAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkGameCenterAccountResult>): void;
@@ -258,6 +267,9 @@ declare module PlayFabClientModule {
         // Links the Kongregate identifier to the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/LinkKongregate
         LinkKongregate(request: PlayFabClientModels.LinkKongregateAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkKongregateAccountResult>): void;
+        // Links the NintendoSwitchDeviceId to the user's PlayFab account
+        // https://api.playfab.com/Documentation/Client/method/LinkNintendoSwitchDeviceId
+        LinkNintendoSwitchDeviceId(request: PlayFabClientModels.LinkNintendoSwitchDeviceIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkNintendoSwitchDeviceIdResult>): void;
         // Links the Steam account associated with the provided Steam authentication ticket to the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/LinkSteamAccount
         LinkSteamAccount(request: PlayFabClientModels.LinkSteamAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkSteamAccountResult>): void;
@@ -285,6 +297,10 @@ declare module PlayFabClientModule {
         // calls which require an authenticated user
         // https://api.playfab.com/Documentation/Client/method/LoginWithFacebook
         LoginWithFacebook(request: PlayFabClientModels.LoginWithFacebookRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        // Signs the user in using a Facebook Instant Games ID, returning a session identifier that can subsequently be used for
+        // API calls which require an authenticated user. Requires Facebook Instant Games to be configured.
+        // https://api.playfab.com/Documentation/Client/method/LoginWithFacebookInstantGamesId
+        LoginWithFacebookInstantGamesId(request: PlayFabClientModels.LoginWithFacebookInstantGamesIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
         // Signs the user in using an iOS Game Center player identifier, returning a session identifier that can subsequently be
         // used for API calls which require an authenticated user
         // https://api.playfab.com/Documentation/Client/method/LoginWithGameCenter
@@ -299,6 +315,10 @@ declare module PlayFabClientModule {
         // Signs the user in using a Kongregate player account.
         // https://api.playfab.com/Documentation/Client/method/LoginWithKongregate
         LoginWithKongregate(request: PlayFabClientModels.LoginWithKongregateRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        // Signs the user in using a Nintendo Switch Device ID, returning a session identifier that can subsequently be used for
+        // API calls which require an authenticated user
+        // https://api.playfab.com/Documentation/Client/method/LoginWithNintendoSwitchDeviceId
+        LoginWithNintendoSwitchDeviceId(request: PlayFabClientModels.LoginWithNintendoSwitchDeviceIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
         // Signs the user into the PlayFab account, returning a session identifier that can subsequently be used for API calls
         // which require an authenticated user. Unlike most other login API calls, LoginWithPlayFab does not permit the creation of
         // new accounts via the CreateAccountFlag. Username/Password credentials may be used to create accounts via
@@ -408,6 +428,9 @@ declare module PlayFabClientModule {
         // Unlinks the related Facebook account from the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/UnlinkFacebookAccount
         UnlinkFacebookAccount(request: PlayFabClientModels.UnlinkFacebookAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkFacebookAccountResult>): void;
+        // Unlinks the related Facebook Instant Game Ids from the user's PlayFab account
+        // https://api.playfab.com/Documentation/Client/method/UnlinkFacebookInstantGamesId
+        UnlinkFacebookInstantGamesId(request: PlayFabClientModels.UnlinkFacebookInstantGamesIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkFacebookInstantGamesIdResult>): void;
         // Unlinks the related Game Center account from the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/UnlinkGameCenterAccount
         UnlinkGameCenterAccount(request: PlayFabClientModels.UnlinkGameCenterAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkGameCenterAccountResult>): void;
@@ -421,6 +444,9 @@ declare module PlayFabClientModule {
         // Unlinks the related Kongregate identifier from the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/UnlinkKongregate
         UnlinkKongregate(request: PlayFabClientModels.UnlinkKongregateAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkKongregateAccountResult>): void;
+        // Unlinks the related NintendoSwitchDeviceId from the user's PlayFab account
+        // https://api.playfab.com/Documentation/Client/method/UnlinkNintendoSwitchDeviceId
+        UnlinkNintendoSwitchDeviceId(request: PlayFabClientModels.UnlinkNintendoSwitchDeviceIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkNintendoSwitchDeviceIdResult>): void;
         // Unlinks the related Steam account from the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/UnlinkSteamAccount
         UnlinkSteamAccount(request: PlayFabClientModels.UnlinkSteamAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkSteamAccountResult>): void;
@@ -1434,6 +1460,15 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.FacebookInstantGamesPlayFabIdPair
+    export interface FacebookInstantGamesPlayFabIdPair {
+        // Unique Facebook Instant Games identifier for a user.
+        FacebookInstantGamesId?: string;
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Facebook Instant Games identifier.
+        PlayFabId?: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.FacebookPlayFabIdPair
     export interface FacebookPlayFabIdPair {
         // Unique Facebook identifier for a user.
@@ -1503,10 +1538,14 @@ declare module PlayFabClientModels {
         RunTime: number;
         // IPV4 address of the server
         ServerHostname?: string;
+        // IPV4 address of the server
+        ServerIPV4Address?: string;
         // IPV6 address of the server
         ServerIPV6Address?: string;
         // port number to use for non-http communications with the server
         ServerPort?: number;
+        // Public DNS name (if any) of the server
+        ServerPublicDNSName?: string;
         // stastic used to match this game in player statistic matchmaking
         StatisticName?: string;
         // game session tags
@@ -2086,6 +2125,20 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromFacebookInstantGamesIdsRequest
+    export interface GetPlayFabIDsFromFacebookInstantGamesIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique Facebook Instant Games identifiers for which the title needs to get PlayFab identifiers.
+        FacebookInstantGamesIds: string[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromFacebookInstantGamesIdsResult
+    export interface GetPlayFabIDsFromFacebookInstantGamesIdsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of Facebook Instant Games identifiers to PlayFab identifiers.
+        Data?: FacebookInstantGamesPlayFabIdPair[];
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromGameCenterIDsRequest
     export interface GetPlayFabIDsFromGameCenterIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Game Center identifiers (the Player Identifier) for which the title needs to get PlayFab identifiers.
@@ -2140,6 +2193,20 @@ declare module PlayFabClientModels {
     export interface GetPlayFabIDsFromKongregateIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Kongregate identifiers to PlayFab identifiers.
         Data?: KongregatePlayFabIdPair[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest
+    export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique Nintendo Switch Device identifiers for which the title needs to get PlayFab identifiers.
+        NintendoSwitchDeviceIds: string[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult
+    export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of Nintendo Switch Device identifiers to PlayFab identifiers.
+        Data?: number[];
 
     }
 
@@ -2541,6 +2608,20 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkFacebookInstantGamesIdRequest
+    export interface LinkFacebookInstantGamesIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Facebook Instant Games signature for the user.
+        FacebookInstantGamesSignature: string;
+        // If another user is already linked to the Facebook Instant Games ID, unlink the other user and re-link.
+        ForceLink?: boolean;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkFacebookInstantGamesIdResult
+    export interface LinkFacebookInstantGamesIdResult extends PlayFabModule.IPlayFabResultCommon {
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkGameCenterAccountRequest
     export interface LinkGameCenterAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to the account, unlink the other user and re-link.
@@ -2601,6 +2682,20 @@ declare module PlayFabClientModels {
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkKongregateAccountResult
     export interface LinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkNintendoSwitchDeviceIdRequest
+    export interface LinkNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // If another user is already linked to the Nintendo Switch Device ID, unlink the other user and re-link.
+        ForceLink?: boolean;
+        // Nintendo Switch unique identifier for the user's device.
+        NintendoSwitchDeviceId: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkNintendoSwitchDeviceIdResult
+    export interface LinkNintendoSwitchDeviceIdResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
@@ -2695,7 +2790,9 @@ declare module PlayFabClientModels {
         | "Twitch"
         | "WindowsHello"
         | "GameServer"
-        | "CustomServer";
+        | "CustomServer"
+        | "NintendoSwitch"
+        | "FacebookInstantGames";
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LoginResult
     export interface LoginResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2771,6 +2868,26 @@ declare module PlayFabClientModels {
         LoginTitlePlayerAccountEntity?: boolean;
         // Password for the PlayFab account (6-100 characters)
         Password: string;
+        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
+        // title has been selected.
+        TitleId?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LoginWithFacebookInstantGamesIdRequest
+    export interface LoginWithFacebookInstantGamesIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Automatically create a PlayFab account if one is not currently linked to this ID.
+        CreateAccount?: boolean;
+        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        EncryptedRequest?: string;
+        // Facebook Instant Games signature for the user.
+        FacebookInstantGamesSignature: string;
+        // Flags for which pieces of info to return for the user.
+        InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
+        // Flag to automatically login the player's title_player_account and return the associated entity token.
+        LoginTitlePlayerAccountEntity?: boolean;
+        // Player secret that is used to verify API request signatures (Enterprise Only).
+        PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
@@ -2876,6 +2993,26 @@ declare module PlayFabClientModels {
         KongregateId?: string;
         // Flag to automatically login the player's title_player_account and return the associated entity token.
         LoginTitlePlayerAccountEntity?: boolean;
+        // Player secret that is used to verify API request signatures (Enterprise Only).
+        PlayerSecret?: string;
+        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
+        // title has been selected.
+        TitleId?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LoginWithNintendoSwitchDeviceIdRequest
+    export interface LoginWithNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Automatically create a PlayFab account if one is not currently linked to this ID.
+        CreateAccount?: boolean;
+        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        EncryptedRequest?: string;
+        // Flags for which pieces of info to return for the user.
+        InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
+        // Flag to automatically login the player's title_player_account and return the associated entity token.
+        LoginTitlePlayerAccountEntity?: boolean;
+        // Nintendo Switch unique identifier for the user's device.
+        NintendoSwitchDeviceId?: string;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -2998,10 +3135,14 @@ declare module PlayFabClientModels {
         PollWaitTimeMS?: number;
         // IPV4 address of the server
         ServerHostname?: string;
+        // IPV4 address of the server
+        ServerIPV4Address?: string;
         // IPV6 address of the server
         ServerIPV6Address?: string;
         // port number to use for non-http communications with the server
         ServerPort?: number;
+        // Public DNS name (if any) of the server
+        ServerPublicDNSName?: string;
         // result of match making process
         Status?: string;
         // server authorization ticket (used by RedeemMatchmakerTicket to validate user insertion into the game)
@@ -3042,6 +3183,15 @@ declare module PlayFabClientModels {
         PlayFabId?: string;
         // Name of the virtual currency which was modified.
         VirtualCurrency?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.NintendoSwitchPlayFabIdPair
+    export interface NintendoSwitchPlayFabIdPair {
+        // Unique Nintendo Switch Device identifier for a user.
+        NintendoSwitchDeviceId?: string;
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Nintendo Switch Device identifier.
+        PlayFabId?: string;
 
     }
 
@@ -3167,7 +3317,7 @@ declare module PlayFabClientModels {
         // Title ID this player profile applies to
         TitleId?: string;
         // Sum of the player's purchases made with real-money currencies, converted to US dollars equivalent and represented as a
-        // whole number of cents (1/100 USD).       For example, 999 indicates nine dollars and ninety-nine cents.
+        // whole number of cents (1/100 USD). For example, 999 indicates nine dollars and ninety-nine cents.
         TotalValueToDateInUSD?: number;
         // List of the player's lifetime purchase totals, summed by real-money currency
         ValuesToDate?: ValueToDateModel[];
@@ -3566,10 +3716,14 @@ declare module PlayFabClientModels {
         Password?: string;
         // server IPV4 address
         ServerHostname?: string;
+        // server IPV4 address
+        ServerIPV4Address?: string;
         // server IPV6 address
         ServerIPV6Address?: string;
         // port on the server to be used for communication
         ServerPort?: number;
+        // server public DNS name
+        ServerPublicDNSName?: string;
         // unique identifier for the server
         Ticket?: string;
 
@@ -3846,6 +4000,18 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlinkFacebookInstantGamesIdRequest
+    export interface UnlinkFacebookInstantGamesIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Facebook Instant Games identifier for the user. If not specified, the most recently signed in ID will be used.
+        FacebookInstantGamesId?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlinkFacebookInstantGamesIdResult
+    export interface UnlinkFacebookInstantGamesIdResult extends PlayFabModule.IPlayFabResultCommon {
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlinkGameCenterAccountRequest
     export interface UnlinkGameCenterAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
 
@@ -3886,6 +4052,18 @@ declare module PlayFabClientModels {
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlinkKongregateAccountResult
     export interface UnlinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlinkNintendoSwitchDeviceIdRequest
+    export interface UnlinkNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Nintendo Switch Device identifier for the user. If not specified, the most recently signed in device ID will be used.
+        NintendoSwitchDeviceId?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlinkNintendoSwitchDeviceIdResult
+    export interface UnlinkNintendoSwitchDeviceIdResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
@@ -4202,7 +4380,9 @@ declare module PlayFabClientModels {
         | "Parse"
         | "Twitch"
         | "WindowsHello"
-        | "ServerCustomId";
+        | "ServerCustomId"
+        | "NintendoSwitchDeviceId"
+        | "FacebookInstantGamesId";
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UserPrivateAccountInfo
     export interface UserPrivateAccountInfo {
