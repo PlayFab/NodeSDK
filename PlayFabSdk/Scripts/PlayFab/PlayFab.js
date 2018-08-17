@@ -36,11 +36,7 @@ exports.GetServerUrl = function () {
 exports.MakeRequest = function (urlStr, request, authType, authValue, callback) {
     if (request == null)
         request = {};
-    var requestBody = null;
-    if (Number(process.version.match(/^v(\d+\.\d+)/)[1]) >= 4.7)
-        requestBody = Buffer.from(JSON.stringify(request), "utf8");
-    else
-        requestBody = JSON.stringify(request);
+    var requestBody = Buffer.from(JSON.stringify(request), "utf8");
 
     var options = url.parse(urlStr);
     if (options.protocol !== "https:")
