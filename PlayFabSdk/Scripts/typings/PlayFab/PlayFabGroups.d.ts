@@ -3,22 +3,22 @@ declare module PlayFabGroupsModule {
         settings: PlayFabModule.IPlayFabSettings;
         // Accepts an outstanding invitation to to join a group
         // https://api.playfab.com/Documentation/Groups/method/AcceptGroupApplication
-        AcceptGroupApplication(request: PlayFabGroupsModels.AcceptGroupApplicationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        AcceptGroupApplication(request: PlayFabGroupsModels.AcceptGroupApplicationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Accepts an invitation to join a group
         // https://api.playfab.com/Documentation/Groups/method/AcceptGroupInvitation
-        AcceptGroupInvitation(request: PlayFabGroupsModels.AcceptGroupInvitationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        AcceptGroupInvitation(request: PlayFabGroupsModels.AcceptGroupInvitationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Adds members to a group or role.
         // https://api.playfab.com/Documentation/Groups/method/AddMembers
-        AddMembers(request: PlayFabGroupsModels.AddMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        AddMembers(request: PlayFabGroupsModels.AddMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Applies to join a group
         // https://api.playfab.com/Documentation/Groups/method/ApplyToGroup
         ApplyToGroup(request: PlayFabGroupsModels.ApplyToGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.ApplyToGroupResponse>): void;
         // Blocks a list of entities from joining a group.
         // https://api.playfab.com/Documentation/Groups/method/BlockEntity
-        BlockEntity(request: PlayFabGroupsModels.BlockEntityRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        BlockEntity(request: PlayFabGroupsModels.BlockEntityRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Changes the role membership of a list of entities from one role to another.
         // https://api.playfab.com/Documentation/Groups/method/ChangeMemberRole
-        ChangeMemberRole(request: PlayFabGroupsModels.ChangeMemberRoleRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        ChangeMemberRole(request: PlayFabGroupsModels.ChangeMemberRoleRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Creates a new group.
         // https://api.playfab.com/Documentation/Groups/method/CreateGroup
         CreateGroup(request: PlayFabGroupsModels.CreateGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.CreateGroupResponse>): void;
@@ -27,10 +27,10 @@ declare module PlayFabGroupsModule {
         CreateRole(request: PlayFabGroupsModels.CreateGroupRoleRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.CreateGroupRoleResponse>): void;
         // Deletes a group and all roles, invitations, join requests, and blocks associated with it.
         // https://api.playfab.com/Documentation/Groups/method/DeleteGroup
-        DeleteGroup(request: PlayFabGroupsModels.DeleteGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        DeleteGroup(request: PlayFabGroupsModels.DeleteGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Deletes an existing role in a group.
         // https://api.playfab.com/Documentation/Groups/method/DeleteRole
-        DeleteRole(request: PlayFabGroupsModels.DeleteRoleRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        DeleteRole(request: PlayFabGroupsModels.DeleteRoleRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Gets information about a group and its roles
         // https://api.playfab.com/Documentation/Groups/method/GetGroup
         GetGroup(request: PlayFabGroupsModels.GetGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.GetGroupResponse>): void;
@@ -60,16 +60,16 @@ declare module PlayFabGroupsModule {
         ListMembershipOpportunities(request: PlayFabGroupsModels.ListMembershipOpportunitiesRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.ListMembershipOpportunitiesResponse>): void;
         // Removes an application to join a group
         // https://api.playfab.com/Documentation/Groups/method/RemoveGroupApplication
-        RemoveGroupApplication(request: PlayFabGroupsModels.RemoveGroupApplicationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        RemoveGroupApplication(request: PlayFabGroupsModels.RemoveGroupApplicationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Removes an invitation join a group
         // https://api.playfab.com/Documentation/Groups/method/RemoveGroupInvitation
-        RemoveGroupInvitation(request: PlayFabGroupsModels.RemoveGroupInvitationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        RemoveGroupInvitation(request: PlayFabGroupsModels.RemoveGroupInvitationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Removes members from a group.
         // https://api.playfab.com/Documentation/Groups/method/RemoveMembers
-        RemoveMembers(request: PlayFabGroupsModels.RemoveMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        RemoveMembers(request: PlayFabGroupsModels.RemoveMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Unblocks a list of entities from joining a group
         // https://api.playfab.com/Documentation/Groups/method/UnblockEntity
-        UnblockEntity(request: PlayFabGroupsModels.UnblockEntityRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResult>): void;
+        UnblockEntity(request: PlayFabGroupsModels.UnblockEntityRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Updates non-membership data about a group.
         // https://api.playfab.com/Documentation/Groups/method/UpdateGroup
         UpdateGroup(request: PlayFabGroupsModels.UpdateGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.UpdateGroupResponse>): void;
@@ -226,19 +226,17 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.EmptyResult
-    export interface EmptyResult extends PlayFabModule.IPlayFabResultCommon {
+    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.EmptyResponse
+    export interface EmptyResponse extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
     // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.EntityKey
     export interface EntityKey {
-        // Entity profile ID.
+        // Unique ID of the entity.
         Id: string;
-        // Entity type. Optional to be used but one of EntityType or EntityTypeString must be set.
+        // Entity type. See https://api.playfab.com/docs/tutorials/entities/entitytypes
         Type?: string;
-        // Entity type. Optional to be used but one of EntityType or EntityTypeString must be set.
-        TypeString?: string;
 
     }
 
@@ -252,13 +250,6 @@ declare module PlayFabGroupsModels {
         RoleName?: string;
 
     }
-
-    type EntityTypes = "title"
-        | "master_player_account"
-        | "title_player_account"
-        | "character"
-        | "group"
-        | "service";
 
     // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.EntityWithLineage
     export interface EntityWithLineage {

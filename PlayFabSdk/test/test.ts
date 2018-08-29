@@ -33,7 +33,7 @@ var testConstants = {
 
 var testData = {
     entityId: null,
-    entityTypeString: null,
+    entityType: null,
     playFabId: null,
     testNumber: null
 };
@@ -463,10 +463,10 @@ exports.PlayFabApiTests = {
             VerifyNullError(result, error, test, "Testing GetEntityToken result");
 
             test.ok(result.data.Entity.Id, "EntityId should be defined");
-            test.ok(result.data.Entity.TypeString, "EntityTypeString should be defined");
+            test.ok(result.data.Entity.Type, "entityType should be defined");
 
             testData.entityId = result.data.Entity.Id; // Save the Entity info, it will be used in other tests
-            testData.entityTypeString = result.data.Entity.TypeString; // Save the Entity info, it will be used in other tests
+            testData.entityType = result.data.Entity.Type; // Save the Entity info, it will be used in other tests
 
             test.done();
         };
@@ -484,7 +484,7 @@ exports.PlayFabApiTests = {
         var getObjectsRequest: PlayFabDataModels.GetObjectsRequest = {
             Entity: {
                 Id: testData.entityId,
-                TypeString: testData.entityTypeString,
+                Type: testData.entityType,
             },
             EscapeObject: true
         };
@@ -515,7 +515,7 @@ exports.PlayFabApiTests = {
             var setObjRequest: PlayFabDataModels.SetObjectsRequest = {
                 Entity: {
                     Id: testData.entityId,
-                    TypeString: testData.entityTypeString,
+                    Type: testData.entityType,
                 },
                 Objects: [
                     {

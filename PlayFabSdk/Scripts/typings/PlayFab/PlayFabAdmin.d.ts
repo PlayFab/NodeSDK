@@ -3,7 +3,7 @@ declare module PlayFabAdminModule {
         settings: PlayFabModule.IPlayFabSettings;
         // Abort an ongoing task instance.
         // https://api.playfab.com/Documentation/Admin/method/AbortTaskInstance
-        AbortTaskInstance(request: PlayFabAdminModels.AbortTaskInstanceRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResult>): void;
+        AbortTaskInstance(request: PlayFabAdminModels.AbortTaskInstanceRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Adds a new news item to the title's news feed
         // https://api.playfab.com/Documentation/Admin/method/AddNews
         AddNews(request: PlayFabAdminModels.AddNewsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.AddNewsResult>): void;
@@ -59,7 +59,7 @@ declare module PlayFabAdminModule {
         DeleteStore(request: PlayFabAdminModels.DeleteStoreRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteStoreResult>): void;
         // Delete a task.
         // https://api.playfab.com/Documentation/Admin/method/DeleteTask
-        DeleteTask(request: PlayFabAdminModels.DeleteTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResult>): void;
+        DeleteTask(request: PlayFabAdminModels.DeleteTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Permanently deletes a title and all associated configuration
         // https://api.playfab.com/Documentation/Admin/method/DeleteTitle
         DeleteTitle(request: PlayFabAdminModels.DeleteTitleRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteTitleResult>): void;
@@ -315,7 +315,7 @@ declare module PlayFabAdminModule {
         UpdateStoreItems(request: PlayFabAdminModels.UpdateStoreItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateStoreItemsResult>): void;
         // Update an existing task.
         // https://api.playfab.com/Documentation/Admin/method/UpdateTask
-        UpdateTask(request: PlayFabAdminModels.UpdateTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResult>): void;
+        UpdateTask(request: PlayFabAdminModels.UpdateTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Updates the title-specific custom data for the user which is readable and writable by the client
         // https://api.playfab.com/Documentation/Admin/method/UpdateUserData
         UpdateUserData(request: PlayFabAdminModels.UpdateUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateUserDataResult>): void;
@@ -1344,28 +1344,19 @@ declare module PlayFabAdminModels {
         | "Pending"
         | "Confirmed";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.EmptyResult
-    export interface EmptyResult extends PlayFabModule.IPlayFabResultCommon {
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.EmptyResponse
+    export interface EmptyResponse extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.EntityKey
     export interface EntityKey {
-        // Entity profile ID.
+        // Unique ID of the entity.
         Id: string;
-        // Entity type. Optional to be used but one of EntityType or EntityTypeString must be set.
+        // Entity type. See https://api.playfab.com/docs/tutorials/entities/entitytypes
         Type?: string;
-        // Entity type. Optional to be used but one of EntityType or EntityTypeString must be set.
-        TypeString?: string;
 
     }
-
-    type EntityTypes = "title"
-        | "master_player_account"
-        | "title_player_account"
-        | "character"
-        | "group"
-        | "service";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ExecuteCloudScriptResult
     export interface ExecuteCloudScriptResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1801,16 +1792,16 @@ declare module PlayFabAdminModels {
         | "NoValidCertificateForAad"
         | "InvalidCertificateForAad"
         | "DuplicateDropTableId"
-        | "GameServerOk"
-        | "GameServerAccepted"
-        | "GameServerNoContent"
-        | "GameServerBadRequest"
-        | "GameServerUnauthorized"
-        | "GameServerForbidden"
-        | "GameServerNotFound"
-        | "GameServerConflict"
-        | "GameServerInternalServerError"
-        | "GameServerServiceUnavailable"
+        | "MultiplayerServerError"
+        | "MultiplayerServerTooManyRequests"
+        | "MultiplayerServerNoContent"
+        | "MultiplayerServerBadRequest"
+        | "MultiplayerServerUnauthorized"
+        | "MultiplayerServerForbidden"
+        | "MultiplayerServerNotFound"
+        | "MultiplayerServerConflict"
+        | "MultiplayerServerInternalServerError"
+        | "MultiplayerServerUnavailable"
         | "ExplicitContentDetected"
         | "PIIContentDetected"
         | "InvalidScheduledTaskParameter"
@@ -2641,7 +2632,8 @@ declare module PlayFabAdminModels {
         | "GameServer"
         | "CustomServer"
         | "NintendoSwitch"
-        | "FacebookInstantGames";
+        | "FacebookInstantGames"
+        | "OpenIdConnect";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.LogStatement
     export interface LogStatement {
@@ -3812,6 +3804,8 @@ declare module PlayFabAdminModels {
         CustomIdInfo?: UserCustomIdInfo;
         // User Facebook information, if a Facebook account has been linked
         FacebookInfo?: UserFacebookInfo;
+        // Facebook Instant Games account information, if a Facebook Instant Games account has been linked
+        FacebookInstantGamesIdInfo?: UserFacebookInstantGamesIdInfo;
         // User Gamecenter information, if a Gamecenter account has been linked
         GameCenterInfo?: UserGameCenterInfo;
         // User Google account information, if a Google account has been linked
@@ -3820,6 +3814,10 @@ declare module PlayFabAdminModels {
         IosDeviceInfo?: UserIosDeviceInfo;
         // User Kongregate account information, if a Kongregate account has been linked
         KongregateInfo?: UserKongregateInfo;
+        // Nintendo Switch account information, if a Nintendo Switch account has been linked
+        NintendoSwitchDeviceIdInfo?: number;
+        // OpenID Connect information, if any OpenID Connect accounts have been linked
+        OpenIdInfo?: UserOpenIdInfo[];
         // Unique identifier for the user account
         PlayFabId?: string;
         // Personal information for the user which is considered more sensitive
@@ -3834,6 +3832,8 @@ declare module PlayFabAdminModels {
         TwitchInfo?: UserTwitchInfo;
         // User account name in the PlayFab service
         Username?: string;
+        // Windows Hello account information, if a Windows Hello account has been linked
+        WindowsHelloInfo?: UserWindowsHelloInfo;
         // User XBox account information, if a XBox account has been linked
         XboxInfo?: UserXboxInfo;
 
@@ -3877,6 +3877,13 @@ declare module PlayFabAdminModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserFacebookInstantGamesIdInfo
+    export interface UserFacebookInstantGamesIdInfo {
+        // Facebook Instant Games ID
+        FacebookInstantGamesId?: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserGameCenterInfo
     export interface UserGameCenterInfo {
         // Gamecenter identifier
@@ -3913,6 +3920,24 @@ declare module PlayFabAdminModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserNintendoSwitchDeviceIdInfo
+    export interface UserNintendoSwitchDeviceIdInfo {
+        // Nintendo Switch Device ID
+        NintendoSwitchDeviceId?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserOpenIdInfo
+    export interface UserOpenIdInfo {
+        // OpenID Connection ID
+        ConnectionId?: string;
+        // OpenID Issuer
+        Issuer?: string;
+        // OpenID Subject
+        Subject?: string;
+
+    }
+
     type UserOrigination = "Organic"
         | "Steam"
         | "Google"
@@ -3933,7 +3958,8 @@ declare module PlayFabAdminModels {
         | "WindowsHello"
         | "ServerCustomId"
         | "NintendoSwitchDeviceId"
-        | "FacebookInstantGamesId";
+        | "FacebookInstantGamesId"
+        | "OpenIdConnect";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserPrivateAccountInfo
     export interface UserPrivateAccountInfo {
@@ -3993,6 +4019,15 @@ declare module PlayFabAdminModels {
         TwitchId?: string;
         // Twitch Username
         TwitchUserName?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserWindowsHelloInfo
+    export interface UserWindowsHelloInfo {
+        // Windows Hello Device Name
+        WindowsHelloDeviceName?: string;
+        // Windows Hello Public Key Hash
+        WindowsHelloPublicKeyHash?: string;
 
     }
 

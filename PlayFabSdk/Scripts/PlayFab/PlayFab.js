@@ -3,7 +3,7 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "2.10.180809";
+exports.sdk_version = "2.11.180829";
 exports.buildIdentifier = "jbuild_nodesdk_2";
 
 var settings = exports.settings = {
@@ -26,6 +26,9 @@ var _internalSettings = exports._internalSettings = {
     liveUrl: ".playfabapi.com",
     entityToken: null,
     sessionTicket: null,
+    requestGetParams: {
+        sdk: "JavaScriptSDK-2.11.180829"
+    },
 };
 
 exports.GetServerUrl = function () {
@@ -42,7 +45,26 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
     else
         requestBody = JSON.stringify(request);
 
-    var options = url.parse(urlStr);
+    var urlArr = [urlStr]; //make a new array for the URL
+    var getParams = _internalSettings.requestGetParams;
+    if (getParams != null) {
+        var firstParam = true;
+        for (var key in getParams) {
+            if (firstParam) {
+                urlArr.push("?");
+                firstParam = false;
+            } else {
+                urlArr.push("&");
+            }
+            urlArr.push(key);
+            urlArr.push("=");
+            urlArr.push(getParams[key]);
+        }
+    }
+
+    var completeUrl = urlArr.join("");
+
+    var options = url.parse(completeUrl);
     if (options.protocol !== "https:")
         throw "Unsupported protocol: " + options.protocol;
     options.method = "POST";

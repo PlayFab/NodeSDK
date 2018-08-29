@@ -118,6 +118,15 @@ exports.ConsumeItem = function (request, callback) {
     });
 };
 
+exports.ConsumeXboxEntitlements = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ConsumeXboxEntitlements", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.CreateSharedGroup = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/CreateSharedGroup", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -710,6 +719,15 @@ exports.LinkWindowsHello = function (request, callback) {
     });
 };
 
+exports.LinkXboxAccount = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkXboxAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.LoginWithAndroidDeviceID = function (request, callback) {
     request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
@@ -896,6 +914,20 @@ exports.LoginWithWindowsHello = function (request, callback) {
     request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithWindowsHello", request, null, null, function (error, result) {
+        if (result != null && result.data != null) {
+            PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
+            exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
+        }
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.LoginWithXbox = function (request, callback) {
+    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithXbox", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
             PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
             PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
@@ -1206,6 +1238,15 @@ exports.UnlinkTwitch = function (request, callback) {
 exports.UnlinkWindowsHello = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkWindowsHello", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.UnlinkXboxAccount = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkXboxAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
