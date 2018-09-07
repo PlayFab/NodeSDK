@@ -13,6 +13,7 @@ var PlayFabCloudScript = <PlayFabCloudScriptModule.IPlayFabCloudScript>pf.PlayFa
 var PlayFabData = <PlayFabDataModule.IPlayFabData>pf.PlayFabData; 
 var PlayFabEvents = <PlayFabEventsModule.IPlayFabEvents>pf.PlayFabEvents; 
 var PlayFabGroups = <PlayFabGroupsModule.IPlayFabGroups>pf.PlayFabGroups; 
+var PlayFabLocalization = <PlayFabLocalizationModule.IPlayFabLocalization>pf.PlayFabLocalization; 
 var PlayFabProfiles = <PlayFabProfilesModule.IPlayFabProfiles>pf.PlayFabProfiles; 
 
 interface IAction { (): void }

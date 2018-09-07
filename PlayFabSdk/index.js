@@ -9,6 +9,7 @@ var PlayFabCloudScript = require("./Scripts/PlayFab/PlayFabCloudScript.js");
 var PlayFabData = require("./Scripts/PlayFab/PlayFabData.js");
 var PlayFabEvents = require("./Scripts/PlayFab/PlayFabEvents.js");
 var PlayFabGroups = require("./Scripts/PlayFab/PlayFabGroups.js");
+var PlayFabLocalization = require("./Scripts/PlayFab/PlayFabLocalization.js");
 var PlayFabProfiles = require("./Scripts/PlayFab/PlayFabProfiles.js");
 
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
     PlayFabData : PlayFabData,
     PlayFabEvents : PlayFabEvents,
     PlayFabGroups : PlayFabGroups,
+    PlayFabLocalization : PlayFabLocalization,
     PlayFabProfiles : PlayFabProfiles,
     get settings() {
         return PlayFab.settings;
