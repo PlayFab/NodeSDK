@@ -3,8 +3,8 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "2.11.180829";
-exports.buildIdentifier = "jbuild_nodesdk_2";
+exports.sdk_version = "2.12.180906";
+exports.buildIdentifier = "jbuild_nodesdk__sdk-slave2016-2_0";
 
 var settings = exports.settings = {
     useDevEnv: false,
@@ -27,7 +27,7 @@ var _internalSettings = exports._internalSettings = {
     entityToken: null,
     sessionTicket: null,
     requestGetParams: {
-        sdk: "JavaScriptSDK-2.11.180829"
+        sdk: "JavaScriptSDK-2.12.180906"
     },
 };
 

@@ -13,6 +13,7 @@
         "Scripts/typings/PlayFab/PlayFabData.d.ts",
         "Scripts/typings/PlayFab/PlayFabEvents.d.ts",
         "Scripts/typings/PlayFab/PlayFabGroups.d.ts",
+        "Scripts/typings/PlayFab/PlayFabLocalization.d.ts",
         "Scripts/typings/PlayFab/PlayFabProfiles.d.ts",
         "test/test.ts"
     ]
