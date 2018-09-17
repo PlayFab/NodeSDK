@@ -314,6 +314,16 @@ exports.GetMatchmakerGameModes = function (request, callback) {
     });
 };
 
+exports.GetMatchmakingQueue = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/GetMatchmakingQueue", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetPlayedTitleList = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -624,6 +634,16 @@ exports.IncrementPlayerStatisticVersion = function (request, callback) {
     });
 };
 
+exports.ListMatchmakingQueues = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/ListMatchmakingQueues", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.ListServerBuilds = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -668,6 +688,16 @@ exports.RefundPurchase = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/RefundPurchase", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.RemoveMatchmakingQueue = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/RemoveMatchmakingQueue", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -808,6 +838,16 @@ exports.SetCatalogItems = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/SetCatalogItems", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.SetMatchmakingQueue = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Admin/SetMatchmakingQueue", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
 
         if (callback != null)
             callback(error, result);
