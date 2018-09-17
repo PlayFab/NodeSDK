@@ -114,6 +114,16 @@ exports.DeleteCharacterFromUser = function (request, callback) {
     });
 };
 
+exports.DeletePlayer = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Server/DeletePlayer", request, "X-SecretKey", PlayFab.settings.developerSecretKey, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.DeleteSharedGroup = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 
@@ -124,6 +134,9 @@ exports.DeleteSharedGroup = function (request, callback) {
     });
 };
 
+/**
+ * @deprecated Please use DeletePlayer instead. 
+ */
 exports.DeleteUsers = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
 

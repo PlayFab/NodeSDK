@@ -3,11 +3,12 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "2.12.180906";
-exports.buildIdentifier = "jbuild_nodesdk__sdk-slave2016-2_0";
+exports.sdk_version = "2.13.180917";
+exports.buildIdentifier = "jbuild_nodesdk__sdk-slave2016-1_2";
 
 var settings = exports.settings = {
-    useDevEnv: false,
+    productionUrl: ".playfabapi.com",
+    verticalName: null, // The name of a customer vertical. This is only for customers running a private cluster. Generally you shouldn't touch this
     titleId: null, // You must set this value for PlayFabSdk to work properly (Found in the Game Manager for your title, at the PlayFab Website)
     globalErrorHandler: null,
     developerSecretKey: null, // You must set this value for PlayFabSdk to work properly (Found in the Game Manager for your title, at the PlayFab Website)
@@ -22,18 +23,24 @@ var settings = exports.settings = {
 };
 
 var _internalSettings = exports._internalSettings = {
-    devEnvUrl: ".playfabsandbox.com",
-    liveUrl: ".playfabapi.com",
     entityToken: null,
     sessionTicket: null,
     requestGetParams: {
-        sdk: "JavaScriptSDK-2.12.180906"
+        sdk: "JavaScriptSDK-2.13.180917"
     },
 };
 
 exports.GetServerUrl = function () {
-    var baseUrl = exports.settings.useDevEnv ? exports._internalSettings.devEnvUrl : exports._internalSettings.liveUrl;
-    return "https://" + exports.settings.titleId + baseUrl;
+    var baseUrl = exports.settings.productionUrl;
+    if (!(baseUrl.substring(0, 4) === "http")) {
+        if (exports.settings.verticalName) {
+            return "https://" + exports.settings.verticalName + baseUrl;
+        } else {
+            return "https://" + exports.settings.titleId + baseUrl;
+        }
+    } else {
+        return baseUrl;
+    }
 }
 
 exports.MakeRequest = function (urlStr, request, authType, authValue, callback) {
