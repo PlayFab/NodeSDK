@@ -3,6 +3,7 @@
         "module": "commonjs"
     },
     "files": [
+        "index.d.ts",
         "Scripts/typings/PlayFab/PlayFab.d.ts",
         "Scripts/typings/PlayFab/PlayFabAdmin.d.ts",
         "Scripts/typings/PlayFab/PlayFabClient.d.ts",
@@ -14,6 +15,7 @@
         "Scripts/typings/PlayFab/PlayFabEvents.d.ts",
         "Scripts/typings/PlayFab/PlayFabGroups.d.ts",
         "Scripts/typings/PlayFab/PlayFabLocalization.d.ts",
+        "Scripts/typings/PlayFab/PlayFabMultiplayer.d.ts",
         "Scripts/typings/PlayFab/PlayFabProfiles.d.ts",
         "test/test.ts"
     ]

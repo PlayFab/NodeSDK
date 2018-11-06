@@ -1813,6 +1813,11 @@ declare module PlayFabAdminModels {
         | "FacebookInstantGamesIdNotLinked"
         | "InvalidFacebookInstantGamesSignature"
         | "FacebookInstantGamesAuthNotConfiguredForTitle"
+        | "EntityProfileConstraintValidationFailed"
+        | "PlayInsightsIngestionKeyPending"
+        | "PlayInsightsIngestionKeyNotFound"
+        | "StatisticTagRequired"
+        | "StatisticTagInvalid"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingCreateRequestMissing"
@@ -1847,7 +1852,9 @@ declare module PlayFabAdminModels {
         | "MatchmakingMemberProfileInvalid"
         | "WriteAttemptedDuringExport"
         | "NintendoSwitchDeviceIdNotLinked"
-        | "MatchmakingNotEnabled";
+        | "MatchmakingNotEnabled"
+        | "MatchmakingGetStatisticsIdentityInvalid"
+        | "MatchmakingStatisticsIdMissing";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetActionsOnPlayersInSegmentTaskInstanceResult
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2006,8 +2013,6 @@ declare module PlayFabAdminModels {
         Players?: string[];
         // region in which the Game Server Instance is running
         Region?: string;
-        // IPV4 address of the game server instance
-        ServerAddress?: string;
         // IPV4 address of the server
         ServerIPV4Address?: string;
         // IPV6 address of the server

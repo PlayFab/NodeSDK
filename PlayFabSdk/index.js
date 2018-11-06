@@ -10,6 +10,7 @@ var PlayFabData = require("./Scripts/PlayFab/PlayFabData.js");
 var PlayFabEvents = require("./Scripts/PlayFab/PlayFabEvents.js");
 var PlayFabGroups = require("./Scripts/PlayFab/PlayFabGroups.js");
 var PlayFabLocalization = require("./Scripts/PlayFab/PlayFabLocalization.js");
+var PlayFabMultiplayer = require("./Scripts/PlayFab/PlayFabMultiplayer.js");
 var PlayFabProfiles = require("./Scripts/PlayFab/PlayFabProfiles.js");
 
 module.exports = {
@@ -24,6 +25,7 @@ module.exports = {
     PlayFabEvents : PlayFabEvents,
     PlayFabGroups : PlayFabGroups,
     PlayFabLocalization : PlayFabLocalization,
+    PlayFabMultiplayer : PlayFabMultiplayer,
     PlayFabProfiles : PlayFabProfiles,
     get settings() {
         return PlayFab.settings;
