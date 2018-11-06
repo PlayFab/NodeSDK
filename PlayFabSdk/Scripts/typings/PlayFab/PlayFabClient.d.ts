@@ -194,6 +194,9 @@ declare module PlayFabClientModule {
         // https://github.com/justintv/Twitch-API/blob/master/v3_resources/users.md#get-usersuser).
         // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromTwitchIDs
         GetPlayFabIDsFromTwitchIDs(request: PlayFabClientModels.GetPlayFabIDsFromTwitchIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromTwitchIDsResult>): void;
+        // Retrieves the unique PlayFab identifiers for the given set of XboxLive identifiers.
+        // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromXboxLiveIDs
+        GetPlayFabIDsFromXboxLiveIDs(request: PlayFabClientModels.GetPlayFabIDsFromXboxLiveIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromXboxLiveIDsResult>): void;
         // Retrieves the key-value store of custom publisher settings
         // https://api.playfab.com/Documentation/Client/method/GetPublisherData
         GetPublisherData(request: PlayFabClientModels.GetPublisherDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPublisherDataResult>): void;
@@ -274,6 +277,10 @@ declare module PlayFabClientModule {
         // Links the NintendoSwitchDeviceId to the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/LinkNintendoSwitchDeviceId
         LinkNintendoSwitchDeviceId(request: PlayFabClientModels.LinkNintendoSwitchDeviceIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkNintendoSwitchDeviceIdResult>): void;
+        // Links an OpenID Connect account to a user's PlayFab account, based on an existing relationship between a title and an
+        // Open ID Connect provider and the OpenId Connect JWT from that provider.
+        // https://api.playfab.com/Documentation/Client/method/LinkOpenIdConnect
+        LinkOpenIdConnect(request: PlayFabClientModels.LinkOpenIdConnectRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResult>): void;
         // Links the Steam account associated with the provided Steam authentication ticket to the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/LinkSteamAccount
         LinkSteamAccount(request: PlayFabClientModels.LinkSteamAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkSteamAccountResult>): void;
@@ -326,6 +333,10 @@ declare module PlayFabClientModule {
         // API calls which require an authenticated user
         // https://api.playfab.com/Documentation/Client/method/LoginWithNintendoSwitchDeviceId
         LoginWithNintendoSwitchDeviceId(request: PlayFabClientModels.LoginWithNintendoSwitchDeviceIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        // Logs in a user with an Open ID Connect JWT created by an existing relationship between a title and an Open ID Connect
+        // provider.
+        // https://api.playfab.com/Documentation/Client/method/LoginWithOpenIdConnect
+        LoginWithOpenIdConnect(request: PlayFabClientModels.LoginWithOpenIdConnectRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
         // Signs the user into the PlayFab account, returning a session identifier that can subsequently be used for API calls
         // which require an authenticated user. Unlike most other login API calls, LoginWithPlayFab does not permit the creation of
         // new accounts via the CreateAccountFlag. Username/Password credentials may be used to create accounts via
@@ -458,6 +469,10 @@ declare module PlayFabClientModule {
         // Unlinks the related NintendoSwitchDeviceId from the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/UnlinkNintendoSwitchDeviceId
         UnlinkNintendoSwitchDeviceId(request: PlayFabClientModels.UnlinkNintendoSwitchDeviceIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkNintendoSwitchDeviceIdResult>): void;
+        // Unlinks an OpenID Connect account from a user's PlayFab account, based on the connection ID of an existing relationship
+        // between a title and an Open ID Connect provider.
+        // https://api.playfab.com/Documentation/Client/method/UnlinkOpenIdConnect
+        UnlinkOpenIdConnect(request: PlayFabClientModels.UninkOpenIdConnectRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse>): void;
         // Unlinks the related Steam account from the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/UnlinkSteamAccount
         UnlinkSteamAccount(request: PlayFabClientModels.UnlinkSteamAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkSteamAccountResult>): void;
@@ -1412,6 +1427,11 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.EmptyResult
+    export interface EmptyResult extends PlayFabModule.IPlayFabResultCommon {
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.EntityKey
     export interface EntityKey {
         // Unique ID of the entity.
@@ -1557,8 +1577,6 @@ declare module PlayFabClientModels {
         Region?: string;
         // duration in seconds this server has been running
         RunTime: number;
-        // IPV4 address of the server
-        ServerHostname?: string;
         // IPV4 address of the server
         ServerIPV4Address?: string;
         // IPV6 address of the server
@@ -2259,6 +2277,22 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromXboxLiveIDsRequest
+    export interface GetPlayFabIDsFromXboxLiveIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The ID of Xbox Live sandbox.
+        Sandbox?: string;
+        // Array of unique Xbox Live account identifiers for which the title needs to get PlayFab identifiers.
+        XboxLiveAccountIDs: string[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromXboxLiveIDsResult
+    export interface GetPlayFabIDsFromXboxLiveIDsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of PlayStation Network identifiers to PlayFab identifiers.
+        Data?: XboxLiveAccountPlayFabIdPair[];
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPublisherDataRequest
     export interface GetPublisherDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // array of keys to get back data from the Publisher data blob, set by the admin tools
@@ -2720,6 +2754,18 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkOpenIdConnectRequest
+    export interface LinkOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // A name that identifies which configured OpenID Connect provider relationship to use. Maximum 100 characters.
+        ConnectionId: string;
+        // If another user is already linked to a specific OpenId Connect user, unlink the other user and re-link.
+        ForceLink?: boolean;
+        // The JSON Web token (JWT) returned by the identity provider after login. Represented as the id_token field in the
+        // identity provider's response. Used to validate the request and find the user ID (OpenID Connect subject) to link with.
+        IdToken: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkSteamAccountRequest
     export interface LinkSteamAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to the account, unlink the other user and re-link.
@@ -3057,6 +3103,29 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LoginWithOpenIdConnectRequest
+    export interface LoginWithOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // A name that identifies which configured OpenID Connect provider relationship to use. Maximum 100 characters.
+        ConnectionId: string;
+        // Automatically create a PlayFab account if one is not currently linked to this ID.
+        CreateAccount?: boolean;
+        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        EncryptedRequest?: string;
+        // The JSON Web token (JWT) returned by the identity provider after login. Represented as the id_token field in the
+        // identity provider's response.
+        IdToken: string;
+        // Flags for which pieces of info to return for the user.
+        InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
+        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
+        LoginTitlePlayerAccountEntity?: boolean;
+        // Player secret that is used to verify API request signatures (Enterprise Only).
+        PlayerSecret?: string;
+        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
+        // title has been selected.
+        TitleId?: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LoginWithPlayFabRequest
     export interface LoginWithPlayFabRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Flags for which pieces of info to return for the user.
@@ -3189,8 +3258,6 @@ declare module PlayFabClientModels {
         LobbyID?: string;
         // time in milliseconds the application is configured to wait on matchmaking results
         PollWaitTimeMS?: number;
-        // IPV4 address of the server
-        ServerHostname?: string;
         // IPV4 address of the server
         ServerIPV4Address?: string;
         // IPV6 address of the server
@@ -3771,8 +3838,6 @@ declare module PlayFabClientModels {
         // password required to log into the server
         Password?: string;
         // server IPV4 address
-        ServerHostname?: string;
-        // server IPV4 address
         ServerIPV4Address?: string;
         // server IPV6 address
         ServerIPV6Address?: string;
@@ -4017,6 +4082,13 @@ declare module PlayFabClientModels {
         PlayFabId?: string;
         // Unique Twitch identifier for a user.
         TwitchId?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UninkOpenIdConnectRequest
+    export interface UninkOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // A name that identifies which configured OpenID Connect provider relationship to use. Maximum 100 characters.
+        ConnectionId: string;
 
     }
 
@@ -4715,6 +4787,15 @@ declare module PlayFabClientModels {
         EventName: string;
         // The time (in UTC) associated with this event. The value dafaults to the current time.
         Timestamp?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.XboxLiveAccountPlayFabIdPair
+    export interface XboxLiveAccountPlayFabIdPair {
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Xbox Live identifier.
+        PlayFabId?: string;
+        // Unique Xbox Live identifier for a user.
+        XboxLiveAccountId?: string;
 
     }
 

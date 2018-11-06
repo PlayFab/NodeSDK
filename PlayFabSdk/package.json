@@ -1,6 +1,6 @@
 {
   "name": "playfab-sdk",
-  "version": "2.15.181001",
+  "version": "2.16.181105",
   "description": "Playfab SDK for node.js applications",
   "license": "Apache-2.0",
   "devDependencies": {
@@ -11,6 +11,7 @@
   "scripts": {
     "test": ".\\test\\run.bat"
   },
+  "types": "./index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/playfab/NodeSDK"

@@ -3,8 +3,8 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "2.15.181001";
-exports.buildIdentifier = "jbuild_nodesdk__sdk-slave2016-2_2";
+exports.sdk_version = "2.16.181105";
+exports.buildIdentifier = "jbuild_nodesdk__sdk-slave2016-3_0";
 
 var settings = exports.settings = {
     productionUrl: ".playfabapi.com",
@@ -26,7 +26,7 @@ var _internalSettings = exports._internalSettings = {
     entityToken: null,
     sessionTicket: null,
     requestGetParams: {
-        sdk: "JavaScriptSDK-2.15.181001"
+        sdk: "JavaScriptSDK-2.16.181105"
     },
 };
 
@@ -46,11 +46,7 @@ exports.GetServerUrl = function () {
 exports.MakeRequest = function (urlStr, request, authType, authValue, callback) {
     if (request == null)
         request = {};
-    var requestBody = null;
-    if (Number(process.version.match(/^v(\d+\.\d+)/)[1]) >= 4.7)
-        requestBody = Buffer.from(JSON.stringify(request), "utf8");
-    else
-        requestBody = JSON.stringify(request);
+    var requestBody = Buffer.from(JSON.stringify(request), "utf8");
 
     var urlArr = [urlStr]; //make a new array for the URL
     var getParams = _internalSettings.requestGetParams;
