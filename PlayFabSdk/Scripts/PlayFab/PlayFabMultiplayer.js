@@ -116,6 +116,14 @@ exports.GetTitleEnabledForMultiplayerServersStatus = function (request, callback
     });
 };
 
+exports.ListArchivedMultiplayerServers = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/ListArchivedMultiplayerServers", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.ListAssetSummaries = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/ListAssetSummaries", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 

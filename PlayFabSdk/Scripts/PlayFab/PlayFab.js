@@ -3,8 +3,8 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "2.16.181105";
-exports.buildIdentifier = "jbuild_nodesdk__sdk-slave2016-3_0";
+exports.sdk_version = "2.17.181114";
+exports.buildIdentifier = "jbuild_nodesdk__sdk-slave2016-1_1";
 
 var settings = exports.settings = {
     productionUrl: ".playfabapi.com",
@@ -26,7 +26,7 @@ var _internalSettings = exports._internalSettings = {
     entityToken: null,
     sessionTicket: null,
     requestGetParams: {
-        sdk: "JavaScriptSDK-2.16.181105"
+        sdk: "JavaScriptSDK-2.17.181114"
     },
 };
 

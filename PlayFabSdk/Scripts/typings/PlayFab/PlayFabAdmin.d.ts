@@ -1814,10 +1814,11 @@ declare module PlayFabAdminModels {
         | "InvalidFacebookInstantGamesSignature"
         | "FacebookInstantGamesAuthNotConfiguredForTitle"
         | "EntityProfileConstraintValidationFailed"
-        | "PlayInsightsIngestionKeyPending"
-        | "PlayInsightsIngestionKeyNotFound"
+        | "TelemetryIngestionKeyPending"
+        | "TelemetryIngestionKeyNotFound"
         | "StatisticTagRequired"
         | "StatisticTagInvalid"
+        | "DataIntegrityError"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingCreateRequestMissing"
@@ -1854,7 +1855,8 @@ declare module PlayFabAdminModels {
         | "NintendoSwitchDeviceIdNotLinked"
         | "MatchmakingNotEnabled"
         | "MatchmakingGetStatisticsIdentityInvalid"
-        | "MatchmakingStatisticsIdMissing";
+        | "MatchmakingStatisticsIdMissing"
+        | "CannotEnableMultiplayerServersForTitle";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetActionsOnPlayersInSegmentTaskInstanceResult
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
