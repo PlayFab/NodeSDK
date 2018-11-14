@@ -43,6 +43,9 @@ declare module PlayFabMultiplayerModule {
         // Gets the status of whether a title is enabled for the multiplayer server feature.
         // https://api.playfab.com/Documentation/Multiplayer/method/GetTitleEnabledForMultiplayerServersStatus
         GetTitleEnabledForMultiplayerServersStatus(request: PlayFabMultiplayerModels.GetTitleEnabledForMultiplayerServersStatusRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetTitleEnabledForMultiplayerServersStatusResponse>): void;
+        // Lists archived multiplayer server sessions for a build.
+        // https://api.playfab.com/Documentation/Multiplayer/method/ListArchivedMultiplayerServers
+        ListArchivedMultiplayerServers(request: PlayFabMultiplayerModels.ListMultiplayerServersRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListMultiplayerServersResponse>): void;
         // Lists multiplayer server game assets for a title.
         // https://api.playfab.com/Documentation/Multiplayer/method/ListAssetSummaries
         ListAssetSummaries(request: PlayFabMultiplayerModels.ListAssetSummariesRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListAssetSummariesResponse>): void;
@@ -131,15 +134,19 @@ declare module PlayFabMultiplayerModels {
         | "WestEurope"
         | "WestUs";
 
-    type AzureVmSize = "Standard_A1"
-        | "Standard_A2"
-        | "Standard_A3"
-        | "Standard_A4"
-        | "Standard_D1_v2"
+    type AzureVmSize = "Standard_D1_v2"
         | "Standard_D2_v2"
         | "Standard_D3_v2"
         | "Standard_D4_v2"
-        | "Standard_D5_v2";
+        | "Standard_D5_v2"
+        | "Standard_A1_v2"
+        | "Standard_A2_v2"
+        | "Standard_A4_v2"
+        | "Standard_A8_v2"
+        | "Standard_A1"
+        | "Standard_A2"
+        | "Standard_A3"
+        | "Standard_A4";
 
     // https://api.playfab.com/Documentation/Multiplayer/datatype/PlayFab.Multiplayer.Models/PlayFab.Multiplayer.Models.BuildRegion
     export interface BuildRegion {
