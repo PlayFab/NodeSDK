@@ -143,6 +143,15 @@ declare module PlayFabMultiplayerModels {
         | "Standard_A2_v2"
         | "Standard_A4_v2"
         | "Standard_A8_v2"
+        | "Standard_F1"
+        | "Standard_F2"
+        | "Standard_F4"
+        | "Standard_F8"
+        | "Standard_F16"
+        | "Standard_F2s_v2"
+        | "Standard_F4s_v2"
+        | "Standard_F8s_v2"
+        | "Standard_F16s_v2"
         | "Standard_A1"
         | "Standard_A2"
         | "Standard_A3"
@@ -156,7 +165,8 @@ declare module PlayFabMultiplayerModels {
         Region?: string;
         // The number of standby multiplayer servers for the region.
         StandbyServers: number;
-        // The status of multiplayer servers in the build region.
+        // The status of multiplayer servers in the build region. Valid values are - Unknown, Initialized, Deploying, Deployed,
+        // Unhealthy.
         Status?: string;
 
     }
@@ -242,7 +252,8 @@ declare module PlayFabMultiplayerModels {
         GameAssetReferences?: AssetReferenceParams[];
         // The game certificates for the build.
         GameCertificateReferences?: GameCertificateReferenceParams[];
-        // Metadata to tag the build.
+        // Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
+        // Game Server SDK (GSDK).
         Metadata?: { [key: string]: string | null };
         // The number of multiplayer servers to host on a single VM.
         MultiplayerServerCountPerVm: number;
@@ -296,7 +307,8 @@ declare module PlayFabMultiplayerModels {
         GameAssetReferences: AssetReferenceParams[];
         // The game certificates for the build.
         GameCertificateReferences?: GameCertificateReferenceParams[];
-        // Metadata to tag the build.
+        // Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
+        // Game Server SDK (GSDK).
         Metadata?: { [key: string]: string | null };
         // The number of multiplayer servers to host on a single VM.
         MultiplayerServerCountPerVm: number;
@@ -471,7 +483,7 @@ declare module PlayFabMultiplayerModels {
         BuildId?: string;
         // The build name.
         BuildName?: string;
-        // The current build status.
+        // The current build status. Valid values are - Deploying, Deployed, DeletingRegion, Unhealthy.
         BuildStatus?: string;
         // The flavor of container of he build.
         ContainerFlavor?: string;
@@ -486,7 +498,8 @@ declare module PlayFabMultiplayerModels {
         GameAssetReferences?: AssetReference[];
         // The game certificates for the build.
         GameCertificateReferences?: GameCertificateReference[];
-        // The metadata of the build.
+        // Metadata of the build. The keys are case insensitive. The build metadata is made available to the server through Game
+        // Server SDK (GSDK).
         Metadata?: { [key: string]: string | null };
         // The number of multiplayer servers to hosted on a single VM of the build.
         MultiplayerServerCountPerVm: number;
@@ -791,14 +804,14 @@ declare module PlayFabMultiplayerModels {
     export interface RequestMultiplayerServerRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The guid string build ID of the multiplayer server to request.
         BuildId: string;
-        // Initial list of players (potentially matchmade) allowed to connect to the game. The game server can use this list to
-        // validate players connecting to it.
+        // Initial list of players (potentially matchmade) allowed to connect to the game. This list is passed to the game server
+        // when requested (via GSDK) and can be used to validate players connecting to it.
         InitialPlayers?: string[];
-        // The preferred regions to request a multiplayer server from.
+        // The preferred regions to request a multiplayer server from. The Multiplayer Service will iterate through the regions in
+        // the specified order and allocate a server from the first one that has servers available.
         PreferredRegions: string[];
-        // Data encoded as a string that is passed to the game server when requested. This can be used to share a cryptographic
-        // secret for servers to authenticate clients or to communicate information such as game mode or map through the request
-        // flow.
+        // Data encoded as a string that is passed to the game server when requested. This can be used to to communicate
+        // information such as game mode or map through the request flow.
         SessionCookie?: string;
         // A guid string session ID created track the multiplayer server session over its life.
         SessionId: string;
