@@ -50,6 +50,9 @@ declare module PlayFabClientModule {
         // Consume uses of a consumable item. When all uses are consumed, it will be removed from the player's inventory.
         // https://api.playfab.com/Documentation/Client/method/ConsumeItem
         ConsumeItem(request: PlayFabClientModels.ConsumeItemRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumeItemResult>): void;
+        // Checks for any new consumable entitlements. If any are found, they are consumed and added as PlayFab items
+        // https://api.playfab.com/Documentation/Client/method/ConsumePSNEntitlements
+        ConsumePSNEntitlements(request: PlayFabClientModels.ConsumePSNEntitlementsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumePSNEntitlementsResult>): void;
         // Grants the player's current entitlements from Xbox Live, consuming all availble items in Xbox and granting them to the
         // player's PlayFab inventory. This call is idempotent and will not grant previously granted items to the player.
         // https://api.playfab.com/Documentation/Client/method/ConsumeXboxEntitlements
@@ -185,6 +188,9 @@ declare module PlayFabClientModule {
         // Retrieves the unique PlayFab identifiers for the given set of Nintendo Switch identifiers.
         // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromNintendoSwitchDeviceIds
         GetPlayFabIDsFromNintendoSwitchDeviceIds(request: PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult>): void;
+        // Retrieves the unique PlayFab identifiers for the given set of PlayStation Network identifiers.
+        // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromPSNAccountIDs
+        GetPlayFabIDsFromPSNAccountIDs(request: PlayFabClientModels.GetPlayFabIDsFromPSNAccountIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromPSNAccountIDsResult>): void;
         // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers are the profile
         // IDs for the user accounts, available as SteamId in the Steamworks Community API calls.
         // https://api.playfab.com/Documentation/Client/method/GetPlayFabIDsFromSteamIDs
@@ -281,6 +287,9 @@ declare module PlayFabClientModule {
         // Open ID Connect provider and the OpenId Connect JWT from that provider.
         // https://api.playfab.com/Documentation/Client/method/LinkOpenIdConnect
         LinkOpenIdConnect(request: PlayFabClientModels.LinkOpenIdConnectRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResult>): void;
+        // Links the PlayStation Network account associated with the provided access code to the user's PlayFab account
+        // https://api.playfab.com/Documentation/Client/method/LinkPSNAccount
+        LinkPSNAccount(request: PlayFabClientModels.LinkPSNAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkPSNAccountResult>): void;
         // Links the Steam account associated with the provided Steam authentication ticket to the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/LinkSteamAccount
         LinkSteamAccount(request: PlayFabClientModels.LinkSteamAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkSteamAccountResult>): void;
@@ -343,6 +352,10 @@ declare module PlayFabClientModule {
         // RegisterPlayFabUser, or added to existing accounts using AddUsernamePassword.
         // https://api.playfab.com/Documentation/Client/method/LoginWithPlayFab
         LoginWithPlayFab(request: PlayFabClientModels.LoginWithPlayFabRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        // Signs the user in using a PlayStation Network authentication code, returning a session identifier that can subsequently
+        // be used for API calls which require an authenticated user
+        // https://api.playfab.com/Documentation/Client/method/LoginWithPSN
+        LoginWithPSN(request: PlayFabClientModels.LoginWithPSNRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
         // Signs the user in using a Steam authentication ticket, returning a session identifier that can subsequently be used for
         // API calls which require an authenticated user
         // https://api.playfab.com/Documentation/Client/method/LoginWithSteam
@@ -382,6 +395,9 @@ declare module PlayFabClientModule {
         // Economy->Catalogs tab in the PlayFab Game Manager.
         // https://api.playfab.com/Documentation/Client/method/RedeemCoupon
         RedeemCoupon(request: PlayFabClientModels.RedeemCouponRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RedeemCouponResult>): void;
+        // Uses the supplied OAuth code to refresh the internally cached player PSN auth token
+        // https://api.playfab.com/Documentation/Client/method/RefreshPSNAuthToken
+        RefreshPSNAuthToken(request: PlayFabClientModels.RefreshPSNAuthTokenRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse>): void;
         // Registers the iOS device to receive push notifications
         // https://api.playfab.com/Documentation/Client/method/RegisterForIOSPushNotification
         RegisterForIOSPushNotification(request: PlayFabClientModels.RegisterForIOSPushNotificationRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RegisterForIOSPushNotificationResult>): void;
@@ -473,6 +489,9 @@ declare module PlayFabClientModule {
         // between a title and an Open ID Connect provider.
         // https://api.playfab.com/Documentation/Client/method/UnlinkOpenIdConnect
         UnlinkOpenIdConnect(request: PlayFabClientModels.UninkOpenIdConnectRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse>): void;
+        // Unlinks the related PSN account from the user's PlayFab account
+        // https://api.playfab.com/Documentation/Client/method/UnlinkPSNAccount
+        UnlinkPSNAccount(request: PlayFabClientModels.UnlinkPSNAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkPSNAccountResult>): void;
         // Unlinks the related Steam account from the user's PlayFab account
         // https://api.playfab.com/Documentation/Client/method/UnlinkSteamAccount
         UnlinkSteamAccount(request: PlayFabClientModels.UnlinkSteamAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkSteamAccountResult>): void;
@@ -913,6 +932,22 @@ declare module PlayFabClientModels {
         ItemInstanceId?: string;
         // Number of uses remaining on the item.
         RemainingUses: number;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.ConsumePSNEntitlementsRequest
+    export interface ConsumePSNEntitlementsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Which catalog to match granted entitlements against. If null, defaults to title default catalog
+        CatalogVersion?: string;
+        // Id of the PSN service label to consume entitlements from
+        ServiceLabel: number;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.ConsumePSNEntitlementsResult
+    export interface ConsumePSNEntitlementsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Array of items granted to the player as a result of consuming entitlements.
+        ItemsGranted?: ItemInstance[];
 
     }
 
@@ -2249,6 +2284,22 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromPSNAccountIDsRequest
+    export interface GetPlayFabIDsFromPSNAccountIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Id of the PSN issuer environment. If null, defaults to 256 (production)
+        IssuerId?: number;
+        // Array of unique PlayStation Network identifiers for which the title needs to get PlayFab identifiers.
+        PSNAccountIDs: string[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromPSNAccountIDsResult
+    export interface GetPlayFabIDsFromPSNAccountIDsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of PlayStation Network identifiers to PlayFab identifiers.
+        Data?: PSNAccountPlayFabIdPair[];
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.GetPlayFabIDsFromSteamIDsRequest
     export interface GetPlayFabIDsFromSteamIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Steam identifiers (Steam profile IDs) for which the title needs to get PlayFab identifiers.
@@ -2766,6 +2817,24 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkPSNAccountRequest
+    export interface LinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Authentication code provided by the PlayStation Network.
+        AuthCode: string;
+        // If another user is already linked to the account, unlink the other user and re-link.
+        ForceLink?: boolean;
+        // Id of the PSN issuer environment. If null, defaults to 256 (production)
+        IssuerId?: number;
+        // Redirect URI supplied to PSN when requesting an auth code
+        RedirectUri: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkPSNAccountResult
+    export interface LinkPSNAccountResult extends PlayFabModule.IPlayFabResultCommon {
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LinkSteamAccountRequest
     export interface LinkSteamAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to the account, unlink the other user and re-link.
@@ -3142,6 +3211,30 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LoginWithPSNRequest
+    export interface LoginWithPSNRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Auth code provided by the PSN OAuth provider.
+        AuthCode?: string;
+        // Automatically create a PlayFab account if one is not currently linked to this ID.
+        CreateAccount?: boolean;
+        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        EncryptedRequest?: string;
+        // Flags for which pieces of info to return for the user.
+        InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
+        // Id of the PSN issuer environment. If null, defaults to 256 (production)
+        IssuerId?: number;
+        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
+        LoginTitlePlayerAccountEntity?: boolean;
+        // Player secret that is used to verify API request signatures (Enterprise Only).
+        PlayerSecret?: string;
+        // Redirect URI supplied to PSN when requesting an auth code
+        RedirectUri?: string;
+        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
+        // title has been selected.
+        TitleId?: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.LoginWithSteamRequest
     export interface LoginWithSteamRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
@@ -3501,6 +3594,15 @@ declare module PlayFabClientModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.PSNAccountPlayFabIdPair
+    export interface PSNAccountPlayFabIdPair {
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the PlayStation Network identifier.
+        PlayFabId?: string;
+        // Unique PlayStation Network identifier for a user.
+        PSNAccountId?: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.PurchaseItemRequest
     export interface PurchaseItemRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version for the items to be purchased (defaults to most recent version.
@@ -3552,6 +3654,17 @@ declare module PlayFabClientModels {
     export interface RedeemCouponResult extends PlayFabModule.IPlayFabResultCommon {
         // Items granted to the player as a result of redeeming the coupon.
         GrantedItems?: ItemInstance[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.RefreshPSNAuthTokenRequest
+    export interface RefreshPSNAuthTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Auth code returned by PSN OAuth system.
+        AuthCode: string;
+        // Id of the PSN issuer environment. If null, defaults to 256 (production)
+        IssuerId?: number;
+        // Redirect URI supplied to PSN when requesting an auth code
+        RedirectUri: string;
 
     }
 
@@ -4192,6 +4305,16 @@ declare module PlayFabClientModels {
 
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlinkNintendoSwitchDeviceIdResult
     export interface UnlinkNintendoSwitchDeviceIdResult extends PlayFabModule.IPlayFabResultCommon {
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlinkPSNAccountRequest
+    export interface UnlinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.UnlinkPSNAccountResult
+    export interface UnlinkPSNAccountResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 

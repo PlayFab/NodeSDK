@@ -118,6 +118,15 @@ exports.ConsumeItem = function (request, callback) {
     });
 };
 
+exports.ConsumePSNEntitlements = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ConsumePSNEntitlements", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.ConsumeXboxEntitlements = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/ConsumeXboxEntitlements", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -451,6 +460,15 @@ exports.GetPlayFabIDsFromNintendoSwitchDeviceIds = function (request, callback) 
     });
 };
 
+exports.GetPlayFabIDsFromPSNAccountIDs = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromPSNAccountIDs", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetPlayFabIDsFromSteamIDs = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromSteamIDs", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -710,6 +728,15 @@ exports.LinkOpenIdConnect = function (request, callback) {
     });
 };
 
+exports.LinkPSNAccount = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkPSNAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.LinkSteamAccount = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LinkSteamAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
@@ -914,6 +941,20 @@ exports.LoginWithPlayFab = function (request, callback) {
     });
 };
 
+exports.LoginWithPSN = function (request, callback) {
+    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithPSN", request, null, null, function (error, result) {
+        if (result != null && result.data != null) {
+            PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+            PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
+            exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
+        }
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.LoginWithSteam = function (request, callback) {
     request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
@@ -1009,6 +1050,15 @@ exports.PurchaseItem = function (request, callback) {
 exports.RedeemCoupon = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RedeemCoupon", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.RefreshPSNAuthToken = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RefreshPSNAuthToken", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -1252,6 +1302,15 @@ exports.UnlinkNintendoSwitchDeviceId = function (request, callback) {
 exports.UnlinkOpenIdConnect = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkOpenIdConnect", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.UnlinkPSNAccount = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) throw "Must be logged in to call this method";
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/UnlinkPSNAccount", request, "X-Authorization", PlayFab._internalSettings.sessionTicket, function (error, result) {
 
         if (callback != null)
             callback(error, result);
