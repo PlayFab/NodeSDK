@@ -1836,6 +1836,7 @@ declare module PlayFabAdminModels {
         | "PushNotificationTemplateMissingDefaultVersion"
         | "PushNotificationTemplateInvalidSyntax"
         | "PushNotificationTemplateNoCustomPayloadForV1"
+        | "NoLeaderboardForStatistic"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingCreateRequestMissing"

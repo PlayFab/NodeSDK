@@ -2977,8 +2977,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Specific Operating System version for the user's device.
         OS?: string;
         // Player secret that is used to verify API request signatures (Enterprise Only).
@@ -2999,8 +2997,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3015,8 +3011,6 @@ declare module PlayFabClientModels {
         Email: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Password for the PlayFab account (6-100 characters)
         Password: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3035,8 +3029,6 @@ declare module PlayFabClientModels {
         FacebookInstantGamesSignature: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3055,8 +3047,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3073,8 +3063,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Unique Game Center player id.
         PlayerId?: string;
         // Player secret that is used to verify API request signatures (Enterprise Only).
@@ -3093,8 +3081,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // OAuth 2.0 server authentication code obtained on the client by calling the getServerAuthCode()
@@ -3118,8 +3104,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Specific Operating System version for the user's device.
         OS?: string;
         // Player secret that is used to verify API request signatures (Enterprise Only).
@@ -3142,8 +3126,6 @@ declare module PlayFabClientModels {
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Numeric user ID assigned by Kongregate
         KongregateId?: string;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3160,8 +3142,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Nintendo Switch unique identifier for the user's device.
         NintendoSwitchDeviceId?: string;
         // Player secret that is used to verify API request signatures (Enterprise Only).
@@ -3185,8 +3165,6 @@ declare module PlayFabClientModels {
         IdToken: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3199,8 +3177,6 @@ declare module PlayFabClientModels {
     export interface LoginWithPlayFabRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Password for the PlayFab account (6-100 characters)
         Password: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3223,8 +3199,6 @@ declare module PlayFabClientModels {
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Id of the PSN issuer environment. If null, defaults to 256 (production)
         IssuerId?: number;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Redirect URI supplied to PSN when requesting an auth code
@@ -3243,8 +3217,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Authentication token for the user, returned as a byte array from Steam, and converted to a string (for example, the byte
@@ -3266,8 +3238,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3282,8 +3252,6 @@ declare module PlayFabClientModels {
         ChallengeSignature: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // SHA256 hash of the PublicKey generated by Windows Hello.
         PublicKeyHint: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3300,8 +3268,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
@@ -3715,8 +3681,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Password for the PlayFab account (6-100 characters)
         Password?: string;
         // Player secret that is used to verify API request signatures (Enterprise Only).
@@ -3757,8 +3721,6 @@ declare module PlayFabClientModels {
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Formerly triggered an Entity login with a normal client login. This is now automatic, and always-on.
-        LoginTitlePlayerAccountEntity?: boolean;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
         // PublicKey generated by Windows Hello.
