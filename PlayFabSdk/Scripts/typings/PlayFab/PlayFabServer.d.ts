@@ -149,6 +149,9 @@ declare module PlayFabServerModule {
         // Retrieves the unique PlayFab identifiers for the given set of Nintendo Switch Device identifiers.
         // https://api.playfab.com/Documentation/Server/method/GetPlayFabIDsFromNintendoSwitchDeviceIds
         GetPlayFabIDsFromNintendoSwitchDeviceIds(request: PlayFabServerModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult>): void;
+        // Retrieves the unique PlayFab identifiers for the given set of PlayStation Network identifiers.
+        // https://api.playfab.com/Documentation/Server/method/GetPlayFabIDsFromPSNAccountIDs
+        GetPlayFabIDsFromPSNAccountIDs(request: PlayFabServerModels.GetPlayFabIDsFromPSNAccountIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromPSNAccountIDsResult>): void;
         // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers are the profile
         // IDs for the user accounts, available as SteamId in the Steamworks Community API calls.
         // https://api.playfab.com/Documentation/Server/method/GetPlayFabIDsFromSteamIDs
@@ -1377,7 +1380,7 @@ declare module PlayFabServerModels {
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.FriendInfo
     export interface FriendInfo {
-        // Unique lobby identifier of the Game Server Instance to which this player is currently connected.
+        // This field is not populated.
         CurrentMatchmakerLobbyId?: string;
         // Available Facebook information (if the user and PlayFab friend are also connected in Facebook).
         FacebookInfo?: UserFacebookInfo;
@@ -1817,6 +1820,12 @@ declare module PlayFabServerModels {
         | "PushNotificationTemplateInvalidSyntax"
         | "PushNotificationTemplateNoCustomPayloadForV1"
         | "NoLeaderboardForStatistic"
+        | "TitleNewsMissingDefaultLanguage"
+        | "TitleNewsNotFound"
+        | "TitleNewsDuplicateLanguage"
+        | "TitleNewsMissingTitleOrBody"
+        | "TitleNewsInvalidLanguage"
+        | "EmailRecipientBlacklisted"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingCreateRequestMissing"
@@ -1854,7 +1863,10 @@ declare module PlayFabServerModels {
         | "MatchmakingNotEnabled"
         | "MatchmakingGetStatisticsIdentityInvalid"
         | "MatchmakingStatisticsIdMissing"
-        | "CannotEnableMultiplayerServersForTitle";
+        | "CannotEnableMultiplayerServersForTitle"
+        | "TitleConfigNotFound"
+        | "TitleConfigUpdateConflict"
+        | "TitleConfigSerializationError";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetAllSegmentsRequest
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2379,6 +2391,22 @@ declare module PlayFabServerModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetPlayFabIDsFromPSNAccountIDsRequest
+    export interface GetPlayFabIDsFromPSNAccountIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Id of the PSN issuer environment. If null, defaults to 256 (production)
+        IssuerId?: number;
+        // Array of unique PlayStation Network identifiers for which the title needs to get PlayFab identifiers.
+        PSNAccountIDs: string[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetPlayFabIDsFromPSNAccountIDsResult
+    export interface GetPlayFabIDsFromPSNAccountIDsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of PlayStation Network identifiers to PlayFab identifiers.
+        Data?: PSNAccountPlayFabIdPair[];
+
+    }
+
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetPlayFabIDsFromSteamIDsRequest
     export interface GetPlayFabIDsFromSteamIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Steam identifiers (Steam profile IDs) for which the title needs to get PlayFab identifiers.
@@ -2522,7 +2550,7 @@ declare module PlayFabServerModels {
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetTitleNewsResult
     export interface GetTitleNewsResult extends PlayFabModule.IPlayFabResultCommon {
-        // Array of news items.
+        // Array of localized news items.
         News?: TitleNewsItem[];
 
     }
@@ -3222,6 +3250,15 @@ declare module PlayFabServerModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.PSNAccountPlayFabIdPair
+    export interface PSNAccountPlayFabIdPair {
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the PlayStation Network identifier.
+        PlayFabId?: string;
+        // Unique PlayStation Network identifier for a user.
+        PSNAccountId?: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.PushNotificationPackage
     export interface PushNotificationPackage {
         // Numerical badge to display on App icon (iOS only)
@@ -3836,11 +3873,11 @@ declare module PlayFabServerModels {
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.TitleNewsItem
     export interface TitleNewsItem {
-        // News item text.
+        // News item body.
         Body?: string;
         // Unique identifier of news item.
         NewsId?: string;
-        // Date and time when the news items was posted.
+        // Date and time when the news item was posted.
         Timestamp: string;
         // Title of the news item.
         Title?: string;
