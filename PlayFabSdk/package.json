@@ -1,6 +1,6 @@
 {
   "name": "playfab-sdk",
-  "version": "2.21.190205",
+  "version": "2.22.190219",
   "description": "Playfab SDK for node.js applications",
   "license": "Apache-2.0",
   "devDependencies": {
