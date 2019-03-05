@@ -36,6 +36,9 @@ declare module PlayFabAdminModule {
         // Create a CloudScript task, which can run a CloudScript on a schedule.
         // https://api.playfab.com/Documentation/Admin/method/CreateCloudScriptTask
         CreateCloudScriptTask(request: PlayFabAdminModels.CreateCloudScriptTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.CreateTaskResult>): void;
+        // Registers a relationship between a title and an Open ID Connect provider.
+        // https://api.playfab.com/Documentation/Admin/method/CreateOpenIdConnection
+        CreateOpenIdConnection(request: PlayFabAdminModels.CreateOpenIdConnectionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Creates a new Player Shared Secret Key. It may take up to 5 minutes for this key to become generally available after
         // this API returns.
         // https://api.playfab.com/Documentation/Admin/method/CreatePlayerSharedSecret
@@ -50,6 +53,9 @@ declare module PlayFabAdminModule {
         // Removes a master player account entirely from all titles and deletes all associated data
         // https://api.playfab.com/Documentation/Admin/method/DeleteMasterPlayerAccount
         DeleteMasterPlayerAccount(request: PlayFabAdminModels.DeleteMasterPlayerAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteMasterPlayerAccountResult>): void;
+        // Removes a relationship between a title and an OpenID Connect provider.
+        // https://api.playfab.com/Documentation/Admin/method/DeleteOpenIdConnection
+        DeleteOpenIdConnection(request: PlayFabAdminModels.DeleteOpenIdConnectionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Removes a user's player account from a title and deletes all associated data
         // https://api.playfab.com/Documentation/Admin/method/DeletePlayer
         DeletePlayer(request: PlayFabAdminModels.DeletePlayerRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeletePlayerResult>): void;
@@ -204,6 +210,9 @@ declare module PlayFabAdminModule {
         // Resets the indicated statistic, removing all player entries for it and backing up the old values.
         // https://api.playfab.com/Documentation/Admin/method/IncrementPlayerStatisticVersion
         IncrementPlayerStatisticVersion(request: PlayFabAdminModels.IncrementPlayerStatisticVersionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.IncrementPlayerStatisticVersionResult>): void;
+        // Retrieves a list of all Open ID Connect providers registered to a title.
+        // https://api.playfab.com/Documentation/Admin/method/ListOpenIdConnection
+        ListOpenIdConnection(request: PlayFabAdminModels.ListOpenIdConnectionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ListOpenIdConnectionResponse>): void;
         // Retrieves the build details for all game server executables which are currently defined for the title
         // https://api.playfab.com/Documentation/Admin/method/ListServerBuilds
         ListServerBuilds(request: PlayFabAdminModels.ListBuildsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ListBuildsResult>): void;
@@ -300,6 +309,9 @@ declare module PlayFabAdminModule {
         // submitted in the revision.
         // https://api.playfab.com/Documentation/Admin/method/UpdateCloudScript
         UpdateCloudScript(request: PlayFabAdminModels.UpdateCloudScriptRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateCloudScriptResult>): void;
+        // Modifies data and credentials for an existing relationship between a title and an Open ID Connect provider
+        // https://api.playfab.com/Documentation/Admin/method/UpdateOpenIdConnection
+        UpdateOpenIdConnection(request: PlayFabAdminModels.UpdateOpenIdConnectionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Updates a existing Player Shared Secret Key. It may take up to 5 minutes for this update to become generally available
         // after this API returns.
         // https://api.playfab.com/Documentation/Admin/method/UpdatePlayerSharedSecret
@@ -1077,6 +1089,21 @@ declare module PlayFabAdminModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreateOpenIdConnectionRequest
+    export interface CreateOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The client ID given by the ID provider.
+        ClientId: string;
+        // The client secret given by the ID provider.
+        ClientSecret: string;
+        // A name for the connection that identifies it within the title.
+        ConnectionId: string;
+        // The issuer URL or discovery document URL to read issuer information from
+        IssuerDiscoveryUrl?: string;
+        // Manually specified information for an OpenID Connect issuer.
+        IssuerInformation?: OpenIdIssuerInformation;
+
+    }
+
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreatePlayerSharedSecretRequest
     export interface CreatePlayerSharedSecretRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Friendly name for this key
@@ -1302,6 +1329,13 @@ declare module PlayFabAdminModels {
         JobReceiptId?: string;
         // List of titles from which the player's data will be deleted.
         TitleIds?: string[];
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteOpenIdConnectionRequest
+    export interface DeleteOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // unique name of the connection
+        ConnectionId: string;
 
     }
 
@@ -1866,6 +1900,21 @@ declare module PlayFabAdminModels {
         | "EmailRecipientBlacklisted"
         | "InvalidGameCenterAuthRequest"
         | "GameCenterAuthenticationFailed"
+        | "CannotEnablePartiesForTitle"
+        | "PartyError"
+        | "PartyRequests"
+        | "PartyNoContent"
+        | "PartyBadRequest"
+        | "PartyUnauthorized"
+        | "PartyForbidden"
+        | "PartyNotFound"
+        | "PartyConflict"
+        | "PartyInternalServerError"
+        | "PartyUnavailable"
+        | "PartyTooManyRequests"
+        | "PushNotificationTemplateMissingName"
+        | "CannotEnableMultiplayerServersForTitle"
+        | "WriteAttemptedDuringExport"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingCreateTicketRequestMissing"
@@ -1898,12 +1947,10 @@ declare module PlayFabAdminModels {
         | "MatchmakingClientTimeout"
         | "MatchmakingQueueConfigInvalid"
         | "MatchmakingMemberProfileInvalid"
-        | "WriteAttemptedDuringExport"
         | "NintendoSwitchDeviceIdNotLinked"
         | "MatchmakingNotEnabled"
         | "MatchmakingGetStatisticsIdentityInvalid"
         | "MatchmakingBucketOwnerNotFound"
-        | "CannotEnableMultiplayerServersForTitle"
         | "MatchmakingCancelAllTicketsUnauthorized"
         | "MatchmakingListTicketsUnauthorized"
         | "MatchmakingPlayerAttributesTooLarge"
@@ -1917,18 +1964,8 @@ declare module PlayFabAdminModels {
         | "MatchmakingLatencyMeasurementMissing"
         | "MatchmakingStatisticsNotFound"
         | "MatchmakingPlayerHasNotJoinedTicket"
-        | "CannotEnablePartiesForTitle"
-        | "PartyError"
-        | "PartyRequests"
-        | "PartyNoContent"
-        | "PartyBadRequest"
-        | "PartyUnauthorized"
-        | "PartyForbidden"
-        | "PartyNotFound"
-        | "PartyConflict"
-        | "PartyInternalServerError"
-        | "PartyUnavailable"
-        | "PartyTooManyRequests"
+        | "MatchmakingRateLimitExceeded"
+        | "MatchmakingTicketMembershipLimitExceeded"
         | "TitleConfigNotFound"
         | "TitleConfigUpdateConflict"
         | "TitleConfigSerializationError"
@@ -2686,6 +2723,18 @@ declare module PlayFabAdminModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ListOpenIdConnectionRequest
+    export interface ListOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ListOpenIdConnectionResponse
+    export interface ListOpenIdConnectionResponse extends PlayFabModule.IPlayFabResultCommon {
+        // The list of Open ID Connections
+        Connections?: OpenIdConnection[];
+
+    }
+
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ListVirtualCurrencyTypesRequest
     export interface ListVirtualCurrencyTypesRequest extends PlayFabModule.IPlayFabRequestCommon {
 
@@ -2862,6 +2911,34 @@ declare module PlayFabAdminModels {
         Id?: string;
         // Name Identifier, if present
         Name?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.OpenIdConnection
+    export interface OpenIdConnection {
+        // The client ID given by the ID provider.
+        ClientId?: string;
+        // The client secret given by the ID provider.
+        ClientSecret?: string;
+        // A name for the connection to identify it within the title.
+        ConnectionId?: string;
+        // Shows if data about the connection will be loaded from the issuer's discovery document
+        DiscoverConfiguration: boolean;
+        // Information for an OpenID Connect provider.
+        IssuerInformation?: OpenIdIssuerInformation;
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.OpenIdIssuerInformation
+    export interface OpenIdIssuerInformation {
+        // Authorization endpoint URL to direct users to for signin.
+        AuthorizationUrl: string;
+        // The URL of the issuer of the tokens. This must match the exact URL of the issuer field in tokens.
+        Issuer: string;
+        // JSON Web Key Set for validating the signature of tokens.
+        JsonWebKeySet: any;
+        // Token endpoint URL for code verification.
+        TokenUrl: string;
 
     }
 
@@ -3730,6 +3807,21 @@ declare module PlayFabAdminModels {
         Revision: number;
         // Cloud Script version updated
         Version: number;
+
+    }
+
+    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateOpenIdConnectionRequest
+    export interface UpdateOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The client ID given by the ID provider.
+        ClientId?: string;
+        // The client secret given by the ID provider.
+        ClientSecret?: string;
+        // A name for the connection that identifies it within the title.
+        ConnectionId: string;
+        // The issuer URL or discovery document URL to read issuer information from
+        IssuerDiscoveryUrl?: string;
+        // Manually specified information for an OpenID Connect issuer.
+        IssuerInformation?: OpenIdIssuerInformation;
 
     }
 
