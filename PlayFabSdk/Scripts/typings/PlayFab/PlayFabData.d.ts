@@ -185,7 +185,7 @@ declare module PlayFabDataModels {
     }
 
     // https://api.playfab.com/Documentation/Data/datatype/PlayFab.Data.Models/PlayFab.Data.Models.ObjectResult
-    export interface ObjectResult extends PlayFabModule.IPlayFabResultCommon {
+    export interface ObjectResult {
         // Un-escaped JSON object, if EscapeObject false or default.
         DataObject?: any;
         // Escaped string JSON body of the object, if EscapeObject is true.
