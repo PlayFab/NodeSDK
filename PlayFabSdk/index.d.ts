@@ -14,7 +14,7 @@
 
 export const PlayFab: PlayFabModule.IPlayFab;
 export function settings(): PlayFabModule.IPlayFabSettings;
-export function settings(value): void;
+export function settings(value: any): void;
 export const PlayFabAdmin: PlayFabAdminModule.IPlayFabAdmin;
 export const PlayFabClient: PlayFabClientModule.IPlayFabClient;
 export const PlayFabMatchmaker: PlayFabMatchmakerModule.IPlayFabMatchmaker;

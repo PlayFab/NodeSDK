@@ -575,7 +575,7 @@ declare module PlayFabServerModels {
     }
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.BanRequest
-    export interface BanRequest extends PlayFabModule.IPlayFabRequestCommon {
+    export interface BanRequest {
         // The duration in hours for the ban. Leave this blank for a permanent ban.
         DurationInHours?: number;
         // IP address to be banned. May affect multiple players.
@@ -722,7 +722,7 @@ declare module PlayFabServerModels {
     }
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.CharacterResult
-    export interface CharacterResult extends PlayFabModule.IPlayFabResultCommon {
+    export interface CharacterResult {
         // The id for this character on this player.
         CharacterId?: string;
         // The name of this character.
@@ -1282,7 +1282,7 @@ declare module PlayFabServerModels {
     }
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.EntityTokenResponse
-    export interface EntityTokenResponse extends PlayFabModule.IPlayFabResultCommon {
+    export interface EntityTokenResponse {
         // The entity id and type.
         Entity?: EntityKey;
         // The token used to set X-EntityToken for all entity based API calls.
@@ -1380,8 +1380,6 @@ declare module PlayFabServerModels {
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.FriendInfo
     export interface FriendInfo {
-        // This field is not populated.
-        CurrentMatchmakerLobbyId?: string;
         // Available Facebook information (if the user and PlayFab friend are also connected in Facebook).
         FacebookInfo?: UserFacebookInfo;
         // PlayFab unique identifier for this friend.
@@ -1843,6 +1841,7 @@ declare module PlayFabServerModels {
         | "CannotEnableMultiplayerServersForTitle"
         | "WriteAttemptedDuringExport"
         | "MultiplayerServerTitleQuotaCoresExceeded"
+        | "AutomationRuleNotFound"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -1861,6 +1860,7 @@ declare module PlayFabServerModels {
         | "MatchmakingRateLimitExceeded"
         | "MatchmakingTicketMembershipLimitExceeded"
         | "MatchmakingUnauthorized"
+        | "MatchmakingQueueLimitExceeded"
         | "TitleConfigNotFound"
         | "TitleConfigUpdateConflict"
         | "TitleConfigSerializationError"
@@ -1878,13 +1878,27 @@ declare module PlayFabServerModels {
         | "CatalogConfigContentTypeTooLong"
         | "CatalogConfigTooManyTags"
         | "CatalogConfigTagTooLong"
+        | "CatalogConfigInvalidDeepLinkObject"
+        | "CatalogConfigInvalidDeepLinkPlatform"
+        | "CatalogConfigInvalidDeepLinkFormat"
+        | "CatalogConfigInvalidDisplayPropertyObject"
+        | "CatalogConfigInvalidDisplayPropertyName"
+        | "CatalogConfigInvalidDisplayPropertyType"
+        | "CatalogConfigDisplayPropertyMappingLimit"
         | "ExportInvalidStatusUpdate"
         | "ExportInvalidPrefix"
         | "ExportBlobContainerDoesNotExist"
         | "ExportEventNameNotFound"
         | "ExportExportTitleIdNotFound"
         | "ExportCouldNotUpdate"
-        | "ExportInvalidStorageType";
+        | "ExportInvalidStorageType"
+        | "ExportAmazonBucketDoesNotExist"
+        | "ExportInvalidBlobStorage"
+        | "ExportKustoException"
+        | "ExportKustoExceptionNew_SomeResources"
+        | "ExportKustoExceptionEdit"
+        | "ExportKustoConnectionFailed"
+        | "ExportUnknownError";
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetAllSegmentsRequest
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2185,7 +2199,7 @@ declare module PlayFabServerModels {
         GetCharacterInventories: boolean;
         // Whether to get the list of characters. Defaults to false.
         GetCharacterList: boolean;
-        // Whether to get player profile. Defaults to false.
+        // Whether to get player profile. Defaults to false. Has no effect for a new player.
         GetPlayerProfile: boolean;
         // Whether to get player statistics. Defaults to false.
         GetPlayerStatistics: boolean;
@@ -2487,7 +2501,7 @@ declare module PlayFabServerModels {
     }
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetSegmentResult
-    export interface GetSegmentResult extends PlayFabModule.IPlayFabResultCommon {
+    export interface GetSegmentResult {
         // Identifier of the segments AB Test, if it is attached to one.
         ABTestParent?: string;
         // Unique identifier for this segment.
@@ -3970,7 +3984,7 @@ declare module PlayFabServerModels {
     }
 
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.UpdateBanRequest
-    export interface UpdateBanRequest extends PlayFabModule.IPlayFabRequestCommon {
+    export interface UpdateBanRequest {
         // The updated active state for the ban. Null for no change.
         Active?: boolean;
         // The id of the ban to be updated.
@@ -4240,6 +4254,8 @@ declare module PlayFabServerModels {
         GoogleId?: string;
         // Locale of the Google account
         GoogleLocale?: string;
+        // Name of the Google account user
+        GoogleName?: string;
 
     }
 
@@ -4337,6 +4353,8 @@ declare module PlayFabServerModels {
         SteamCurrency?: string;
         // Steam identifier
         SteamId?: string;
+        // Steam display name
+        SteamName?: string;
 
     }
 
