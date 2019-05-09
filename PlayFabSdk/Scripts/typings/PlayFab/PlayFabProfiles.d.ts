@@ -84,6 +84,8 @@ declare module PlayFabProfilesModels {
 
     // https://api.playfab.com/Documentation/Profiles/datatype/PlayFab.Profiles.Models/PlayFab.Profiles.Models.EntityProfileBody
     export interface EntityProfileBody {
+        // Avatar URL for the entity.
+        AvatarUrl?: string;
         // The creation time of this profile in UTC.
         Created: string;
         // The display name of the entity. This field may serve different purposes for different entity types. i.e.: for a title
