@@ -165,7 +165,8 @@ declare module PlayFabMultiplayerModels {
         | "WestEurope"
         | "WestUs"
         | "ChinaEast2"
-        | "ChinaNorth2";
+        | "ChinaNorth2"
+        | "SouthAfricaNorth";
 
     type AzureVmFamily = "A"
         | "Av2"
@@ -254,7 +255,8 @@ declare module PlayFabMultiplayerModels {
 
     type CancellationReason = "Requested"
         | "Internal"
-        | "Timeout";
+        | "Timeout"
+        | "ServerAllocationFailed";
 
     // https://api.playfab.com/Documentation/Multiplayer/datatype/PlayFab.Multiplayer.Models/PlayFab.Multiplayer.Models.CancelMatchmakingTicketRequest
     export interface CancelMatchmakingTicketRequest extends PlayFabModule.IPlayFabRequestCommon {
