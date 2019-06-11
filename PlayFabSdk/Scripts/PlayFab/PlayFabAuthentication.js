@@ -19,3 +19,11 @@ exports.GetEntityToken = function (request, callback) {
     });
 };
 
+exports.ValidateEntityToken = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Authentication/ValidateEntityToken", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
