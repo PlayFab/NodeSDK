@@ -12,3 +12,11 @@ exports.WriteEvents = function (request, callback) {
     });
 };
 
+exports.WriteTelemetryEvents = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Event/WriteTelemetryEvents", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
