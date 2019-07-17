@@ -4,6 +4,9 @@ declare module PlayFabEventsModule {
         // Write batches of entity based events to PlayStream.
         // https://api.playfab.com/Documentation/Events/method/WriteEvents
         WriteEvents(request: PlayFabEventsModels.WriteEventsRequest, callback: PlayFabModule.ApiCallback<PlayFabEventsModels.WriteEventsResponse>): void;
+        // Write batches of entity based events to as Telemetry events (bypass PlayStream).
+        // https://api.playfab.com/Documentation/Events/method/WriteTelemetryEvents
+        WriteTelemetryEvents(request: PlayFabEventsModels.WriteEventsRequest, callback: PlayFabModule.ApiCallback<PlayFabEventsModels.WriteEventsResponse>): void;
 
     }
 }

@@ -28,6 +28,14 @@ exports.GetProfiles = function (request, callback) {
     });
 };
 
+exports.GetTitlePlayersFromMasterPlayerAccountIds = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Profile/GetTitlePlayersFromMasterPlayerAccountIds", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.SetGlobalPolicy = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Profile/SetGlobalPolicy", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 
