@@ -774,7 +774,7 @@ exports.LinkXboxAccount = function (request, callback) {
 };
 
 exports.LoginWithAndroidDeviceID = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithAndroidDeviceID", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -788,7 +788,7 @@ exports.LoginWithAndroidDeviceID = function (request, callback) {
 };
 
 exports.LoginWithCustomID = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithCustomID", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -802,7 +802,7 @@ exports.LoginWithCustomID = function (request, callback) {
 };
 
 exports.LoginWithEmailAddress = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithEmailAddress", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -816,7 +816,7 @@ exports.LoginWithEmailAddress = function (request, callback) {
 };
 
 exports.LoginWithFacebook = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithFacebook", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -830,7 +830,7 @@ exports.LoginWithFacebook = function (request, callback) {
 };
 
 exports.LoginWithFacebookInstantGamesId = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithFacebookInstantGamesId", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -844,7 +844,7 @@ exports.LoginWithFacebookInstantGamesId = function (request, callback) {
 };
 
 exports.LoginWithGameCenter = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithGameCenter", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -858,7 +858,7 @@ exports.LoginWithGameCenter = function (request, callback) {
 };
 
 exports.LoginWithGoogleAccount = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithGoogleAccount", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -872,7 +872,7 @@ exports.LoginWithGoogleAccount = function (request, callback) {
 };
 
 exports.LoginWithIOSDeviceID = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithIOSDeviceID", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -886,7 +886,7 @@ exports.LoginWithIOSDeviceID = function (request, callback) {
 };
 
 exports.LoginWithKongregate = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithKongregate", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -900,7 +900,7 @@ exports.LoginWithKongregate = function (request, callback) {
 };
 
 exports.LoginWithNintendoSwitchDeviceId = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithNintendoSwitchDeviceId", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -914,7 +914,7 @@ exports.LoginWithNintendoSwitchDeviceId = function (request, callback) {
 };
 
 exports.LoginWithOpenIdConnect = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithOpenIdConnect", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -928,7 +928,7 @@ exports.LoginWithOpenIdConnect = function (request, callback) {
 };
 
 exports.LoginWithPlayFab = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithPlayFab", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -942,7 +942,7 @@ exports.LoginWithPlayFab = function (request, callback) {
 };
 
 exports.LoginWithPSN = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithPSN", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -956,7 +956,7 @@ exports.LoginWithPSN = function (request, callback) {
 };
 
 exports.LoginWithSteam = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithSteam", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -970,7 +970,7 @@ exports.LoginWithSteam = function (request, callback) {
 };
 
 exports.LoginWithTwitch = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithTwitch", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -984,7 +984,7 @@ exports.LoginWithTwitch = function (request, callback) {
 };
 
 exports.LoginWithWindowsHello = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithWindowsHello", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -998,7 +998,7 @@ exports.LoginWithWindowsHello = function (request, callback) {
 };
 
 exports.LoginWithXbox = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/LoginWithXbox", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -1075,7 +1075,7 @@ exports.RegisterForIOSPushNotification = function (request, callback) {
 };
 
 exports.RegisterPlayFabUser = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RegisterPlayFabUser", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
@@ -1089,7 +1089,7 @@ exports.RegisterPlayFabUser = function (request, callback) {
 };
 
 exports.RegisterWithWindowsHello = function (request, callback) {
-    request.TitleId = PlayFab.settings.titleId != null ? PlayFab.settings.titleId : request.TitleId;
+    request.TitleId = request.TitleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) throw "Must be have PlayFab.settings.titleId set to call this method";
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Client/RegisterWithWindowsHello", request, null, null, function (error, result) {
         if (result != null && result.data != null) {
