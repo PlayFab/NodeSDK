@@ -268,6 +268,14 @@ exports.ListQosServers = function (request, callback) {
     });
 };
 
+exports.ListQosServersForTitle = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/ListQosServersForTitle", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.ListVirtualMachineSummaries = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/ListVirtualMachineSummaries", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 

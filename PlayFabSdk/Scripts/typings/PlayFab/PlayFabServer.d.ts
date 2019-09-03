@@ -187,6 +187,9 @@ declare module PlayFabServerModule {
         // please see our guide: https://api.playfab.com/docs/tutorials/landing-players/shared-groups
         // https://api.playfab.com/Documentation/Server/method/GetSharedGroupData
         GetSharedGroupData(request: PlayFabServerModels.GetSharedGroupDataRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetSharedGroupDataResult>): void;
+        // Retrieves the set of items defined for the specified store, including all prices defined, for the specified player
+        // https://api.playfab.com/Documentation/Server/method/GetStoreItems
+        GetStoreItems(request: PlayFabServerModels.GetStoreItemsServerRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetStoreItemsResult>): void;
         // Retrieves the current server time
         // https://api.playfab.com/Documentation/Server/method/GetTime
         GetTime(request: PlayFabServerModels.GetTimeRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetTimeResult>): void;
@@ -253,6 +256,10 @@ declare module PlayFabServerModule {
         // subsequently be used for API calls which require an authenticated user
         // https://api.playfab.com/Documentation/Server/method/LoginWithXbox
         LoginWithXbox(request: PlayFabServerModels.LoginWithXboxRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.ServerLoginResult>): void;
+        // Signs the user in using an Xbox ID and Sandbox ID, returning a session identifier that can subsequently be used for API
+        // calls which require an authenticated user
+        // https://api.playfab.com/Documentation/Server/method/LoginWithXboxId
+        LoginWithXboxId(request: PlayFabServerModels.LoginWithXboxIdRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.ServerLoginResult>): void;
         // Modifies the number of remaining uses of a player's inventory item
         // https://api.playfab.com/Documentation/Server/method/ModifyItemUses
         ModifyItemUses(request: PlayFabServerModels.ModifyItemUsesRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.ModifyItemUsesResult>): void;
@@ -1905,6 +1912,7 @@ declare module PlayFabServerModels {
         | "QueryRateLimitExceeded"
         | "EntityAPIKeyCreationDisabledForEntity"
         | "ForbiddenByEntityPolicy"
+        | "UpdateInventoryRateLimitExceeded"
         | "StudioCreationRateLimited"
         | "StudioCreationInProgress"
         | "DuplicateStudioName"
@@ -2675,6 +2683,33 @@ declare module PlayFabServerModels {
 
     }
 
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetStoreItemsResult
+    export interface GetStoreItemsResult extends PlayFabModule.IPlayFabResultCommon {
+        // The base catalog that this store is a part of.
+        CatalogVersion?: string;
+        // Additional data about the store.
+        MarketingData?: StoreMarketingModel;
+        // How the store was last updated (Admin or a third party).
+        Source?: string;
+        // Array of items which can be purchased from this store.
+        Store?: StoreItem[];
+        // The ID of this store.
+        StoreId?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetStoreItemsServerRequest
+    export interface GetStoreItemsServerRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Catalog version to store items from. Use default catalog version if null
+        CatalogVersion?: string;
+        // Optional identifier for the player to use in requesting the store information - if used, segment overrides will be
+        // applied
+        PlayFabId?: string;
+        // Unqiue identifier for the store which is being requested
+        StoreId: string;
+
+    }
+
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.GetTimeRequest
     export interface GetTimeRequest extends PlayFabModule.IPlayFabRequestCommon {
 
@@ -3073,6 +3108,19 @@ declare module PlayFabServerModels {
         PlayerSecret?: string;
         // The backend server identifier for this player.
         ServerCustomId?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.LoginWithXboxIdRequest
+    export interface LoginWithXboxIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Automatically create a PlayFab account if one is not currently linked to this ID.
+        CreateAccount?: boolean;
+        // Flags for which pieces of info to return for the user.
+        InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
+        // The id of Xbox Live sandbox.
+        Sandbox: string;
+        // Unique Xbox identifier for a user
+        XboxId: string;
 
     }
 
@@ -3979,6 +4027,14 @@ declare module PlayFabServerModels {
 
     }
 
+    type SourceType = "Admin"
+        | "BackEnd"
+        | "GameClient"
+        | "GameServer"
+        | "Partner"
+        | "Custom"
+        | "API";
+
     // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.StatisticModel
     export interface StatisticModel {
         // Statistic name
@@ -4028,6 +4084,33 @@ declare module PlayFabServerModels {
         PlayFabId?: string;
         // Unique Steam identifier for a user.
         SteamStringId?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.StoreItem
+    export interface StoreItem {
+        // Store specific custom data. The data only exists as part of this store; it is not transferred to item instances
+        CustomData?: any;
+        // Intended display position for this item. Note that 0 is the first position
+        DisplayPosition?: number;
+        // Unique identifier of the item as it exists in the catalog - note that this must exactly match the ItemId from the
+        // catalog
+        ItemId: string;
+        // Override prices for this item for specific currencies
+        RealCurrencyPrices?: { [key: string]: number };
+        // Override prices for this item in virtual currencies and "RM" (the base Real Money purchase price, in USD pennies)
+        VirtualCurrencyPrices?: { [key: string]: number };
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.StoreMarketingModel
+    export interface StoreMarketingModel {
+        // Tagline for a store.
+        Description?: string;
+        // Display name of a store as it will appear to users.
+        DisplayName?: string;
+        // Custom data about a store.
+        Metadata?: any;
 
     }
 
