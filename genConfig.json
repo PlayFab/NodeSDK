@@ -1,0 +1,6 @@
+{
+    "default": {
+        "templateFolder": "js-node",
+        "versionKey": "js-node"
+    }
+}
