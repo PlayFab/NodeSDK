@@ -1413,7 +1413,7 @@ declare module PlayFabAdminModels {
     export interface EntityKey {
         // Unique ID of the entity.
         Id: string;
-        // Entity type. See https://api.playfab.com/docs/tutorials/entities/entitytypes
+        // Entity type. See https://docs.microsoft.com/gaming/playfab/features/data/entities/available-built-in-entity-types
         Type?: string;
 
     }
@@ -1954,6 +1954,13 @@ declare module PlayFabAdminModels {
         | "VirtualCurrencyBetaRestoreError"
         | "VirtualCurrencyBetaSaveConflict"
         | "VirtualCurrencyBetaUpdateError"
+        | "InsightsManagementDatabaseNotFound"
+        | "InsightsManagementOperationNotFound"
+        | "InsightsManagementErrorPendingOperationExists"
+        | "InsightsManagementSetPerformanceLevelInvalidParameter"
+        | "InsightsManagementSetStorageRetentionInvalidParameter"
+        | "InsightsManagementGetStorageUsageInvalidParameter"
+        | "InsightsManagementGetOperationStatusInvalidParameter"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2016,6 +2023,7 @@ declare module PlayFabAdminModels {
         | "ExperimentationExceededVariantNameLength"
         | "ExperimentationExceededMaxVariantLength"
         | "ExperimentInvalidId"
+        | "MaxActionDepthExceeded"
         | "SnapshotNotFound";
 
     // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetActionsOnPlayersInSegmentTaskInstanceResult
