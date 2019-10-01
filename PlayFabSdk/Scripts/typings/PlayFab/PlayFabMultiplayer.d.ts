@@ -77,7 +77,8 @@ declare module PlayFabMultiplayerModule {
         // Lists multiplayer server game assets for a title.
         // https://api.playfab.com/Documentation/Multiplayer/method/ListAssetSummaries
         ListAssetSummaries(request: PlayFabMultiplayerModels.ListAssetSummariesRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListAssetSummariesResponse>): void;
-        // Lists summarized details of all multiplayer server builds for a title.
+        // Lists summarized details of all multiplayer server builds for a title. Accepts tokens for title and if game client
+        // access is enabled, allows game client to request list of builds with player entity token.
         // https://api.playfab.com/Documentation/Multiplayer/method/ListBuildSummaries
         ListBuildSummaries(request: PlayFabMultiplayerModels.ListBuildSummariesRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListBuildSummariesResponse>): void;
         // Lists multiplayer server game certificates for a title.
@@ -107,7 +108,7 @@ declare module PlayFabMultiplayerModule {
         // Lists virtual machines for a title.
         // https://api.playfab.com/Documentation/Multiplayer/method/ListVirtualMachineSummaries
         ListVirtualMachineSummaries(request: PlayFabMultiplayerModels.ListVirtualMachineSummariesRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListVirtualMachineSummariesResponse>): void;
-        // Request a multiplayer server session. Accepts tokens for title and if game client accesss is enabled, allows game client
+        // Request a multiplayer server session. Accepts tokens for title and if game client access is enabled, allows game client
         // to request a server with player entity token.
         // https://api.playfab.com/Documentation/Multiplayer/method/RequestMultiplayerServer
         RequestMultiplayerServer(request: PlayFabMultiplayerModels.RequestMultiplayerServerRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.RequestMultiplayerServerResponse>): void;
@@ -346,7 +347,7 @@ declare module PlayFabMultiplayerModels {
         // The game certificates for the build.
         GameCertificateReferences?: GameCertificateReferenceParams[];
         // Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
-        // Game Server SDK (GSDK).
+        // Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
         Metadata?: { [key: string]: string | null };
         // The number of multiplayer servers to host on a single VM.
         MultiplayerServerCountPerVm: number;
@@ -403,7 +404,7 @@ declare module PlayFabMultiplayerModels {
         // The instrumentation configuration for the build.
         InstrumentationConfiguration?: InstrumentationConfiguration;
         // Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
-        // Game Server SDK (GSDK).
+        // Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
         Metadata?: { [key: string]: string | null };
         // The number of multiplayer servers to host on a single VM.
         MultiplayerServerCountPerVm: number;
