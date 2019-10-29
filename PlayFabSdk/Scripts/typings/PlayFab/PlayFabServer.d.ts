@@ -1946,6 +1946,8 @@ declare module PlayFabServerModels {
         | "InsightsManagementSetStorageRetentionInvalidParameter"
         | "InsightsManagementGetStorageUsageInvalidParameter"
         | "InsightsManagementGetOperationStatusInvalidParameter"
+        | "DuplicatePurchaseTransactionId"
+        | "EvaluationModePlayerCountExceeded"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -1982,6 +1984,8 @@ declare module PlayFabServerModels {
         | "CatalogConfigInvalid"
         | "CatalogUnauthorized"
         | "CatalogItemTypeInvalid"
+        | "CatalogBadRequest"
+        | "CatalogTooManyRequests"
         | "ExportInvalidStatusUpdate"
         | "ExportInvalidPrefix"
         | "ExportBlobContainerDoesNotExist"
@@ -2008,6 +2012,7 @@ declare module PlayFabServerModels {
         | "ExperimentationExceededVariantNameLength"
         | "ExperimentationExceededMaxVariantLength"
         | "ExperimentInvalidId"
+        | "ExperimentationNoScorecard"
         | "MaxActionDepthExceeded"
         | "SnapshotNotFound";
 
@@ -3398,6 +3403,8 @@ declare module PlayFabServerModels {
         Created?: string;
         // Player display name
         DisplayName?: string;
+        // List of experiment variants for the player.
+        ExperimentVariants?: string[];
         // UTC time when the player most recently logged in to the title
         LastLogin?: string;
         // List of all authentication systems linked to this player account
@@ -3442,6 +3449,8 @@ declare module PlayFabServerModels {
         ShowCreated: boolean;
         // Whether to show the display name. Defaults to false
         ShowDisplayName: boolean;
+        // Whether to show player's experiment variants. Defaults to false
+        ShowExperimentVariants: boolean;
         // Whether to show the last login time. Defaults to false
         ShowLastLogin: boolean;
         // Whether to show the linked accounts. Defaults to false
@@ -3925,6 +3934,8 @@ declare module PlayFabServerModels {
         SessionTicket?: string;
         // Settings specific to this user.
         SettingsForUser?: UserSettings;
+        // The experimentation treatments for this user at the time of login.
+        TreatmentAssignment?: TreatmentAssignment;
 
     }
 
@@ -4201,6 +4212,15 @@ declare module PlayFabServerModels {
         Timestamp: string;
         // Title of the news item.
         Title?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.TreatmentAssignment
+    export interface TreatmentAssignment {
+        // List of the experiment variables.
+        Variables?: Variable[];
+        // List of the experiment variants.
+        Variants?: string[];
 
     }
 
@@ -4718,6 +4738,15 @@ declare module PlayFabServerModels {
         // Total value of the purchases in a string representation of decimal monetary units. For example, '9.99' indicates nine
         // dollars and ninety-nine cents when Currency is 'USD'.
         TotalValueAsDecimal?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Server/datatype/PlayFab.Server.Models/PlayFab.Server.Models.Variable
+    export interface Variable {
+        // Name of the variable.
+        Name: string;
+        // Value of the variable.
+        Value: string;
 
     }
 

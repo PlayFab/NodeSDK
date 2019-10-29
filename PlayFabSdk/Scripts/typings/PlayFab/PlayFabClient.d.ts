@@ -2970,6 +2970,8 @@ declare module PlayFabClientModels {
         SessionTicket?: string;
         // Settings specific to this user.
         SettingsForUser?: UserSettings;
+        // The experimentation treatments for this user at the time of login.
+        TreatmentAssignment?: TreatmentAssignment;
 
     }
 
@@ -3493,6 +3495,8 @@ declare module PlayFabClientModels {
         Created?: string;
         // Player display name
         DisplayName?: string;
+        // List of experiment variants for the player.
+        ExperimentVariants?: string[];
         // UTC time when the player most recently logged in to the title
         LastLogin?: string;
         // List of all authentication systems linked to this player account
@@ -3537,6 +3541,8 @@ declare module PlayFabClientModels {
         ShowCreated: boolean;
         // Whether to show the display name. Defaults to false
         ShowDisplayName: boolean;
+        // Whether to show player's experiment variants. Defaults to false
+        ShowExperimentVariants: boolean;
         // Whether to show the last login time. Defaults to false
         ShowLastLogin: boolean;
         // Whether to show the linked accounts. Defaults to false
@@ -4188,6 +4194,15 @@ declare module PlayFabClientModels {
         | "Other"
         | "Failed";
 
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.TreatmentAssignment
+    export interface TreatmentAssignment {
+        // List of the experiment variables.
+        Variables?: Variable[];
+        // List of the experiment variants.
+        Variants?: string[];
+
+    }
+
     // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.TwitchPlayFabIdPair
     export interface TwitchPlayFabIdPair {
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Twitch identifier.
@@ -4777,7 +4792,7 @@ declare module PlayFabClientModels {
         // Catalog version of the fulfilled items. If null, defaults to the primary catalog.
         CatalogVersion?: string;
         // Currency used to pay for the purchase (ISO 4217 currency code).
-        CurrencyCode: string;
+        CurrencyCode?: string;
         // Amount of the stated currency paid, in centesimal units.
         PurchasePrice: number;
         // ReceiptId returned by the Amazon App Store in-app purchase API
@@ -4821,7 +4836,7 @@ declare module PlayFabClientModels {
         // Catalog version of the fulfilled items. If null, defaults to the primary catalog.
         CatalogVersion?: string;
         // Currency used to pay for the purchase (ISO 4217 currency code).
-        CurrencyCode: string;
+        CurrencyCode?: string;
         // Amount of the stated currency paid, in centesimal units.
         PurchasePrice: number;
         // Base64 encoded receipt data, passed back by the App Store as a result of a successful purchase.
@@ -4866,6 +4881,15 @@ declare module PlayFabClientModels {
         // Total value of the purchases in a string representation of decimal monetary units. For example, '9.99' indicates nine
         // dollars and ninety-nine cents when Currency is 'USD'.
         TotalValueAsDecimal?: string;
+
+    }
+
+    // https://api.playfab.com/Documentation/Client/datatype/PlayFab.Client.Models/PlayFab.Client.Models.Variable
+    export interface Variable {
+        // Name of the variable.
+        Name: string;
+        // Value of the variable.
+        Value: string;
 
     }
 
