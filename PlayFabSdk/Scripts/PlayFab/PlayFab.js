@@ -3,8 +3,8 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "2.37.191015";
-exports.buildIdentifier = "jbuild_nodesdk__sdk-genericslave-1_1";
+exports.sdk_version = "2.38.191029";
+exports.buildIdentifier = "jbuild_nodesdk__sdk-genericslave-3_1";
 
 var settings = exports.settings = {
     productionUrl: ".playfabapi.com",
@@ -12,6 +12,7 @@ var settings = exports.settings = {
     titleId: null, // You must set this value for PlayFabSdk to work properly (Found in the Game Manager for your title, at the PlayFab Website)
     globalErrorHandler: null,
     developerSecretKey: null, // You must set this value for PlayFabSdk to work properly (Found in the Game Manager for your title, at the PlayFab Website)
+    port: 443,
     advertisingIdType: null, // Set this to the appropriate AD_TYPE_X constant below
     advertisingIdValue: null, // Set this to corresponding device value
 
@@ -26,7 +27,7 @@ var _internalSettings = exports._internalSettings = {
     entityToken: null,
     sessionTicket: null,
     requestGetParams: {
-        sdk: "JavaScriptSDK-2.37.191015"
+        sdk: "JavaScriptSDK-2.38.191029"
     },
 };
 
@@ -71,7 +72,7 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
     if (options.protocol !== "https:")
         throw "Unsupported protocol: " + options.protocol;
     options.method = "POST";
-    options.port = 443;
+    options.port = options.port || exports.settings.port;
     options.headers = {
         "Content-Type": "application/json",
         "Content-Length": requestBody.length,
