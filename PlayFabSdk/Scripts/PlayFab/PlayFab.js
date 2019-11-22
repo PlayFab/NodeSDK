@@ -3,8 +3,8 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "2.38.191029";
-exports.buildIdentifier = "jbuild_nodesdk__sdk-genericslave-3_1";
+exports.sdk_version = "2.39.191121";
+exports.buildIdentifier = "jbuild_nodesdk__sdk-genericslave-2_0";
 
 var settings = exports.settings = {
     productionUrl: ".playfabapi.com",
@@ -27,7 +27,7 @@ var _internalSettings = exports._internalSettings = {
     entityToken: null,
     sessionTicket: null,
     requestGetParams: {
-        sdk: "JavaScriptSDK-2.38.191029"
+        sdk: "JavaScriptSDK-2.39.191121"
     },
 };
 
@@ -70,7 +70,7 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
 
     var options = url.parse(completeUrl);
     if (options.protocol !== "https:")
-        throw "Unsupported protocol: " + options.protocol;
+        throw new Error("Unsupported protocol: " + options.protocol);
     options.method = "POST";
     options.port = options.port || exports.settings.port;
     options.headers = {

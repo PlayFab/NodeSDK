@@ -136,7 +136,8 @@ declare module PlayFabServerModule {
         // Allows for paging through all players in a given segment. This API creates a snapshot of all player profiles that match
         // the segment definition at the time of its creation and lives through the Total Seconds to Live, refreshing its life span
         // on each subsequent use of the Continuation Token. Profiles that change during the course of paging will not be reflected
-        // in the results. AB Test segments are currently not supported by this operation.
+        // in the results. AB Test segments are currently not supported by this operation. NOTE: This API is limited to being
+        // called 30 times in one minute. You will be returned an error if you exceed this threshold.
         // https://api.playfab.com/Documentation/Server/method/GetPlayersInSegment
         GetPlayersInSegment(request: PlayFabServerModels.GetPlayersInSegmentRequest, callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayersInSegmentResult>): void;
         // Retrieves the current version and values for the indicated statistics, for the local player.
@@ -1948,6 +1949,10 @@ declare module PlayFabServerModels {
         | "InsightsManagementGetOperationStatusInvalidParameter"
         | "DuplicatePurchaseTransactionId"
         | "EvaluationModePlayerCountExceeded"
+        | "GetPlayersInSegmentRateLimitExceeded"
+        | "CloudScriptFunctionNameSizeExceeded"
+        | "InsightsManagementTitleInEvaluationMode"
+        | "CloudScriptAzureFunctionsQueueRequestError"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2000,6 +2005,7 @@ declare module PlayFabServerModels {
         | "ExportCantEditPendingExport"
         | "ExportLimitExports"
         | "ExportLimitEvents"
+        | "ExportInvalidPartitionStatusModification"
         | "TitleNotEnabledForParty"
         | "PartyVersionNotFound"
         | "MultiplayerServerBuildReferencedByMatchmakingQueue"
@@ -2013,6 +2019,8 @@ declare module PlayFabServerModels {
         | "ExperimentationExceededMaxVariantLength"
         | "ExperimentInvalidId"
         | "ExperimentationNoScorecard"
+        | "ExperimentationTreatmentAssignmentFailed"
+        | "ExperimentationTreatmentAssignmentDisabled"
         | "MaxActionDepthExceeded"
         | "SnapshotNotFound";
 
