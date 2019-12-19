@@ -172,6 +172,14 @@ exports.GetMultiplayerServerDetails = function (request, callback) {
     });
 };
 
+exports.GetMultiplayerServerLogs = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/GetMultiplayerServerLogs", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetQueueStatistics = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Match/GetQueueStatistics", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 
@@ -334,6 +342,14 @@ exports.RolloverContainerRegistryCredentials = function (request, callback) {
 
 exports.ShutdownMultiplayerServer = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/ShutdownMultiplayerServer", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.UntagContainerImage = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/UntagContainerImage", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 
         if (callback != null)
             callback(error, result);
