@@ -2,6 +2,7 @@
 
 var url = require("url");
 var https = require("https");
+var zlib = require('zlib');
 
 exports.sdk_version = "2.40.191218";
 exports.buildIdentifier = "jbuild_nodesdk__sdk-genericslave-3_1";
@@ -21,6 +22,7 @@ var settings = exports.settings = {
     disableAdvertising: false,
     AD_TYPE_IDFA: "Idfa",
     AD_TYPE_ANDROID_ID: "Adid",
+    gzip: false
 };
 
 var _internalSettings = exports._internalSettings = {
@@ -75,7 +77,6 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
     options.port = options.port || exports.settings.port;
     options.headers = {
         "Content-Type": "application/json",
-        "Content-Length": requestBody.length,
         "X-PlayFabSDK": "NodeSDK-" + exports.sdk_version + "-" + exports.api_version
     };
 
@@ -84,9 +85,17 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
 
     var postReq = https.request(options, function (res) {
         var rawReply = "";
-        res.setEncoding("utf8");
-        res.on("data", function (chunk) { rawReply += chunk; });
-        res.on("end", function () {
+        var handler;
+        if (settings.gzip) {
+            handler = zlib.createGunzip();
+            res.pipe(handler);
+        }
+        else {
+            handler = res;
+        }
+        handler.setEncoding("utf8");
+        handler.on("data", function (chunk) { rawReply += chunk; });
+        handler.on("end", function () {
             if (callback == null)
                 return; // No need to bother decoding results
 
@@ -124,6 +133,30 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
         }, null);
     });
 
-    postReq.write(requestBody);
-    postReq.end();
+    if (settings.gzip) {
+        postReq.setHeader("Accept-Encoding", "GZIP");
+        postReq.setHeader("Content-Encoding", "GZIP");
+        zlib.gzip(requestBody, function (e, compressedBody) {
+            if (e) {
+                if (callback != null) {
+                    callback({
+                        code: 400,
+                        status: "Bad Request",
+                        error: "Gzip error",
+                        errorCode: 2,
+                        errorMessage: e.message
+                    }, null);
+                }
+                return;
+            }
+            postReq.setHeader("Content-Length", compressedBody.length);
+            postReq.write(compressedBody);
+            postReq.end();
+        });
+    }
+    else {
+        postReq.setHeader("Content-Length", requestBody.length);
+        postReq.write(requestBody);
+        postReq.end();
+    }
 }

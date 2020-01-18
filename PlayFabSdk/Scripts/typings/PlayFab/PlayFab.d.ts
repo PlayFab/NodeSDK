@@ -15,6 +15,7 @@ declare module PlayFabModule {
         disableAdvertising?: boolean;
         AD_TYPE_IDFA: string;
         AD_TYPE_ANDROID_ID: string;
+        gzip: boolean
     }
     export interface IPlayFabRequestCommon { }
     export interface IPlayFabError {
