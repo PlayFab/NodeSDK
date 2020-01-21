@@ -12,8 +12,24 @@ exports.CancelAllMatchmakingTicketsForPlayer = function (request, callback) {
     });
 };
 
+exports.CancelAllServerBackfillTicketsForPlayer = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Match/CancelAllServerBackfillTicketsForPlayer", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.CancelMatchmakingTicket = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Match/CancelMatchmakingTicket", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.CancelServerBackfillTicket = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Match/CancelServerBackfillTicket", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -54,6 +70,14 @@ exports.CreateMatchmakingTicket = function (request, callback) {
 
 exports.CreateRemoteUser = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/CreateRemoteUser", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.CreateServerBackfillTicket = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Match/CreateServerBackfillTicket", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 
         if (callback != null)
             callback(error, result);
@@ -196,6 +220,14 @@ exports.GetRemoteLoginEndpoint = function (request, callback) {
     });
 };
 
+exports.GetServerBackfillTicket = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Match/GetServerBackfillTicket", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetTitleEnabledForMultiplayerServersStatus = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/GetTitleEnabledForMultiplayerServersStatus", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 
@@ -310,6 +342,14 @@ exports.ListQosServers = function (request, callback) {
 
 exports.ListQosServersForTitle = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/ListQosServersForTitle", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
+exports.ListServerBackfillTicketsForPlayer = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Match/ListServerBackfillTicketsForPlayer", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 
         if (callback != null)
             callback(error, result);

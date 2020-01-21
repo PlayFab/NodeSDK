@@ -2,86 +2,85 @@ declare module PlayFabGroupsModule {
     export interface IPlayFabGroups {
         settings: PlayFabModule.IPlayFabSettings;
         // Accepts an outstanding invitation to to join a group
-        // https://api.playfab.com/Documentation/Groups/method/AcceptGroupApplication
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/acceptgroupapplication
         AcceptGroupApplication(request: PlayFabGroupsModels.AcceptGroupApplicationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Accepts an invitation to join a group
-        // https://api.playfab.com/Documentation/Groups/method/AcceptGroupInvitation
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/acceptgroupinvitation
         AcceptGroupInvitation(request: PlayFabGroupsModels.AcceptGroupInvitationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Adds members to a group or role.
-        // https://api.playfab.com/Documentation/Groups/method/AddMembers
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/addmembers
         AddMembers(request: PlayFabGroupsModels.AddMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Applies to join a group
-        // https://api.playfab.com/Documentation/Groups/method/ApplyToGroup
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/applytogroup
         ApplyToGroup(request: PlayFabGroupsModels.ApplyToGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.ApplyToGroupResponse>): void;
         // Blocks a list of entities from joining a group.
-        // https://api.playfab.com/Documentation/Groups/method/BlockEntity
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/blockentity
         BlockEntity(request: PlayFabGroupsModels.BlockEntityRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Changes the role membership of a list of entities from one role to another.
-        // https://api.playfab.com/Documentation/Groups/method/ChangeMemberRole
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/changememberrole
         ChangeMemberRole(request: PlayFabGroupsModels.ChangeMemberRoleRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Creates a new group.
-        // https://api.playfab.com/Documentation/Groups/method/CreateGroup
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/creategroup
         CreateGroup(request: PlayFabGroupsModels.CreateGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.CreateGroupResponse>): void;
         // Creates a new group role.
-        // https://api.playfab.com/Documentation/Groups/method/CreateRole
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/createrole
         CreateRole(request: PlayFabGroupsModels.CreateGroupRoleRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.CreateGroupRoleResponse>): void;
         // Deletes a group and all roles, invitations, join requests, and blocks associated with it.
-        // https://api.playfab.com/Documentation/Groups/method/DeleteGroup
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/deletegroup
         DeleteGroup(request: PlayFabGroupsModels.DeleteGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Deletes an existing role in a group.
-        // https://api.playfab.com/Documentation/Groups/method/DeleteRole
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/deleterole
         DeleteRole(request: PlayFabGroupsModels.DeleteRoleRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Gets information about a group and its roles
-        // https://api.playfab.com/Documentation/Groups/method/GetGroup
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/getgroup
         GetGroup(request: PlayFabGroupsModels.GetGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.GetGroupResponse>): void;
         // Invites a player to join a group
-        // https://api.playfab.com/Documentation/Groups/method/InviteToGroup
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/invitetogroup
         InviteToGroup(request: PlayFabGroupsModels.InviteToGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.InviteToGroupResponse>): void;
         // Checks to see if an entity is a member of a group or role within the group
-        // https://api.playfab.com/Documentation/Groups/method/IsMember
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/ismember
         IsMember(request: PlayFabGroupsModels.IsMemberRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.IsMemberResponse>): void;
         // Lists all outstanding requests to join a group
-        // https://api.playfab.com/Documentation/Groups/method/ListGroupApplications
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/listgroupapplications
         ListGroupApplications(request: PlayFabGroupsModels.ListGroupApplicationsRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.ListGroupApplicationsResponse>): void;
         // Lists all entities blocked from joining a group
-        // https://api.playfab.com/Documentation/Groups/method/ListGroupBlocks
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/listgroupblocks
         ListGroupBlocks(request: PlayFabGroupsModels.ListGroupBlocksRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.ListGroupBlocksResponse>): void;
         // Lists all outstanding invitations for a group
-        // https://api.playfab.com/Documentation/Groups/method/ListGroupInvitations
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/listgroupinvitations
         ListGroupInvitations(request: PlayFabGroupsModels.ListGroupInvitationsRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.ListGroupInvitationsResponse>): void;
         // Lists all members for a group
-        // https://api.playfab.com/Documentation/Groups/method/ListGroupMembers
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/listgroupmembers
         ListGroupMembers(request: PlayFabGroupsModels.ListGroupMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.ListGroupMembersResponse>): void;
         // Lists all groups and roles for an entity
-        // https://api.playfab.com/Documentation/Groups/method/ListMembership
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/listmembership
         ListMembership(request: PlayFabGroupsModels.ListMembershipRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.ListMembershipResponse>): void;
         // Lists all outstanding invitations and group applications for an entity
-        // https://api.playfab.com/Documentation/Groups/method/ListMembershipOpportunities
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/listmembershipopportunities
         ListMembershipOpportunities(request: PlayFabGroupsModels.ListMembershipOpportunitiesRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.ListMembershipOpportunitiesResponse>): void;
         // Removes an application to join a group
-        // https://api.playfab.com/Documentation/Groups/method/RemoveGroupApplication
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/removegroupapplication
         RemoveGroupApplication(request: PlayFabGroupsModels.RemoveGroupApplicationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Removes an invitation join a group
-        // https://api.playfab.com/Documentation/Groups/method/RemoveGroupInvitation
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/removegroupinvitation
         RemoveGroupInvitation(request: PlayFabGroupsModels.RemoveGroupInvitationRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Removes members from a group.
-        // https://api.playfab.com/Documentation/Groups/method/RemoveMembers
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/removemembers
         RemoveMembers(request: PlayFabGroupsModels.RemoveMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Unblocks a list of entities from joining a group
-        // https://api.playfab.com/Documentation/Groups/method/UnblockEntity
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/unblockentity
         UnblockEntity(request: PlayFabGroupsModels.UnblockEntityRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.EmptyResponse>): void;
         // Updates non-membership data about a group.
-        // https://api.playfab.com/Documentation/Groups/method/UpdateGroup
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/updategroup
         UpdateGroup(request: PlayFabGroupsModels.UpdateGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.UpdateGroupResponse>): void;
         // Updates metadata about a role.
-        // https://api.playfab.com/Documentation/Groups/method/UpdateRole
+        // https://docs.microsoft.com/rest/api/playfab/groups/groups/updaterole
         UpdateRole(request: PlayFabGroupsModels.UpdateGroupRoleRequest, callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.UpdateGroupRoleResponse>): void;
 
     }
 }
 
 declare module PlayFabGroupsModels {
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.AcceptGroupApplicationRequest
     export interface AcceptGroupApplicationRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional. Type of the entity to accept as. If specified, must be the same entity as the claimant or an entity that is a
         // child of the claimant entity. Defaults to the claimant entity.
@@ -91,7 +90,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.AcceptGroupInvitationRequest
     export interface AcceptGroupInvitationRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity?: EntityKey;
@@ -100,7 +98,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.AddMembersRequest
     export interface AddMembersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The identifier of the group
         Group: EntityKey;
@@ -112,7 +109,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ApplyToGroupRequest
     export interface ApplyToGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional, default true. Automatically accept an outstanding invitation if one exists instead of creating an application
         AutoAcceptOutstandingInvite?: boolean;
@@ -123,7 +119,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ApplyToGroupResponse
     export interface ApplyToGroupResponse extends PlayFabModule.IPlayFabResultCommon {
         // Type of entity that requested membership
         Entity?: EntityWithLineage;
@@ -134,7 +129,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.BlockEntityRequest
     export interface BlockEntityRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity: EntityKey;
@@ -143,7 +137,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ChangeMemberRoleRequest
     export interface ChangeMemberRoleRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The ID of the role that the entities will become a member of. This must be an existing role. Role IDs must be between 1
         // and 64 characters long.
@@ -158,7 +151,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.CreateGroupRequest
     export interface CreateGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity?: EntityKey;
@@ -167,7 +159,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.CreateGroupResponse
     export interface CreateGroupResponse extends PlayFabModule.IPlayFabResultCommon {
         // The ID of the administrator role for the group.
         AdminRoleId?: string;
@@ -186,7 +177,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.CreateGroupRoleRequest
     export interface CreateGroupRoleRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The identifier of the group
         Group: EntityKey;
@@ -199,7 +189,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.CreateGroupRoleResponse
     export interface CreateGroupRoleResponse extends PlayFabModule.IPlayFabResultCommon {
         // The current version of the group profile, can be used for concurrency control during updates.
         ProfileVersion: number;
@@ -210,14 +199,12 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.DeleteGroupRequest
     export interface DeleteGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
         // ID of the group or role to remove
         Group: EntityKey;
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.DeleteRoleRequest
     export interface DeleteRoleRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The identifier of the group
         Group: EntityKey;
@@ -226,12 +213,10 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.EmptyResponse
     export interface EmptyResponse extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.EntityKey
     export interface EntityKey {
         // Unique ID of the entity.
         Id: string;
@@ -240,7 +225,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.EntityMemberRole
     export interface EntityMemberRole {
         // The list of members in the role
         Members?: EntityWithLineage[];
@@ -251,7 +235,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.EntityWithLineage
     export interface EntityWithLineage {
         // The entity key for the specified entity
         Key?: EntityKey;
@@ -260,7 +243,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.GetGroupRequest
     export interface GetGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The identifier of the group
         Group?: EntityKey;
@@ -269,7 +251,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.GetGroupResponse
     export interface GetGroupResponse extends PlayFabModule.IPlayFabResultCommon {
         // The ID of the administrator role for the group.
         AdminRoleId?: string;
@@ -288,7 +269,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.GroupApplication
     export interface GroupApplication {
         // Type of entity that requested membership
         Entity?: EntityWithLineage;
@@ -299,7 +279,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.GroupBlock
     export interface GroupBlock {
         // The entity that is blocked
         Entity?: EntityWithLineage;
@@ -308,7 +287,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.GroupInvitation
     export interface GroupInvitation {
         // When the invitation will expire and be deleted
         Expires: string;
@@ -323,7 +301,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.GroupRole
     export interface GroupRole {
         // ID for the role
         RoleId?: string;
@@ -332,7 +309,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.GroupWithRoles
     export interface GroupWithRoles {
         // ID for the group
         Group?: EntityKey;
@@ -345,7 +321,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.InviteToGroupRequest
     export interface InviteToGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional, default true. Automatically accept an application if one exists instead of creating an invitation
         AutoAcceptOutstandingApplication?: boolean;
@@ -359,7 +334,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.InviteToGroupResponse
     export interface InviteToGroupResponse extends PlayFabModule.IPlayFabResultCommon {
         // When the invitation will expire and be deleted
         Expires: string;
@@ -374,7 +348,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.IsMemberRequest
     export interface IsMemberRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity: EntityKey;
@@ -386,77 +359,66 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.IsMemberResponse
     export interface IsMemberResponse extends PlayFabModule.IPlayFabResultCommon {
         // A value indicating whether or not the entity is a member.
         IsMember: boolean;
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListGroupApplicationsRequest
     export interface ListGroupApplicationsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The identifier of the group
         Group: EntityKey;
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListGroupApplicationsResponse
     export interface ListGroupApplicationsResponse extends PlayFabModule.IPlayFabResultCommon {
         // The requested list of applications to the group.
         Applications?: GroupApplication[];
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListGroupBlocksRequest
     export interface ListGroupBlocksRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The identifier of the group
         Group: EntityKey;
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListGroupBlocksResponse
     export interface ListGroupBlocksResponse extends PlayFabModule.IPlayFabResultCommon {
         // The requested list blocked entities.
         BlockedEntities?: GroupBlock[];
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListGroupInvitationsRequest
     export interface ListGroupInvitationsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The identifier of the group
         Group: EntityKey;
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListGroupInvitationsResponse
     export interface ListGroupInvitationsResponse extends PlayFabModule.IPlayFabResultCommon {
         // The requested list of group invitations.
         Invitations?: GroupInvitation[];
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListGroupMembersRequest
     export interface ListGroupMembersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // ID of the group to list the members and roles for
         Group: EntityKey;
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListGroupMembersResponse
     export interface ListGroupMembersResponse extends PlayFabModule.IPlayFabResultCommon {
         // The requested list of roles and member entity IDs.
         Members?: EntityMemberRole[];
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListMembershipOpportunitiesRequest
     export interface ListMembershipOpportunitiesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity?: EntityKey;
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListMembershipOpportunitiesResponse
     export interface ListMembershipOpportunitiesResponse extends PlayFabModule.IPlayFabResultCommon {
         // The requested list of group applications.
         Applications?: GroupApplication[];
@@ -465,14 +427,12 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListMembershipRequest
     export interface ListMembershipRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity?: EntityKey;
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.ListMembershipResponse
     export interface ListMembershipResponse extends PlayFabModule.IPlayFabResultCommon {
         // The list of groups
         Groups?: GroupWithRoles[];
@@ -484,7 +444,6 @@ declare module PlayFabGroupsModels {
         | "Deleted"
         | "None";
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.RemoveGroupApplicationRequest
     export interface RemoveGroupApplicationRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity: EntityKey;
@@ -493,7 +452,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.RemoveGroupInvitationRequest
     export interface RemoveGroupInvitationRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity: EntityKey;
@@ -502,7 +460,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.RemoveMembersRequest
     export interface RemoveMembersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The identifier of the group
         Group: EntityKey;
@@ -513,7 +470,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.UnblockEntityRequest
     export interface UnblockEntityRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity: EntityKey;
@@ -522,7 +478,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.UpdateGroupRequest
     export interface UpdateGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional: the ID of an existing role to set as the new administrator role for the group
         AdminRoleId?: string;
@@ -539,7 +494,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.UpdateGroupResponse
     export interface UpdateGroupResponse extends PlayFabModule.IPlayFabResultCommon {
         // Optional reason to explain why the operation was the result that it was.
         OperationReason?: string;
@@ -550,7 +504,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.UpdateGroupRoleRequest
     export interface UpdateGroupRoleRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional field used for concurrency control. By specifying the previously returned value of ProfileVersion from the
         // GetGroup API, you can ensure that the group data update will only be performed if the group has not been updated by any
@@ -565,7 +518,6 @@ declare module PlayFabGroupsModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Groups/datatype/PlayFab.Groups.Models/PlayFab.Groups.Models.UpdateGroupRoleResponse
     export interface UpdateGroupRoleResponse extends PlayFabModule.IPlayFabResultCommon {
         // Optional reason to explain why the operation was the result that it was.
         OperationReason?: string;
