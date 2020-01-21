@@ -2,34 +2,32 @@ declare module PlayFabMatchmakerModule {
     export interface IPlayFabMatchmaker {
         settings: PlayFabModule.IPlayFabSettings;
         // Validates a user with the PlayFab service
-        // https://api.playfab.com/Documentation/Matchmaker/method/AuthUser
+        // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/authuser
         AuthUser(request: PlayFabMatchmakerModels.AuthUserRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.AuthUserResponse>): void;
         // Informs the PlayFab game server hosting service that the indicated user has joined the Game Server Instance specified
-        // https://api.playfab.com/Documentation/Matchmaker/method/PlayerJoined
+        // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/playerjoined
         PlayerJoined(request: PlayFabMatchmakerModels.PlayerJoinedRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.PlayerJoinedResponse>): void;
         // Informs the PlayFab game server hosting service that the indicated user has left the Game Server Instance specified
-        // https://api.playfab.com/Documentation/Matchmaker/method/PlayerLeft
+        // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/playerleft
         PlayerLeft(request: PlayFabMatchmakerModels.PlayerLeftRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.PlayerLeftResponse>): void;
         // Instructs the PlayFab game server hosting service to instantiate a new Game Server Instance
-        // https://api.playfab.com/Documentation/Matchmaker/method/StartGame
+        // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/startgame
         StartGame(request: PlayFabMatchmakerModels.StartGameRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.StartGameResponse>): void;
         // Retrieves the relevant details for a specified user, which the external match-making service can then use to compute
         // effective matches
-        // https://api.playfab.com/Documentation/Matchmaker/method/UserInfo
+        // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/userinfo
         UserInfo(request: PlayFabMatchmakerModels.UserInfoRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.UserInfoResponse>): void;
 
     }
 }
 
 declare module PlayFabMatchmakerModels {
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.AuthUserRequest
     export interface AuthUserRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Session Ticket provided by the client.
         AuthorizationTicket: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.AuthUserResponse
     export interface AuthUserResponse extends PlayFabModule.IPlayFabResultCommon {
         // Boolean indicating if the user has been authorized to use the external match-making service.
         Authorized: boolean;
@@ -38,7 +36,6 @@ declare module PlayFabMatchmakerModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.ItemInstance
     export interface ItemInstance {
         // Game specific comment associated with this instance when it was added to the user inventory.
         Annotation?: string;
@@ -75,7 +72,6 @@ declare module PlayFabMatchmakerModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.PlayerJoinedRequest
     export interface PlayerJoinedRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique identifier of the Game Server Instance the user is joining. This must be a Game Server Instance started with the
         // Matchmaker/StartGame API.
@@ -85,12 +81,10 @@ declare module PlayFabMatchmakerModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.PlayerJoinedResponse
     export interface PlayerJoinedResponse extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.PlayerLeftRequest
     export interface PlayerLeftRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique identifier of the Game Server Instance the user is leaving. This must be a Game Server Instance started with the
         // Matchmaker/StartGame API.
@@ -100,7 +94,6 @@ declare module PlayFabMatchmakerModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.PlayerLeftResponse
     export interface PlayerLeftResponse extends PlayFabModule.IPlayFabResultCommon {
 
     }
@@ -113,7 +106,6 @@ declare module PlayFabMatchmakerModels {
         | "Brazil"
         | "Australia";
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.StartGameRequest
     export interface StartGameRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique identifier of the previously uploaded build executable which is to be started.
         Build: string;
@@ -130,7 +122,6 @@ declare module PlayFabMatchmakerModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.StartGameResponse
     export interface StartGameResponse extends PlayFabModule.IPlayFabResultCommon {
         // Unique identifier for the game/lobby in the new Game Server Instance.
         GameID?: string;
@@ -145,7 +136,6 @@ declare module PlayFabMatchmakerModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.UserInfoRequest
     export interface UserInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Minimum catalog version for which data is requested (filters the results to only contain inventory items which have a
         // catalog version of this or higher).
@@ -155,7 +145,6 @@ declare module PlayFabMatchmakerModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.UserInfoResponse
     export interface UserInfoResponse extends PlayFabModule.IPlayFabResultCommon {
         // Array of inventory items in the user's current inventory.
         Inventory?: ItemInstance[];
@@ -176,7 +165,6 @@ declare module PlayFabMatchmakerModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Matchmaker/datatype/PlayFab.Matchmaker.Models/PlayFab.Matchmaker.Models.VirtualCurrencyRechargeTime
     export interface VirtualCurrencyRechargeTime {
         // Maximum value to which the regenerating currency will automatically increment. Note that it can exceed this value
         // through use of the AddUserVirtualCurrency API call. However, it will not regenerate automatically until it has fallen

@@ -2,370 +2,368 @@ declare module PlayFabAdminModule {
     export interface IPlayFabAdmin {
         settings: PlayFabModule.IPlayFabSettings;
         // Abort an ongoing task instance.
-        // https://api.playfab.com/Documentation/Admin/method/AbortTaskInstance
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/aborttaskinstance
         AbortTaskInstance(request: PlayFabAdminModels.AbortTaskInstanceRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Update news item to include localized version
-        // https://api.playfab.com/Documentation/Admin/method/AddLocalizedNews
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/addlocalizednews
         AddLocalizedNews(request: PlayFabAdminModels.AddLocalizedNewsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.AddLocalizedNewsResult>): void;
         // Adds a new news item to the title's news feed
-        // https://api.playfab.com/Documentation/Admin/method/AddNews
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/addnews
         AddNews(request: PlayFabAdminModels.AddNewsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.AddNewsResult>): void;
         // Adds a given tag to a player profile. The tag's namespace is automatically generated based on the source of the tag.
-        // https://api.playfab.com/Documentation/Admin/method/AddPlayerTag
+        // https://docs.microsoft.com/rest/api/playfab/admin/playstream/addplayertag
         AddPlayerTag(request: PlayFabAdminModels.AddPlayerTagRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.AddPlayerTagResult>): void;
         // Adds the game server executable specified (previously uploaded - see GetServerBuildUploadUrl) to the set of those a
         // client is permitted to request in a call to StartGame
-        // https://api.playfab.com/Documentation/Admin/method/AddServerBuild
+        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/addserverbuild
         AddServerBuild(request: PlayFabAdminModels.AddServerBuildRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.AddServerBuildResult>): void;
         // Increments the specified virtual currency by the stated amount
-        // https://api.playfab.com/Documentation/Admin/method/AddUserVirtualCurrency
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-item-management/adduservirtualcurrency
         AddUserVirtualCurrency(request: PlayFabAdminModels.AddUserVirtualCurrencyRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ModifyUserVirtualCurrencyResult>): void;
         // Adds one or more virtual currencies to the set defined for the title. Virtual Currencies have a maximum value of
         // 2,147,483,647 when granted to a player. Any value over that will be discarded.
-        // https://api.playfab.com/Documentation/Admin/method/AddVirtualCurrencyTypes
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/addvirtualcurrencytypes
         AddVirtualCurrencyTypes(request: PlayFabAdminModels.AddVirtualCurrencyTypesRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.BlankResult>): void;
         // Bans users by PlayFab ID with optional IP address, or MAC address for the provided game.
-        // https://api.playfab.com/Documentation/Admin/method/BanUsers
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/banusers
         BanUsers(request: PlayFabAdminModels.BanUsersRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.BanUsersResult>): void;
         // Checks the global count for the limited edition item.
-        // https://api.playfab.com/Documentation/Admin/method/CheckLimitedEditionItemAvailability
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-item-management/checklimitededitionitemavailability
         CheckLimitedEditionItemAvailability(request: PlayFabAdminModels.CheckLimitedEditionItemAvailabilityRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.CheckLimitedEditionItemAvailabilityResult>): void;
         // Create an ActionsOnPlayersInSegment task, which iterates through all players in a segment to execute action.
-        // https://api.playfab.com/Documentation/Admin/method/CreateActionsOnPlayersInSegmentTask
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/createactionsonplayersinsegmenttask
         CreateActionsOnPlayersInSegmentTask(request: PlayFabAdminModels.CreateActionsOnPlayerSegmentTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.CreateTaskResult>): void;
         // Create a CloudScript task, which can run a CloudScript on a schedule.
-        // https://api.playfab.com/Documentation/Admin/method/CreateCloudScriptTask
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/createcloudscripttask
         CreateCloudScriptTask(request: PlayFabAdminModels.CreateCloudScriptTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.CreateTaskResult>): void;
         // Registers a relationship between a title and an Open ID Connect provider.
-        // https://api.playfab.com/Documentation/Admin/method/CreateOpenIdConnection
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/createopenidconnection
         CreateOpenIdConnection(request: PlayFabAdminModels.CreateOpenIdConnectionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Creates a new Player Shared Secret Key. It may take up to 5 minutes for this key to become generally available after
         // this API returns.
-        // https://api.playfab.com/Documentation/Admin/method/CreatePlayerSharedSecret
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/createplayersharedsecret
         CreatePlayerSharedSecret(request: PlayFabAdminModels.CreatePlayerSharedSecretRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.CreatePlayerSharedSecretResult>): void;
         // Adds a new player statistic configuration to the title, optionally allowing the developer to specify a reset interval
         // and an aggregation method.
-        // https://api.playfab.com/Documentation/Admin/method/CreatePlayerStatisticDefinition
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/createplayerstatisticdefinition
         CreatePlayerStatisticDefinition(request: PlayFabAdminModels.CreatePlayerStatisticDefinitionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.CreatePlayerStatisticDefinitionResult>): void;
         // Delete a content file from the title. When deleting a file that does not exist, it returns success.
-        // https://api.playfab.com/Documentation/Admin/method/DeleteContent
+        // https://docs.microsoft.com/rest/api/playfab/admin/content/deletecontent
         DeleteContent(request: PlayFabAdminModels.DeleteContentRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.BlankResult>): void;
         // Removes a master player account entirely from all titles and deletes all associated data
-        // https://api.playfab.com/Documentation/Admin/method/DeleteMasterPlayerAccount
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/deletemasterplayeraccount
         DeleteMasterPlayerAccount(request: PlayFabAdminModels.DeleteMasterPlayerAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteMasterPlayerAccountResult>): void;
         // Removes a relationship between a title and an OpenID Connect provider.
-        // https://api.playfab.com/Documentation/Admin/method/DeleteOpenIdConnection
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/deleteopenidconnection
         DeleteOpenIdConnection(request: PlayFabAdminModels.DeleteOpenIdConnectionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Removes a user's player account from a title and deletes all associated data
-        // https://api.playfab.com/Documentation/Admin/method/DeletePlayer
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/deleteplayer
         DeletePlayer(request: PlayFabAdminModels.DeletePlayerRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeletePlayerResult>): void;
         // Deletes an existing Player Shared Secret Key. It may take up to 5 minutes for this delete to be reflected after this API
         // returns.
-        // https://api.playfab.com/Documentation/Admin/method/DeletePlayerSharedSecret
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/deleteplayersharedsecret
         DeletePlayerSharedSecret(request: PlayFabAdminModels.DeletePlayerSharedSecretRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeletePlayerSharedSecretResult>): void;
         // Deletes an existing virtual item store
-        // https://api.playfab.com/Documentation/Admin/method/DeleteStore
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/deletestore
         DeleteStore(request: PlayFabAdminModels.DeleteStoreRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteStoreResult>): void;
         // Delete a task.
-        // https://api.playfab.com/Documentation/Admin/method/DeleteTask
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/deletetask
         DeleteTask(request: PlayFabAdminModels.DeleteTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Permanently deletes a title and all associated configuration
-        // https://api.playfab.com/Documentation/Admin/method/DeleteTitle
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/deletetitle
         DeleteTitle(request: PlayFabAdminModels.DeleteTitleRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteTitleResult>): void;
         // Exports all associated data of a master player account
-        // https://api.playfab.com/Documentation/Admin/method/ExportMasterPlayerData
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/exportmasterplayerdata
         ExportMasterPlayerData(request: PlayFabAdminModels.ExportMasterPlayerDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ExportMasterPlayerDataResult>): void;
         // Get information about a ActionsOnPlayersInSegment task instance.
-        // https://api.playfab.com/Documentation/Admin/method/GetActionsOnPlayersInSegmentTaskInstance
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/getactionsonplayersinsegmenttaskinstance
         GetActionsOnPlayersInSegmentTaskInstance(request: PlayFabAdminModels.GetTaskInstanceRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetActionsOnPlayersInSegmentTaskInstanceResult>): void;
         // Retrieves an array of player segment definitions. Results from this can be used in subsequent API calls such as
         // GetPlayersInSegment which requires a Segment ID. While segment names can change the ID for that segment will not change.
-        // https://api.playfab.com/Documentation/Admin/method/GetAllSegments
+        // https://docs.microsoft.com/rest/api/playfab/admin/playstream/getallsegments
         GetAllSegments(request: PlayFabAdminModels.GetAllSegmentsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetAllSegmentsResult>): void;
         // Retrieves the specified version of the title's catalog of virtual goods, including all defined properties
-        // https://api.playfab.com/Documentation/Admin/method/GetCatalogItems
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/getcatalogitems
         GetCatalogItems(request: PlayFabAdminModels.GetCatalogItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetCatalogItemsResult>): void;
         // Gets the contents and information of a specific Cloud Script revision.
-        // https://api.playfab.com/Documentation/Admin/method/GetCloudScriptRevision
+        // https://docs.microsoft.com/rest/api/playfab/admin/server-side-cloud-script/getcloudscriptrevision
         GetCloudScriptRevision(request: PlayFabAdminModels.GetCloudScriptRevisionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetCloudScriptRevisionResult>): void;
         // Get detail information about a CloudScript task instance.
-        // https://api.playfab.com/Documentation/Admin/method/GetCloudScriptTaskInstance
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/getcloudscripttaskinstance
         GetCloudScriptTaskInstance(request: PlayFabAdminModels.GetTaskInstanceRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetCloudScriptTaskInstanceResult>): void;
         // Lists all the current cloud script versions. For each version, information about the current published and latest
         // revisions is also listed.
-        // https://api.playfab.com/Documentation/Admin/method/GetCloudScriptVersions
+        // https://docs.microsoft.com/rest/api/playfab/admin/server-side-cloud-script/getcloudscriptversions
         GetCloudScriptVersions(request: PlayFabAdminModels.GetCloudScriptVersionsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetCloudScriptVersionsResult>): void;
         // List all contents of the title and get statistics such as size
-        // https://api.playfab.com/Documentation/Admin/method/GetContentList
+        // https://docs.microsoft.com/rest/api/playfab/admin/content/getcontentlist
         GetContentList(request: PlayFabAdminModels.GetContentListRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetContentListResult>): void;
         // Retrieves the pre-signed URL for uploading a content file. A subsequent HTTP PUT to the returned URL uploads the
         // content. Also, please be aware that the Content service is specifically PlayFab's CDN offering, for which standard CDN
         // rates apply.
-        // https://api.playfab.com/Documentation/Admin/method/GetContentUploadUrl
+        // https://docs.microsoft.com/rest/api/playfab/admin/content/getcontentuploadurl
         GetContentUploadUrl(request: PlayFabAdminModels.GetContentUploadUrlRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetContentUploadUrlResult>): void;
         // Retrieves a download URL for the requested report
-        // https://api.playfab.com/Documentation/Admin/method/GetDataReport
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/getdatareport
         GetDataReport(request: PlayFabAdminModels.GetDataReportRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetDataReportResult>): void;
         // Retrieves the details for a specific completed session, including links to standard out and standard error logs
-        // https://api.playfab.com/Documentation/Admin/method/GetMatchmakerGameInfo
+        // https://docs.microsoft.com/rest/api/playfab/admin/matchmaking/getmatchmakergameinfo
         GetMatchmakerGameInfo(request: PlayFabAdminModels.GetMatchmakerGameInfoRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetMatchmakerGameInfoResult>): void;
         // Retrieves the details of defined game modes for the specified game server executable
-        // https://api.playfab.com/Documentation/Admin/method/GetMatchmakerGameModes
+        // https://docs.microsoft.com/rest/api/playfab/admin/matchmaking/getmatchmakergamemodes
         GetMatchmakerGameModes(request: PlayFabAdminModels.GetMatchmakerGameModesRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetMatchmakerGameModesResult>): void;
         // Get the list of titles that the player has played
-        // https://api.playfab.com/Documentation/Admin/method/GetPlayedTitleList
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/getplayedtitlelist
         GetPlayedTitleList(request: PlayFabAdminModels.GetPlayedTitleListRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayedTitleListResult>): void;
         // Gets a player's ID from an auth token.
-        // https://api.playfab.com/Documentation/Admin/method/GetPlayerIdFromAuthToken
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/getplayeridfromauthtoken
         GetPlayerIdFromAuthToken(request: PlayFabAdminModels.GetPlayerIdFromAuthTokenRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayerIdFromAuthTokenResult>): void;
         // Retrieves the player's profile
-        // https://api.playfab.com/Documentation/Admin/method/GetPlayerProfile
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/getplayerprofile
         GetPlayerProfile(request: PlayFabAdminModels.GetPlayerProfileRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayerProfileResult>): void;
         // List all segments that a player currently belongs to at this moment in time.
-        // https://api.playfab.com/Documentation/Admin/method/GetPlayerSegments
+        // https://docs.microsoft.com/rest/api/playfab/admin/playstream/getplayersegments
         GetPlayerSegments(request: PlayFabAdminModels.GetPlayersSegmentsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayerSegmentsResult>): void;
         // Returns all Player Shared Secret Keys including disabled and expired.
-        // https://api.playfab.com/Documentation/Admin/method/GetPlayerSharedSecrets
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/getplayersharedsecrets
         GetPlayerSharedSecrets(request: PlayFabAdminModels.GetPlayerSharedSecretsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayerSharedSecretsResult>): void;
         // Allows for paging through all players in a given segment. This API creates a snapshot of all player profiles that match
         // the segment definition at the time of its creation and lives through the Total Seconds to Live, refreshing its life span
         // on each subsequent use of the Continuation Token. Profiles that change during the course of paging will not be reflected
         // in the results. AB Test segments are currently not supported by this operation. NOTE: This API is limited to being
         // called 30 times in one minute. You will be returned an error if you exceed this threshold.
-        // https://api.playfab.com/Documentation/Admin/method/GetPlayersInSegment
+        // https://docs.microsoft.com/rest/api/playfab/admin/playstream/getplayersinsegment
         GetPlayersInSegment(request: PlayFabAdminModels.GetPlayersInSegmentRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayersInSegmentResult>): void;
         // Retrieves the configuration information for all player statistics defined in the title, regardless of whether they have
         // a reset interval.
-        // https://api.playfab.com/Documentation/Admin/method/GetPlayerStatisticDefinitions
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/getplayerstatisticdefinitions
         GetPlayerStatisticDefinitions(request: PlayFabAdminModels.GetPlayerStatisticDefinitionsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayerStatisticDefinitionsResult>): void;
         // Retrieves the information on the available versions of the specified statistic.
-        // https://api.playfab.com/Documentation/Admin/method/GetPlayerStatisticVersions
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/getplayerstatisticversions
         GetPlayerStatisticVersions(request: PlayFabAdminModels.GetPlayerStatisticVersionsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayerStatisticVersionsResult>): void;
         // Get all tags with a given Namespace (optional) from a player profile.
-        // https://api.playfab.com/Documentation/Admin/method/GetPlayerTags
+        // https://docs.microsoft.com/rest/api/playfab/admin/playstream/getplayertags
         GetPlayerTags(request: PlayFabAdminModels.GetPlayerTagsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPlayerTagsResult>): void;
         // Gets the requested policy.
-        // https://api.playfab.com/Documentation/Admin/method/GetPolicy
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/getpolicy
         GetPolicy(request: PlayFabAdminModels.GetPolicyRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPolicyResponse>): void;
         // Retrieves the key-value store of custom publisher settings
-        // https://api.playfab.com/Documentation/Admin/method/GetPublisherData
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/getpublisherdata
         GetPublisherData(request: PlayFabAdminModels.GetPublisherDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetPublisherDataResult>): void;
         // Retrieves the random drop table configuration for the title
-        // https://api.playfab.com/Documentation/Admin/method/GetRandomResultTables
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/getrandomresulttables
         GetRandomResultTables(request: PlayFabAdminModels.GetRandomResultTablesRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetRandomResultTablesResult>): void;
         // Retrieves the build details for the specified game server executable
-        // https://api.playfab.com/Documentation/Admin/method/GetServerBuildInfo
+        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/getserverbuildinfo
         GetServerBuildInfo(request: PlayFabAdminModels.GetServerBuildInfoRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetServerBuildInfoResult>): void;
         // Retrieves the pre-authorized URL for uploading a game server package containing a build (does not enable the build for
         // use - see AddServerBuild)
-        // https://api.playfab.com/Documentation/Admin/method/GetServerBuildUploadUrl
+        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/getserverbuilduploadurl
         GetServerBuildUploadUrl(request: PlayFabAdminModels.GetServerBuildUploadURLRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetServerBuildUploadURLResult>): void;
         // Retrieves the set of items defined for the specified store, including all prices defined
-        // https://api.playfab.com/Documentation/Admin/method/GetStoreItems
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/getstoreitems
         GetStoreItems(request: PlayFabAdminModels.GetStoreItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetStoreItemsResult>): void;
         // Query for task instances by task, status, or time range.
-        // https://api.playfab.com/Documentation/Admin/method/GetTaskInstances
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/gettaskinstances
         GetTaskInstances(request: PlayFabAdminModels.GetTaskInstancesRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetTaskInstancesResult>): void;
         // Get definition information on a specified task or all tasks within a title.
-        // https://api.playfab.com/Documentation/Admin/method/GetTasks
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/gettasks
         GetTasks(request: PlayFabAdminModels.GetTasksRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetTasksResult>): void;
         // Retrieves the key-value store of custom title settings which can be read by the client
-        // https://api.playfab.com/Documentation/Admin/method/GetTitleData
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/gettitledata
         GetTitleData(request: PlayFabAdminModels.GetTitleDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetTitleDataResult>): void;
         // Retrieves the key-value store of custom title settings which cannot be read by the client
-        // https://api.playfab.com/Documentation/Admin/method/GetTitleInternalData
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/gettitleinternaldata
         GetTitleInternalData(request: PlayFabAdminModels.GetTitleDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetTitleDataResult>): void;
         // Retrieves the relevant details for a specified user, based upon a match against a supplied unique identifier
-        // https://api.playfab.com/Documentation/Admin/method/GetUserAccountInfo
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/getuseraccountinfo
         GetUserAccountInfo(request: PlayFabAdminModels.LookupUserAccountInfoRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.LookupUserAccountInfoResult>): void;
         // Gets all bans for a user.
-        // https://api.playfab.com/Documentation/Admin/method/GetUserBans
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/getuserbans
         GetUserBans(request: PlayFabAdminModels.GetUserBansRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetUserBansResult>): void;
         // Retrieves the title-specific custom data for the user which is readable and writable by the client
-        // https://api.playfab.com/Documentation/Admin/method/GetUserData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/getuserdata
         GetUserData(request: PlayFabAdminModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetUserDataResult>): void;
         // Retrieves the title-specific custom data for the user which cannot be accessed by the client
-        // https://api.playfab.com/Documentation/Admin/method/GetUserInternalData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/getuserinternaldata
         GetUserInternalData(request: PlayFabAdminModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetUserDataResult>): void;
         // Retrieves the specified user's current inventory of virtual goods
-        // https://api.playfab.com/Documentation/Admin/method/GetUserInventory
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-item-management/getuserinventory
         GetUserInventory(request: PlayFabAdminModels.GetUserInventoryRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetUserInventoryResult>): void;
         // Retrieves the publisher-specific custom data for the user which is readable and writable by the client
-        // https://api.playfab.com/Documentation/Admin/method/GetUserPublisherData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/getuserpublisherdata
         GetUserPublisherData(request: PlayFabAdminModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetUserDataResult>): void;
         // Retrieves the publisher-specific custom data for the user which cannot be accessed by the client
-        // https://api.playfab.com/Documentation/Admin/method/GetUserPublisherInternalData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/getuserpublisherinternaldata
         GetUserPublisherInternalData(request: PlayFabAdminModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetUserDataResult>): void;
         // Retrieves the publisher-specific custom data for the user which can only be read by the client
-        // https://api.playfab.com/Documentation/Admin/method/GetUserPublisherReadOnlyData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/getuserpublisherreadonlydata
         GetUserPublisherReadOnlyData(request: PlayFabAdminModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetUserDataResult>): void;
         // Retrieves the title-specific custom data for the user which can only be read by the client
-        // https://api.playfab.com/Documentation/Admin/method/GetUserReadOnlyData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/getuserreadonlydata
         GetUserReadOnlyData(request: PlayFabAdminModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetUserDataResult>): void;
         // Adds the specified items to the specified user inventories
-        // https://api.playfab.com/Documentation/Admin/method/GrantItemsToUsers
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-item-management/grantitemstousers
         GrantItemsToUsers(request: PlayFabAdminModels.GrantItemsToUsersRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GrantItemsToUsersResult>): void;
         // Increases the global count for the given scarce resource.
-        // https://api.playfab.com/Documentation/Admin/method/IncrementLimitedEditionItemAvailability
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-item-management/incrementlimitededitionitemavailability
         IncrementLimitedEditionItemAvailability(request: PlayFabAdminModels.IncrementLimitedEditionItemAvailabilityRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.IncrementLimitedEditionItemAvailabilityResult>): void;
         // Resets the indicated statistic, removing all player entries for it and backing up the old values.
-        // https://api.playfab.com/Documentation/Admin/method/IncrementPlayerStatisticVersion
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/incrementplayerstatisticversion
         IncrementPlayerStatisticVersion(request: PlayFabAdminModels.IncrementPlayerStatisticVersionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.IncrementPlayerStatisticVersionResult>): void;
         // Retrieves a list of all Open ID Connect providers registered to a title.
-        // https://api.playfab.com/Documentation/Admin/method/ListOpenIdConnection
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/listopenidconnection
         ListOpenIdConnection(request: PlayFabAdminModels.ListOpenIdConnectionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ListOpenIdConnectionResponse>): void;
         // Retrieves the build details for all game server executables which are currently defined for the title
-        // https://api.playfab.com/Documentation/Admin/method/ListServerBuilds
+        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/listserverbuilds
         ListServerBuilds(request: PlayFabAdminModels.ListBuildsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ListBuildsResult>): void;
         // Retuns the list of all defined virtual currencies for the title
-        // https://api.playfab.com/Documentation/Admin/method/ListVirtualCurrencyTypes
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/listvirtualcurrencytypes
         ListVirtualCurrencyTypes(request: PlayFabAdminModels.ListVirtualCurrencyTypesRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ListVirtualCurrencyTypesResult>): void;
         // Updates the game server mode details for the specified game server executable
-        // https://api.playfab.com/Documentation/Admin/method/ModifyMatchmakerGameModes
+        // https://docs.microsoft.com/rest/api/playfab/admin/matchmaking/modifymatchmakergamemodes
         ModifyMatchmakerGameModes(request: PlayFabAdminModels.ModifyMatchmakerGameModesRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ModifyMatchmakerGameModesResult>): void;
         // Updates the build details for the specified game server executable
-        // https://api.playfab.com/Documentation/Admin/method/ModifyServerBuild
+        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/modifyserverbuild
         ModifyServerBuild(request: PlayFabAdminModels.ModifyServerBuildRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ModifyServerBuildResult>): void;
         // Attempts to process an order refund through the original real money payment provider.
-        // https://api.playfab.com/Documentation/Admin/method/RefundPurchase
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/refundpurchase
         RefundPurchase(request: PlayFabAdminModels.RefundPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RefundPurchaseResponse>): void;
         // Remove a given tag from a player profile. The tag's namespace is automatically generated based on the source of the tag.
-        // https://api.playfab.com/Documentation/Admin/method/RemovePlayerTag
+        // https://docs.microsoft.com/rest/api/playfab/admin/playstream/removeplayertag
         RemovePlayerTag(request: PlayFabAdminModels.RemovePlayerTagRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RemovePlayerTagResult>): void;
         // Removes the game server executable specified from the set of those a client is permitted to request in a call to
         // StartGame
-        // https://api.playfab.com/Documentation/Admin/method/RemoveServerBuild
+        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/removeserverbuild
         RemoveServerBuild(request: PlayFabAdminModels.RemoveServerBuildRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RemoveServerBuildResult>): void;
         // Removes one or more virtual currencies from the set defined for the title.
-        // https://api.playfab.com/Documentation/Admin/method/RemoveVirtualCurrencyTypes
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/removevirtualcurrencytypes
         RemoveVirtualCurrencyTypes(request: PlayFabAdminModels.RemoveVirtualCurrencyTypesRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.BlankResult>): void;
         // Completely removes all statistics for the specified character, for the current game
-        // https://api.playfab.com/Documentation/Admin/method/ResetCharacterStatistics
+        // https://docs.microsoft.com/rest/api/playfab/admin/characters/resetcharacterstatistics
         ResetCharacterStatistics(request: PlayFabAdminModels.ResetCharacterStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ResetCharacterStatisticsResult>): void;
         // Reset a player's password for a given title.
-        // https://api.playfab.com/Documentation/Admin/method/ResetPassword
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/resetpassword
         ResetPassword(request: PlayFabAdminModels.ResetPasswordRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ResetPasswordResult>): void;
         // Completely removes all statistics for the specified user, for the current game
-        // https://api.playfab.com/Documentation/Admin/method/ResetUserStatistics
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/resetuserstatistics
         ResetUserStatistics(request: PlayFabAdminModels.ResetUserStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ResetUserStatisticsResult>): void;
         // Attempts to resolve a dispute with the original order's payment provider.
-        // https://api.playfab.com/Documentation/Admin/method/ResolvePurchaseDispute
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/resolvepurchasedispute
         ResolvePurchaseDispute(request: PlayFabAdminModels.ResolvePurchaseDisputeRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ResolvePurchaseDisputeResponse>): void;
         // Revoke all active bans for a user.
-        // https://api.playfab.com/Documentation/Admin/method/RevokeAllBansForUser
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/revokeallbansforuser
         RevokeAllBansForUser(request: PlayFabAdminModels.RevokeAllBansForUserRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RevokeAllBansForUserResult>): void;
         // Revoke all active bans specified with BanId.
-        // https://api.playfab.com/Documentation/Admin/method/RevokeBans
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/revokebans
         RevokeBans(request: PlayFabAdminModels.RevokeBansRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RevokeBansResult>): void;
         // Revokes access to an item in a user's inventory
-        // https://api.playfab.com/Documentation/Admin/method/RevokeInventoryItem
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-item-management/revokeinventoryitem
         RevokeInventoryItem(request: PlayFabAdminModels.RevokeInventoryItemRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RevokeInventoryResult>): void;
         // Revokes access for up to 25 items across multiple users and characters.
-        // https://api.playfab.com/Documentation/Admin/method/RevokeInventoryItems
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-item-management/revokeinventoryitems
         RevokeInventoryItems(request: PlayFabAdminModels.RevokeInventoryItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RevokeInventoryItemsResult>): void;
         // Run a task immediately regardless of its schedule.
-        // https://api.playfab.com/Documentation/Admin/method/RunTask
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/runtask
         RunTask(request: PlayFabAdminModels.RunTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RunTaskResult>): void;
         // Forces an email to be sent to the registered email address for the user's account, with a link allowing the user to
         // change the password.If an account recovery email template ID is provided, an email using the custom email template will
         // be used.
-        // https://api.playfab.com/Documentation/Admin/method/SendAccountRecoveryEmail
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/sendaccountrecoveryemail
         SendAccountRecoveryEmail(request: PlayFabAdminModels.SendAccountRecoveryEmailRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SendAccountRecoveryEmailResult>): void;
         // Creates the catalog configuration of all virtual goods for the specified catalog version
-        // https://api.playfab.com/Documentation/Admin/method/SetCatalogItems
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/setcatalogitems
         SetCatalogItems(request: PlayFabAdminModels.UpdateCatalogItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateCatalogItemsResult>): void;
         // Sets or resets the player's secret. Player secrets are used to sign API requests.
-        // https://api.playfab.com/Documentation/Admin/method/SetPlayerSecret
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/setplayersecret
         SetPlayerSecret(request: PlayFabAdminModels.SetPlayerSecretRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetPlayerSecretResult>): void;
         // Sets the currently published revision of a title Cloud Script
-        // https://api.playfab.com/Documentation/Admin/method/SetPublishedRevision
+        // https://docs.microsoft.com/rest/api/playfab/admin/server-side-cloud-script/setpublishedrevision
         SetPublishedRevision(request: PlayFabAdminModels.SetPublishedRevisionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetPublishedRevisionResult>): void;
         // Updates the key-value store of custom publisher settings
-        // https://api.playfab.com/Documentation/Admin/method/SetPublisherData
+        // https://docs.microsoft.com/rest/api/playfab/admin/shared-group-data/setpublisherdata
         SetPublisherData(request: PlayFabAdminModels.SetPublisherDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetPublisherDataResult>): void;
         // Sets all the items in one virtual store
-        // https://api.playfab.com/Documentation/Admin/method/SetStoreItems
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/setstoreitems
         SetStoreItems(request: PlayFabAdminModels.UpdateStoreItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateStoreItemsResult>): void;
         // Creates and updates the key-value store of custom title settings which can be read by the client
-        // https://api.playfab.com/Documentation/Admin/method/SetTitleData
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/settitledata
         SetTitleData(request: PlayFabAdminModels.SetTitleDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetTitleDataResult>): void;
         // Updates the key-value store of custom title settings which cannot be read by the client
-        // https://api.playfab.com/Documentation/Admin/method/SetTitleInternalData
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/settitleinternaldata
         SetTitleInternalData(request: PlayFabAdminModels.SetTitleDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetTitleDataResult>): void;
         // Sets the Amazon Resource Name (ARN) for iOS and Android push notifications. Documentation on the exact restrictions can
         // be found at: http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html. Currently, Amazon device
         // Messaging is not supported.
-        // https://api.playfab.com/Documentation/Admin/method/SetupPushNotification
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/setuppushnotification
         SetupPushNotification(request: PlayFabAdminModels.SetupPushNotificationRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetupPushNotificationResult>): void;
         // Decrements the specified virtual currency by the stated amount
-        // https://api.playfab.com/Documentation/Admin/method/SubtractUserVirtualCurrency
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-item-management/subtractuservirtualcurrency
         SubtractUserVirtualCurrency(request: PlayFabAdminModels.SubtractUserVirtualCurrencyRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ModifyUserVirtualCurrencyResult>): void;
         // Updates information of a list of existing bans specified with Ban Ids.
-        // https://api.playfab.com/Documentation/Admin/method/UpdateBans
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/updatebans
         UpdateBans(request: PlayFabAdminModels.UpdateBansRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateBansResult>): void;
         // Updates the catalog configuration for virtual goods in the specified catalog version
-        // https://api.playfab.com/Documentation/Admin/method/UpdateCatalogItems
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/updatecatalogitems
         UpdateCatalogItems(request: PlayFabAdminModels.UpdateCatalogItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateCatalogItemsResult>): void;
         // Creates a new Cloud Script revision and uploads source code to it. Note that at this time, only one file should be
         // submitted in the revision.
-        // https://api.playfab.com/Documentation/Admin/method/UpdateCloudScript
+        // https://docs.microsoft.com/rest/api/playfab/admin/server-side-cloud-script/updatecloudscript
         UpdateCloudScript(request: PlayFabAdminModels.UpdateCloudScriptRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateCloudScriptResult>): void;
         // Modifies data and credentials for an existing relationship between a title and an Open ID Connect provider
-        // https://api.playfab.com/Documentation/Admin/method/UpdateOpenIdConnection
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/updateopenidconnection
         UpdateOpenIdConnection(request: PlayFabAdminModels.UpdateOpenIdConnectionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Updates a existing Player Shared Secret Key. It may take up to 5 minutes for this update to become generally available
         // after this API returns.
-        // https://api.playfab.com/Documentation/Admin/method/UpdatePlayerSharedSecret
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/updateplayersharedsecret
         UpdatePlayerSharedSecret(request: PlayFabAdminModels.UpdatePlayerSharedSecretRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdatePlayerSharedSecretResult>): void;
         // Updates a player statistic configuration for the title, optionally allowing the developer to specify a reset interval.
-        // https://api.playfab.com/Documentation/Admin/method/UpdatePlayerStatisticDefinition
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/updateplayerstatisticdefinition
         UpdatePlayerStatisticDefinition(request: PlayFabAdminModels.UpdatePlayerStatisticDefinitionRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdatePlayerStatisticDefinitionResult>): void;
         // Changes a policy for a title
-        // https://api.playfab.com/Documentation/Admin/method/UpdatePolicy
+        // https://docs.microsoft.com/rest/api/playfab/admin/authentication/updatepolicy
         UpdatePolicy(request: PlayFabAdminModels.UpdatePolicyRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdatePolicyResponse>): void;
         // Updates the random drop table configuration for the title
-        // https://api.playfab.com/Documentation/Admin/method/UpdateRandomResultTables
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/updaterandomresulttables
         UpdateRandomResultTables(request: PlayFabAdminModels.UpdateRandomResultTablesRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateRandomResultTablesResult>): void;
         // Updates an existing virtual item store with new or modified items
-        // https://api.playfab.com/Documentation/Admin/method/UpdateStoreItems
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/updatestoreitems
         UpdateStoreItems(request: PlayFabAdminModels.UpdateStoreItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateStoreItemsResult>): void;
         // Update an existing task.
-        // https://api.playfab.com/Documentation/Admin/method/UpdateTask
+        // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/updatetask
         UpdateTask(request: PlayFabAdminModels.UpdateTaskRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.EmptyResponse>): void;
         // Updates the title-specific custom data for the user which is readable and writable by the client
-        // https://api.playfab.com/Documentation/Admin/method/UpdateUserData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/updateuserdata
         UpdateUserData(request: PlayFabAdminModels.UpdateUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateUserDataResult>): void;
         // Updates the title-specific custom data for the user which cannot be accessed by the client
-        // https://api.playfab.com/Documentation/Admin/method/UpdateUserInternalData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/updateuserinternaldata
         UpdateUserInternalData(request: PlayFabAdminModels.UpdateUserInternalDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateUserDataResult>): void;
         // Updates the publisher-specific custom data for the user which is readable and writable by the client
-        // https://api.playfab.com/Documentation/Admin/method/UpdateUserPublisherData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/updateuserpublisherdata
         UpdateUserPublisherData(request: PlayFabAdminModels.UpdateUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateUserDataResult>): void;
         // Updates the publisher-specific custom data for the user which cannot be accessed by the client
-        // https://api.playfab.com/Documentation/Admin/method/UpdateUserPublisherInternalData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/updateuserpublisherinternaldata
         UpdateUserPublisherInternalData(request: PlayFabAdminModels.UpdateUserInternalDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateUserDataResult>): void;
         // Updates the publisher-specific custom data for the user which can only be read by the client
-        // https://api.playfab.com/Documentation/Admin/method/UpdateUserPublisherReadOnlyData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/updateuserpublisherreadonlydata
         UpdateUserPublisherReadOnlyData(request: PlayFabAdminModels.UpdateUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateUserDataResult>): void;
         // Updates the title-specific custom data for the user which can only be read by the client
-        // https://api.playfab.com/Documentation/Admin/method/UpdateUserReadOnlyData
+        // https://docs.microsoft.com/rest/api/playfab/admin/player-data-management/updateuserreadonlydata
         UpdateUserReadOnlyData(request: PlayFabAdminModels.UpdateUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateUserDataResult>): void;
         // Updates the title specific display name for a user
-        // https://api.playfab.com/Documentation/Admin/method/UpdateUserTitleDisplayName
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/updateusertitledisplayname
         UpdateUserTitleDisplayName(request: PlayFabAdminModels.UpdateUserTitleDisplayNameRequest, callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateUserTitleDisplayNameResult>): void;
 
     }
 }
 
 declare module PlayFabAdminModels {
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AbortTaskInstanceRequest
     export interface AbortTaskInstanceRequest extends PlayFabModule.IPlayFabRequestCommon {
         // ID of a task instance that is being aborted.
         TaskInstanceId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ActionsOnPlayersInSegmentTaskParameter
     export interface ActionsOnPlayersInSegmentTaskParameter {
         // ID of the action to perform on each player in segment.
         ActionId: string;
@@ -374,7 +372,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ActionsOnPlayersInSegmentTaskSummary
     export interface ActionsOnPlayersInSegmentTaskSummary {
         // UTC timestamp when the task completed.
         CompletedAt?: string;
@@ -403,7 +400,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AdCampaignAttribution
     export interface AdCampaignAttribution {
         // UTC time stamp of attribution
         AttributedAt: string;
@@ -414,7 +410,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AdCampaignAttributionModel
     export interface AdCampaignAttributionModel {
         // UTC time stamp of attribution
         AttributedAt: string;
@@ -425,7 +420,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddLocalizedNewsRequest
     export interface AddLocalizedNewsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Localized body text of the news.
         Body: string;
@@ -438,12 +432,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddLocalizedNewsResult
     export interface AddLocalizedNewsResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddNewsRequest
     export interface AddNewsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Default body text of the news.
         Body: string;
@@ -454,14 +446,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddNewsResult
     export interface AddNewsResult extends PlayFabModule.IPlayFabResultCommon {
         // Unique id of the new news item
         NewsId?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddPlayerTagRequest
     export interface AddPlayerTagRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
@@ -470,12 +460,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddPlayerTagResult
     export interface AddPlayerTagResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddServerBuildRequest
     export interface AddServerBuildRequest extends PlayFabModule.IPlayFabRequestCommon {
         // server host regions in which this build should be running and available
         ActiveRegions?: string[];
@@ -495,7 +483,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddServerBuildResult
     export interface AddServerBuildResult extends PlayFabModule.IPlayFabResultCommon {
         // array of regions where this build can used, when it is active
         ActiveRegions?: string[];
@@ -522,7 +509,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddUserVirtualCurrencyRequest
     export interface AddUserVirtualCurrencyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Amount to be added to the user balance of the specified virtual currency. Maximum VC balance is Int32 (2,147,483,647).
         // Any increase over this value will be discarded.
@@ -534,7 +520,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.AddVirtualCurrencyTypesRequest
     export interface AddVirtualCurrencyTypesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // List of virtual currencies and their initial deposits (the amount a user is granted when signing in for the first time)
         // to the title
@@ -542,7 +527,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ApiCondition
     export interface ApiCondition {
         // Require that API calls contain an RSA encrypted payload or signed headers.
         HasSignatureOrEncryption?: string;
@@ -551,7 +535,6 @@ declare module PlayFabAdminModels {
 
     type AuthTokenType = "Email"
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.BanInfo
     export interface BanInfo {
         // The active state of this ban. Expired bans may still have this value set to true but they will have no effect.
         Active: boolean;
@@ -572,7 +555,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.BanRequest
     export interface BanRequest {
         // The duration in hours for the ban. Leave this blank for a permanent ban.
         DurationInHours?: number;
@@ -587,26 +569,22 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.BanUsersRequest
     export interface BanUsersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // List of ban requests to be applied. Maximum 100.
         Bans: BanRequest[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.BanUsersResult
     export interface BanUsersResult extends PlayFabModule.IPlayFabResultCommon {
         // Information on the bans that were applied
         BanData?: BanInfo[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.BlankResult
     export interface BlankResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CatalogItem
     export interface CatalogItem {
         // defines the bundle properties for the item - bundles are items which contain other items, including random drop tables
         // and virtual currencies
@@ -655,7 +633,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CatalogItemBundleInfo
     export interface CatalogItemBundleInfo {
         // unique ItemId values for all items which will be added to the player inventory when the bundle is added
         BundledItems?: string[];
@@ -667,7 +644,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CatalogItemConsumableInfo
     export interface CatalogItemConsumableInfo {
         // number of times this object can be used, after which it will be removed from the player inventory
         UsageCount?: number;
@@ -681,7 +657,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CatalogItemContainerInfo
     export interface CatalogItemContainerInfo {
         // unique ItemId values for all items which will be added to the player inventory, once the container has been unlocked
         ItemContents?: string[];
@@ -696,7 +671,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CheckLimitedEditionItemAvailabilityRequest
     export interface CheckLimitedEditionItemAvailabilityRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Which catalog is being updated. If null, uses the default catalog.
         CatalogVersion?: string;
@@ -705,14 +679,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CheckLimitedEditionItemAvailabilityResult
     export interface CheckLimitedEditionItemAvailabilityResult extends PlayFabModule.IPlayFabResultCommon {
         // The amount of the specified resource remaining.
         Amount: number;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CloudScriptFile
     export interface CloudScriptFile {
         // Contents of the Cloud Script javascript. Must be string-escaped javascript.
         FileContents: string;
@@ -722,7 +694,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CloudScriptTaskParameter
     export interface CloudScriptTaskParameter {
         // Argument to pass to the CloudScript function.
         Argument?: any;
@@ -731,7 +702,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CloudScriptTaskSummary
     export interface CloudScriptTaskSummary {
         // UTC timestamp when the task completed.
         CompletedAt?: string;
@@ -754,7 +724,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CloudScriptVersionStatus
     export interface CloudScriptVersionStatus {
         // Most recent revision for this Cloud Script version
         LatestRevision: number;
@@ -769,7 +738,6 @@ declare module PlayFabAdminModels {
         | "True"
         | "False";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ContactEmailInfo
     export interface ContactEmailInfo {
         // The email address
         EmailAddress?: string;
@@ -780,7 +748,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ContactEmailInfoModel
     export interface ContactEmailInfoModel {
         // The email address
         EmailAddress?: string;
@@ -791,7 +758,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ContentInfo
     export interface ContentInfo {
         // Key of the content
         Key?: string;
@@ -1060,7 +1026,6 @@ declare module PlayFabAdminModels {
         | "ZM"
         | "ZW";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreateActionsOnPlayerSegmentTaskRequest
     export interface CreateActionsOnPlayerSegmentTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Description the task
         Description?: string;
@@ -1075,7 +1040,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreateCloudScriptTaskRequest
     export interface CreateCloudScriptTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Description the task
         Description?: string;
@@ -1090,7 +1054,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreateOpenIdConnectionRequest
     export interface CreateOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The client ID given by the ID provider.
         ClientId: string;
@@ -1108,21 +1071,18 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreatePlayerSharedSecretRequest
     export interface CreatePlayerSharedSecretRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Friendly name for this key
         FriendlyName?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreatePlayerSharedSecretResult
     export interface CreatePlayerSharedSecretResult extends PlayFabModule.IPlayFabResultCommon {
         // The player shared secret to use when calling Client/GetTitlePublicKey
         SecretKey?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreatePlayerStatisticDefinitionRequest
     export interface CreatePlayerStatisticDefinitionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // the aggregation method to use in updating the statistic (defaults to last)
         AggregationMethod?: string;
@@ -1133,14 +1093,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreatePlayerStatisticDefinitionResult
     export interface CreatePlayerStatisticDefinitionResult extends PlayFabModule.IPlayFabResultCommon {
         // created statistic definition
         Statistic?: PlayerStatisticDefinition;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.CreateTaskResult
     export interface CreateTaskResult extends PlayFabModule.IPlayFabResultCommon {
         // ID of the task
         TaskId?: string;
@@ -1310,14 +1268,12 @@ declare module PlayFabAdminModels {
         | "ZMW"
         | "ZWD";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteContentRequest
     export interface DeleteContentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Key of the content item to be deleted
         Key: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteMasterPlayerAccountRequest
     export interface DeleteMasterPlayerAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Developer created string to identify a user without PlayFab ID
         MetaData?: string;
@@ -1326,7 +1282,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteMasterPlayerAccountResult
     export interface DeleteMasterPlayerAccountResult extends PlayFabModule.IPlayFabResultCommon {
         // A notification email with this job receipt Id will be sent to the title notification email address when deletion is
         // complete.
@@ -1336,38 +1291,32 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteOpenIdConnectionRequest
     export interface DeleteOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // unique name of the connection
         ConnectionId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeletePlayerRequest
     export interface DeletePlayerRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeletePlayerResult
     export interface DeletePlayerResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeletePlayerSharedSecretRequest
     export interface DeletePlayerSharedSecretRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The shared secret key to delete
         SecretKey?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeletePlayerSharedSecretResult
     export interface DeletePlayerSharedSecretResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteStoreRequest
     export interface DeleteStoreRequest extends PlayFabModule.IPlayFabRequestCommon {
         // catalog version of the store to delete. If null, uses the default catalog.
         CatalogVersion?: string;
@@ -1376,24 +1325,20 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteStoreResult
     export interface DeleteStoreResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteTaskRequest
     export interface DeleteTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Specify either the task ID or the name of task to be deleted.
         Identifier?: NameIdentifier;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteTitleRequest
     export interface DeleteTitleRequest extends PlayFabModule.IPlayFabRequestCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.DeleteTitleResult
     export interface DeleteTitleResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
@@ -1405,12 +1350,10 @@ declare module PlayFabAdminModels {
         | "Pending"
         | "Confirmed";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.EmptyResponse
     export interface EmptyResponse extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.EntityKey
     export interface EntityKey {
         // Unique ID of the entity.
         Id: string;
@@ -1419,7 +1362,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ExecuteCloudScriptResult
     export interface ExecuteCloudScriptResult {
         // Number of PlayFab API requests issued by the CloudScript function
         APIRequestsIssued: number;
@@ -1450,14 +1392,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ExportMasterPlayerDataRequest
     export interface ExportMasterPlayerDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ExportMasterPlayerDataResult
     export interface ExportMasterPlayerDataResult extends PlayFabModule.IPlayFabResultCommon {
         // An email with this job receipt Id containing the export download link will be sent to the title notification email
         // address when the export is complete.
@@ -1471,7 +1411,6 @@ declare module PlayFabAdminModels {
         | "Processing"
         | "FailedToProcess";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GameModeInfo
     export interface GameModeInfo {
         // specific game mode type
         Gamemode: string;
@@ -1969,6 +1908,7 @@ declare module PlayFabAdminModels {
         | "InsightsManagementTitleInEvaluationMode"
         | "CloudScriptAzureFunctionsQueueRequestError"
         | "EvaluationModeTitleCountExceeded"
+        | "InsightsManagementTitleNotInFlight"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2043,7 +1983,6 @@ declare module PlayFabAdminModels {
         | "MaxActionDepthExceeded"
         | "SnapshotNotFound";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetActionsOnPlayersInSegmentTaskInstanceResult
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
         // Parameter of this task instance
         Parameter?: ActionsOnPlayersInSegmentTaskParameter;
@@ -2052,33 +1991,28 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetAllSegmentsRequest
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetAllSegmentsResult
     export interface GetAllSegmentsResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of segments for this title.
         Segments?: GetSegmentResult[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetCatalogItemsRequest
     export interface GetCatalogItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Which catalog is being requested. If null, uses the default catalog.
         CatalogVersion?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetCatalogItemsResult
     export interface GetCatalogItemsResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of items which can be purchased.
         Catalog?: CatalogItem[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetCloudScriptRevisionRequest
     export interface GetCloudScriptRevisionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Revision number. If left null, defaults to the latest revision
         Revision?: number;
@@ -2087,7 +2021,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetCloudScriptRevisionResult
     export interface GetCloudScriptRevisionResult extends PlayFabModule.IPlayFabResultCommon {
         // Time this revision was created
         CreatedAt: string;
@@ -2102,7 +2035,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetCloudScriptTaskInstanceResult
     export interface GetCloudScriptTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
         // Parameter of this task instance
         Parameter?: CloudScriptTaskParameter;
@@ -2111,19 +2043,16 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetCloudScriptVersionsRequest
     export interface GetCloudScriptVersionsRequest extends PlayFabModule.IPlayFabRequestCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetCloudScriptVersionsResult
     export interface GetCloudScriptVersionsResult extends PlayFabModule.IPlayFabResultCommon {
         // List of versions
         Versions?: CloudScriptVersionStatus[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetContentListRequest
     export interface GetContentListRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Limits the response to keys that begin with the specified prefix. You can use prefixes to list contents under a folder,
         // or for a specified version, etc.
@@ -2131,7 +2060,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetContentListResult
     export interface GetContentListResult extends PlayFabModule.IPlayFabResultCommon {
         // List of content items.
         Contents?: ContentInfo[];
@@ -2142,7 +2070,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetContentUploadUrlRequest
     export interface GetContentUploadUrlRequest extends PlayFabModule.IPlayFabRequestCommon {
         // A standard MIME type describing the format of the contents. The same MIME type has to be set in the header when
         // uploading the content. If not specified, the MIME type is 'binary/octet-stream' by default.
@@ -2152,14 +2079,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetContentUploadUrlResult
     export interface GetContentUploadUrlResult extends PlayFabModule.IPlayFabResultCommon {
         // URL for uploading content via HTTP PUT method. The URL will expire in approximately one hour.
         URL?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetDataReportRequest
     export interface GetDataReportRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Reporting year (UTC)
         Day: number;
@@ -2172,7 +2097,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetDataReportResult
     export interface GetDataReportResult extends PlayFabModule.IPlayFabResultCommon {
         // The URL where the requested report can be downloaded. This can be any PlayFab generated reports. The full list of
         // reports can be found at: https://docs.microsoft.com/en-us/gaming/playfab/features/analytics/reports/quickstart.
@@ -2180,14 +2104,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetMatchmakerGameInfoRequest
     export interface GetMatchmakerGameInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
         // unique identifier of the lobby for which info is being requested
         LobbyId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetMatchmakerGameInfoResult
     export interface GetMatchmakerGameInfoResult extends PlayFabModule.IPlayFabResultCommon {
         // version identifier of the game server executable binary being run
         BuildVersion?: string;
@@ -2216,35 +2138,30 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetMatchmakerGameModesRequest
     export interface GetMatchmakerGameModesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // previously uploaded build version for which game modes are being requested
         BuildVersion: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetMatchmakerGameModesResult
     export interface GetMatchmakerGameModesResult extends PlayFabModule.IPlayFabResultCommon {
         // array of game modes available for the specified build
         GameModes?: GameModeInfo[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayedTitleListRequest
     export interface GetPlayedTitleListRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayedTitleListResult
     export interface GetPlayedTitleListResult extends PlayFabModule.IPlayFabResultCommon {
         // List of titles the player has played
         TitleIds?: string[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerIdFromAuthTokenRequest
     export interface GetPlayerIdFromAuthTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The auth token of the player requesting the password reset.
         Token: string;
@@ -2253,14 +2170,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerIdFromAuthTokenResult
     export interface GetPlayerIdFromAuthTokenResult extends PlayFabModule.IPlayFabResultCommon {
         // The player ID from the token passed in
         PlayFabId?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerProfileRequest
     export interface GetPlayerProfileRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
@@ -2271,7 +2186,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerProfileResult
     export interface GetPlayerProfileResult extends PlayFabModule.IPlayFabResultCommon {
         // The profile of the player. This profile is not guaranteed to be up-to-date. For a new player, this profile will not
         // exist.
@@ -2279,26 +2193,22 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerSegmentsResult
     export interface GetPlayerSegmentsResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of segments the requested player currently belongs to.
         Segments?: GetSegmentResult[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerSharedSecretsRequest
     export interface GetPlayerSharedSecretsRequest extends PlayFabModule.IPlayFabRequestCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerSharedSecretsResult
     export interface GetPlayerSharedSecretsResult extends PlayFabModule.IPlayFabResultCommon {
         // The player shared secret to use when calling Client/GetTitlePublicKey
         SharedSecrets?: SharedSecret[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayersInSegmentRequest
     export interface GetPlayersInSegmentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Continuation token if retrieving subsequent pages of results.
         ContinuationToken?: string;
@@ -2312,7 +2222,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayersInSegmentResult
     export interface GetPlayersInSegmentResult extends PlayFabModule.IPlayFabResultCommon {
         // Continuation token to use to retrieve subsequent pages of results. If token returns null there are no more results.
         ContinuationToken?: string;
@@ -2323,40 +2232,34 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayersSegmentsRequest
     export interface GetPlayersSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerStatisticDefinitionsRequest
     export interface GetPlayerStatisticDefinitionsRequest extends PlayFabModule.IPlayFabRequestCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerStatisticDefinitionsResult
     export interface GetPlayerStatisticDefinitionsResult extends PlayFabModule.IPlayFabResultCommon {
         // the player statistic definitions for the title
         Statistics?: PlayerStatisticDefinition[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerStatisticVersionsRequest
     export interface GetPlayerStatisticVersionsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // unique name of the statistic
         StatisticName?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerStatisticVersionsResult
     export interface GetPlayerStatisticVersionsResult extends PlayFabModule.IPlayFabResultCommon {
         // version change history of the statistic
         StatisticVersions?: PlayerStatisticVersion[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerTagsRequest
     export interface GetPlayerTagsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional namespace to filter results by
         Namespace?: string;
@@ -2365,7 +2268,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPlayerTagsResult
     export interface GetPlayerTagsResult extends PlayFabModule.IPlayFabResultCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
@@ -2374,14 +2276,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPolicyRequest
     export interface GetPolicyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The name of the policy to read. Only supported name is 'ApiPolicy'.
         PolicyName?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPolicyResponse
     export interface GetPolicyResponse extends PlayFabModule.IPlayFabResultCommon {
         // The name of the policy read.
         PolicyName?: string;
@@ -2390,35 +2290,30 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPublisherDataRequest
     export interface GetPublisherDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // array of keys to get back data from the Publisher data blob, set by the admin tools
         Keys: string[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetPublisherDataResult
     export interface GetPublisherDataResult extends PlayFabModule.IPlayFabResultCommon {
         // a dictionary object of key / value pairs
         Data?: { [key: string]: string | null };
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetRandomResultTablesRequest
     export interface GetRandomResultTablesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // catalog version to fetch tables from. Use default catalog version if null
         CatalogVersion?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetRandomResultTablesResult
     export interface GetRandomResultTablesResult extends PlayFabModule.IPlayFabResultCommon {
         // array of random result tables currently available
         Tables?: { [key: string]: RandomResultTableListing };
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetSegmentResult
     export interface GetSegmentResult {
         // Identifier of the segments AB Test, if it is attached to one.
         ABTestParent?: string;
@@ -2429,14 +2324,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetServerBuildInfoRequest
     export interface GetServerBuildInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
         // unique identifier of the previously uploaded build executable for which information is being requested
         BuildId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetServerBuildInfoResult
     export interface GetServerBuildInfoResult extends PlayFabModule.IPlayFabResultCommon {
         // array of regions where this build can used, when it is active
         ActiveRegions?: string[];
@@ -2461,21 +2354,18 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetServerBuildUploadURLRequest
     export interface GetServerBuildUploadURLRequest extends PlayFabModule.IPlayFabRequestCommon {
         // unique identifier of the game server build to upload
         BuildId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetServerBuildUploadURLResult
     export interface GetServerBuildUploadURLResult extends PlayFabModule.IPlayFabResultCommon {
         // pre-authorized URL for uploading the game server build package
         URL?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetStoreItemsRequest
     export interface GetStoreItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version to store items from. Use default catalog version if null
         CatalogVersion?: string;
@@ -2484,7 +2374,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetStoreItemsResult
     export interface GetStoreItemsResult extends PlayFabModule.IPlayFabResultCommon {
         // The base catalog that this store is a part of.
         CatalogVersion?: string;
@@ -2499,14 +2388,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetTaskInstanceRequest
     export interface GetTaskInstanceRequest extends PlayFabModule.IPlayFabRequestCommon {
         // ID of the requested task instance.
         TaskInstanceId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetTaskInstancesRequest
     export interface GetTaskInstancesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional range-from filter for task instances' StartedAt timestamp.
         StartedAtRangeFrom?: string;
@@ -2520,7 +2407,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetTaskInstancesResult
     export interface GetTaskInstancesResult extends PlayFabModule.IPlayFabResultCommon {
         // Basic status summaries of the queried task instances. Empty If no task instances meets the filter criteria. To get
         // detailed status summary, use Get*TaskInstance API according to task type (e.g.
@@ -2529,49 +2415,42 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetTasksRequest
     export interface GetTasksRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Provide either the task ID or the task name to get a specific task. If not specified, return all defined tasks.
         Identifier?: NameIdentifier;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetTasksResult
     export interface GetTasksResult extends PlayFabModule.IPlayFabResultCommon {
         // Result tasks. Empty if there is no task found.
         Tasks?: ScheduledTask[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetTitleDataRequest
     export interface GetTitleDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Specific keys to search for in the title data (leave null to get all keys)
         Keys?: string[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetTitleDataResult
     export interface GetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {
         // a dictionary object of key / value pairs
         Data?: { [key: string]: string | null };
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetUserBansRequest
     export interface GetUserBansRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetUserBansResult
     export interface GetUserBansResult extends PlayFabModule.IPlayFabResultCommon {
         // Information about the bans
         BanData?: BanInfo[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetUserDataRequest
     export interface GetUserDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The version that currently exists according to the caller. The call will return the data for all of the keys if the
         // version in the system is greater than this.
@@ -2583,7 +2462,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetUserDataResult
     export interface GetUserDataResult extends PlayFabModule.IPlayFabResultCommon {
         // User specific data for this title.
         Data?: { [key: string]: UserDataRecord };
@@ -2595,14 +2473,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetUserInventoryRequest
     export interface GetUserInventoryRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GetUserInventoryResult
     export interface GetUserInventoryResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of inventory items belonging to the user.
         Inventory?: ItemInstance[];
@@ -2615,7 +2491,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GrantedItemInstance
     export interface GrantedItemInstance {
         // Game specific comment associated with this instance when it was added to the user inventory.
         Annotation?: string;
@@ -2658,7 +2533,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GrantItemsToUsersRequest
     export interface GrantItemsToUsersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version from which items are to be granted.
         CatalogVersion?: string;
@@ -2667,14 +2541,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.GrantItemsToUsersResult
     export interface GrantItemsToUsersResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of items granted to users.
         ItemGrantResults?: GrantedItemInstance[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.IncrementLimitedEditionItemAvailabilityRequest
     export interface IncrementLimitedEditionItemAvailabilityRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Amount to increase availability by.
         Amount: number;
@@ -2685,26 +2557,22 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.IncrementLimitedEditionItemAvailabilityResult
     export interface IncrementLimitedEditionItemAvailabilityResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.IncrementPlayerStatisticVersionRequest
     export interface IncrementPlayerStatisticVersionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // unique name of the statistic
         StatisticName?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.IncrementPlayerStatisticVersionResult
     export interface IncrementPlayerStatisticVersionResult extends PlayFabModule.IPlayFabResultCommon {
         // version change history of the statistic
         StatisticVersion?: PlayerStatisticVersion;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ItemGrant
     export interface ItemGrant {
         // String detailing any additional information concerning this operation.
         Annotation?: string;
@@ -2723,7 +2591,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ItemInstance
     export interface ItemInstance {
         // Game specific comment associated with this instance when it was added to the user inventory.
         Annotation?: string;
@@ -2760,7 +2627,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.LinkedPlatformAccountModel
     export interface LinkedPlatformAccountModel {
         // Linked account email of the user on the platform, if available
         Email?: string;
@@ -2773,43 +2639,36 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ListBuildsRequest
     export interface ListBuildsRequest extends PlayFabModule.IPlayFabRequestCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ListBuildsResult
     export interface ListBuildsResult extends PlayFabModule.IPlayFabResultCommon {
         // array of uploaded game server builds
         Builds?: GetServerBuildInfoResult[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ListOpenIdConnectionRequest
     export interface ListOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ListOpenIdConnectionResponse
     export interface ListOpenIdConnectionResponse extends PlayFabModule.IPlayFabResultCommon {
         // The list of Open ID Connections
         Connections?: OpenIdConnection[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ListVirtualCurrencyTypesRequest
     export interface ListVirtualCurrencyTypesRequest extends PlayFabModule.IPlayFabRequestCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ListVirtualCurrencyTypesResult
     export interface ListVirtualCurrencyTypesResult extends PlayFabModule.IPlayFabResultCommon {
         // List of virtual currency names defined for this title
         VirtualCurrencies?: VirtualCurrencyData[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.LocationModel
     export interface LocationModel {
         // City name.
         City?: string;
@@ -2844,7 +2703,6 @@ declare module PlayFabAdminModels {
         | "FacebookInstantGames"
         | "OpenIdConnect";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.LogStatement
     export interface LogStatement {
         // Optional object accompanying the message as contextual information
         Data?: any;
@@ -2854,7 +2712,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.LookupUserAccountInfoRequest
     export interface LookupUserAccountInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
         // User email address attached to their account
         Email?: string;
@@ -2867,14 +2724,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.LookupUserAccountInfoResult
     export interface LookupUserAccountInfoResult extends PlayFabModule.IPlayFabResultCommon {
         // User info for the user matching the request
         UserInfo?: UserAccountInfo;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.MembershipModel
     export interface MembershipModel {
         // Whether this membership is active. That is, whether the MembershipExpiration time has been reached.
         IsActive: boolean;
@@ -2890,7 +2745,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ModifyMatchmakerGameModesRequest
     export interface ModifyMatchmakerGameModesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // previously uploaded build version for which game modes are being specified
         BuildVersion: string;
@@ -2899,12 +2753,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ModifyMatchmakerGameModesResult
     export interface ModifyMatchmakerGameModesResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ModifyServerBuildRequest
     export interface ModifyServerBuildRequest extends PlayFabModule.IPlayFabRequestCommon {
         // array of regions where this build can used, when it is active
         ActiveRegions?: string[];
@@ -2926,7 +2778,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ModifyServerBuildResult
     export interface ModifyServerBuildResult extends PlayFabModule.IPlayFabResultCommon {
         // array of regions where this build can used, when it is active
         ActiveRegions?: string[];
@@ -2953,7 +2804,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ModifyUserVirtualCurrencyResult
     export interface ModifyUserVirtualCurrencyResult extends PlayFabModule.IPlayFabResultCommon {
         // Balance of the virtual currency after modification.
         Balance: number;
@@ -2967,7 +2817,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.NameIdentifier
     export interface NameIdentifier {
         // Id Identifier, if present
         Id?: string;
@@ -2976,7 +2825,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.OpenIdConnection
     export interface OpenIdConnection {
         // The client ID given by the ID provider.
         ClientId?: string;
@@ -2991,7 +2839,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.OpenIdIssuerInformation
     export interface OpenIdIssuerInformation {
         // Authorization endpoint URL to direct users to for signin.
         AuthorizationUrl: string;
@@ -3004,7 +2851,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PermissionStatement
     export interface PermissionStatement {
         // The action this statement effects. The only supported action is 'Execute'.
         Action: string;
@@ -3022,7 +2868,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PlayerLinkedAccount
     export interface PlayerLinkedAccount {
         // Linked account's email
         Email?: string;
@@ -3035,7 +2880,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PlayerLocation
     export interface PlayerLocation {
         // City of the player's geographic location.
         City?: string;
@@ -3050,7 +2894,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PlayerProfile
     export interface PlayerProfile {
         // Array of ad campaigns player has been attributed to
         AdCampaignAttributions?: AdCampaignAttribution[];
@@ -3097,7 +2940,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PlayerProfileModel
     export interface PlayerProfileModel {
         // List of advertising campaigns the player has been attributed to
         AdCampaignAttributions?: AdCampaignAttributionModel[];
@@ -3143,7 +2985,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PlayerProfileViewConstraints
     export interface PlayerProfileViewConstraints {
         // Whether to show player's avatar URL. Defaults to false
         ShowAvatarUrl: boolean;
@@ -3182,7 +3023,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PlayerStatistic
     export interface PlayerStatistic {
         // Statistic ID
         Id?: string;
@@ -3195,7 +3035,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PlayerStatisticDefinition
     export interface PlayerStatisticDefinition {
         // the aggregation method to use in updating the statistic (defaults to last)
         AggregationMethod?: string;
@@ -3208,7 +3047,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PlayerStatisticVersion
     export interface PlayerStatisticVersion {
         // time when the statistic version became active
         ActivationTime: string;
@@ -3232,7 +3070,6 @@ declare module PlayFabAdminModels {
     type PushNotificationPlatform = "ApplePushNotificationService"
         | "GoogleCloudMessaging";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PushNotificationRegistration
     export interface PushNotificationRegistration {
         // Notification configured endpoint
         NotificationEndpointARN?: string;
@@ -3241,7 +3078,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.PushNotificationRegistrationModel
     export interface PushNotificationRegistrationModel {
         // Notification configured endpoint
         NotificationEndpointARN?: string;
@@ -3254,7 +3090,6 @@ declare module PlayFabAdminModels {
         | "APNS"
         | "APNS_SANDBOX";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RandomResultTable
     export interface RandomResultTable {
         // Child nodes that indicate what kind of drop table item this actually is.
         Nodes: ResultTableNode[];
@@ -3263,7 +3098,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RandomResultTableListing
     export interface RandomResultTableListing {
         // Catalog version this table is associated with
         CatalogVersion?: string;
@@ -3274,7 +3108,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RefundPurchaseRequest
     export interface RefundPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique order ID for the purchase in question.
         OrderId: string;
@@ -3287,7 +3120,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RefundPurchaseResponse
     export interface RefundPurchaseResponse extends PlayFabModule.IPlayFabResultCommon {
         // The order's updated purchase status.
         PurchaseStatus?: string;
@@ -3302,7 +3134,6 @@ declare module PlayFabAdminModels {
         | "Brazil"
         | "Australia";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RemovePlayerTagRequest
     export interface RemovePlayerTagRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
@@ -3311,31 +3142,26 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RemovePlayerTagResult
     export interface RemovePlayerTagResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RemoveServerBuildRequest
     export interface RemoveServerBuildRequest extends PlayFabModule.IPlayFabRequestCommon {
         // unique identifier of the previously uploaded build executable to be removed
         BuildId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RemoveServerBuildResult
     export interface RemoveServerBuildResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RemoveVirtualCurrencyTypesRequest
     export interface RemoveVirtualCurrencyTypesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // List of virtual currencies to delete
         VirtualCurrencies: VirtualCurrencyData[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ResetCharacterStatisticsRequest
     export interface ResetCharacterStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId: string;
@@ -3344,12 +3170,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ResetCharacterStatisticsResult
     export interface ResetCharacterStatisticsResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ResetPasswordRequest
     export interface ResetPasswordRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The new password for the player.
         Password: string;
@@ -3358,19 +3182,16 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ResetPasswordResult
     export interface ResetPasswordResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ResetUserStatisticsRequest
     export interface ResetUserStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ResetUserStatisticsResult
     export interface ResetUserStatisticsResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
@@ -3379,7 +3200,6 @@ declare module PlayFabAdminModels {
         | "Reinstate"
         | "Manual";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ResolvePurchaseDisputeRequest
     export interface ResolvePurchaseDisputeRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique order ID for the purchase in question.
         OrderId: string;
@@ -3395,14 +3215,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ResolvePurchaseDisputeResponse
     export interface ResolvePurchaseDisputeResponse extends PlayFabModule.IPlayFabResultCommon {
         // The order's updated purchase status.
         PurchaseStatus?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ResultTableNode
     export interface ResultTableNode {
         // Either an ItemId, or the TableId of another random result table
         ResultItem: string;
@@ -3416,35 +3234,30 @@ declare module PlayFabAdminModels {
     type ResultTableNodeType = "ItemId"
         | "TableId";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeAllBansForUserRequest
     export interface RevokeAllBansForUserRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeAllBansForUserResult
     export interface RevokeAllBansForUserResult extends PlayFabModule.IPlayFabResultCommon {
         // Information on the bans that were revoked.
         BanData?: BanInfo[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeBansRequest
     export interface RevokeBansRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Ids of the bans to be revoked. Maximum 100.
         BanIds: string[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeBansResult
     export interface RevokeBansResult extends PlayFabModule.IPlayFabResultCommon {
         // Information on the bans that were revoked
         BanData?: BanInfo[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeInventoryItem
     export interface RevokeInventoryItem {
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId?: string;
@@ -3455,7 +3268,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeInventoryItemRequest
     export interface RevokeInventoryItemRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId?: string;
@@ -3466,26 +3278,22 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeInventoryItemsRequest
     export interface RevokeInventoryItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of player items to revoke, between 1 and 25 items.
         Items: RevokeInventoryItem[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeInventoryItemsResult
     export interface RevokeInventoryItemsResult extends PlayFabModule.IPlayFabResultCommon {
         // Collection of any errors that occurred during processing.
         Errors?: RevokeItemError[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeInventoryResult
     export interface RevokeInventoryResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RevokeItemError
     export interface RevokeItemError {
         // Specific error that was encountered.
         Error?: string;
@@ -3494,14 +3302,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RunTaskRequest
     export interface RunTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Provide either the task ID or the task name to run a task.
         Identifier?: NameIdentifier;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.RunTaskResult
     export interface RunTaskResult extends PlayFabModule.IPlayFabResultCommon {
         // ID of the task instance that is started. This can be used in Get*TaskInstance (e.g. GetCloudScriptTaskInstance) API call
         // to retrieve status for the task instance.
@@ -3509,7 +3315,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ScheduledTask
     export interface ScheduledTask {
         // Description the task
         Description?: string;
@@ -3537,7 +3342,6 @@ declare module PlayFabAdminModels {
         | "ActionsOnPlayerSegment"
         | "CloudScriptAzureFunctions";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ScriptExecutionError
     export interface ScriptExecutionError {
         // Error code, such as CloudScriptNotFound, JavascriptException, CloudScriptFunctionArgumentSizeExceeded,
         // CloudScriptAPIRequestCountExceeded, CloudScriptAPIRequestError, or CloudScriptHTTPRequestError
@@ -3549,7 +3353,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SendAccountRecoveryEmailRequest
     export interface SendAccountRecoveryEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
         // User email address attached to their account
         Email: string;
@@ -3558,12 +3361,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SendAccountRecoveryEmailResult
     export interface SendAccountRecoveryEmailResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetPlayerSecretRequest
     export interface SetPlayerSecretRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
@@ -3572,12 +3373,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetPlayerSecretResult
     export interface SetPlayerSecretResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetPublishedRevisionRequest
     export interface SetPublishedRevisionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Revision to make the current published revision
         Revision: number;
@@ -3586,12 +3385,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetPublishedRevisionResult
     export interface SetPublishedRevisionResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetPublisherDataRequest
     export interface SetPublisherDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // key we want to set a value on (note, this is additive - will only replace an existing key's value if they are the same
         // name.) Keys are trimmed of whitespace. Keys may not begin with the '!' character.
@@ -3601,12 +3398,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetPublisherDataResult
     export interface SetPublisherDataResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetTitleDataRequest
     export interface SetTitleDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // key we want to set a value on (note, this is additive - will only replace an existing key's value if they are the same
         // name.) Keys are trimmed of whitespace. Keys may not begin with the '!' character.
@@ -3616,12 +3411,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetTitleDataResult
     export interface SetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetupPushNotificationRequest
     export interface SetupPushNotificationRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Credential is the Private Key for APNS/APNS_SANDBOX, and the API Key for GCM
         Credential: string;
@@ -3639,14 +3432,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SetupPushNotificationResult
     export interface SetupPushNotificationResult extends PlayFabModule.IPlayFabResultCommon {
         // Amazon Resource Name for the created notification topic.
         ARN?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SharedSecret
     export interface SharedSecret {
         // Flag to indicate if this key is disabled
         Disabled: boolean;
@@ -3670,7 +3461,6 @@ declare module PlayFabAdminModels {
         | "Max"
         | "Sum";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.StatisticModel
     export interface StatisticModel {
         // Statistic name
         Name?: string;
@@ -3699,7 +3489,6 @@ declare module PlayFabAdminModels {
         | "ArchivalPending"
         | "Archived";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.StoreItem
     export interface StoreItem {
         // Store specific custom data. The data only exists as part of this store; it is not transferred to item instances
         CustomData?: any;
@@ -3715,7 +3504,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.StoreMarketingModel
     export interface StoreMarketingModel {
         // Tagline for a store.
         Description?: string;
@@ -3726,7 +3514,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SubscriptionModel
     export interface SubscriptionModel {
         // When this subscription expires.
         Expiration: string;
@@ -3754,7 +3541,6 @@ declare module PlayFabAdminModels {
         | "FreeTrial"
         | "PaymentPending";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.SubtractUserVirtualCurrencyRequest
     export interface SubtractUserVirtualCurrencyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Amount to be subtracted from the user balance of the specified virtual currency.
         Amount: number;
@@ -3765,14 +3551,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.TagModel
     export interface TagModel {
         // Full value of the tag, including namespace
         TagValue?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.TaskInstanceBasicSummary
     export interface TaskInstanceBasicSummary {
         // UTC timestamp when the task completed.
         CompletedAt?: string;
@@ -3808,7 +3592,6 @@ declare module PlayFabAdminModels {
         | "ActivatedSteam"
         | "RevokedSteam";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateBanRequest
     export interface UpdateBanRequest {
         // The updated active state for the ban. Null for no change.
         Active?: boolean;
@@ -3827,21 +3610,18 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateBansRequest
     export interface UpdateBansRequest extends PlayFabModule.IPlayFabRequestCommon {
         // List of bans to be updated. Maximum 100.
         Bans: UpdateBanRequest[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateBansResult
     export interface UpdateBansResult extends PlayFabModule.IPlayFabResultCommon {
         // Information on the bans that were updated
         BanData?: BanInfo[];
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateCatalogItemsRequest
     export interface UpdateCatalogItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of catalog items to be submitted. Note that while CatalogItem has a parameter for CatalogVersion, it is not
         // required and ignored in this call.
@@ -3854,12 +3634,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateCatalogItemsResult
     export interface UpdateCatalogItemsResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateCloudScriptRequest
     export interface UpdateCloudScriptRequest extends PlayFabModule.IPlayFabRequestCommon {
         // PlayFab user ID of the developer initiating the request.
         DeveloperPlayFabId?: string;
@@ -3870,7 +3648,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateCloudScriptResult
     export interface UpdateCloudScriptResult extends PlayFabModule.IPlayFabResultCommon {
         // New revision number created
         Revision: number;
@@ -3879,7 +3656,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateOpenIdConnectionRequest
     export interface UpdateOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The client ID given by the ID provider.
         ClientId?: string;
@@ -3894,7 +3670,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdatePlayerSharedSecretRequest
     export interface UpdatePlayerSharedSecretRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Disable or Enable this key
         Disabled: boolean;
@@ -3905,12 +3680,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdatePlayerSharedSecretResult
     export interface UpdatePlayerSharedSecretResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdatePlayerStatisticDefinitionRequest
     export interface UpdatePlayerStatisticDefinitionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // the aggregation method to use in updating the statistic (defaults to last)
         AggregationMethod?: string;
@@ -3922,14 +3695,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdatePlayerStatisticDefinitionResult
     export interface UpdatePlayerStatisticDefinitionResult extends PlayFabModule.IPlayFabResultCommon {
         // updated statistic definition
         Statistic?: PlayerStatisticDefinition;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdatePolicyRequest
     export interface UpdatePolicyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Whether to overwrite or append to the existing policy.
         OverwritePolicy: boolean;
@@ -3940,7 +3711,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdatePolicyResponse
     export interface UpdatePolicyResponse extends PlayFabModule.IPlayFabResultCommon {
         // The name of the policy that was updated.
         PolicyName?: string;
@@ -3949,7 +3719,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateRandomResultTablesRequest
     export interface UpdateRandomResultTablesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // which catalog is being updated. If null, update the current default catalog version
         CatalogVersion?: string;
@@ -3959,12 +3728,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateRandomResultTablesResult
     export interface UpdateRandomResultTablesResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateStoreItemsRequest
     export interface UpdateStoreItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version of the store to update. If null, uses the default catalog.
         CatalogVersion?: string;
@@ -3977,12 +3744,10 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateStoreItemsResult
     export interface UpdateStoreItemsResult extends PlayFabModule.IPlayFabResultCommon {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateTaskRequest
     export interface UpdateTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Description the task
         Description?: string;
@@ -4001,7 +3766,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateUserDataRequest
     export interface UpdateUserDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
@@ -4016,7 +3780,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateUserDataResult
     export interface UpdateUserDataResult extends PlayFabModule.IPlayFabResultCommon {
         // Indicates the current version of the data that has been set. This is incremented with every set call for that type of
         // data (read-only, internal, etc). This version can be provided in Get calls to find updated data.
@@ -4024,7 +3787,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateUserInternalDataRequest
     export interface UpdateUserInternalDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
@@ -4037,7 +3799,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateUserTitleDisplayNameRequest
     export interface UpdateUserTitleDisplayNameRequest extends PlayFabModule.IPlayFabRequestCommon {
         // New title display name for the user - must be between 3 and 25 characters
         DisplayName: string;
@@ -4046,14 +3807,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UpdateUserTitleDisplayNameResult
     export interface UpdateUserTitleDisplayNameResult extends PlayFabModule.IPlayFabResultCommon {
         // current title display name for the user (this will be the original display name if the rename attempt failed)
         DisplayName?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserAccountInfo
     export interface UserAccountInfo {
         // User Android device information, if an Android device has been linked
         AndroidDeviceInfo?: UserAndroidDeviceInfo;
@@ -4098,14 +3857,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserAndroidDeviceInfo
     export interface UserAndroidDeviceInfo {
         // Android device ID
         AndroidDeviceId?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserCustomIdInfo
     export interface UserCustomIdInfo {
         // Custom ID
         CustomId?: string;
@@ -4115,7 +3872,6 @@ declare module PlayFabAdminModels {
     type UserDataPermission = "Private"
         | "Public";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserDataRecord
     export interface UserDataRecord {
         // Timestamp for when this data was last updated.
         LastUpdated: string;
@@ -4127,7 +3883,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserFacebookInfo
     export interface UserFacebookInfo {
         // Facebook identifier
         FacebookId?: string;
@@ -4136,21 +3891,18 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserFacebookInstantGamesIdInfo
     export interface UserFacebookInstantGamesIdInfo {
         // Facebook Instant Games ID
         FacebookInstantGamesId?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserGameCenterInfo
     export interface UserGameCenterInfo {
         // Gamecenter identifier
         GameCenterId?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserGoogleInfo
     export interface UserGoogleInfo {
         // Email address of the Google account
         GoogleEmail?: string;
@@ -4165,14 +3917,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserIosDeviceInfo
     export interface UserIosDeviceInfo {
         // iOS device ID
         IosDeviceId?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserKongregateInfo
     export interface UserKongregateInfo {
         // Kongregate ID
         KongregateId?: string;
@@ -4181,14 +3931,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserNintendoSwitchDeviceIdInfo
     export interface UserNintendoSwitchDeviceIdInfo {
         // Nintendo Switch Device ID
         NintendoSwitchDeviceId?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserOpenIdInfo
     export interface UserOpenIdInfo {
         // OpenID Connection ID
         ConnectionId?: string;
@@ -4222,14 +3970,12 @@ declare module PlayFabAdminModels {
         | "FacebookInstantGamesId"
         | "OpenIdConnect";
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserPrivateAccountInfo
     export interface UserPrivateAccountInfo {
         // user email address
         Email?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserPsnInfo
     export interface UserPsnInfo {
         // PSN account ID
         PsnAccountId?: string;
@@ -4238,7 +3984,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserSteamInfo
     export interface UserSteamInfo {
         // what stage of game ownership the user is listed as being in, from Steam
         SteamActivationStatus?: string;
@@ -4253,7 +3998,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserTitleInfo
     export interface UserTitleInfo {
         // URL to the player's avatar.
         AvatarUrl?: string;
@@ -4276,7 +4020,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserTwitchInfo
     export interface UserTwitchInfo {
         // Twitch ID
         TwitchId?: string;
@@ -4285,7 +4028,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserWindowsHelloInfo
     export interface UserWindowsHelloInfo {
         // Windows Hello Device Name
         WindowsHelloDeviceName?: string;
@@ -4294,14 +4036,12 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.UserXboxInfo
     export interface UserXboxInfo {
         // XBox user ID
         XboxUserId?: string;
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.ValueToDateModel
     export interface ValueToDateModel {
         // ISO 4217 code of the currency used in the purchases
         Currency?: string;
@@ -4314,7 +4054,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.VirtualCurrencyData
     export interface VirtualCurrencyData {
         // unique two-character identifier for this currency type (e.g.: "CC")
         CurrencyCode: string;
@@ -4329,7 +4068,6 @@ declare module PlayFabAdminModels {
 
     }
 
-    // https://api.playfab.com/Documentation/Admin/datatype/PlayFab.Admin.Models/PlayFab.Admin.Models.VirtualCurrencyRechargeTime
     export interface VirtualCurrencyRechargeTime {
         // Maximum value to which the regenerating currency will automatically increment. Note that it can exceed this value
         // through use of the AddUserVirtualCurrency API call. However, it will not regenerate automatically until it has fallen
