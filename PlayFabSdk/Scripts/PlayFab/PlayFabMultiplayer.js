@@ -204,6 +204,14 @@ exports.GetMultiplayerServerLogs = function (request, callback) {
     });
 };
 
+exports.GetMultiplayerSessionLogsBySessionId = function (request, callback) {
+    PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/MultiplayerServer/GetMultiplayerSessionLogsBySessionId", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
+
+        if (callback != null)
+            callback(error, result);
+    });
+};
+
 exports.GetQueueStatistics = function (request, callback) {
     PlayFab.MakeRequest(PlayFab.GetServerUrl() + "/Match/GetQueueStatistics", request, "X-EntityToken", PlayFab._internalSettings.entityToken, function (error, result) {
 

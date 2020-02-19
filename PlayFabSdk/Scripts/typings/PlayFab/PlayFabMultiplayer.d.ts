@@ -79,6 +79,9 @@ declare module PlayFabMultiplayerModule {
         // Gets multiplayer server logs after a server has terminated.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getmultiplayerserverlogs
         GetMultiplayerServerLogs(request: PlayFabMultiplayerModels.GetMultiplayerServerLogsRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetMultiplayerServerLogsResponse>): void;
+        // Gets multiplayer server logs after a server has terminated.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getmultiplayersessionlogsbysessionid
+        GetMultiplayerSessionLogsBySessionId(request: PlayFabMultiplayerModels.GetMultiplayerSessionLogsBySessionIdRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetMultiplayerServerLogsResponse>): void;
         // Get the statistics for a queue.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/matchmaking/getqueuestatistics
         GetQueueStatistics(request: PlayFabMultiplayerModels.GetQueueStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetQueueStatisticsResult>): void;
@@ -891,7 +894,7 @@ declare module PlayFabMultiplayerModels {
 
     export interface GetMultiplayerServerLogsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The region of the multiplayer server to get logs for.
-        Region: string;
+        Region?: string;
         // The server ID of multiplayer server to get logs for.
         ServerId: string;
 
@@ -900,6 +903,12 @@ declare module PlayFabMultiplayerModels {
     export interface GetMultiplayerServerLogsResponse extends PlayFabModule.IPlayFabResultCommon {
         // URL for logs download.
         LogDownloadUrl?: string;
+
+    }
+
+    export interface GetMultiplayerSessionLogsBySessionIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The server ID of multiplayer server to get logs for.
+        SessionId: string;
 
     }
 
