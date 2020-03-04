@@ -10,6 +10,7 @@ export const PlayFabAuthentication: PlayFabAuthenticationModule.IPlayFabAuthenti
 export const PlayFabCloudScript: PlayFabCloudScriptModule.IPlayFabCloudScript;
 export const PlayFabData: PlayFabDataModule.IPlayFabData;
 export const PlayFabEvents: PlayFabEventsModule.IPlayFabEvents;
+export const PlayFabExperimentation: PlayFabExperimentationModule.IPlayFabExperimentation;
 export const PlayFabGroups: PlayFabGroupsModule.IPlayFabGroups;
 export const PlayFabLocalization: PlayFabLocalizationModule.IPlayFabLocalization;
 export const PlayFabMultiplayer: PlayFabMultiplayerModule.IPlayFabMultiplayer;

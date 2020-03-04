@@ -12,6 +12,7 @@ var PlayFabAuthentication = <PlayFabAuthenticationModule.IPlayFabAuthentication>
 var PlayFabCloudScript = <PlayFabCloudScriptModule.IPlayFabCloudScript>pf.PlayFabCloudScript; 
 var PlayFabData = <PlayFabDataModule.IPlayFabData>pf.PlayFabData; 
 var PlayFabEvents = <PlayFabEventsModule.IPlayFabEvents>pf.PlayFabEvents; 
+var PlayFabExperimentation = <PlayFabExperimentationModule.IPlayFabExperimentation>pf.PlayFabExperimentation; 
 var PlayFabGroups = <PlayFabGroupsModule.IPlayFabGroups>pf.PlayFabGroups; 
 var PlayFabLocalization = <PlayFabLocalizationModule.IPlayFabLocalization>pf.PlayFabLocalization; 
 var PlayFabMultiplayer = <PlayFabMultiplayerModule.IPlayFabMultiplayer>pf.PlayFabMultiplayer; 
