@@ -8,6 +8,7 @@ var PlayFabAuthentication = require("./Scripts/PlayFab/PlayFabAuthentication.js"
 var PlayFabCloudScript = require("./Scripts/PlayFab/PlayFabCloudScript.js");
 var PlayFabData = require("./Scripts/PlayFab/PlayFabData.js");
 var PlayFabEvents = require("./Scripts/PlayFab/PlayFabEvents.js");
+var PlayFabExperimentation = require("./Scripts/PlayFab/PlayFabExperimentation.js");
 var PlayFabGroups = require("./Scripts/PlayFab/PlayFabGroups.js");
 var PlayFabLocalization = require("./Scripts/PlayFab/PlayFabLocalization.js");
 var PlayFabMultiplayer = require("./Scripts/PlayFab/PlayFabMultiplayer.js");
@@ -23,6 +24,7 @@ module.exports = {
     PlayFabCloudScript : PlayFabCloudScript,
     PlayFabData : PlayFabData,
     PlayFabEvents : PlayFabEvents,
+    PlayFabExperimentation : PlayFabExperimentation,
     PlayFabGroups : PlayFabGroups,
     PlayFabLocalization : PlayFabLocalization,
     PlayFabMultiplayer : PlayFabMultiplayer,
