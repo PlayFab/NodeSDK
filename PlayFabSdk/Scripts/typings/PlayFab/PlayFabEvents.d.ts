@@ -3,11 +3,17 @@ declare module PlayFabEventsModule {
         settings: PlayFabModule.IPlayFabSettings;
         // Write batches of entity based events to PlayStream. The namespace of the Event must start with 'com.playfab.events.'
         // https://docs.microsoft.com/rest/api/playfab/events/playstream-events/writeevents
-        WriteEvents(request: PlayFabEventsModels.WriteEventsRequest, callback: PlayFabModule.ApiCallback<PlayFabEventsModels.WriteEventsResponse>): void;
+        WriteEvents(
+            request: PlayFabEventsModels.WriteEventsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabEventsModels.WriteEventsResponse> | null,
+        ): void;
         // Write batches of entity based events to as Telemetry events (bypass PlayStream). The namespace must be 'custom' or start
         // with 'custom.'
         // https://docs.microsoft.com/rest/api/playfab/events/playstream-events/writetelemetryevents
-        WriteTelemetryEvents(request: PlayFabEventsModels.WriteEventsRequest, callback: PlayFabModule.ApiCallback<PlayFabEventsModels.WriteEventsResponse>): void;
+        WriteTelemetryEvents(
+            request: PlayFabEventsModels.WriteEventsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabEventsModels.WriteEventsResponse> | null,
+        ): void;
 
     }
 }
@@ -18,7 +24,6 @@ declare module PlayFabEventsModels {
         Id: string;
         // Entity type. See https://docs.microsoft.com/gaming/playfab/features/data/entities/available-built-in-entity-types
         Type?: string;
-
     }
 
     export interface EventContents {
@@ -39,21 +44,17 @@ declare module PlayFabEventsModels {
         // Arbitrary data associated with the event, represented as a JSON serialized string. Only one of Payload or PayloadJSON is
         // allowed.
         PayloadJSON?: string;
-
     }
 
     export interface WriteEventsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Collection of events to write to PlayStream.
         Events: EventContents[];
-
     }
 
     export interface WriteEventsResponse extends PlayFabModule.IPlayFabResultCommon {
         // The unique identifiers assigned by the server to the events, in the same order as the events in the request. Only
         // returned if FlushToPlayStream option is true.
         AssignedEventIds?: string[];
-
     }
-
 
 }

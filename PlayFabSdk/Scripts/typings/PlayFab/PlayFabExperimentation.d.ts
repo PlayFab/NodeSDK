@@ -3,28 +3,52 @@ declare module PlayFabExperimentationModule {
         settings: PlayFabModule.IPlayFabSettings;
         // Creates a new experiment for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/createexperiment
-        CreateExperiment(request: PlayFabExperimentationModels.CreateExperimentRequest, callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.CreateExperimentResult>): void;
+        CreateExperiment(
+            request: PlayFabExperimentationModels.CreateExperimentRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.CreateExperimentResult> | null,
+        ): void;
         // Deletes an existing experiment for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/deleteexperiment
-        DeleteExperiment(request: PlayFabExperimentationModels.DeleteExperimentRequest, callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse>): void;
+        DeleteExperiment(
+            request: PlayFabExperimentationModels.DeleteExperimentRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse> | null,
+        ): void;
         // Gets the details of all experiments for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/getexperiments
-        GetExperiments(request: PlayFabExperimentationModels.GetExperimentsRequest, callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.GetExperimentsResult>): void;
+        GetExperiments(
+            request: PlayFabExperimentationModels.GetExperimentsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.GetExperimentsResult> | null,
+        ): void;
         // Gets the latest scorecard of the experiment for the title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/getlatestscorecard
-        GetLatestScorecard(request: PlayFabExperimentationModels.GetLatestScorecardRequest, callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.GetLatestScorecardResult>): void;
+        GetLatestScorecard(
+            request: PlayFabExperimentationModels.GetLatestScorecardRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.GetLatestScorecardResult> | null,
+        ): void;
         // Gets the treatment assignments for a player for every running experiment in the title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/gettreatmentassignment
-        GetTreatmentAssignment(request: PlayFabExperimentationModels.GetTreatmentAssignmentRequest, callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.GetTreatmentAssignmentResult>): void;
+        GetTreatmentAssignment(
+            request: PlayFabExperimentationModels.GetTreatmentAssignmentRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.GetTreatmentAssignmentResult> | null,
+        ): void;
         // Starts an existing experiment for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/startexperiment
-        StartExperiment(request: PlayFabExperimentationModels.StartExperimentRequest, callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse>): void;
+        StartExperiment(
+            request: PlayFabExperimentationModels.StartExperimentRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse> | null,
+        ): void;
         // Stops an existing experiment for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/stopexperiment
-        StopExperiment(request: PlayFabExperimentationModels.StopExperimentRequest, callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse>): void;
+        StopExperiment(
+            request: PlayFabExperimentationModels.StopExperimentRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse> | null,
+        ): void;
         // Updates an existing experiment for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/updateexperiment
-        UpdateExperiment(request: PlayFabExperimentationModels.UpdateExperimentRequest, callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse>): void;
+        UpdateExperiment(
+            request: PlayFabExperimentationModels.UpdateExperimentRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse> | null,
+        ): void;
 
     }
 }
@@ -56,31 +80,25 @@ declare module PlayFabExperimentationModels {
         TitlePlayerAccountTestIds?: string[];
         // List of variants for the experiment.
         Variants: Variant[];
-
     }
 
     export interface CreateExperimentResult extends PlayFabModule.IPlayFabResultCommon {
         // The ID of the new experiment.
         ExperimentId?: string;
-
     }
 
     export interface DeleteExperimentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The ID of the experiment to delete.
         ExperimentId: string;
-
     }
 
-    export interface EmptyResponse extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface EmptyResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface EntityKey {
         // Unique ID of the entity.
         Id: string;
         // Entity type. See https://docs.microsoft.com/gaming/playfab/features/data/entities/available-built-in-entity-types
         Type?: string;
-
     }
 
     export interface Experiment {
@@ -105,7 +123,6 @@ declare module PlayFabExperimentationModels {
         TitlePlayerAccountTestIds?: string[];
         // List of variants for the experiment.
         Variants?: Variant[];
-
     }
 
     type ExperimentState = "New"
@@ -116,38 +133,31 @@ declare module PlayFabExperimentationModels {
     type ExperimentType = "Active"
         | "Snapshot";
 
-    export interface GetExperimentsRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
+    export interface GetExperimentsRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
     export interface GetExperimentsResult extends PlayFabModule.IPlayFabResultCommon {
         // List of experiments for the title.
         Experiments?: Experiment[];
-
     }
 
     export interface GetLatestScorecardRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The ID of the experiment.
         ExperimentId?: string;
-
     }
 
     export interface GetLatestScorecardResult extends PlayFabModule.IPlayFabResultCommon {
         // Scorecard for the experiment of the title.
         Scorecard?: Scorecard;
-
     }
 
     export interface GetTreatmentAssignmentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity?: EntityKey;
-
     }
 
     export interface GetTreatmentAssignmentResult extends PlayFabModule.IPlayFabResultCommon {
         // Treatment assignment for the entity.
         TreatmentAssignment?: TreatmentAssignment;
-
     }
 
     export interface MetricData {
@@ -177,7 +187,6 @@ declare module PlayFabExperimentationModels {
         StdDev: number;
         // Observed average value of the metric.
         Value: number;
-
     }
 
     export interface Scorecard {
@@ -197,7 +206,6 @@ declare module PlayFabExperimentationModels {
         SampleRatioMismatch: boolean;
         // Scorecard containing list of analysis.
         ScorecardDataRows?: ScorecardDataRow[];
-
     }
 
     export interface ScorecardDataRow {
@@ -209,19 +217,16 @@ declare module PlayFabExperimentationModels {
         PlayerCount: number;
         // Name of the variant of analysis.
         VariantName?: string;
-
     }
 
     export interface StartExperimentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The ID of the experiment to start.
         ExperimentId: string;
-
     }
 
     export interface StopExperimentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The ID of the experiment to stop.
         ExperimentId: string;
-
     }
 
     export interface TreatmentAssignment {
@@ -229,7 +234,6 @@ declare module PlayFabExperimentationModels {
         Variables?: Variable[];
         // List of the experiment variants.
         Variants?: string[];
-
     }
 
     export interface UpdateExperimentRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -252,7 +256,6 @@ declare module PlayFabExperimentationModels {
         TitlePlayerAccountTestIds?: string[];
         // List of variants for the experiment.
         Variants: Variant[];
-
     }
 
     export interface Variable {
@@ -260,7 +263,6 @@ declare module PlayFabExperimentationModels {
         Name: string;
         // Value of the variable.
         Value?: string;
-
     }
 
     export interface Variant {
@@ -276,8 +278,6 @@ declare module PlayFabExperimentationModels {
         TrafficPercentage: number;
         // Variables returned by this variant.
         Variables?: Variable[];
-
     }
-
 
 }

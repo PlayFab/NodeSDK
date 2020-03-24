@@ -1,4 +1,18 @@
-﻿/// <reference types="typescript" />
+﻿/// <reference path="Scripts/typings/PlayFab/PlayFab.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabAdmin.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabClient.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabMatchmaker.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabServer.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabAuthentication.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabCloudScript.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabData.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabEvents.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabExperimentation.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabGroups.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabLocalization.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabMultiplayer.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabProfiles.d.ts" />
+
 export const PlayFab: PlayFabModule.IPlayFab;
 export function settings(): PlayFabModule.IPlayFabSettings;
 export function settings(value: any): void;

@@ -4,9 +4,9 @@ var url = require("url");
 var https = require("https");
 
 exports.sdk_version = "2.43.200303";
-exports.buildIdentifier = "jbuild_nodesdk__sdk-genericslave-3_1";
+exports.buildIdentifier = "nodesdk_manual";
 
-var settings = exports.settings = {
+var settings = (exports.settings = {
     productionUrl: ".playfabapi.com",
     verticalName: null, // The name of a customer vertical. This is only for customers running a private cluster. Generally you shouldn't touch this
     titleId: null, // You must set this value for PlayFabSdk to work properly (Found in the Game Manager for your title, at the PlayFab Website)
@@ -21,15 +21,15 @@ var settings = exports.settings = {
     disableAdvertising: false,
     AD_TYPE_IDFA: "Idfa",
     AD_TYPE_ANDROID_ID: "Adid",
-};
+});
 
-var _internalSettings = exports._internalSettings = {
+var _internalSettings = (exports._internalSettings = {
     entityToken: null,
     sessionTicket: null,
     requestGetParams: {
-        sdk: "JavaScriptSDK-2.43.200303"
+        sdk: "JavaScriptSDK-2.43.200303",
     },
-};
+});
 
 exports.GetServerUrl = function () {
     var baseUrl = exports.settings.productionUrl;
@@ -42,11 +42,12 @@ exports.GetServerUrl = function () {
     } else {
         return baseUrl;
     }
-}
+};
 
 exports.MakeRequest = function (urlStr, request, authType, authValue, callback) {
-    if (request == null)
+    if (request == null) {
         request = {};
+    }
     var requestBody = Buffer.from(JSON.stringify(request), "utf8");
 
     var urlArr = [urlStr]; //make a new array for the URL
@@ -69,26 +70,31 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
     var completeUrl = urlArr.join("");
 
     var options = url.parse(completeUrl);
-    if (options.protocol !== "https:")
+    if (options.protocol !== "https:") {
         throw new Error("Unsupported protocol: " + options.protocol);
+    }
     options.method = "POST";
     options.port = options.port || exports.settings.port;
     options.headers = {
         "Content-Type": "application/json",
         "Content-Length": requestBody.length,
-        "X-PlayFabSDK": "NodeSDK-" + exports.sdk_version + "-" + exports.api_version
+        "X-PlayFabSDK": "NodeSDK-" + exports.sdk_version + "-" + exports.api_version,
     };
 
-    if (authType)
+    if (authType) {
         options.headers[authType] = authValue;
+    }
 
     var postReq = https.request(options, function (res) {
         var rawReply = "";
         res.setEncoding("utf8");
-        res.on("data", function (chunk) { rawReply += chunk; });
+        res.on("data", function (chunk) {
+            rawReply += chunk;
+        });
         res.on("end", function () {
-            if (callback == null)
+            if (callback == null) {
                 return; // No need to bother decoding results
+            }
 
             var replyEnvelope = null;
             try {
@@ -100,30 +106,35 @@ exports.MakeRequest = function (urlStr, request, authType, authValue, callback) 
                     status: "Service Unavailable",
                     error: "Connection error",
                     errorCode: 2, // PlayFabErrorCode.ConnectionError
-                    errorMessage: rawReply
+                    errorMessage: rawReply,
                 };
             }
 
-            if (replyEnvelope.hasOwnProperty("error") || !replyEnvelope.hasOwnProperty("data"))
+            if (replyEnvelope.hasOwnProperty("error") || !replyEnvelope.hasOwnProperty("data")) {
                 callback(replyEnvelope, null);
-            else
+            } else {
                 callback(null, replyEnvelope);
+            }
         });
     });
 
     postReq.on("error", function (e) {
-        if (callback == null)
+        if (callback == null) {
             return; // No need to bother decoding results
+        }
 
-        callback({
-            code: 503, // Service Unavailable
-            status: "Service Unavailable",
-            error: "Connection error",
-            errorCode: 2, // PlayFabErrorCode.ConnectionError
-            errorMessage: e.message
-        }, null);
+        callback(
+            {
+                code: 503, // Service Unavailable
+                status: "Service Unavailable",
+                error: "Connection error",
+                errorCode: 2, // PlayFabErrorCode.ConnectionError
+                errorMessage: e.message,
+            },
+            null,
+        );
     });
 
     postReq.write(requestBody);
     postReq.end();
-}
+};
