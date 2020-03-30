@@ -4,10 +4,16 @@ declare module PlayFabAuthenticationModule {
         // Method to exchange a legacy AuthenticationTicket or title SecretKey for an Entity Token or to refresh a still valid
         // Entity Token.
         // https://docs.microsoft.com/rest/api/playfab/authentication/authentication/getentitytoken
-        GetEntityToken(request: PlayFabAuthenticationModels.GetEntityTokenRequest, callback: PlayFabModule.ApiCallback<PlayFabAuthenticationModels.GetEntityTokenResponse>): void;
+        GetEntityToken(
+            request: PlayFabAuthenticationModels.GetEntityTokenRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAuthenticationModels.GetEntityTokenResponse> | null,
+        ): void;
         // Method for a server to validate a client provided EntityToken. Only callable by the title entity.
         // https://docs.microsoft.com/rest/api/playfab/authentication/authentication/validateentitytoken
-        ValidateEntityToken(request: PlayFabAuthenticationModels.ValidateEntityTokenRequest, callback: PlayFabModule.ApiCallback<PlayFabAuthenticationModels.ValidateEntityTokenResponse>): void;
+        ValidateEntityToken(
+            request: PlayFabAuthenticationModels.ValidateEntityTokenRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAuthenticationModels.ValidateEntityTokenResponse> | null,
+        ): void;
 
     }
 }
@@ -18,7 +24,6 @@ declare module PlayFabAuthenticationModels {
         Id: string;
         // Entity type. See https://docs.microsoft.com/gaming/playfab/features/data/entities/available-built-in-entity-types
         Type?: string;
-
     }
 
     export interface EntityLineage {
@@ -34,13 +39,11 @@ declare module PlayFabAuthenticationModels {
         TitleId?: string;
         // The Title Player Account Id of the associated entity.
         TitlePlayerAccountId?: string;
-
     }
 
     export interface GetEntityTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity?: EntityKey;
-
     }
 
     export interface GetEntityTokenResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -50,7 +53,6 @@ declare module PlayFabAuthenticationModels {
         EntityToken?: string;
         // The time the token will expire, if it is an expiring token, in UTC.
         TokenExpiration?: string;
-
     }
 
     type LoginIdentityProvider = "Unknown"
@@ -72,12 +74,12 @@ declare module PlayFabAuthenticationModels {
         | "NintendoSwitch"
         | "FacebookInstantGames"
         | "OpenIdConnect"
-        | "Apple";
+        | "Apple"
+        | "NintendoSwitchAccount";
 
     export interface ValidateEntityTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Client EntityToken
         EntityToken: string;
-
     }
 
     export interface ValidateEntityTokenResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -87,8 +89,6 @@ declare module PlayFabAuthenticationModels {
         IdentityProvider?: string;
         // The lineage of this profile.
         Lineage?: EntityLineage;
-
     }
-
 
 }

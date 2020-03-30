@@ -3,25 +3,46 @@ declare module PlayFabDataModule {
         settings: PlayFabModule.IPlayFabSettings;
         // Abort pending file uploads to an entity's profile.
         // https://docs.microsoft.com/rest/api/playfab/data/file/abortfileuploads
-        AbortFileUploads(request: PlayFabDataModels.AbortFileUploadsRequest, callback: PlayFabModule.ApiCallback<PlayFabDataModels.AbortFileUploadsResponse>): void;
+        AbortFileUploads(
+            request: PlayFabDataModels.AbortFileUploadsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabDataModels.AbortFileUploadsResponse> | null,
+        ): void;
         // Delete files on an entity's profile.
         // https://docs.microsoft.com/rest/api/playfab/data/file/deletefiles
-        DeleteFiles(request: PlayFabDataModels.DeleteFilesRequest, callback: PlayFabModule.ApiCallback<PlayFabDataModels.DeleteFilesResponse>): void;
+        DeleteFiles(
+            request: PlayFabDataModels.DeleteFilesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabDataModels.DeleteFilesResponse> | null,
+        ): void;
         // Finalize file uploads to an entity's profile.
         // https://docs.microsoft.com/rest/api/playfab/data/file/finalizefileuploads
-        FinalizeFileUploads(request: PlayFabDataModels.FinalizeFileUploadsRequest, callback: PlayFabModule.ApiCallback<PlayFabDataModels.FinalizeFileUploadsResponse>): void;
+        FinalizeFileUploads(
+            request: PlayFabDataModels.FinalizeFileUploadsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabDataModels.FinalizeFileUploadsResponse> | null,
+        ): void;
         // Retrieves file metadata from an entity's profile.
         // https://docs.microsoft.com/rest/api/playfab/data/file/getfiles
-        GetFiles(request: PlayFabDataModels.GetFilesRequest, callback: PlayFabModule.ApiCallback<PlayFabDataModels.GetFilesResponse>): void;
+        GetFiles(
+            request: PlayFabDataModels.GetFilesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabDataModels.GetFilesResponse> | null,
+        ): void;
         // Retrieves objects from an entity's profile.
         // https://docs.microsoft.com/rest/api/playfab/data/object/getobjects
-        GetObjects(request: PlayFabDataModels.GetObjectsRequest, callback: PlayFabModule.ApiCallback<PlayFabDataModels.GetObjectsResponse>): void;
+        GetObjects(
+            request: PlayFabDataModels.GetObjectsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabDataModels.GetObjectsResponse> | null,
+        ): void;
         // Initiates file uploads to an entity's profile.
         // https://docs.microsoft.com/rest/api/playfab/data/file/initiatefileuploads
-        InitiateFileUploads(request: PlayFabDataModels.InitiateFileUploadsRequest, callback: PlayFabModule.ApiCallback<PlayFabDataModels.InitiateFileUploadsResponse>): void;
+        InitiateFileUploads(
+            request: PlayFabDataModels.InitiateFileUploadsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabDataModels.InitiateFileUploadsResponse> | null,
+        ): void;
         // Sets objects on an entity's profile.
         // https://docs.microsoft.com/rest/api/playfab/data/object/setobjects
-        SetObjects(request: PlayFabDataModels.SetObjectsRequest, callback: PlayFabModule.ApiCallback<PlayFabDataModels.SetObjectsResponse>): void;
+        SetObjects(
+            request: PlayFabDataModels.SetObjectsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabDataModels.SetObjectsResponse> | null,
+        ): void;
 
     }
 }
@@ -35,7 +56,6 @@ declare module PlayFabDataModels {
         // The expected version of the profile, if set and doesn't match the current version of the profile the operation will not
         // be performed.
         ProfileVersion?: number;
-
     }
 
     export interface AbortFileUploadsResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -43,7 +63,6 @@ declare module PlayFabDataModels {
         Entity?: EntityKey;
         // The current version of the profile, can be used for concurrency control during updates.
         ProfileVersion: number;
-
     }
 
     export interface DeleteFilesRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -54,7 +73,6 @@ declare module PlayFabDataModels {
         // The expected version of the profile, if set and doesn't match the current version of the profile the operation will not
         // be performed.
         ProfileVersion?: number;
-
     }
 
     export interface DeleteFilesResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -62,7 +80,6 @@ declare module PlayFabDataModels {
         Entity?: EntityKey;
         // The current version of the profile, can be used for concurrency control during updates.
         ProfileVersion: number;
-
     }
 
     export interface EntityKey {
@@ -70,7 +87,6 @@ declare module PlayFabDataModels {
         Id: string;
         // Entity type. See https://docs.microsoft.com/gaming/playfab/features/data/entities/available-built-in-entity-types
         Type?: string;
-
     }
 
     export interface FinalizeFileUploadsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -78,7 +94,6 @@ declare module PlayFabDataModels {
         Entity: EntityKey;
         // Names of the files to be finalized. Restricted to a-Z, 0-9, '(', ')', '_', '-' and '.'
         FileNames: string[];
-
     }
 
     export interface FinalizeFileUploadsResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -88,7 +103,6 @@ declare module PlayFabDataModels {
         Metadata?: { [key: string]: GetFileMetadata };
         // The current version of the profile, can be used for concurrency control during updates.
         ProfileVersion: number;
-
     }
 
     export interface GetFileMetadata {
@@ -102,13 +116,11 @@ declare module PlayFabDataModels {
         LastModified: string;
         // Storage service's reported byte count
         Size: number;
-
     }
 
     export interface GetFilesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
         Entity: EntityKey;
-
     }
 
     export interface GetFilesResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -118,7 +130,6 @@ declare module PlayFabDataModels {
         Metadata?: { [key: string]: GetFileMetadata };
         // The current version of the profile, can be used for concurrency control during updates.
         ProfileVersion: number;
-
     }
 
     export interface GetObjectsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -127,7 +138,6 @@ declare module PlayFabDataModels {
         // Determines whether the object will be returned as an escaped JSON string or as a un-escaped JSON object. Default is JSON
         // object.
         EscapeObject?: boolean;
-
     }
 
     export interface GetObjectsResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -137,7 +147,6 @@ declare module PlayFabDataModels {
         Objects?: { [key: string]: ObjectResult };
         // The current version of the profile, can be used for concurrency control during updates.
         ProfileVersion: number;
-
     }
 
     export interface InitiateFileUploadMetadata {
@@ -145,7 +154,6 @@ declare module PlayFabDataModels {
         FileName?: string;
         // Location the data should be sent to via an HTTP PUT operation.
         UploadUrl?: string;
-
     }
 
     export interface InitiateFileUploadsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -156,7 +164,6 @@ declare module PlayFabDataModels {
         // The expected version of the profile, if set and doesn't match the current version of the profile the operation will not
         // be performed.
         ProfileVersion?: number;
-
     }
 
     export interface InitiateFileUploadsResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -166,7 +173,6 @@ declare module PlayFabDataModels {
         ProfileVersion: number;
         // Collection of file names and upload urls
         UploadDetails?: InitiateFileUploadMetadata[];
-
     }
 
     export interface ObjectResult {
@@ -176,7 +182,6 @@ declare module PlayFabDataModels {
         EscapedDataObject?: string;
         // Name of the object. Restricted to a-Z, 0-9, '(', ')', '_', '-' and '.'
         ObjectName?: string;
-
     }
 
     type OperationTypes = "Created"
@@ -195,7 +200,6 @@ declare module PlayFabDataModels {
         EscapedDataObject?: string;
         // Name of object. Restricted to a-Z, 0-9, '(', ')', '_', '-' and '.'.
         ObjectName: string;
-
     }
 
     export interface SetObjectInfo {
@@ -205,7 +209,6 @@ declare module PlayFabDataModels {
         OperationReason?: string;
         // Indicates which operation was completed, either Created, Updated, Deleted or None.
         SetResult?: string;
-
     }
 
     export interface SetObjectsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -217,7 +220,6 @@ declare module PlayFabDataModels {
         ExpectedProfileVersion?: number;
         // Collection of objects to set on the profile.
         Objects: SetObject[];
-
     }
 
     export interface SetObjectsResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -225,8 +227,6 @@ declare module PlayFabDataModels {
         ProfileVersion: number;
         // New version of the entity profile.
         SetResults?: SetObjectInfo[];
-
     }
-
 
 }

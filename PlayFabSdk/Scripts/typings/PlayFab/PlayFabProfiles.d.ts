@@ -3,26 +3,47 @@ declare module PlayFabProfilesModule {
         settings: PlayFabModule.IPlayFabSettings;
         // Gets the global title access policy
         // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/getglobalpolicy
-        GetGlobalPolicy(request: PlayFabProfilesModels.GetGlobalPolicyRequest, callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetGlobalPolicyResponse>): void;
+        GetGlobalPolicy(
+            request: PlayFabProfilesModels.GetGlobalPolicyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetGlobalPolicyResponse> | null,
+        ): void;
         // Retrieves the entity's profile.
         // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/getprofile
-        GetProfile(request: PlayFabProfilesModels.GetEntityProfileRequest, callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetEntityProfileResponse>): void;
+        GetProfile(
+            request: PlayFabProfilesModels.GetEntityProfileRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetEntityProfileResponse> | null,
+        ): void;
         // Retrieves the entity's profile.
         // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/getprofiles
-        GetProfiles(request: PlayFabProfilesModels.GetEntityProfilesRequest, callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetEntityProfilesResponse>): void;
+        GetProfiles(
+            request: PlayFabProfilesModels.GetEntityProfilesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetEntityProfilesResponse> | null,
+        ): void;
         // Retrieves the title player accounts associated with the given master player account.
         // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/gettitleplayersfrommasterplayeraccountids
-        GetTitlePlayersFromMasterPlayerAccountIds(request: PlayFabProfilesModels.GetTitlePlayersFromMasterPlayerAccountIdsRequest, callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetTitlePlayersFromMasterPlayerAccountIdsResponse>): void;
+        GetTitlePlayersFromMasterPlayerAccountIds(
+            request: PlayFabProfilesModels.GetTitlePlayersFromMasterPlayerAccountIdsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetTitlePlayersFromMasterPlayerAccountIdsResponse> | null,
+        ): void;
         // Sets the global title access policy
         // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setglobalpolicy
-        SetGlobalPolicy(request: PlayFabProfilesModels.SetGlobalPolicyRequest, callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.SetGlobalPolicyResponse>): void;
+        SetGlobalPolicy(
+            request: PlayFabProfilesModels.SetGlobalPolicyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.SetGlobalPolicyResponse> | null,
+        ): void;
         // Updates the entity's language. The precedence hierarchy for communication to the player is Title Player Account
         // language, Master Player Account language, and then title default language if the first two aren't set or supported.
         // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setprofilelanguage
-        SetProfileLanguage(request: PlayFabProfilesModels.SetProfileLanguageRequest, callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.SetProfileLanguageResponse>): void;
+        SetProfileLanguage(
+            request: PlayFabProfilesModels.SetProfileLanguageRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.SetProfileLanguageResponse> | null,
+        ): void;
         // Sets the profiles access policy
         // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setprofilepolicy
-        SetProfilePolicy(request: PlayFabProfilesModels.SetEntityProfilePolicyRequest, callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.SetEntityProfilePolicyResponse>): void;
+        SetProfilePolicy(
+            request: PlayFabProfilesModels.SetEntityProfilePolicyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.SetEntityProfilePolicyResponse> | null,
+        ): void;
 
     }
 }
@@ -38,7 +59,6 @@ declare module PlayFabProfilesModels {
         EscapedDataObject?: string;
         // Name of this object.
         ObjectName?: string;
-
     }
 
     export interface EntityKey {
@@ -46,7 +66,6 @@ declare module PlayFabProfilesModels {
         Id: string;
         // Entity type. See https://docs.microsoft.com/gaming/playfab/features/data/entities/available-built-in-entity-types
         Type?: string;
-
     }
 
     export interface EntityLineage {
@@ -62,7 +81,6 @@ declare module PlayFabProfilesModels {
         TitleId?: string;
         // The Title Player Account Id of the associated entity.
         TitlePlayerAccountId?: string;
-
     }
 
     export interface EntityPermissionStatement {
@@ -78,7 +96,6 @@ declare module PlayFabProfilesModels {
         Principal: any;
         // The resource this statements effects. Similar to 'pfrn:data--title![Title ID]/Profile/*'
         Resource: string;
-
     }
 
     export interface EntityProfileBody {
@@ -113,7 +130,6 @@ declare module PlayFabProfilesModels {
         // The version number of the profile in persistent storage at the time of the read. Used for optional optimistic
         // concurrency during update.
         VersionNumber: number;
-
     }
 
     export interface EntityProfileFileMetadata {
@@ -125,7 +141,6 @@ declare module PlayFabProfilesModels {
         LastModified: string;
         // Storage service's reported byte count
         Size: number;
-
     }
 
     export interface EntityStatisticChildValue {
@@ -135,7 +150,6 @@ declare module PlayFabProfilesModels {
         Metadata?: string;
         // Child statistic value
         Value: number;
-
     }
 
     export interface EntityStatisticValue {
@@ -149,7 +163,6 @@ declare module PlayFabProfilesModels {
         Value?: number;
         // Statistic version
         Version: number;
-
     }
 
     export interface GetEntityProfileRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -158,13 +171,11 @@ declare module PlayFabProfilesModels {
         DataAsObject?: boolean;
         // The entity to perform this action on.
         Entity?: EntityKey;
-
     }
 
     export interface GetEntityProfileResponse extends PlayFabModule.IPlayFabResultCommon {
         // Entity profile
         Profile?: EntityProfileBody;
-
     }
 
     export interface GetEntityProfilesRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -173,23 +184,18 @@ declare module PlayFabProfilesModels {
         DataAsObject?: boolean;
         // Entity keys of the profiles to load. Must be between 1 and 25
         Entities: EntityKey[];
-
     }
 
     export interface GetEntityProfilesResponse extends PlayFabModule.IPlayFabResultCommon {
         // Entity profiles
         Profiles?: EntityProfileBody[];
-
     }
 
-    export interface GetGlobalPolicyRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
+    export interface GetGlobalPolicyRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
     export interface GetGlobalPolicyResponse extends PlayFabModule.IPlayFabResultCommon {
         // The permissions that govern access to all entities under this title or namespace.
         Permissions?: EntityPermissionStatement[];
-
     }
 
     export interface GetTitlePlayersFromMasterPlayerAccountIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -197,7 +203,6 @@ declare module PlayFabProfilesModels {
         MasterPlayerAccountIds: string[];
         // Id of title to get players from.
         TitleId?: string;
-
     }
 
     export interface GetTitlePlayersFromMasterPlayerAccountIdsResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -205,7 +210,6 @@ declare module PlayFabProfilesModels {
         TitleId?: string;
         // Dictionary of master player ids mapped to title player entity keys and id pairs
         TitlePlayerAccounts?: { [key: string]: EntityKey };
-
     }
 
     type OperationTypes = "Created"
@@ -218,25 +222,20 @@ declare module PlayFabProfilesModels {
         Entity: EntityKey;
         // The statements to include in the access policy.
         Statements?: EntityPermissionStatement[];
-
     }
 
     export interface SetEntityProfilePolicyResponse extends PlayFabModule.IPlayFabResultCommon {
         // The permissions that govern access to this entity profile and its properties. Only includes permissions set on this
         // profile, not global statements from titles and namespaces.
         Permissions?: EntityPermissionStatement[];
-
     }
 
     export interface SetGlobalPolicyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The permissions that govern access to all entities under this title or namespace.
         Permissions?: EntityPermissionStatement[];
-
     }
 
-    export interface SetGlobalPolicyResponse extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface SetGlobalPolicyResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetProfileLanguageRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The entity to perform this action on.
@@ -245,7 +244,6 @@ declare module PlayFabProfilesModels {
         ExpectedVersion?: number;
         // The language to set on the given entity. Deletes the profile's language if passed in a null string.
         Language?: string;
-
     }
 
     export interface SetProfileLanguageResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -253,8 +251,6 @@ declare module PlayFabProfilesModels {
         OperationResult?: string;
         // The updated version of the profile after the language update
         VersionNumber?: number;
-
     }
-
 
 }
