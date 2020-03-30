@@ -3,20 +3,35 @@ declare module PlayFabMatchmakerModule {
         settings: PlayFabModule.IPlayFabSettings;
         // Validates a user with the PlayFab service
         // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/authuser
-        AuthUser(request: PlayFabMatchmakerModels.AuthUserRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.AuthUserResponse>): void;
+        AuthUser(
+            request: PlayFabMatchmakerModels.AuthUserRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.AuthUserResponse> | null,
+        ): void;
         // Informs the PlayFab game server hosting service that the indicated user has joined the Game Server Instance specified
         // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/playerjoined
-        PlayerJoined(request: PlayFabMatchmakerModels.PlayerJoinedRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.PlayerJoinedResponse>): void;
+        PlayerJoined(
+            request: PlayFabMatchmakerModels.PlayerJoinedRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.PlayerJoinedResponse> | null,
+        ): void;
         // Informs the PlayFab game server hosting service that the indicated user has left the Game Server Instance specified
         // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/playerleft
-        PlayerLeft(request: PlayFabMatchmakerModels.PlayerLeftRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.PlayerLeftResponse>): void;
+        PlayerLeft(
+            request: PlayFabMatchmakerModels.PlayerLeftRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.PlayerLeftResponse> | null,
+        ): void;
         // Instructs the PlayFab game server hosting service to instantiate a new Game Server Instance
         // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/startgame
-        StartGame(request: PlayFabMatchmakerModels.StartGameRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.StartGameResponse>): void;
+        StartGame(
+            request: PlayFabMatchmakerModels.StartGameRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.StartGameResponse> | null,
+        ): void;
         // Retrieves the relevant details for a specified user, which the external match-making service can then use to compute
         // effective matches
         // https://docs.microsoft.com/rest/api/playfab/matchmaker/matchmaking/userinfo
-        UserInfo(request: PlayFabMatchmakerModels.UserInfoRequest, callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.UserInfoResponse>): void;
+        UserInfo(
+            request: PlayFabMatchmakerModels.UserInfoRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMatchmakerModels.UserInfoResponse> | null,
+        ): void;
 
     }
 }
@@ -25,7 +40,6 @@ declare module PlayFabMatchmakerModels {
     export interface AuthUserRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Session Ticket provided by the client.
         AuthorizationTicket: string;
-
     }
 
     export interface AuthUserResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -33,7 +47,6 @@ declare module PlayFabMatchmakerModels {
         Authorized: boolean;
         // PlayFab unique identifier of the account that has been authorized.
         PlayFabId?: string;
-
     }
 
     export interface ItemInstance {
@@ -69,7 +82,6 @@ declare module PlayFabMatchmakerModels {
         UnitPrice: number;
         // The number of uses that were added or removed to this item in this call.
         UsesIncrementedBy?: number;
-
     }
 
     export interface PlayerJoinedRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -78,12 +90,9 @@ declare module PlayFabMatchmakerModels {
         LobbyId: string;
         // PlayFab unique identifier for the player joining.
         PlayFabId: string;
-
     }
 
-    export interface PlayerJoinedResponse extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface PlayerJoinedResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface PlayerLeftRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique identifier of the Game Server Instance the user is leaving. This must be a Game Server Instance started with the
@@ -91,12 +100,9 @@ declare module PlayFabMatchmakerModels {
         LobbyId: string;
         // PlayFab unique identifier for the player leaving.
         PlayFabId: string;
-
     }
 
-    export interface PlayerLeftResponse extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface PlayerLeftResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     type Region = "USCentral"
         | "USEast"
@@ -119,7 +125,6 @@ declare module PlayFabMatchmakerModels {
         GameMode: string;
         // Region with which to associate the server, for filtering.
         Region: string;
-
     }
 
     export interface StartGameResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -133,7 +138,6 @@ declare module PlayFabMatchmakerModels {
         ServerPort: number;
         // Public DNS name (if any) of the server
         ServerPublicDNSName?: string;
-
     }
 
     export interface UserInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -142,7 +146,6 @@ declare module PlayFabMatchmakerModels {
         MinCatalogVersion: number;
         // PlayFab unique identifier of the user whose information is being requested.
         PlayFabId: string;
-
     }
 
     export interface UserInfoResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -162,7 +165,6 @@ declare module PlayFabMatchmakerModels {
         VirtualCurrency?: { [key: string]: number };
         // Array of remaining times and timestamps for virtual currencies.
         VirtualCurrencyRechargeTimes?: { [key: string]: VirtualCurrencyRechargeTime };
-
     }
 
     export interface VirtualCurrencyRechargeTime {
@@ -174,8 +176,6 @@ declare module PlayFabMatchmakerModels {
         RechargeTime: string;
         // Time remaining (in seconds) before the next recharge increment of the virtual currency.
         SecondsToRecharge: number;
-
     }
-
 
 }

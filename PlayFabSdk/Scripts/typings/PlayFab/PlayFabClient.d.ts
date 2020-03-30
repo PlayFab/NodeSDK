@@ -7,90 +7,162 @@ declare module PlayFabClientModule {
         // allowed player list for the trade, or it is open to all players. If the call is successful, the offered and accepted
         // items will be swapped between the two players' inventories.
         // https://docs.microsoft.com/rest/api/playfab/client/trading/accepttrade
-        AcceptTrade(request: PlayFabClientModels.AcceptTradeRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AcceptTradeResponse>): void;
+        AcceptTrade(
+            request: PlayFabClientModels.AcceptTradeRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.AcceptTradeResponse> | null,
+        ): void;
         // Adds the PlayFab user, based upon a match against a supplied unique identifier, to the friend list of the local user. At
         // least one of FriendPlayFabId,FriendUsername,FriendEmail, or FriendTitleDisplayName should be initialized.
         // https://docs.microsoft.com/rest/api/playfab/client/friend-list-management/addfriend
-        AddFriend(request: PlayFabClientModels.AddFriendRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddFriendResult>): void;
+        AddFriend(
+            request: PlayFabClientModels.AddFriendRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddFriendResult> | null,
+        ): void;
         // Adds the specified generic service identifier to the player's PlayFab account. This is designed to allow for a PlayFab
         // ID lookup of any arbitrary service identifier a title wants to add. This identifier should never be used as
         // authentication credentials, as the intent is that it is easily accessible by other players.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/addgenericid
-        AddGenericID(request: PlayFabClientModels.AddGenericIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddGenericIDResult>): void;
+        AddGenericID(
+            request: PlayFabClientModels.AddGenericIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddGenericIDResult> | null,
+        ): void;
         // Adds or updates a contact email to the player's profile.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/addorupdatecontactemail
-        AddOrUpdateContactEmail(request: PlayFabClientModels.AddOrUpdateContactEmailRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddOrUpdateContactEmailResult>): void;
+        AddOrUpdateContactEmail(
+            request: PlayFabClientModels.AddOrUpdateContactEmailRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddOrUpdateContactEmailResult> | null,
+        ): void;
         // Adds users to the set of those able to update both the shared data, as well as the set of users in the group. Only users
         // in the group can add new members. Shared Groups are designed for sharing data between a very small number of players,
         // please see our guide: https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
         // https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/addsharedgroupmembers
-        AddSharedGroupMembers(request: PlayFabClientModels.AddSharedGroupMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddSharedGroupMembersResult>): void;
+        AddSharedGroupMembers(
+            request: PlayFabClientModels.AddSharedGroupMembersRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddSharedGroupMembersResult> | null,
+        ): void;
         // Adds playfab username/password auth to an existing account created via an anonymous auth method, e.g. automatic device
         // ID login.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/addusernamepassword
-        AddUsernamePassword(request: PlayFabClientModels.AddUsernamePasswordRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddUsernamePasswordResult>): void;
+        AddUsernamePassword(
+            request: PlayFabClientModels.AddUsernamePasswordRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.AddUsernamePasswordResult> | null,
+        ): void;
         // Increments the user's balance of the specified virtual currency by the stated amount
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/adduservirtualcurrency
-        AddUserVirtualCurrency(request: PlayFabClientModels.AddUserVirtualCurrencyRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ModifyUserVirtualCurrencyResult>): void;
+        AddUserVirtualCurrency(
+            request: PlayFabClientModels.AddUserVirtualCurrencyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ModifyUserVirtualCurrencyResult> | null,
+        ): void;
         // Registers the Android device to receive push notifications
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/androiddevicepushnotificationregistration
-        AndroidDevicePushNotificationRegistration(request: PlayFabClientModels.AndroidDevicePushNotificationRegistrationRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AndroidDevicePushNotificationRegistrationResult>): void;
+        AndroidDevicePushNotificationRegistration(
+            request: PlayFabClientModels.AndroidDevicePushNotificationRegistrationRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.AndroidDevicePushNotificationRegistrationResult> | null,
+        ): void;
         // Attributes an install for advertisment.
         // https://docs.microsoft.com/rest/api/playfab/client/advertising/attributeinstall
-        AttributeInstall(request: PlayFabClientModels.AttributeInstallRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.AttributeInstallResult>): void;
+        AttributeInstall(
+            request: PlayFabClientModels.AttributeInstallRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.AttributeInstallResult> | null,
+        ): void;
         // Cancels an open trade (one that has not yet been accepted or cancelled). Note that only the player who created the trade
         // can cancel it via this API call, to prevent griefing of the trade system (cancelling trades in order to prevent other
         // players from accepting them, for trades that can be claimed by more than one player).
         // https://docs.microsoft.com/rest/api/playfab/client/trading/canceltrade
-        CancelTrade(request: PlayFabClientModels.CancelTradeRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.CancelTradeResponse>): void;
+        CancelTrade(
+            request: PlayFabClientModels.CancelTradeRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.CancelTradeResponse> | null,
+        ): void;
         // Confirms with the payment provider that the purchase was approved (if applicable) and adjusts inventory and virtual
         // currency balances as appropriate
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/confirmpurchase
-        ConfirmPurchase(request: PlayFabClientModels.ConfirmPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConfirmPurchaseResult>): void;
+        ConfirmPurchase(
+            request: PlayFabClientModels.ConfirmPurchaseRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConfirmPurchaseResult> | null,
+        ): void;
         // Consume uses of a consumable item. When all uses are consumed, it will be removed from the player's inventory.
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/consumeitem
-        ConsumeItem(request: PlayFabClientModels.ConsumeItemRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumeItemResult>): void;
+        ConsumeItem(
+            request: PlayFabClientModels.ConsumeItemRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumeItemResult> | null,
+        ): void;
         // Checks for any new consumable entitlements. If any are found, they are consumed and added as PlayFab items
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/consumepsnentitlements
-        ConsumePSNEntitlements(request: PlayFabClientModels.ConsumePSNEntitlementsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumePSNEntitlementsResult>): void;
+        ConsumePSNEntitlements(
+            request: PlayFabClientModels.ConsumePSNEntitlementsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumePSNEntitlementsResult> | null,
+        ): void;
         // Grants the player's current entitlements from Xbox Live, consuming all availble items in Xbox and granting them to the
         // player's PlayFab inventory. This call is idempotent and will not grant previously granted items to the player.
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/consumexboxentitlements
-        ConsumeXboxEntitlements(request: PlayFabClientModels.ConsumeXboxEntitlementsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumeXboxEntitlementsResult>): void;
+        ConsumeXboxEntitlements(
+            request: PlayFabClientModels.ConsumeXboxEntitlementsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumeXboxEntitlementsResult> | null,
+        ): void;
         // Requests the creation of a shared group object, containing key/value pairs which may be updated by all members of the
         // group. Upon creation, the current user will be the only member of the group. Shared Groups are designed for sharing data
         // between a very small number of players, please see our guide:
         // https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
         // https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/createsharedgroup
-        CreateSharedGroup(request: PlayFabClientModels.CreateSharedGroupRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.CreateSharedGroupResult>): void;
+        CreateSharedGroup(
+            request: PlayFabClientModels.CreateSharedGroupRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.CreateSharedGroupResult> | null,
+        ): void;
         // Executes a CloudScript function, with the 'currentPlayerId' set to the PlayFab ID of the authenticated player.
         // https://docs.microsoft.com/rest/api/playfab/client/server-side-cloud-script/executecloudscript
-        ExecuteCloudScript(request: PlayFabClientModels.ExecuteCloudScriptRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ExecuteCloudScriptResult>): void;
+        ExecuteCloudScript(
+            request: PlayFabClientModels.ExecuteCloudScriptRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ExecuteCloudScriptResult> | null,
+        ): void;
         // Retrieves the user's PlayFab account details
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getaccountinfo
-        GetAccountInfo(request: PlayFabClientModels.GetAccountInfoRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetAccountInfoResult>): void;
+        GetAccountInfo(
+            request: PlayFabClientModels.GetAccountInfoRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetAccountInfoResult> | null,
+        ): void;
         // Lists all of the characters that belong to a specific user. CharacterIds are not globally unique; characterId must be
         // evaluated with the parent PlayFabId to guarantee uniqueness.
         // https://docs.microsoft.com/rest/api/playfab/client/characters/getalluserscharacters
-        GetAllUsersCharacters(request: PlayFabClientModels.ListUsersCharactersRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ListUsersCharactersResult>): void;
+        GetAllUsersCharacters(
+            request: PlayFabClientModels.ListUsersCharactersRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ListUsersCharactersResult> | null,
+        ): void;
         // Retrieves the specified version of the title's catalog of virtual goods, including all defined properties
         // https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/getcatalogitems
-        GetCatalogItems(request: PlayFabClientModels.GetCatalogItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCatalogItemsResult>): void;
+        GetCatalogItems(
+            request: PlayFabClientModels.GetCatalogItemsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCatalogItemsResult> | null,
+        ): void;
         // Retrieves the title-specific custom data for the character which is readable and writable by the client
         // https://docs.microsoft.com/rest/api/playfab/client/character-data/getcharacterdata
-        GetCharacterData(request: PlayFabClientModels.GetCharacterDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterDataResult>): void;
+        GetCharacterData(
+            request: PlayFabClientModels.GetCharacterDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterDataResult> | null,
+        ): void;
         // Retrieves the specified character's current inventory of virtual goods
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/getcharacterinventory
-        GetCharacterInventory(request: PlayFabClientModels.GetCharacterInventoryRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterInventoryResult>): void;
+        GetCharacterInventory(
+            request: PlayFabClientModels.GetCharacterInventoryRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterInventoryResult> | null,
+        ): void;
         // Retrieves a list of ranked characters for the given statistic, starting from the indicated point in the leaderboard
         // https://docs.microsoft.com/rest/api/playfab/client/characters/getcharacterleaderboard
-        GetCharacterLeaderboard(request: PlayFabClientModels.GetCharacterLeaderboardRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterLeaderboardResult>): void;
+        GetCharacterLeaderboard(
+            request: PlayFabClientModels.GetCharacterLeaderboardRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterLeaderboardResult> | null,
+        ): void;
         // Retrieves the title-specific custom data for the character which can only be read by the client
         // https://docs.microsoft.com/rest/api/playfab/client/character-data/getcharacterreadonlydata
-        GetCharacterReadOnlyData(request: PlayFabClientModels.GetCharacterDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterDataResult>): void;
+        GetCharacterReadOnlyData(
+            request: PlayFabClientModels.GetCharacterDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterDataResult> | null,
+        ): void;
         // Retrieves the details of all title-specific statistics for the user
         // https://docs.microsoft.com/rest/api/playfab/client/characters/getcharacterstatistics
-        GetCharacterStatistics(request: PlayFabClientModels.GetCharacterStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterStatisticsResult>): void;
+        GetCharacterStatistics(
+            request: PlayFabClientModels.GetCharacterStatisticsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetCharacterStatisticsResult> | null,
+        ): void;
         // This API retrieves a pre-signed URL for accessing a content file for the title. A subsequent HTTP GET to the returned
         // URL will attempt to download the content. A HEAD query to the returned URL will attempt to retrieve the metadata of the
         // content. Note that a successful result does not guarantee the existence of this content - if it has not been uploaded,
@@ -98,287 +170,527 @@ declare module PlayFabClientModule {
         // https://community.playfab.com/hc/community/posts/205469488-How-to-upload-files-to-PlayFab-s-Content-Service. Also,
         // please be aware that the Content service is specifically PlayFab's CDN offering, for which standard CDN rates apply.
         // https://docs.microsoft.com/rest/api/playfab/client/content/getcontentdownloadurl
-        GetContentDownloadUrl(request: PlayFabClientModels.GetContentDownloadUrlRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetContentDownloadUrlResult>): void;
+        GetContentDownloadUrl(
+            request: PlayFabClientModels.GetContentDownloadUrlRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetContentDownloadUrlResult> | null,
+        ): void;
         // Get details about all current running game servers matching the given parameters.
         // https://docs.microsoft.com/rest/api/playfab/client/matchmaking/getcurrentgames
-        GetCurrentGames(request: PlayFabClientModels.CurrentGamesRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.CurrentGamesResult>): void;
+        GetCurrentGames(
+            request: PlayFabClientModels.CurrentGamesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.CurrentGamesResult> | null,
+        ): void;
         // Retrieves a list of ranked friends of the current player for the given statistic, starting from the indicated point in
         // the leaderboard
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getfriendleaderboard
-        GetFriendLeaderboard(request: PlayFabClientModels.GetFriendLeaderboardRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardResult>): void;
+        GetFriendLeaderboard(
+            request: PlayFabClientModels.GetFriendLeaderboardRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardResult> | null,
+        ): void;
         // Retrieves a list of ranked friends of the current player for the given statistic, centered on the requested PlayFab
         // user. If PlayFabId is empty or null will return currently logged in user.
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getfriendleaderboardaroundplayer
-        GetFriendLeaderboardAroundPlayer(request: PlayFabClientModels.GetFriendLeaderboardAroundPlayerRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetFriendLeaderboardAroundPlayerResult>): void;
+        GetFriendLeaderboardAroundPlayer(
+            request: PlayFabClientModels.GetFriendLeaderboardAroundPlayerRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetFriendLeaderboardAroundPlayerResult> | null,
+        ): void;
         // Retrieves the current friend list for the local user, constrained to users who have PlayFab accounts. Friends from
         // linked accounts (Facebook, Steam) are also included. You may optionally exclude some linked services' friends.
         // https://docs.microsoft.com/rest/api/playfab/client/friend-list-management/getfriendslist
-        GetFriendsList(request: PlayFabClientModels.GetFriendsListRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetFriendsListResult>): void;
+        GetFriendsList(
+            request: PlayFabClientModels.GetFriendsListRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetFriendsListResult> | null,
+        ): void;
         // Get details about the regions hosting game servers matching the given parameters.
         // https://docs.microsoft.com/rest/api/playfab/client/matchmaking/getgameserverregions
-        GetGameServerRegions(request: PlayFabClientModels.GameServerRegionsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GameServerRegionsResult>): void;
+        GetGameServerRegions(
+            request: PlayFabClientModels.GameServerRegionsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GameServerRegionsResult> | null,
+        ): void;
         // Retrieves a list of ranked users for the given statistic, starting from the indicated point in the leaderboard
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getleaderboard
-        GetLeaderboard(request: PlayFabClientModels.GetLeaderboardRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardResult>): void;
+        GetLeaderboard(
+            request: PlayFabClientModels.GetLeaderboardRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardResult> | null,
+        ): void;
         // Retrieves a list of ranked characters for the given statistic, centered on the requested Character ID
         // https://docs.microsoft.com/rest/api/playfab/client/characters/getleaderboardaroundcharacter
-        GetLeaderboardAroundCharacter(request: PlayFabClientModels.GetLeaderboardAroundCharacterRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardAroundCharacterResult>): void;
+        GetLeaderboardAroundCharacter(
+            request: PlayFabClientModels.GetLeaderboardAroundCharacterRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardAroundCharacterResult> | null,
+        ): void;
         // Retrieves a list of ranked users for the given statistic, centered on the requested player. If PlayFabId is empty or
         // null will return currently logged in user.
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getleaderboardaroundplayer
-        GetLeaderboardAroundPlayer(request: PlayFabClientModels.GetLeaderboardAroundPlayerRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardAroundPlayerResult>): void;
+        GetLeaderboardAroundPlayer(
+            request: PlayFabClientModels.GetLeaderboardAroundPlayerRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardAroundPlayerResult> | null,
+        ): void;
         // Retrieves a list of all of the user's characters for the given statistic.
         // https://docs.microsoft.com/rest/api/playfab/client/characters/getleaderboardforusercharacters
-        GetLeaderboardForUserCharacters(request: PlayFabClientModels.GetLeaderboardForUsersCharactersRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardForUsersCharactersResult>): void;
+        GetLeaderboardForUserCharacters(
+            request: PlayFabClientModels.GetLeaderboardForUsersCharactersRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetLeaderboardForUsersCharactersResult> | null,
+        ): void;
         // For payments flows where the provider requires playfab (the fulfiller) to initiate the transaction, but the client
         // completes the rest of the flow. In the Xsolla case, the token returned here will be passed to Xsolla by the client to
         // create a cart. Poll GetPurchase using the returned OrderId once you've completed the payment.
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/getpaymenttoken
-        GetPaymentToken(request: PlayFabClientModels.GetPaymentTokenRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPaymentTokenResult>): void;
+        GetPaymentToken(
+            request: PlayFabClientModels.GetPaymentTokenRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPaymentTokenResult> | null,
+        ): void;
         // Gets a Photon custom authentication token that can be used to securely join the player into a Photon room. See
         // https://docs.microsoft.com/gaming/playfab/features/multiplayer/photon/quickstart for more details.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/getphotonauthenticationtoken
-        GetPhotonAuthenticationToken(request: PlayFabClientModels.GetPhotonAuthenticationTokenRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPhotonAuthenticationTokenResult>): void;
+        GetPhotonAuthenticationToken(
+            request: PlayFabClientModels.GetPhotonAuthenticationTokenRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPhotonAuthenticationTokenResult> | null,
+        ): void;
         // Retrieves all of the user's different kinds of info.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayercombinedinfo
-        GetPlayerCombinedInfo(request: PlayFabClientModels.GetPlayerCombinedInfoRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerCombinedInfoResult>): void;
+        GetPlayerCombinedInfo(
+            request: PlayFabClientModels.GetPlayerCombinedInfoRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerCombinedInfoResult> | null,
+        ): void;
         // Retrieves the player's profile
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayerprofile
-        GetPlayerProfile(request: PlayFabClientModels.GetPlayerProfileRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerProfileResult>): void;
+        GetPlayerProfile(
+            request: PlayFabClientModels.GetPlayerProfileRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerProfileResult> | null,
+        ): void;
         // List all segments that a player currently belongs to at this moment in time.
         // https://docs.microsoft.com/rest/api/playfab/client/playstream/getplayersegments
-        GetPlayerSegments(request: PlayFabClientModels.GetPlayerSegmentsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerSegmentsResult>): void;
+        GetPlayerSegments(
+            request: PlayFabClientModels.GetPlayerSegmentsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerSegmentsResult> | null,
+        ): void;
         // Retrieves the indicated statistics (current version and values for all statistics, if none are specified), for the local
         // player.
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getplayerstatistics
-        GetPlayerStatistics(request: PlayFabClientModels.GetPlayerStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerStatisticsResult>): void;
+        GetPlayerStatistics(
+            request: PlayFabClientModels.GetPlayerStatisticsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerStatisticsResult> | null,
+        ): void;
         // Retrieves the information on the available versions of the specified statistic.
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getplayerstatisticversions
-        GetPlayerStatisticVersions(request: PlayFabClientModels.GetPlayerStatisticVersionsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerStatisticVersionsResult>): void;
+        GetPlayerStatisticVersions(
+            request: PlayFabClientModels.GetPlayerStatisticVersionsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerStatisticVersionsResult> | null,
+        ): void;
         // Get all tags with a given Namespace (optional) from a player profile.
         // https://docs.microsoft.com/rest/api/playfab/client/playstream/getplayertags
-        GetPlayerTags(request: PlayFabClientModels.GetPlayerTagsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerTagsResult>): void;
+        GetPlayerTags(
+            request: PlayFabClientModels.GetPlayerTagsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerTagsResult> | null,
+        ): void;
         // Gets all trades the player has either opened or accepted, optionally filtered by trade status.
         // https://docs.microsoft.com/rest/api/playfab/client/trading/getplayertrades
-        GetPlayerTrades(request: PlayFabClientModels.GetPlayerTradesRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerTradesResponse>): void;
+        GetPlayerTrades(
+            request: PlayFabClientModels.GetPlayerTradesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayerTradesResponse> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Facebook identifiers.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromfacebookids
-        GetPlayFabIDsFromFacebookIDs(request: PlayFabClientModels.GetPlayFabIDsFromFacebookIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromFacebookIDsResult>): void;
+        GetPlayFabIDsFromFacebookIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromFacebookIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromFacebookIDsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Facebook Instant Game identifiers.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromfacebookinstantgamesids
-        GetPlayFabIDsFromFacebookInstantGamesIds(request: PlayFabClientModels.GetPlayFabIDsFromFacebookInstantGamesIdsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromFacebookInstantGamesIdsResult>): void;
+        GetPlayFabIDsFromFacebookInstantGamesIds(
+            request: PlayFabClientModels.GetPlayFabIDsFromFacebookInstantGamesIdsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromFacebookInstantGamesIdsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Game Center identifiers (referenced in the Game Center
         // Programming Guide as the Player Identifier).
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromgamecenterids
-        GetPlayFabIDsFromGameCenterIDs(request: PlayFabClientModels.GetPlayFabIDsFromGameCenterIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromGameCenterIDsResult>): void;
+        GetPlayFabIDsFromGameCenterIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromGameCenterIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromGameCenterIDsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of generic service identifiers. A generic identifier is the
         // service name plus the service-specific ID for the player, as specified by the title when the generic identifier was
         // added to the player account.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromgenericids
-        GetPlayFabIDsFromGenericIDs(request: PlayFabClientModels.GetPlayFabIDsFromGenericIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromGenericIDsResult>): void;
+        GetPlayFabIDsFromGenericIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromGenericIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromGenericIDsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Google identifiers. The Google identifiers are the IDs for
         // the user accounts, available as "id" in the Google+ People API calls.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromgoogleids
-        GetPlayFabIDsFromGoogleIDs(request: PlayFabClientModels.GetPlayFabIDsFromGoogleIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromGoogleIDsResult>): void;
+        GetPlayFabIDsFromGoogleIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromGoogleIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromGoogleIDsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Kongregate identifiers. The Kongregate identifiers are the
         // IDs for the user accounts, available as "user_id" from the Kongregate API methods(ex:
         // http://developers.kongregate.com/docs/client/getUserId).
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromkongregateids
-        GetPlayFabIDsFromKongregateIDs(request: PlayFabClientModels.GetPlayFabIDsFromKongregateIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromKongregateIDsResult>): void;
+        GetPlayFabIDsFromKongregateIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromKongregateIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromKongregateIDsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Nintendo Switch identifiers.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromnintendoswitchdeviceids
-        GetPlayFabIDsFromNintendoSwitchDeviceIds(request: PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult>): void;
+        GetPlayFabIDsFromNintendoSwitchDeviceIds(
+            request: PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of PlayStation Network identifiers.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfrompsnaccountids
-        GetPlayFabIDsFromPSNAccountIDs(request: PlayFabClientModels.GetPlayFabIDsFromPSNAccountIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromPSNAccountIDsResult>): void;
+        GetPlayFabIDsFromPSNAccountIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromPSNAccountIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromPSNAccountIDsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers are the profile
         // IDs for the user accounts, available as SteamId in the Steamworks Community API calls.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromsteamids
-        GetPlayFabIDsFromSteamIDs(request: PlayFabClientModels.GetPlayFabIDsFromSteamIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromSteamIDsResult>): void;
+        GetPlayFabIDsFromSteamIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromSteamIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromSteamIDsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Twitch identifiers. The Twitch identifiers are the IDs for
         // the user accounts, available as "_id" from the Twitch API methods (ex:
         // https://github.com/justintv/Twitch-API/blob/master/v3_resources/users.md#get-usersuser).
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromtwitchids
-        GetPlayFabIDsFromTwitchIDs(request: PlayFabClientModels.GetPlayFabIDsFromTwitchIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromTwitchIDsResult>): void;
+        GetPlayFabIDsFromTwitchIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromTwitchIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromTwitchIDsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of XboxLive identifiers.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromxboxliveids
-        GetPlayFabIDsFromXboxLiveIDs(request: PlayFabClientModels.GetPlayFabIDsFromXboxLiveIDsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromXboxLiveIDsResult>): void;
+        GetPlayFabIDsFromXboxLiveIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromXboxLiveIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromXboxLiveIDsResult> | null,
+        ): void;
         // Retrieves the key-value store of custom publisher settings
         // https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/getpublisherdata
-        GetPublisherData(request: PlayFabClientModels.GetPublisherDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPublisherDataResult>): void;
+        GetPublisherData(
+            request: PlayFabClientModels.GetPublisherDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPublisherDataResult> | null,
+        ): void;
         // Retrieves a purchase along with its current PlayFab status. Returns inventory items from the purchase that are still
         // active.
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/getpurchase
-        GetPurchase(request: PlayFabClientModels.GetPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPurchaseResult>): void;
+        GetPurchase(
+            request: PlayFabClientModels.GetPurchaseRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPurchaseResult> | null,
+        ): void;
         // Retrieves data stored in a shared group object, as well as the list of members in the group. Non-members of the group
         // may use this to retrieve group data, including membership, but they will not receive data for keys marked as private.
         // Shared Groups are designed for sharing data between a very small number of players, please see our guide:
         // https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
         // https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/getsharedgroupdata
-        GetSharedGroupData(request: PlayFabClientModels.GetSharedGroupDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetSharedGroupDataResult>): void;
+        GetSharedGroupData(
+            request: PlayFabClientModels.GetSharedGroupDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetSharedGroupDataResult> | null,
+        ): void;
         // Retrieves the set of items defined for the specified store, including all prices defined
         // https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/getstoreitems
-        GetStoreItems(request: PlayFabClientModels.GetStoreItemsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetStoreItemsResult>): void;
+        GetStoreItems(
+            request: PlayFabClientModels.GetStoreItemsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetStoreItemsResult> | null,
+        ): void;
         // Retrieves the current server time
         // https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/gettime
-        GetTime(request: PlayFabClientModels.GetTimeRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTimeResult>): void;
+        GetTime(
+            request: PlayFabClientModels.GetTimeRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTimeResult> | null,
+        ): void;
         // Retrieves the key-value store of custom title settings
         // https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/gettitledata
-        GetTitleData(request: PlayFabClientModels.GetTitleDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTitleDataResult>): void;
+        GetTitleData(
+            request: PlayFabClientModels.GetTitleDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTitleDataResult> | null,
+        ): void;
         // Retrieves the title news feed, as configured in the developer portal
         // https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/gettitlenews
-        GetTitleNews(request: PlayFabClientModels.GetTitleNewsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTitleNewsResult>): void;
+        GetTitleNews(
+            request: PlayFabClientModels.GetTitleNewsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTitleNewsResult> | null,
+        ): void;
         // Returns the title's base 64 encoded RSA CSP blob.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/gettitlepublickey
-        GetTitlePublicKey(request: PlayFabClientModels.GetTitlePublicKeyRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTitlePublicKeyResult>): void;
+        GetTitlePublicKey(
+            request: PlayFabClientModels.GetTitlePublicKeyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTitlePublicKeyResult> | null,
+        ): void;
         // Gets the current status of an existing trade.
         // https://docs.microsoft.com/rest/api/playfab/client/trading/gettradestatus
-        GetTradeStatus(request: PlayFabClientModels.GetTradeStatusRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTradeStatusResponse>): void;
+        GetTradeStatus(
+            request: PlayFabClientModels.GetTradeStatusRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetTradeStatusResponse> | null,
+        ): void;
         // Retrieves the title-specific custom data for the user which is readable and writable by the client
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getuserdata
-        GetUserData(request: PlayFabClientModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserDataResult>): void;
+        GetUserData(
+            request: PlayFabClientModels.GetUserDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserDataResult> | null,
+        ): void;
         // Retrieves the user's current inventory of virtual goods
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/getuserinventory
-        GetUserInventory(request: PlayFabClientModels.GetUserInventoryRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserInventoryResult>): void;
+        GetUserInventory(
+            request: PlayFabClientModels.GetUserInventoryRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserInventoryResult> | null,
+        ): void;
         // Retrieves the publisher-specific custom data for the user which is readable and writable by the client
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getuserpublisherdata
-        GetUserPublisherData(request: PlayFabClientModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserDataResult>): void;
+        GetUserPublisherData(
+            request: PlayFabClientModels.GetUserDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserDataResult> | null,
+        ): void;
         // Retrieves the publisher-specific custom data for the user which can only be read by the client
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getuserpublisherreadonlydata
-        GetUserPublisherReadOnlyData(request: PlayFabClientModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserDataResult>): void;
+        GetUserPublisherReadOnlyData(
+            request: PlayFabClientModels.GetUserDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserDataResult> | null,
+        ): void;
         // Retrieves the title-specific custom data for the user which can only be read by the client
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getuserreadonlydata
-        GetUserReadOnlyData(request: PlayFabClientModels.GetUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserDataResult>): void;
+        GetUserReadOnlyData(
+            request: PlayFabClientModels.GetUserDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetUserDataResult> | null,
+        ): void;
         // Requests a challenge from the server to be signed by Windows Hello Passport service to authenticate.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/getwindowshellochallenge
-        GetWindowsHelloChallenge(request: PlayFabClientModels.GetWindowsHelloChallengeRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetWindowsHelloChallengeResponse>): void;
+        GetWindowsHelloChallenge(
+            request: PlayFabClientModels.GetWindowsHelloChallengeRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetWindowsHelloChallengeResponse> | null,
+        ): void;
         // Grants the specified character type to the user. CharacterIds are not globally unique; characterId must be evaluated
         // with the parent PlayFabId to guarantee uniqueness.
         // https://docs.microsoft.com/rest/api/playfab/client/characters/grantcharactertouser
-        GrantCharacterToUser(request: PlayFabClientModels.GrantCharacterToUserRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.GrantCharacterToUserResult>): void;
+        GrantCharacterToUser(
+            request: PlayFabClientModels.GrantCharacterToUserRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GrantCharacterToUserResult> | null,
+        ): void;
         // Links the Android device identifier to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkandroiddeviceid
-        LinkAndroidDeviceID(request: PlayFabClientModels.LinkAndroidDeviceIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkAndroidDeviceIDResult>): void;
+        LinkAndroidDeviceID(
+            request: PlayFabClientModels.LinkAndroidDeviceIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkAndroidDeviceIDResult> | null,
+        ): void;
         // Links the Apple account associated with the token to the user's PlayFab account.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkapple
-        LinkApple(request: PlayFabClientModels.LinkAppleRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResult>): void;
+        LinkApple(
+            request: PlayFabClientModels.LinkAppleRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResult> | null,
+        ): void;
         // Links the custom identifier, generated by the title, to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkcustomid
-        LinkCustomID(request: PlayFabClientModels.LinkCustomIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkCustomIDResult>): void;
+        LinkCustomID(
+            request: PlayFabClientModels.LinkCustomIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkCustomIDResult> | null,
+        ): void;
         // Links the Facebook account associated with the provided Facebook access token to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkfacebookaccount
-        LinkFacebookAccount(request: PlayFabClientModels.LinkFacebookAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkFacebookAccountResult>): void;
+        LinkFacebookAccount(
+            request: PlayFabClientModels.LinkFacebookAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkFacebookAccountResult> | null,
+        ): void;
         // Links the Facebook Instant Games Id to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkfacebookinstantgamesid
-        LinkFacebookInstantGamesId(request: PlayFabClientModels.LinkFacebookInstantGamesIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkFacebookInstantGamesIdResult>): void;
+        LinkFacebookInstantGamesId(
+            request: PlayFabClientModels.LinkFacebookInstantGamesIdRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkFacebookInstantGamesIdResult> | null,
+        ): void;
         // Links the Game Center account associated with the provided Game Center ID to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkgamecenteraccount
-        LinkGameCenterAccount(request: PlayFabClientModels.LinkGameCenterAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkGameCenterAccountResult>): void;
+        LinkGameCenterAccount(
+            request: PlayFabClientModels.LinkGameCenterAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkGameCenterAccountResult> | null,
+        ): void;
         // Links the currently signed-in user account to their Google account, using their Google account credentials
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkgoogleaccount
-        LinkGoogleAccount(request: PlayFabClientModels.LinkGoogleAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkGoogleAccountResult>): void;
+        LinkGoogleAccount(
+            request: PlayFabClientModels.LinkGoogleAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkGoogleAccountResult> | null,
+        ): void;
         // Links the vendor-specific iOS device identifier to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkiosdeviceid
-        LinkIOSDeviceID(request: PlayFabClientModels.LinkIOSDeviceIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkIOSDeviceIDResult>): void;
+        LinkIOSDeviceID(
+            request: PlayFabClientModels.LinkIOSDeviceIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkIOSDeviceIDResult> | null,
+        ): void;
         // Links the Kongregate identifier to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkkongregate
-        LinkKongregate(request: PlayFabClientModels.LinkKongregateAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkKongregateAccountResult>): void;
+        LinkKongregate(
+            request: PlayFabClientModels.LinkKongregateAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkKongregateAccountResult> | null,
+        ): void;
         // Links the NintendoSwitchDeviceId to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linknintendoswitchdeviceid
-        LinkNintendoSwitchDeviceId(request: PlayFabClientModels.LinkNintendoSwitchDeviceIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkNintendoSwitchDeviceIdResult>): void;
+        LinkNintendoSwitchDeviceId(
+            request: PlayFabClientModels.LinkNintendoSwitchDeviceIdRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkNintendoSwitchDeviceIdResult> | null,
+        ): void;
         // Links an OpenID Connect account to a user's PlayFab account, based on an existing relationship between a title and an
         // Open ID Connect provider and the OpenId Connect JWT from that provider.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkopenidconnect
-        LinkOpenIdConnect(request: PlayFabClientModels.LinkOpenIdConnectRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResult>): void;
+        LinkOpenIdConnect(
+            request: PlayFabClientModels.LinkOpenIdConnectRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResult> | null,
+        ): void;
         // Links the PlayStation Network account associated with the provided access code to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkpsnaccount
-        LinkPSNAccount(request: PlayFabClientModels.LinkPSNAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkPSNAccountResult>): void;
+        LinkPSNAccount(
+            request: PlayFabClientModels.LinkPSNAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkPSNAccountResult> | null,
+        ): void;
         // Links the Steam account associated with the provided Steam authentication ticket to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linksteamaccount
-        LinkSteamAccount(request: PlayFabClientModels.LinkSteamAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkSteamAccountResult>): void;
+        LinkSteamAccount(
+            request: PlayFabClientModels.LinkSteamAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkSteamAccountResult> | null,
+        ): void;
         // Links the Twitch account associated with the token to the user's PlayFab account.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linktwitch
-        LinkTwitch(request: PlayFabClientModels.LinkTwitchAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkTwitchAccountResult>): void;
+        LinkTwitch(
+            request: PlayFabClientModels.LinkTwitchAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkTwitchAccountResult> | null,
+        ): void;
         // Link Windows Hello authentication to the current PlayFab Account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkwindowshello
-        LinkWindowsHello(request: PlayFabClientModels.LinkWindowsHelloAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkWindowsHelloAccountResponse>): void;
+        LinkWindowsHello(
+            request: PlayFabClientModels.LinkWindowsHelloAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkWindowsHelloAccountResponse> | null,
+        ): void;
         // Links the Xbox Live account associated with the provided access code to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkxboxaccount
-        LinkXboxAccount(request: PlayFabClientModels.LinkXboxAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkXboxAccountResult>): void;
+        LinkXboxAccount(
+            request: PlayFabClientModels.LinkXboxAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkXboxAccountResult> | null,
+        ): void;
         // Signs the user in using the Android device identifier, returning a session identifier that can subsequently be used for
         // API calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithandroiddeviceid
-        LoginWithAndroidDeviceID(request: PlayFabClientModels.LoginWithAndroidDeviceIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithAndroidDeviceID(
+            request: PlayFabClientModels.LoginWithAndroidDeviceIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs in the user with a Sign in with Apple identity token.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithapple
-        LoginWithApple(request: PlayFabClientModels.LoginWithAppleRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithApple(
+            request: PlayFabClientModels.LoginWithAppleRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using a custom unique identifier generated by the title, returning a session identifier that can
         // subsequently be used for API calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithcustomid
-        LoginWithCustomID(request: PlayFabClientModels.LoginWithCustomIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithCustomID(
+            request: PlayFabClientModels.LoginWithCustomIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user into the PlayFab account, returning a session identifier that can subsequently be used for API calls
         // which require an authenticated user. Unlike most other login API calls, LoginWithEmailAddress does not permit the
         // creation of new accounts via the CreateAccountFlag. Email addresses may be used to create accounts via
         // RegisterPlayFabUser.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithemailaddress
-        LoginWithEmailAddress(request: PlayFabClientModels.LoginWithEmailAddressRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithEmailAddress(
+            request: PlayFabClientModels.LoginWithEmailAddressRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using a Facebook access token, returning a session identifier that can subsequently be used for API
         // calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithfacebook
-        LoginWithFacebook(request: PlayFabClientModels.LoginWithFacebookRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithFacebook(
+            request: PlayFabClientModels.LoginWithFacebookRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using a Facebook Instant Games ID, returning a session identifier that can subsequently be used for
         // API calls which require an authenticated user. Requires Facebook Instant Games to be configured.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithfacebookinstantgamesid
-        LoginWithFacebookInstantGamesId(request: PlayFabClientModels.LoginWithFacebookInstantGamesIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithFacebookInstantGamesId(
+            request: PlayFabClientModels.LoginWithFacebookInstantGamesIdRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using an iOS Game Center player identifier, returning a session identifier that can subsequently be
         // used for API calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithgamecenter
-        LoginWithGameCenter(request: PlayFabClientModels.LoginWithGameCenterRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithGameCenter(
+            request: PlayFabClientModels.LoginWithGameCenterRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using their Google account credentials
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithgoogleaccount
-        LoginWithGoogleAccount(request: PlayFabClientModels.LoginWithGoogleAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithGoogleAccount(
+            request: PlayFabClientModels.LoginWithGoogleAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using the vendor-specific iOS device identifier, returning a session identifier that can subsequently
         // be used for API calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithiosdeviceid
-        LoginWithIOSDeviceID(request: PlayFabClientModels.LoginWithIOSDeviceIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithIOSDeviceID(
+            request: PlayFabClientModels.LoginWithIOSDeviceIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using a Kongregate player account.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithkongregate
-        LoginWithKongregate(request: PlayFabClientModels.LoginWithKongregateRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithKongregate(
+            request: PlayFabClientModels.LoginWithKongregateRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using a Nintendo Switch Device ID, returning a session identifier that can subsequently be used for
         // API calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithnintendoswitchdeviceid
-        LoginWithNintendoSwitchDeviceId(request: PlayFabClientModels.LoginWithNintendoSwitchDeviceIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithNintendoSwitchDeviceId(
+            request: PlayFabClientModels.LoginWithNintendoSwitchDeviceIdRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Logs in a user with an Open ID Connect JWT created by an existing relationship between a title and an Open ID Connect
         // provider.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithopenidconnect
-        LoginWithOpenIdConnect(request: PlayFabClientModels.LoginWithOpenIdConnectRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithOpenIdConnect(
+            request: PlayFabClientModels.LoginWithOpenIdConnectRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user into the PlayFab account, returning a session identifier that can subsequently be used for API calls
         // which require an authenticated user. Unlike most other login API calls, LoginWithPlayFab does not permit the creation of
         // new accounts via the CreateAccountFlag. Username/Password credentials may be used to create accounts via
         // RegisterPlayFabUser, or added to existing accounts using AddUsernamePassword.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithplayfab
-        LoginWithPlayFab(request: PlayFabClientModels.LoginWithPlayFabRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithPlayFab(
+            request: PlayFabClientModels.LoginWithPlayFabRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using a PlayStation Network authentication code, returning a session identifier that can subsequently
         // be used for API calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithpsn
-        LoginWithPSN(request: PlayFabClientModels.LoginWithPSNRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithPSN(
+            request: PlayFabClientModels.LoginWithPSNRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using a Steam authentication ticket, returning a session identifier that can subsequently be used for
         // API calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithsteam
-        LoginWithSteam(request: PlayFabClientModels.LoginWithSteamRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithSteam(
+            request: PlayFabClientModels.LoginWithSteamRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using a Twitch access token.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithtwitch
-        LoginWithTwitch(request: PlayFabClientModels.LoginWithTwitchRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithTwitch(
+            request: PlayFabClientModels.LoginWithTwitchRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Completes the Windows Hello login flow by returning the signed value of the challange from GetWindowsHelloChallenge.
         // Windows Hello has a 2 step client to server authentication scheme. Step one is to request from the server a challenge
         // string. Step two is to request the user sign the string via Windows Hello and then send the signed value back to the
         // server.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithwindowshello
-        LoginWithWindowsHello(request: PlayFabClientModels.LoginWithWindowsHelloRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithWindowsHello(
+            request: PlayFabClientModels.LoginWithWindowsHelloRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Signs the user in using a Xbox Live Token, returning a session identifier that can subsequently be used for API calls
         // which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithxbox
-        LoginWithXbox(request: PlayFabClientModels.LoginWithXboxRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        LoginWithXbox(
+            request: PlayFabClientModels.LoginWithXboxRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Attempts to locate a game session matching the given parameters. If the goal is to match the player into a specific
         // active session, only the LobbyId is required. Otherwise, the BuildVersion, GameMode, and Region are all required
         // parameters. Note that parameters specified in the search are required (they are not weighting factors). If a slot is
@@ -386,197 +698,362 @@ declare module PlayFabClientModule {
         // availabe set. In that case, the information on the game session will be returned, otherwise the Status returned will be
         // GameNotFound.
         // https://docs.microsoft.com/rest/api/playfab/client/matchmaking/matchmake
-        Matchmake(request: PlayFabClientModels.MatchmakeRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.MatchmakeResult>): void;
+        Matchmake(
+            request: PlayFabClientModels.MatchmakeRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.MatchmakeResult> | null,
+        ): void;
         // Opens a new outstanding trade. Note that a given item instance may only be in one open trade at a time.
         // https://docs.microsoft.com/rest/api/playfab/client/trading/opentrade
-        OpenTrade(request: PlayFabClientModels.OpenTradeRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.OpenTradeResponse>): void;
+        OpenTrade(
+            request: PlayFabClientModels.OpenTradeRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.OpenTradeResponse> | null,
+        ): void;
         // Selects a payment option for purchase order created via StartPurchase
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/payforpurchase
-        PayForPurchase(request: PlayFabClientModels.PayForPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.PayForPurchaseResult>): void;
+        PayForPurchase(
+            request: PlayFabClientModels.PayForPurchaseRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.PayForPurchaseResult> | null,
+        ): void;
         // Buys a single item with virtual currency. You must specify both the virtual currency to use to purchase, as well as what
         // the client believes the price to be. This lets the server fail the purchase if the price has changed.
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/purchaseitem
-        PurchaseItem(request: PlayFabClientModels.PurchaseItemRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.PurchaseItemResult>): void;
+        PurchaseItem(
+            request: PlayFabClientModels.PurchaseItemRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.PurchaseItemResult> | null,
+        ): void;
         // Adds the virtual goods associated with the coupon to the user's inventory. Coupons can be generated via the
         // Economy->Catalogs tab in the PlayFab Game Manager.
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/redeemcoupon
-        RedeemCoupon(request: PlayFabClientModels.RedeemCouponRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RedeemCouponResult>): void;
+        RedeemCoupon(
+            request: PlayFabClientModels.RedeemCouponRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.RedeemCouponResult> | null,
+        ): void;
         // Uses the supplied OAuth code to refresh the internally cached player PSN auth token
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/refreshpsnauthtoken
-        RefreshPSNAuthToken(request: PlayFabClientModels.RefreshPSNAuthTokenRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse>): void;
+        RefreshPSNAuthToken(
+            request: PlayFabClientModels.RefreshPSNAuthTokenRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse> | null,
+        ): void;
         // Registers the iOS device to receive push notifications
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/registerforiospushnotification
-        RegisterForIOSPushNotification(request: PlayFabClientModels.RegisterForIOSPushNotificationRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RegisterForIOSPushNotificationResult>): void;
+        RegisterForIOSPushNotification(
+            request: PlayFabClientModels.RegisterForIOSPushNotificationRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.RegisterForIOSPushNotificationResult> | null,
+        ): void;
         // Registers a new Playfab user account, returning a session identifier that can subsequently be used for API calls which
         // require an authenticated user. You must supply either a username or an email address.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/registerplayfabuser
-        RegisterPlayFabUser(request: PlayFabClientModels.RegisterPlayFabUserRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RegisterPlayFabUserResult>): void;
+        RegisterPlayFabUser(
+            request: PlayFabClientModels.RegisterPlayFabUserRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.RegisterPlayFabUserResult> | null,
+        ): void;
         // Registers a new PlayFab user account using Windows Hello authentication, returning a session ticket that can
         // subsequently be used for API calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/registerwithwindowshello
-        RegisterWithWindowsHello(request: PlayFabClientModels.RegisterWithWindowsHelloRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult>): void;
+        RegisterWithWindowsHello(
+            request: PlayFabClientModels.RegisterWithWindowsHelloRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
         // Removes a contact email from the player's profile.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/removecontactemail
-        RemoveContactEmail(request: PlayFabClientModels.RemoveContactEmailRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveContactEmailResult>): void;
+        RemoveContactEmail(
+            request: PlayFabClientModels.RemoveContactEmailRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveContactEmailResult> | null,
+        ): void;
         // Removes a specified user from the friend list of the local user
         // https://docs.microsoft.com/rest/api/playfab/client/friend-list-management/removefriend
-        RemoveFriend(request: PlayFabClientModels.RemoveFriendRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveFriendResult>): void;
+        RemoveFriend(
+            request: PlayFabClientModels.RemoveFriendRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveFriendResult> | null,
+        ): void;
         // Removes the specified generic service identifier from the player's PlayFab account.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/removegenericid
-        RemoveGenericID(request: PlayFabClientModels.RemoveGenericIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveGenericIDResult>): void;
+        RemoveGenericID(
+            request: PlayFabClientModels.RemoveGenericIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveGenericIDResult> | null,
+        ): void;
         // Removes users from the set of those able to update the shared data and the set of users in the group. Only users in the
         // group can remove members. If as a result of the call, zero users remain with access, the group and its associated data
         // will be deleted. Shared Groups are designed for sharing data between a very small number of players, please see our
         // guide: https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
         // https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/removesharedgroupmembers
-        RemoveSharedGroupMembers(request: PlayFabClientModels.RemoveSharedGroupMembersRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveSharedGroupMembersResult>): void;
+        RemoveSharedGroupMembers(
+            request: PlayFabClientModels.RemoveSharedGroupMembersRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveSharedGroupMembersResult> | null,
+        ): void;
         // Write a PlayStream event to describe the provided player device information. This API method is not designed to be
         // called directly by developers. Each PlayFab client SDK will eventually report this information automatically.
         // https://docs.microsoft.com/rest/api/playfab/client/analytics/reportdeviceinfo
-        ReportDeviceInfo(request: PlayFabClientModels.DeviceInfoRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse>): void;
+        ReportDeviceInfo(
+            request: PlayFabClientModels.DeviceInfoRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse> | null,
+        ): void;
         // Submit a report for another player (due to bad bahavior, etc.), so that customer service representatives for the title
         // can take action concerning potentially toxic players.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/reportplayer
-        ReportPlayer(request: PlayFabClientModels.ReportPlayerClientRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ReportPlayerClientResult>): void;
+        ReportPlayer(
+            request: PlayFabClientModels.ReportPlayerClientRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ReportPlayerClientResult> | null,
+        ): void;
         // Restores all in-app purchases based on the given restore receipt
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/restoreiospurchases
-        RestoreIOSPurchases(request: PlayFabClientModels.RestoreIOSPurchasesRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.RestoreIOSPurchasesResult>): void;
+        RestoreIOSPurchases(
+            request: PlayFabClientModels.RestoreIOSPurchasesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.RestoreIOSPurchasesResult> | null,
+        ): void;
         // Forces an email to be sent to the registered email address for the user's account, with a link allowing the user to
         // change the password.If an account recovery email template ID is provided, an email using the custom email template will
         // be used.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/sendaccountrecoveryemail
-        SendAccountRecoveryEmail(request: PlayFabClientModels.SendAccountRecoveryEmailRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.SendAccountRecoveryEmailResult>): void;
+        SendAccountRecoveryEmail(
+            request: PlayFabClientModels.SendAccountRecoveryEmailRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.SendAccountRecoveryEmailResult> | null,
+        ): void;
         // Updates the tag list for a specified user in the friend list of the local user
         // https://docs.microsoft.com/rest/api/playfab/client/friend-list-management/setfriendtags
-        SetFriendTags(request: PlayFabClientModels.SetFriendTagsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.SetFriendTagsResult>): void;
+        SetFriendTags(
+            request: PlayFabClientModels.SetFriendTagsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.SetFriendTagsResult> | null,
+        ): void;
         // Sets the player's secret if it is not already set. Player secrets are used to sign API requests. To reset a player's
         // secret use the Admin or Server API method SetPlayerSecret.
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/setplayersecret
-        SetPlayerSecret(request: PlayFabClientModels.SetPlayerSecretRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.SetPlayerSecretResult>): void;
+        SetPlayerSecret(
+            request: PlayFabClientModels.SetPlayerSecretRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.SetPlayerSecretResult> | null,
+        ): void;
         // Start a new game server with a given configuration, add the current player and return the connection information.
         // https://docs.microsoft.com/rest/api/playfab/client/matchmaking/startgame
-        StartGame(request: PlayFabClientModels.StartGameRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.StartGameResult>): void;
+        StartGame(
+            request: PlayFabClientModels.StartGameRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.StartGameResult> | null,
+        ): void;
         // Creates an order for a list of items from the title catalog
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/startpurchase
-        StartPurchase(request: PlayFabClientModels.StartPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.StartPurchaseResult>): void;
+        StartPurchase(
+            request: PlayFabClientModels.StartPurchaseRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.StartPurchaseResult> | null,
+        ): void;
         // Decrements the user's balance of the specified virtual currency by the stated amount. It is possible to make a VC
         // balance negative with this API.
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/subtractuservirtualcurrency
-        SubtractUserVirtualCurrency(request: PlayFabClientModels.SubtractUserVirtualCurrencyRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ModifyUserVirtualCurrencyResult>): void;
+        SubtractUserVirtualCurrency(
+            request: PlayFabClientModels.SubtractUserVirtualCurrencyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ModifyUserVirtualCurrencyResult> | null,
+        ): void;
         // Unlinks the related Android device identifier from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkandroiddeviceid
-        UnlinkAndroidDeviceID(request: PlayFabClientModels.UnlinkAndroidDeviceIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkAndroidDeviceIDResult>): void;
+        UnlinkAndroidDeviceID(
+            request: PlayFabClientModels.UnlinkAndroidDeviceIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkAndroidDeviceIDResult> | null,
+        ): void;
         // Unlinks the related Apple account from the user's PlayFab account.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkapple
-        UnlinkApple(request: PlayFabClientModels.UnlinkAppleRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse>): void;
+        UnlinkApple(
+            request: PlayFabClientModels.UnlinkAppleRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse> | null,
+        ): void;
         // Unlinks the related custom identifier from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkcustomid
-        UnlinkCustomID(request: PlayFabClientModels.UnlinkCustomIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkCustomIDResult>): void;
+        UnlinkCustomID(
+            request: PlayFabClientModels.UnlinkCustomIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkCustomIDResult> | null,
+        ): void;
         // Unlinks the related Facebook account from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkfacebookaccount
-        UnlinkFacebookAccount(request: PlayFabClientModels.UnlinkFacebookAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkFacebookAccountResult>): void;
+        UnlinkFacebookAccount(
+            request: PlayFabClientModels.UnlinkFacebookAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkFacebookAccountResult> | null,
+        ): void;
         // Unlinks the related Facebook Instant Game Ids from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkfacebookinstantgamesid
-        UnlinkFacebookInstantGamesId(request: PlayFabClientModels.UnlinkFacebookInstantGamesIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkFacebookInstantGamesIdResult>): void;
+        UnlinkFacebookInstantGamesId(
+            request: PlayFabClientModels.UnlinkFacebookInstantGamesIdRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkFacebookInstantGamesIdResult> | null,
+        ): void;
         // Unlinks the related Game Center account from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkgamecenteraccount
-        UnlinkGameCenterAccount(request: PlayFabClientModels.UnlinkGameCenterAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkGameCenterAccountResult>): void;
+        UnlinkGameCenterAccount(
+            request: PlayFabClientModels.UnlinkGameCenterAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkGameCenterAccountResult> | null,
+        ): void;
         // Unlinks the related Google account from the user's PlayFab account
         // (https://developers.google.com/android/reference/com/google/android/gms/auth/GoogleAuthUtil#public-methods).
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkgoogleaccount
-        UnlinkGoogleAccount(request: PlayFabClientModels.UnlinkGoogleAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkGoogleAccountResult>): void;
+        UnlinkGoogleAccount(
+            request: PlayFabClientModels.UnlinkGoogleAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkGoogleAccountResult> | null,
+        ): void;
         // Unlinks the related iOS device identifier from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkiosdeviceid
-        UnlinkIOSDeviceID(request: PlayFabClientModels.UnlinkIOSDeviceIDRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkIOSDeviceIDResult>): void;
+        UnlinkIOSDeviceID(
+            request: PlayFabClientModels.UnlinkIOSDeviceIDRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkIOSDeviceIDResult> | null,
+        ): void;
         // Unlinks the related Kongregate identifier from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkkongregate
-        UnlinkKongregate(request: PlayFabClientModels.UnlinkKongregateAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkKongregateAccountResult>): void;
+        UnlinkKongregate(
+            request: PlayFabClientModels.UnlinkKongregateAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkKongregateAccountResult> | null,
+        ): void;
         // Unlinks the related NintendoSwitchDeviceId from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinknintendoswitchdeviceid
-        UnlinkNintendoSwitchDeviceId(request: PlayFabClientModels.UnlinkNintendoSwitchDeviceIdRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkNintendoSwitchDeviceIdResult>): void;
+        UnlinkNintendoSwitchDeviceId(
+            request: PlayFabClientModels.UnlinkNintendoSwitchDeviceIdRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkNintendoSwitchDeviceIdResult> | null,
+        ): void;
         // Unlinks an OpenID Connect account from a user's PlayFab account, based on the connection ID of an existing relationship
         // between a title and an Open ID Connect provider.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkopenidconnect
-        UnlinkOpenIdConnect(request: PlayFabClientModels.UninkOpenIdConnectRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse>): void;
+        UnlinkOpenIdConnect(
+            request: PlayFabClientModels.UninkOpenIdConnectRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse> | null,
+        ): void;
         // Unlinks the related PSN account from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkpsnaccount
-        UnlinkPSNAccount(request: PlayFabClientModels.UnlinkPSNAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkPSNAccountResult>): void;
+        UnlinkPSNAccount(
+            request: PlayFabClientModels.UnlinkPSNAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkPSNAccountResult> | null,
+        ): void;
         // Unlinks the related Steam account from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinksteamaccount
-        UnlinkSteamAccount(request: PlayFabClientModels.UnlinkSteamAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkSteamAccountResult>): void;
+        UnlinkSteamAccount(
+            request: PlayFabClientModels.UnlinkSteamAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkSteamAccountResult> | null,
+        ): void;
         // Unlinks the related Twitch account from the user's PlayFab account.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinktwitch
-        UnlinkTwitch(request: PlayFabClientModels.UnlinkTwitchAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkTwitchAccountResult>): void;
+        UnlinkTwitch(
+            request: PlayFabClientModels.UnlinkTwitchAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkTwitchAccountResult> | null,
+        ): void;
         // Unlink Windows Hello authentication from the current PlayFab Account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkwindowshello
-        UnlinkWindowsHello(request: PlayFabClientModels.UnlinkWindowsHelloAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkWindowsHelloAccountResponse>): void;
+        UnlinkWindowsHello(
+            request: PlayFabClientModels.UnlinkWindowsHelloAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkWindowsHelloAccountResponse> | null,
+        ): void;
         // Unlinks the related Xbox Live account from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkxboxaccount
-        UnlinkXboxAccount(request: PlayFabClientModels.UnlinkXboxAccountRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkXboxAccountResult>): void;
+        UnlinkXboxAccount(
+            request: PlayFabClientModels.UnlinkXboxAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkXboxAccountResult> | null,
+        ): void;
         // Opens the specified container, with the specified key (when required), and returns the contents of the opened container.
         // If the container (and key when relevant) are consumable (RemainingUses > 0), their RemainingUses will be decremented,
         // consistent with the operation of ConsumeItem.
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/unlockcontainerinstance
-        UnlockContainerInstance(request: PlayFabClientModels.UnlockContainerInstanceRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlockContainerItemResult>): void;
+        UnlockContainerInstance(
+            request: PlayFabClientModels.UnlockContainerInstanceRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlockContainerItemResult> | null,
+        ): void;
         // Searches target inventory for an ItemInstance matching the given CatalogItemId, if necessary unlocks it using an
         // appropriate key, and returns the contents of the opened container. If the container (and key when relevant) are
         // consumable (RemainingUses > 0), their RemainingUses will be decremented, consistent with the operation of ConsumeItem.
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/unlockcontaineritem
-        UnlockContainerItem(request: PlayFabClientModels.UnlockContainerItemRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlockContainerItemResult>): void;
+        UnlockContainerItem(
+            request: PlayFabClientModels.UnlockContainerItemRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlockContainerItemResult> | null,
+        ): void;
         // Update the avatar URL of the player
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/updateavatarurl
-        UpdateAvatarUrl(request: PlayFabClientModels.UpdateAvatarUrlRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse>): void;
+        UpdateAvatarUrl(
+            request: PlayFabClientModels.UpdateAvatarUrlRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse> | null,
+        ): void;
         // Creates and updates the title-specific custom data for the user's character which is readable and writable by the client
         // https://docs.microsoft.com/rest/api/playfab/client/character-data/updatecharacterdata
-        UpdateCharacterData(request: PlayFabClientModels.UpdateCharacterDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateCharacterDataResult>): void;
+        UpdateCharacterData(
+            request: PlayFabClientModels.UpdateCharacterDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateCharacterDataResult> | null,
+        ): void;
         // Updates the values of the specified title-specific statistics for the specific character. By default, clients are not
         // permitted to update statistics. Developers may override this setting in the Game Manager > Settings > API Features.
         // https://docs.microsoft.com/rest/api/playfab/client/characters/updatecharacterstatistics
-        UpdateCharacterStatistics(request: PlayFabClientModels.UpdateCharacterStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateCharacterStatisticsResult>): void;
+        UpdateCharacterStatistics(
+            request: PlayFabClientModels.UpdateCharacterStatisticsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateCharacterStatisticsResult> | null,
+        ): void;
         // Updates the values of the specified title-specific statistics for the user. By default, clients are not permitted to
         // update statistics. Developers may override this setting in the Game Manager > Settings > API Features.
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/updateplayerstatistics
-        UpdatePlayerStatistics(request: PlayFabClientModels.UpdatePlayerStatisticsRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdatePlayerStatisticsResult>): void;
+        UpdatePlayerStatistics(
+            request: PlayFabClientModels.UpdatePlayerStatisticsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdatePlayerStatisticsResult> | null,
+        ): void;
         // Adds, updates, and removes data keys for a shared group object. If the permission is set to Public, all fields updated
         // or added in this call will be readable by users not in the group. By default, data permissions are set to Private.
         // Regardless of the permission setting, only members of the group can update the data. Shared Groups are designed for
         // sharing data between a very small number of players, please see our guide:
         // https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
         // https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/updatesharedgroupdata
-        UpdateSharedGroupData(request: PlayFabClientModels.UpdateSharedGroupDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateSharedGroupDataResult>): void;
+        UpdateSharedGroupData(
+            request: PlayFabClientModels.UpdateSharedGroupDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateSharedGroupDataResult> | null,
+        ): void;
         // Creates and updates the title-specific custom data for the user which is readable and writable by the client
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/updateuserdata
-        UpdateUserData(request: PlayFabClientModels.UpdateUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateUserDataResult>): void;
+        UpdateUserData(
+            request: PlayFabClientModels.UpdateUserDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateUserDataResult> | null,
+        ): void;
         // Creates and updates the publisher-specific custom data for the user which is readable and writable by the client
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/updateuserpublisherdata
-        UpdateUserPublisherData(request: PlayFabClientModels.UpdateUserDataRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateUserDataResult>): void;
+        UpdateUserPublisherData(
+            request: PlayFabClientModels.UpdateUserDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateUserDataResult> | null,
+        ): void;
         // Updates the title specific display name for the user
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/updateusertitledisplayname
-        UpdateUserTitleDisplayName(request: PlayFabClientModels.UpdateUserTitleDisplayNameRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateUserTitleDisplayNameResult>): void;
+        UpdateUserTitleDisplayName(
+            request: PlayFabClientModels.UpdateUserTitleDisplayNameRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UpdateUserTitleDisplayNameResult> | null,
+        ): void;
         // Validates with Amazon that the receipt for an Amazon App Store in-app purchase is valid and that it matches the
         // purchased catalog item
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/validateamazoniapreceipt
-        ValidateAmazonIAPReceipt(request: PlayFabClientModels.ValidateAmazonReceiptRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ValidateAmazonReceiptResult>): void;
+        ValidateAmazonIAPReceipt(
+            request: PlayFabClientModels.ValidateAmazonReceiptRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ValidateAmazonReceiptResult> | null,
+        ): void;
         // Validates a Google Play purchase and gives the corresponding item to the player.
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/validategoogleplaypurchase
-        ValidateGooglePlayPurchase(request: PlayFabClientModels.ValidateGooglePlayPurchaseRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ValidateGooglePlayPurchaseResult>): void;
+        ValidateGooglePlayPurchase(
+            request: PlayFabClientModels.ValidateGooglePlayPurchaseRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ValidateGooglePlayPurchaseResult> | null,
+        ): void;
         // Validates with the Apple store that the receipt for an iOS in-app purchase is valid and that it matches the purchased
         // catalog item
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/validateiosreceipt
-        ValidateIOSReceipt(request: PlayFabClientModels.ValidateIOSReceiptRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ValidateIOSReceiptResult>): void;
+        ValidateIOSReceipt(
+            request: PlayFabClientModels.ValidateIOSReceiptRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ValidateIOSReceiptResult> | null,
+        ): void;
         // Validates with Windows that the receipt for an Windows App Store in-app purchase is valid and that it matches the
         // purchased catalog item
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/validatewindowsstorereceipt
-        ValidateWindowsStoreReceipt(request: PlayFabClientModels.ValidateWindowsReceiptRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.ValidateWindowsReceiptResult>): void;
+        ValidateWindowsStoreReceipt(
+            request: PlayFabClientModels.ValidateWindowsReceiptRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ValidateWindowsReceiptResult> | null,
+        ): void;
         // Writes a character-based event into PlayStream.
         // https://docs.microsoft.com/rest/api/playfab/client/analytics/writecharacterevent
-        WriteCharacterEvent(request: PlayFabClientModels.WriteClientCharacterEventRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.WriteEventResponse>): void;
+        WriteCharacterEvent(
+            request: PlayFabClientModels.WriteClientCharacterEventRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.WriteEventResponse> | null,
+        ): void;
         // Writes a player-based event into PlayStream.
         // https://docs.microsoft.com/rest/api/playfab/client/analytics/writeplayerevent
-        WritePlayerEvent(request: PlayFabClientModels.WriteClientPlayerEventRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.WriteEventResponse>): void;
+        WritePlayerEvent(
+            request: PlayFabClientModels.WriteClientPlayerEventRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.WriteEventResponse> | null,
+        ): void;
         // Writes a title-based event into PlayStream.
         // https://docs.microsoft.com/rest/api/playfab/client/analytics/writetitleevent
-        WriteTitleEvent(request: PlayFabClientModels.WriteTitleEventRequest, callback: PlayFabModule.ApiCallback<PlayFabClientModels.WriteEventResponse>): void;
+        WriteTitleEvent(
+            request: PlayFabClientModels.WriteTitleEventRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.WriteEventResponse> | null,
+        ): void;
 
     }
 }
@@ -590,13 +1067,11 @@ declare module PlayFabClientModels {
         OfferingPlayerId: string;
         // Trade identifier.
         TradeId: string;
-
     }
 
     export interface AcceptTradeResponse extends PlayFabModule.IPlayFabResultCommon {
         // Details about trade which was just accepted.
         Trade?: TradeInfo;
-
     }
 
     export interface AdCampaignAttributionModel {
@@ -606,7 +1081,6 @@ declare module PlayFabClientModels {
         CampaignId?: string;
         // Attribution network name
         Platform?: string;
-
     }
 
     export interface AddFriendRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -618,46 +1092,35 @@ declare module PlayFabClientModels {
         FriendTitleDisplayName?: string;
         // PlayFab username of the user to attempt to add to the local user's friend list.
         FriendUsername?: string;
-
     }
 
     export interface AddFriendResult extends PlayFabModule.IPlayFabResultCommon {
         // True if the friend request was processed successfully.
         Created: boolean;
-
     }
 
     export interface AddGenericIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Generic service identifier to add to the player account.
         GenericId: GenericServiceId;
-
     }
 
-    export interface AddGenericIDResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface AddGenericIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface AddOrUpdateContactEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The new contact email to associate with the player.
         EmailAddress: string;
-
     }
 
-    export interface AddOrUpdateContactEmailResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface AddOrUpdateContactEmailResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface AddSharedGroupMembersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // An array of unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabIds: string[];
         // Unique identifier for the shared group.
         SharedGroupId: string;
-
     }
 
-    export interface AddSharedGroupMembersResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface AddSharedGroupMembersResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface AddUsernamePasswordRequest extends PlayFabModule.IPlayFabRequestCommon {
         // User email address attached to their account
@@ -666,13 +1129,11 @@ declare module PlayFabClientModels {
         Password: string;
         // PlayFab username for the account (3-20 characters)
         Username: string;
-
     }
 
     export interface AddUsernamePasswordResult extends PlayFabModule.IPlayFabResultCommon {
         // PlayFab unique user name.
         Username?: string;
-
     }
 
     export interface AddUserVirtualCurrencyRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -680,7 +1141,6 @@ declare module PlayFabClientModels {
         Amount: number;
         // Name of the virtual currency which is to be incremented.
         VirtualCurrency: string;
-
     }
 
     export interface AndroidDevicePushNotificationRegistrationRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -691,35 +1151,27 @@ declare module PlayFabClientModels {
         DeviceToken: string;
         // If true, send a test push message immediately after sucessful registration. Defaults to false.
         SendPushNotificationConfirmation?: boolean;
-
     }
 
-    export interface AndroidDevicePushNotificationRegistrationResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface AndroidDevicePushNotificationRegistrationResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface AttributeInstallRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The adid for this device.
         Adid?: string;
         // The IdentifierForAdvertisers for iOS Devices.
         Idfa?: string;
-
     }
 
-    export interface AttributeInstallResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface AttributeInstallResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface CancelTradeRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Trade identifier.
         TradeId: string;
-
     }
 
     export interface CancelTradeResponse extends PlayFabModule.IPlayFabResultCommon {
         // Details about trade which was just canceled.
         Trade?: TradeInfo;
-
     }
 
     export interface CartItem {
@@ -739,7 +1191,6 @@ declare module PlayFabClientModels {
         VCAmount?: { [key: string]: number };
         // Cost of the catalog item for each applicable virtual currency.
         VirtualCurrencyPrices?: { [key: string]: number };
-
     }
 
     export interface CatalogItem {
@@ -787,7 +1238,6 @@ declare module PlayFabClientModels {
         Tags?: string[];
         // price of this item in virtual currencies and "RM" (the base Real Money purchase price, in USD pennies)
         VirtualCurrencyPrices?: { [key: string]: number };
-
     }
 
     export interface CatalogItemBundleInfo {
@@ -798,7 +1248,6 @@ declare module PlayFabClientModels {
         BundledResultTables?: string[];
         // virtual currency types and balances which will be added to the player inventory when the bundle is added
         BundledVirtualCurrencies?: { [key: string]: number };
-
     }
 
     export interface CatalogItemConsumableInfo {
@@ -811,7 +1260,6 @@ declare module PlayFabClientModels {
         // all inventory item instances in the player inventory sharing a non-null UsagePeriodGroup have their UsagePeriod values
         // added together, and share the result - when that period has elapsed, all the items in the group will be removed
         UsagePeriodGroup?: string;
-
     }
 
     export interface CatalogItemContainerInfo {
@@ -825,7 +1273,6 @@ declare module PlayFabClientModels {
         ResultTableContents?: string[];
         // virtual currency types and balances which will be added to the player inventory when the container is unlocked
         VirtualCurrencyContents?: { [key: string]: number };
-
     }
 
     export interface CharacterInventory {
@@ -833,7 +1280,6 @@ declare module PlayFabClientModels {
         CharacterId?: string;
         // The inventory of this character.
         Inventory?: ItemInstance[];
-
     }
 
     export interface CharacterLeaderboardEntry {
@@ -851,7 +1297,6 @@ declare module PlayFabClientModels {
         Position: number;
         // Specific value of the user's statistic.
         StatValue: number;
-
     }
 
     export interface CharacterResult {
@@ -861,7 +1306,6 @@ declare module PlayFabClientModels {
         CharacterName?: string;
         // The type-string that was given to this character on creation.
         CharacterType?: string;
-
     }
 
     type CloudScriptRevisionOption = "Live"
@@ -874,13 +1318,11 @@ declare module PlayFabClientModels {
         // List of Include rules, with any of which if a collection matches, it is included by the filter, unless it is excluded by
         // one of the Exclude rule
         Includes?: Container_Dictionary_String_String[];
-
     }
 
     export interface ConfirmPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Purchase order identifier returned from StartPurchase.
         OrderId: string;
-
     }
 
     export interface ConfirmPurchaseResult extends PlayFabModule.IPlayFabResultCommon {
@@ -890,7 +1332,6 @@ declare module PlayFabClientModels {
         OrderId?: string;
         // Date and time of the purchase.
         PurchaseDate: string;
-
     }
 
     export interface ConsumeItemRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -900,7 +1341,6 @@ declare module PlayFabClientModels {
         ConsumeCount: number;
         // Unique instance identifier of the item to be consumed.
         ItemInstanceId: string;
-
     }
 
     export interface ConsumeItemResult extends PlayFabModule.IPlayFabResultCommon {
@@ -908,7 +1348,6 @@ declare module PlayFabClientModels {
         ItemInstanceId?: string;
         // Number of uses remaining on the item.
         RemainingUses: number;
-
     }
 
     export interface ConsumePSNEntitlementsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -916,13 +1355,11 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Id of the PSN service label to consume entitlements from
         ServiceLabel: number;
-
     }
 
     export interface ConsumePSNEntitlementsResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of items granted to the player as a result of consuming entitlements.
         ItemsGranted?: ItemInstance[];
-
     }
 
     export interface ConsumeXboxEntitlementsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -930,13 +1367,11 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Token provided by the Xbox Live SDK/XDK method GetTokenAndSignatureAsync("POST", "https://playfabapi.com/", "").
         XboxToken: string;
-
     }
 
     export interface ConsumeXboxEntitlementsResult extends PlayFabModule.IPlayFabResultCommon {
         // Details for the items purchased.
         Items?: ItemInstance[];
-
     }
 
     export interface ContactEmailInfoModel {
@@ -946,13 +1381,11 @@ declare module PlayFabClientModels {
         Name?: string;
         // The verification status of the email
         VerificationStatus?: string;
-
     }
 
     export interface Container_Dictionary_String_String {
         // Content of data
         Data?: { [key: string]: string | null };
-
     }
 
     type ContinentCode = "AF"
@@ -1216,13 +1649,11 @@ declare module PlayFabClientModels {
     export interface CreateSharedGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique identifier for the shared group (a random identifier will be assigned, if one is not specified).
         SharedGroupId?: string;
-
     }
 
     export interface CreateSharedGroupResult extends PlayFabModule.IPlayFabResultCommon {
         // Unique identifier for the shared group.
         SharedGroupId?: string;
-
     }
 
     type Currency = "AED"
@@ -1399,7 +1830,6 @@ declare module PlayFabClientModels {
         StatisticName?: string;
         // Filter to include and/or exclude Game Server Instances associated with certain tags.
         TagFilter?: CollectionFilter;
-
     }
 
     export interface CurrentGamesResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1409,33 +1839,26 @@ declare module PlayFabClientModels {
         Games?: GameInfo[];
         // total number of players across all servers
         PlayerCount: number;
-
     }
 
     export interface DeviceInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Information posted to the PlayStream Event. Currently arbitrary, and specific to the environment sending it.
         Info?: { [key: string]: any };
-
     }
 
     type EmailVerificationStatus = "Unverified"
         | "Pending"
         | "Confirmed";
 
-    export interface EmptyResponse extends PlayFabModule.IPlayFabResultCommon {
+    export interface EmptyResponse extends PlayFabModule.IPlayFabResultCommon {}
 
-    }
-
-    export interface EmptyResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface EmptyResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface EntityKey {
         // Unique ID of the entity.
         Id: string;
         // Entity type. See https://docs.microsoft.com/gaming/playfab/features/data/entities/available-built-in-entity-types
         Type?: string;
-
     }
 
     export interface EntityTokenResponse {
@@ -1445,7 +1868,6 @@ declare module PlayFabClientModels {
         EntityToken?: string;
         // The time the token will expire, if it is an expiring token, in UTC.
         TokenExpiration?: string;
-
     }
 
     export interface ExecuteCloudScriptRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1462,7 +1884,6 @@ declare module PlayFabClientModels {
         RevisionSelection?: string;
         // The specivic revision to execute, when RevisionSelection is set to 'Specific'
         SpecificRevision?: number;
-
     }
 
     export interface ExecuteCloudScriptResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1492,7 +1913,6 @@ declare module PlayFabClientModels {
         ProcessorTimeSeconds: number;
         // The revision of the CloudScript that executed
         Revision: number;
-
     }
 
     export interface FacebookInstantGamesPlayFabIdPair {
@@ -1500,7 +1920,6 @@ declare module PlayFabClientModels {
         FacebookInstantGamesId?: string;
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Facebook Instant Games identifier.
         PlayFabId?: string;
-
     }
 
     export interface FacebookPlayFabIdPair {
@@ -1508,7 +1927,6 @@ declare module PlayFabClientModels {
         FacebookId?: string;
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Facebook identifier.
         PlayFabId?: string;
-
     }
 
     export interface FriendInfo {
@@ -1532,7 +1950,6 @@ declare module PlayFabClientModels {
         Username?: string;
         // Available Xbox information, if the user and PlayFab friend are both connected to Xbox Live.
         XboxInfo?: UserXboxInfo;
-
     }
 
     export interface GameCenterPlayFabIdPair {
@@ -1540,7 +1957,6 @@ declare module PlayFabClientModels {
         GameCenterId?: string;
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Game Center identifier.
         PlayFabId?: string;
-
     }
 
     export interface GameInfo {
@@ -1576,7 +1992,6 @@ declare module PlayFabClientModels {
         StatisticName?: string;
         // game session tags
         Tags?: { [key: string]: string | null };
-
     }
 
     type GameInstanceState = "Open"
@@ -1588,13 +2003,11 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface GameServerRegionsResult extends PlayFabModule.IPlayFabResultCommon {
         // array of regions found matching the request parameters
         Regions?: RegionInfo[];
-
     }
 
     export interface GenericPlayFabIdPair {
@@ -1602,7 +2015,6 @@ declare module PlayFabClientModels {
         GenericId?: GenericServiceId;
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the given generic identifier.
         PlayFabId?: string;
-
     }
 
     export interface GenericServiceId {
@@ -1610,7 +2022,6 @@ declare module PlayFabClientModels {
         ServiceName: string;
         // Unique identifier of the player in that service.
         UserId: string;
-
     }
 
     export interface GetAccountInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1624,25 +2035,21 @@ declare module PlayFabClientModels {
         TitleDisplayName?: string;
         // PlayFab Username for the account to find (if no PlayFabId is specified).
         Username?: string;
-
     }
 
     export interface GetAccountInfoResult extends PlayFabModule.IPlayFabResultCommon {
         // Account information for the local user.
         AccountInfo?: UserAccountInfo;
-
     }
 
     export interface GetCatalogItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Which catalog is being requested. If null, uses the default catalog.
         CatalogVersion?: string;
-
     }
 
     export interface GetCatalogItemsResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of items which can be purchased.
         Catalog?: CatalogItem[];
-
     }
 
     export interface GetCharacterDataRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1655,7 +2062,6 @@ declare module PlayFabClientModels {
         Keys?: string[];
         // Unique PlayFab identifier of the user to load data for. Optional, defaults to yourself if not set.
         PlayFabId?: string;
-
     }
 
     export interface GetCharacterDataResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1666,7 +2072,6 @@ declare module PlayFabClientModels {
         // Indicates the current version of the data that has been set. This is incremented with every set call for that type of
         // data (read-only, internal, etc). This version can be provided in Get calls to find updated data.
         DataVersion: number;
-
     }
 
     export interface GetCharacterInventoryRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1674,7 +2079,6 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId: string;
-
     }
 
     export interface GetCharacterInventoryResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1686,7 +2090,6 @@ declare module PlayFabClientModels {
         VirtualCurrency?: { [key: string]: number };
         // Array of remaining times and timestamps for virtual currencies.
         VirtualCurrencyRechargeTimes?: { [key: string]: VirtualCurrencyRechargeTime };
-
     }
 
     export interface GetCharacterLeaderboardRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1698,25 +2101,21 @@ declare module PlayFabClientModels {
         StartPosition: number;
         // Unique identifier for the title-specific statistic for the leaderboard.
         StatisticName: string;
-
     }
 
     export interface GetCharacterLeaderboardResult extends PlayFabModule.IPlayFabResultCommon {
         // Ordered list of leaderboard entries.
         Leaderboard?: CharacterLeaderboardEntry[];
-
     }
 
     export interface GetCharacterStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId: string;
-
     }
 
     export interface GetCharacterStatisticsResult extends PlayFabModule.IPlayFabResultCommon {
         // The requested character statistics.
         CharacterStatistics?: { [key: string]: number };
-
     }
 
     export interface GetContentDownloadUrlRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1727,13 +2126,11 @@ declare module PlayFabClientModels {
         // True to download through CDN. CDN provides higher download bandwidth and lower latency. However, if you want the latest,
         // non-cached version of the content during development, set this to false. Default is true.
         ThruCDN?: boolean;
-
     }
 
     export interface GetContentDownloadUrlResult extends PlayFabModule.IPlayFabResultCommon {
         // URL for downloading content via HTTP GET or HEAD method. The URL will expire in approximately one hour.
         URL?: string;
-
     }
 
     export interface GetFriendLeaderboardAroundPlayerRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1755,7 +2152,6 @@ declare module PlayFabClientModels {
         Version?: number;
         // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
         XboxToken?: string;
-
     }
 
     export interface GetFriendLeaderboardAroundPlayerResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1765,7 +2161,6 @@ declare module PlayFabClientModels {
         NextReset?: string;
         // The version of the leaderboard returned.
         Version: number;
-
     }
 
     export interface GetFriendLeaderboardRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1787,7 +2182,6 @@ declare module PlayFabClientModels {
         Version?: number;
         // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
         XboxToken?: string;
-
     }
 
     export interface GetFriendsListRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1801,13 +2195,11 @@ declare module PlayFabClientModels {
         ProfileConstraints?: number;
         // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
         XboxToken?: string;
-
     }
 
     export interface GetFriendsListResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of friends found.
         Friends?: FriendInfo[];
-
     }
 
     export interface GetLeaderboardAroundCharacterRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1819,13 +2211,11 @@ declare module PlayFabClientModels {
         MaxResultsCount?: number;
         // Unique identifier for the title-specific statistic for the leaderboard.
         StatisticName: string;
-
     }
 
     export interface GetLeaderboardAroundCharacterResult extends PlayFabModule.IPlayFabResultCommon {
         // Ordered list of leaderboard entries.
         Leaderboard?: CharacterLeaderboardEntry[];
-
     }
 
     export interface GetLeaderboardAroundPlayerRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1841,7 +2231,6 @@ declare module PlayFabClientModels {
         StatisticName: string;
         // The version of the leaderboard to get.
         Version?: number;
-
     }
 
     export interface GetLeaderboardAroundPlayerResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1851,7 +2240,6 @@ declare module PlayFabClientModels {
         NextReset?: string;
         // The version of the leaderboard returned.
         Version: number;
-
     }
 
     export interface GetLeaderboardForUsersCharactersRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1859,13 +2247,11 @@ declare module PlayFabClientModels {
         MaxResultsCount: number;
         // Unique identifier for the title-specific statistic for the leaderboard.
         StatisticName: string;
-
     }
 
     export interface GetLeaderboardForUsersCharactersResult extends PlayFabModule.IPlayFabResultCommon {
         // Ordered list of leaderboard entries.
         Leaderboard?: CharacterLeaderboardEntry[];
-
     }
 
     export interface GetLeaderboardRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1881,7 +2267,6 @@ declare module PlayFabClientModels {
         StatisticName: string;
         // The version of the leaderboard to get.
         Version?: number;
-
     }
 
     export interface GetLeaderboardResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1891,13 +2276,11 @@ declare module PlayFabClientModels {
         NextReset?: string;
         // The version of the leaderboard returned.
         Version: number;
-
     }
 
     export interface GetPaymentTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The name of service to provide the payment token. Allowed Values are: xsolla
         TokenProvider: string;
-
     }
 
     export interface GetPaymentTokenResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1905,19 +2288,16 @@ declare module PlayFabClientModels {
         OrderId?: string;
         // The token from provider.
         ProviderToken?: string;
-
     }
 
     export interface GetPhotonAuthenticationTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The Photon applicationId for the game you wish to log into.
         PhotonApplicationId: string;
-
     }
 
     export interface GetPhotonAuthenticationTokenResult extends PlayFabModule.IPlayFabResultCommon {
         // The Photon authentication token for this game-session.
         PhotonCustomAuthenticationToken?: string;
-
     }
 
     export interface GetPlayerCombinedInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1925,7 +2305,6 @@ declare module PlayFabClientModels {
         InfoRequestParameters: GetPlayerCombinedInfoRequestParams;
         // PlayFabId of the user whose data will be returned. If not filled included, we return the data for the calling player.
         PlayFabId?: string;
-
     }
 
     export interface GetPlayerCombinedInfoRequestParams {
@@ -1960,7 +2339,6 @@ declare module PlayFabClientModels {
         // Specific keys to search for in the custom data. Leave null to get all keys. Has no effect if GetUserReadOnlyData is
         // false
         UserReadOnlyDataKeys?: string[];
-
     }
 
     export interface GetPlayerCombinedInfoResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1968,7 +2346,6 @@ declare module PlayFabClientModels {
         InfoResultPayload?: GetPlayerCombinedInfoResultPayload;
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId?: string;
-
     }
 
     export interface GetPlayerCombinedInfoResultPayload {
@@ -1999,7 +2376,6 @@ declare module PlayFabClientModels {
         UserVirtualCurrency?: { [key: string]: number };
         // Dictionary of remaining times and timestamps for virtual currencies.
         UserVirtualCurrencyRechargeTimes?: { [key: string]: VirtualCurrencyRechargeTime };
-
     }
 
     export interface GetPlayerProfileRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2009,24 +2385,19 @@ declare module PlayFabClientModels {
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
         ProfileConstraints?: number;
-
     }
 
     export interface GetPlayerProfileResult extends PlayFabModule.IPlayFabResultCommon {
         // The profile of the player. This profile is not guaranteed to be up-to-date. For a new player, this profile will not
         // exist.
         PlayerProfile?: PlayerProfileModel;
-
     }
 
-    export interface GetPlayerSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
+    export interface GetPlayerSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
     export interface GetPlayerSegmentsResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of segments the requested player currently belongs to.
         Segments?: GetSegmentResult[];
-
     }
 
     export interface GetPlayerStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2035,25 +2406,21 @@ declare module PlayFabClientModels {
         // statistics to return, if StatisticNames is not set (only statistics which have a version matching that provided will be
         // returned)
         StatisticNameVersions?: StatisticNameVersion[];
-
     }
 
     export interface GetPlayerStatisticsResult extends PlayFabModule.IPlayFabResultCommon {
         // User statistics for the requested user.
         Statistics?: StatisticValue[];
-
     }
 
     export interface GetPlayerStatisticVersionsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // unique name of the statistic
         StatisticName?: string;
-
     }
 
     export interface GetPlayerStatisticVersionsResult extends PlayFabModule.IPlayFabResultCommon {
         // version change history of the statistic
         StatisticVersions?: PlayerStatisticVersion[];
-
     }
 
     export interface GetPlayerTagsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2061,7 +2428,6 @@ declare module PlayFabClientModels {
         Namespace?: string;
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
-
     }
 
     export interface GetPlayerTagsResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2069,13 +2435,11 @@ declare module PlayFabClientModels {
         PlayFabId: string;
         // Canonical tags (including namespace and tag's name) for the requested user
         Tags: string[];
-
     }
 
     export interface GetPlayerTradesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Returns only trades with the given status. If null, returns all trades.
         StatusFilter?: string;
-
     }
 
     export interface GetPlayerTradesResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -2083,92 +2447,77 @@ declare module PlayFabClientModels {
         AcceptedTrades?: TradeInfo[];
         // The trades for this player which are currently available to be accepted.
         OpenedTrades?: TradeInfo[];
-
     }
 
     export interface GetPlayFabIDsFromFacebookIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Facebook identifiers for which the title needs to get PlayFab identifiers.
         FacebookIDs: string[];
-
     }
 
     export interface GetPlayFabIDsFromFacebookIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Facebook identifiers to PlayFab identifiers.
         Data?: FacebookPlayFabIdPair[];
-
     }
 
     export interface GetPlayFabIDsFromFacebookInstantGamesIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Facebook Instant Games identifiers for which the title needs to get PlayFab identifiers.
         FacebookInstantGamesIds: string[];
-
     }
 
     export interface GetPlayFabIDsFromFacebookInstantGamesIdsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Facebook Instant Games identifiers to PlayFab identifiers.
         Data?: FacebookInstantGamesPlayFabIdPair[];
-
     }
 
     export interface GetPlayFabIDsFromGameCenterIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Game Center identifiers (the Player Identifier) for which the title needs to get PlayFab identifiers.
         GameCenterIDs: string[];
-
     }
 
     export interface GetPlayFabIDsFromGameCenterIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Game Center identifiers to PlayFab identifiers.
         Data?: GameCenterPlayFabIdPair[];
-
     }
 
     export interface GetPlayFabIDsFromGenericIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique generic service identifiers for which the title needs to get PlayFab identifiers. Currently limited to a
         // maximum of 10 in a single request.
         GenericIDs: GenericServiceId[];
-
     }
 
     export interface GetPlayFabIDsFromGenericIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of generic service identifiers to PlayFab identifiers.
         Data?: GenericPlayFabIdPair[];
-
     }
 
     export interface GetPlayFabIDsFromGoogleIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Google identifiers (Google+ user IDs) for which the title needs to get PlayFab identifiers.
         GoogleIDs: string[];
-
     }
 
     export interface GetPlayFabIDsFromGoogleIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Google identifiers to PlayFab identifiers.
         Data?: GooglePlayFabIdPair[];
-
     }
 
     export interface GetPlayFabIDsFromKongregateIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Kongregate identifiers (Kongregate's user_id) for which the title needs to get PlayFab identifiers.
         KongregateIDs: string[];
-
     }
 
     export interface GetPlayFabIDsFromKongregateIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Kongregate identifiers to PlayFab identifiers.
         Data?: KongregatePlayFabIdPair[];
-
     }
 
     export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Nintendo Switch Device identifiers for which the title needs to get PlayFab identifiers.
         NintendoSwitchDeviceIds: string[];
-
     }
 
     export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Nintendo Switch Device identifiers to PlayFab identifiers.
         Data?: number[];
-
     }
 
     export interface GetPlayFabIDsFromPSNAccountIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2176,37 +2525,31 @@ declare module PlayFabClientModels {
         IssuerId?: number;
         // Array of unique PlayStation Network identifiers for which the title needs to get PlayFab identifiers.
         PSNAccountIDs: string[];
-
     }
 
     export interface GetPlayFabIDsFromPSNAccountIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of PlayStation Network identifiers to PlayFab identifiers.
         Data?: PSNAccountPlayFabIdPair[];
-
     }
 
     export interface GetPlayFabIDsFromSteamIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Steam identifiers (Steam profile IDs) for which the title needs to get PlayFab identifiers.
         SteamStringIDs?: string[];
-
     }
 
     export interface GetPlayFabIDsFromSteamIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Steam identifiers to PlayFab identifiers.
         Data?: SteamPlayFabIdPair[];
-
     }
 
     export interface GetPlayFabIDsFromTwitchIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Twitch identifiers (Twitch's _id) for which the title needs to get PlayFab identifiers.
         TwitchIds: string[];
-
     }
 
     export interface GetPlayFabIDsFromTwitchIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Twitch identifiers to PlayFab identifiers.
         Data?: TwitchPlayFabIdPair[];
-
     }
 
     export interface GetPlayFabIDsFromXboxLiveIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2214,31 +2557,26 @@ declare module PlayFabClientModels {
         Sandbox?: string;
         // Array of unique Xbox Live account identifiers for which the title needs to get PlayFab identifiers.
         XboxLiveAccountIDs: string[];
-
     }
 
     export interface GetPlayFabIDsFromXboxLiveIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of PlayStation Network identifiers to PlayFab identifiers.
         Data?: XboxLiveAccountPlayFabIdPair[];
-
     }
 
     export interface GetPublisherDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // array of keys to get back data from the Publisher data blob, set by the admin tools
         Keys: string[];
-
     }
 
     export interface GetPublisherDataResult extends PlayFabModule.IPlayFabResultCommon {
         // a dictionary object of key / value pairs
         Data?: { [key: string]: string | null };
-
     }
 
     export interface GetPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Purchase order identifier.
         OrderId: string;
-
     }
 
     export interface GetPurchaseResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2252,7 +2590,6 @@ declare module PlayFabClientModels {
         TransactionId?: string;
         // PlayFab transaction status
         TransactionStatus?: string;
-
     }
 
     export interface GetSegmentResult {
@@ -2262,7 +2599,6 @@ declare module PlayFabClientModels {
         Id: string;
         // Segment name.
         Name?: string;
-
     }
 
     export interface GetSharedGroupDataRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2273,7 +2609,6 @@ declare module PlayFabClientModels {
         Keys?: string[];
         // Unique identifier for the shared group.
         SharedGroupId: string;
-
     }
 
     export interface GetSharedGroupDataResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2281,7 +2616,6 @@ declare module PlayFabClientModels {
         Data?: { [key: string]: SharedGroupDataRecord };
         // List of PlayFabId identifiers for the members of this group, if requested.
         Members?: string[];
-
     }
 
     export interface GetStoreItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2289,7 +2623,6 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Unqiue identifier for the store which is being requested.
         StoreId: string;
-
     }
 
     export interface GetStoreItemsResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2303,41 +2636,33 @@ declare module PlayFabClientModels {
         Store?: StoreItem[];
         // The ID of this store.
         StoreId?: string;
-
     }
 
-    export interface GetTimeRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
+    export interface GetTimeRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
     export interface GetTimeResult extends PlayFabModule.IPlayFabResultCommon {
         // Current server time when the request was received, in UTC
         Time: string;
-
     }
 
     export interface GetTitleDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Specific keys to search for in the title data (leave null to get all keys)
         Keys?: string[];
-
     }
 
     export interface GetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {
         // a dictionary object of key / value pairs
         Data?: { [key: string]: string | null };
-
     }
 
     export interface GetTitleNewsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Limits the results to the last n entries. Defaults to 10 if not set.
         Count?: number;
-
     }
 
     export interface GetTitleNewsResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of news items.
         News?: TitleNewsItem[];
-
     }
 
     export interface GetTitlePublicKeyRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2346,13 +2671,11 @@ declare module PlayFabClientModels {
         TitleId: string;
         // The shared secret key for this title
         TitleSharedSecret: string;
-
     }
 
     export interface GetTitlePublicKeyResult extends PlayFabModule.IPlayFabResultCommon {
         // Base64 encoded RSA CSP byte array blob containing the title's public RSA key
         RSAPublicKey?: string;
-
     }
 
     export interface GetTradeStatusRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2360,13 +2683,11 @@ declare module PlayFabClientModels {
         OfferingPlayerId: string;
         // Trade identifier as returned by OpenTradeOffer.
         TradeId: string;
-
     }
 
     export interface GetTradeStatusResponse extends PlayFabModule.IPlayFabResultCommon {
         // Information about the requested trade.
         Trade?: TradeInfo;
-
     }
 
     export interface GetUserDataRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2378,7 +2699,6 @@ declare module PlayFabClientModels {
         // Unique PlayFab identifier of the user to load data for. Optional, defaults to yourself if not set. When specified to a
         // PlayFab id of another player, then this will only return public keys for that account.
         PlayFabId?: string;
-
     }
 
     export interface GetUserDataResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2387,12 +2707,9 @@ declare module PlayFabClientModels {
         // Indicates the current version of the data that has been set. This is incremented with every set call for that type of
         // data (read-only, internal, etc). This version can be provided in Get calls to find updated data.
         DataVersion: number;
-
     }
 
-    export interface GetUserInventoryRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
+    export interface GetUserInventoryRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
     export interface GetUserInventoryResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of inventory items belonging to the user.
@@ -2401,7 +2718,6 @@ declare module PlayFabClientModels {
         VirtualCurrency?: { [key: string]: number };
         // Array of remaining times and timestamps for virtual currencies.
         VirtualCurrencyRechargeTimes?: { [key: string]: VirtualCurrencyRechargeTime };
-
     }
 
     export interface GetWindowsHelloChallengeRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2410,13 +2726,11 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId: string;
-
     }
 
     export interface GetWindowsHelloChallengeResponse extends PlayFabModule.IPlayFabResultCommon {
         // Server generated challenge to be signed by the user.
         Challenge?: string;
-
     }
 
     export interface GooglePlayFabIdPair {
@@ -2424,7 +2738,6 @@ declare module PlayFabClientModels {
         GoogleId?: string;
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Google identifier.
         PlayFabId?: string;
-
     }
 
     export interface GrantCharacterToUserRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2435,7 +2748,6 @@ declare module PlayFabClientModels {
         // Catalog item identifier of the item in the user's inventory that corresponds to the character in the catalog to be
         // created.
         ItemId: string;
-
     }
 
     export interface GrantCharacterToUserResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2445,7 +2757,6 @@ declare module PlayFabClientModels {
         CharacterType?: string;
         // Indicates whether this character was created successfully.
         Result: boolean;
-
     }
 
     export interface ItemInstance {
@@ -2481,7 +2792,6 @@ declare module PlayFabClientModels {
         UnitPrice: number;
         // The number of uses that were added or removed to this item in this call.
         UsesIncrementedBy?: number;
-
     }
 
     export interface ItemPurchaseRequest {
@@ -2493,7 +2803,6 @@ declare module PlayFabClientModels {
         Quantity: number;
         // Items to be upgraded as a result of this purchase (upgraded items are hidden, as they are "replaced" by the new items).
         UpgradeFromItems?: string[];
-
     }
 
     export interface KongregatePlayFabIdPair {
@@ -2501,7 +2810,6 @@ declare module PlayFabClientModels {
         KongregateId?: string;
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Kongregate identifier.
         PlayFabId?: string;
-
     }
 
     export interface LinkAndroidDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2513,12 +2821,9 @@ declare module PlayFabClientModels {
         ForceLink?: boolean;
         // Specific Operating System version for the user's device.
         OS?: string;
-
     }
 
-    export interface LinkAndroidDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkAndroidDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkAppleRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to a specific Apple account, unlink the other user and re-link.
@@ -2526,7 +2831,6 @@ declare module PlayFabClientModels {
         // The JSON Web token (JWT) returned by Apple after login. Represented as the identityToken field in the authorization
         // credential payload. Used to validate the request and find the user ID (Apple subject) to link with.
         IdentityToken: string;
-
     }
 
     export interface LinkCustomIDRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2534,12 +2838,9 @@ declare module PlayFabClientModels {
         CustomId: string;
         // If another user is already linked to the custom ID, unlink the other user and re-link.
         ForceLink?: boolean;
-
     }
 
-    export interface LinkCustomIDResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkCustomIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkedPlatformAccountModel {
         // Linked account email of the user on the platform, if available
@@ -2550,7 +2851,6 @@ declare module PlayFabClientModels {
         PlatformUserId?: string;
         // Linked account username of the user on the platform, if available
         Username?: string;
-
     }
 
     export interface LinkFacebookAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2558,24 +2858,18 @@ declare module PlayFabClientModels {
         AccessToken: string;
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
-
     }
 
-    export interface LinkFacebookAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkFacebookAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkFacebookInstantGamesIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Facebook Instant Games signature for the user.
         FacebookInstantGamesSignature: string;
         // If another user is already linked to the Facebook Instant Games ID, unlink the other user and re-link.
         ForceLink?: boolean;
-
     }
 
-    export interface LinkFacebookInstantGamesIdResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkFacebookInstantGamesIdResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkGameCenterAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to the account, unlink the other user and re-link.
@@ -2591,12 +2885,9 @@ declare module PlayFabClientModels {
         // The integer representation of date and time that the signature was created on. PlayFab will reject authentication
         // signatures not within 10 minutes of the server's current time.
         Timestamp?: string;
-
     }
 
-    export interface LinkGameCenterAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkGameCenterAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkGoogleAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to the account, unlink the other user and re-link.
@@ -2604,12 +2895,9 @@ declare module PlayFabClientModels {
         // Server authentication code obtained on the client by calling getServerAuthCode()
         // (https://developers.google.com/identity/sign-in/android/offline-access) from Google Play for the user.
         ServerAuthCode?: string;
-
     }
 
-    export interface LinkGoogleAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkGoogleAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkIOSDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Vendor-specific iOS identifier for the user's device.
@@ -2620,12 +2908,9 @@ declare module PlayFabClientModels {
         ForceLink?: boolean;
         // Specific Operating System version for the user's device.
         OS?: string;
-
     }
 
-    export interface LinkIOSDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkIOSDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkKongregateAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Valid session auth ticket issued by Kongregate
@@ -2634,24 +2919,18 @@ declare module PlayFabClientModels {
         ForceLink?: boolean;
         // Numeric user ID assigned by Kongregate
         KongregateId: string;
-
     }
 
-    export interface LinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to the Nintendo Switch Device ID, unlink the other user and re-link.
         ForceLink?: boolean;
         // Nintendo Switch unique identifier for the user's device.
         NintendoSwitchDeviceId: string;
-
     }
 
-    export interface LinkNintendoSwitchDeviceIdResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkNintendoSwitchDeviceIdResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
         // A name that identifies which configured OpenID Connect provider relationship to use. Maximum 100 characters.
@@ -2661,7 +2940,6 @@ declare module PlayFabClientModels {
         // The JSON Web token (JWT) returned by the identity provider after login. Represented as the id_token field in the
         // identity provider's response. Used to validate the request and find the user ID (OpenID Connect subject) to link with.
         IdToken: string;
-
     }
 
     export interface LinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2673,12 +2951,9 @@ declare module PlayFabClientModels {
         IssuerId?: number;
         // Redirect URI supplied to PSN when requesting an auth code
         RedirectUri: string;
-
     }
 
-    export interface LinkPSNAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkPSNAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkSteamAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to the account, unlink the other user and re-link.
@@ -2686,24 +2961,18 @@ declare module PlayFabClientModels {
         // Authentication token for the user, returned as a byte array from Steam, and converted to a string (for example, the byte
         // 0x08 should become "08").
         SteamTicket: string;
-
     }
 
-    export interface LinkSteamAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkSteamAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkTwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Valid token issued by Twitch
         AccessToken: string;
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
-
     }
 
-    export interface LinkTwitchAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkTwitchAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkWindowsHelloAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Device name.
@@ -2714,35 +2983,27 @@ declare module PlayFabClientModels {
         PublicKey: string;
         // Player's user named used by Windows Hello.
         UserName: string;
-
     }
 
-    export interface LinkWindowsHelloAccountResponse extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkWindowsHelloAccountResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkXboxAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
         // Token provided by the Xbox Live SDK/XDK method GetTokenAndSignatureAsync("POST", "https://playfabapi.com/", "").
         XboxToken: string;
-
     }
 
-    export interface LinkXboxAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface LinkXboxAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface ListUsersCharactersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId?: string;
-
     }
 
     export interface ListUsersCharactersResult extends PlayFabModule.IPlayFabResultCommon {
         // The requested list of characters.
         Characters?: CharacterResult[];
-
     }
 
     export interface LocationModel {
@@ -2756,7 +3017,6 @@ declare module PlayFabClientModels {
         Latitude?: number;
         // Longitude coordinate of the geographic location.
         Longitude?: number;
-
     }
 
     type LoginIdentityProvider = "Unknown"
@@ -2778,7 +3038,8 @@ declare module PlayFabClientModels {
         | "NintendoSwitch"
         | "FacebookInstantGames"
         | "OpenIdConnect"
-        | "Apple";
+        | "Apple"
+        | "NintendoSwitchAccount";
 
     export interface LoginResult extends PlayFabModule.IPlayFabResultCommon {
         // If LoginTitlePlayerAccountEntity flag is set on the login request the title_player_account will also be logged in and
@@ -2798,7 +3059,6 @@ declare module PlayFabClientModels {
         SettingsForUser?: UserSettings;
         // The experimentation treatments for this user at the time of login.
         TreatmentAssignment?: TreatmentAssignment;
-
     }
 
     export interface LoginWithAndroidDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2819,7 +3079,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithAppleRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2837,7 +3096,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithCustomIDRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2854,7 +3112,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithEmailAddressRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2867,7 +3124,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithFacebookInstantGamesIdRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2884,7 +3140,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithFacebookRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2901,7 +3156,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithGameCenterRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2927,7 +3181,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithGoogleAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2945,7 +3198,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithIOSDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2966,7 +3218,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithKongregateRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2985,7 +3236,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3002,7 +3252,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3022,7 +3271,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithPlayFabRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3035,7 +3283,6 @@ declare module PlayFabClientModels {
         TitleId?: string;
         // PlayFab username for the account.
         Username: string;
-
     }
 
     export interface LoginWithPSNRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3056,7 +3303,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithSteamRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3074,7 +3320,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithTwitchRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3091,7 +3336,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithWindowsHelloRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3104,7 +3348,6 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
-
     }
 
     export interface LoginWithXboxRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3121,7 +3364,6 @@ declare module PlayFabClientModels {
         TitleId?: string;
         // Token provided by the Xbox Live SDK/XDK method GetTokenAndSignatureAsync("POST", "https://playfabapi.com/", "").
         XboxToken?: string;
-
     }
 
     export interface LogStatement {
@@ -3130,7 +3372,6 @@ declare module PlayFabClientModels {
         // 'Debug', 'Info', or 'Error'
         Level?: string;
         Message?: string;
-
     }
 
     export interface MatchmakeRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3150,7 +3391,6 @@ declare module PlayFabClientModels {
         StatisticName?: string;
         // Filter to include and/or exclude Game Server Instances associated with certain Tags
         TagFilter?: CollectionFilter;
-
     }
 
     export interface MatchmakeResult extends PlayFabModule.IPlayFabResultCommon {
@@ -3172,7 +3412,6 @@ declare module PlayFabClientModels {
         Status?: string;
         // server authorization ticket (used by RedeemMatchmakerTicket to validate user insertion into the game)
         Ticket?: string;
-
     }
 
     type MatchmakeStatus = "Complete"
@@ -3193,7 +3432,6 @@ declare module PlayFabClientModels {
         OverrideExpiration?: string;
         // The list of subscriptions that this player has for this membership
         Subscriptions?: SubscriptionModel[];
-
     }
 
     export interface ModifyUserVirtualCurrencyResult extends PlayFabModule.IPlayFabResultCommon {
@@ -3206,7 +3444,6 @@ declare module PlayFabClientModels {
         PlayFabId?: string;
         // Name of the virtual currency which was modified.
         VirtualCurrency?: string;
-
     }
 
     export interface NintendoSwitchPlayFabIdPair {
@@ -3214,7 +3451,6 @@ declare module PlayFabClientModels {
         NintendoSwitchDeviceId?: string;
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Nintendo Switch Device identifier.
         PlayFabId?: string;
-
     }
 
     export interface OpenTradeRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3225,13 +3461,11 @@ declare module PlayFabClientModels {
         OfferedInventoryInstanceIds?: string[];
         // Catalog items accepted for the trade. If not set, the trade is effectively a gift.
         RequestedCatalogItemIds?: string[];
-
     }
 
     export interface OpenTradeResponse extends PlayFabModule.IPlayFabResultCommon {
         // The information about the trade that was just opened.
         Trade?: TradeInfo;
-
     }
 
     export interface PayForPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3243,7 +3477,6 @@ declare module PlayFabClientModels {
         ProviderName: string;
         // Payment provider transaction identifier. Required for Facebook Payments.
         ProviderTransactionId?: string;
-
     }
 
     export interface PayForPurchaseResult extends PlayFabModule.IPlayFabResultCommon {
@@ -3267,7 +3500,6 @@ declare module PlayFabClientModels {
         VCAmount?: { [key: string]: number };
         // Current virtual currency balances for the user.
         VirtualCurrency?: { [key: string]: number };
-
     }
 
     export interface PaymentOption {
@@ -3279,7 +3511,6 @@ declare module PlayFabClientModels {
         ProviderName?: string;
         // Amount of existing credit the user has with the provider.
         StoreCredit: number;
-
     }
 
     export interface PlayerLeaderboardEntry {
@@ -3293,7 +3524,6 @@ declare module PlayFabClientModels {
         Profile?: PlayerProfileModel;
         // Specific value of the user's statistic.
         StatValue: number;
-
     }
 
     export interface PlayerProfileModel {
@@ -3338,7 +3568,6 @@ declare module PlayFabClientModels {
         TotalValueToDateInUSD?: number;
         // List of the player's lifetime purchase totals, summed by real-money currency
         ValuesToDate?: ValueToDateModel[];
-
     }
 
     export interface PlayerProfileViewConstraints {
@@ -3376,7 +3605,6 @@ declare module PlayFabClientModels {
         ShowTotalValueToDateInUsd: boolean;
         // Whether to show the values to date. Defaults to false
         ShowValuesToDate: boolean;
-
     }
 
     export interface PlayerStatisticVersion {
@@ -3392,7 +3620,6 @@ declare module PlayFabClientModels {
         StatisticName?: string;
         // version of the statistic
         Version: number;
-
     }
 
     export interface PSNAccountPlayFabIdPair {
@@ -3400,7 +3627,6 @@ declare module PlayFabClientModels {
         PlayFabId?: string;
         // Unique PlayStation Network identifier for a user.
         PSNAccountId?: string;
-
     }
 
     export interface PurchaseItemRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3416,13 +3642,11 @@ declare module PlayFabClientModels {
         StoreId?: string;
         // Virtual currency to use to purchase the item.
         VirtualCurrency: string;
-
     }
 
     export interface PurchaseItemResult extends PlayFabModule.IPlayFabResultCommon {
         // Details for the items purchased.
         Items?: ItemInstance[];
-
     }
 
     export interface PurchaseReceiptFulfillment {
@@ -3437,7 +3661,6 @@ declare module PlayFabClientModels {
         RecordedTransactionCurrency?: string;
         // Amount of the stated currency paid for the items, in centesimal units
         RecordedTransactionTotal?: number;
-
     }
 
     type PushNotificationPlatform = "ApplePushNotificationService"
@@ -3448,7 +3671,6 @@ declare module PlayFabClientModels {
         NotificationEndpointARN?: string;
         // Push notification platform
         Platform?: string;
-
     }
 
     export interface RedeemCouponRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3458,13 +3680,11 @@ declare module PlayFabClientModels {
         CharacterId?: string;
         // Generated coupon code to redeem.
         CouponCode: string;
-
     }
 
     export interface RedeemCouponResult extends PlayFabModule.IPlayFabResultCommon {
         // Items granted to the player as a result of redeeming the coupon.
         GrantedItems?: ItemInstance[];
-
     }
 
     export interface RefreshPSNAuthTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3474,7 +3694,6 @@ declare module PlayFabClientModels {
         IssuerId?: number;
         // Redirect URI supplied to PSN when requesting an auth code
         RedirectUri: string;
-
     }
 
     type Region = "USCentral"
@@ -3494,7 +3713,6 @@ declare module PlayFabClientModels {
         PingUrl?: string;
         // unique identifier for the region
         Region?: string;
-
     }
 
     export interface RegisterForIOSPushNotificationRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3504,12 +3722,9 @@ declare module PlayFabClientModels {
         DeviceToken: string;
         // If true, send a test push message immediately after sucessful registration. Defaults to false.
         SendPushNotificationConfirmation?: boolean;
-
     }
 
-    export interface RegisterForIOSPushNotificationResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface RegisterForIOSPushNotificationResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface RegisterPlayFabUserRequest extends PlayFabModule.IPlayFabRequestCommon {
         // An optional parameter for setting the display name for this title (3-25 characters).
@@ -3533,7 +3748,6 @@ declare module PlayFabClientModels {
         TitleId?: string;
         // PlayFab username for the account (3-20 characters)
         Username?: string;
-
     }
 
     export interface RegisterPlayFabUserResult extends PlayFabModule.IPlayFabResultCommon {
@@ -3548,7 +3762,6 @@ declare module PlayFabClientModels {
         SettingsForUser?: UserSettings;
         // PlayFab unique user name.
         Username?: string;
-
     }
 
     export interface RegisterWithWindowsHelloRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3567,61 +3780,45 @@ declare module PlayFabClientModels {
         TitleId: string;
         // Player's user name used by Windows Hello.
         UserName?: string;
-
     }
 
-    export interface RemoveContactEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
+    export interface RemoveContactEmailRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
-    }
-
-    export interface RemoveContactEmailResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface RemoveContactEmailResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface RemoveFriendRequest extends PlayFabModule.IPlayFabRequestCommon {
         // PlayFab identifier of the friend account which is to be removed.
         FriendPlayFabId: string;
-
     }
 
-    export interface RemoveFriendResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface RemoveFriendResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface RemoveGenericIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Generic service identifier to be removed from the player.
         GenericId: GenericServiceId;
-
     }
 
-    export interface RemoveGenericIDResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface RemoveGenericIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface RemoveSharedGroupMembersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // An array of unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabIds: string[];
         // Unique identifier for the shared group.
         SharedGroupId: string;
-
     }
 
-    export interface RemoveSharedGroupMembersResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface RemoveSharedGroupMembersResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface ReportPlayerClientRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional additional comment by reporting player.
         Comment?: string;
         // Unique PlayFab identifier of the reported player.
         ReporteeId: string;
-
     }
 
     export interface ReportPlayerClientResult extends PlayFabModule.IPlayFabResultCommon {
         // The number of remaining reports which may be filed today.
         SubmissionsRemaining: number;
-
     }
 
     export interface RestoreIOSPurchasesRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3629,13 +3826,11 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Base64 encoded receipt data, passed back by the App Store as a result of a successful purchase.
         ReceiptData: string;
-
     }
 
     export interface RestoreIOSPurchasesResult extends PlayFabModule.IPlayFabResultCommon {
         // Fulfilled inventory items and recorded purchases in fulfillment of the validated receipt transactions.
         Fulfillments?: PurchaseReceiptFulfillment[];
-
     }
 
     export interface ScriptExecutionError {
@@ -3646,7 +3841,6 @@ declare module PlayFabClientModels {
         Message?: string;
         // Point during the execution of the script at which the error occurred, if any
         StackTrace?: string;
-
     }
 
     export interface SendAccountRecoveryEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3657,36 +3851,27 @@ declare module PlayFabClientModels {
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId: string;
-
     }
 
-    export interface SendAccountRecoveryEmailResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface SendAccountRecoveryEmailResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetFriendTagsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // PlayFab identifier of the friend account to which the tag(s) should be applied.
         FriendPlayFabId: string;
         // Array of tags to set on the friend account.
         Tags: string[];
-
     }
 
-    export interface SetFriendTagsResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface SetFriendTagsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetPlayerSecretRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
-
     }
 
-    export interface SetPlayerSecretResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface SetPlayerSecretResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SharedGroupDataRecord {
         // Timestamp for when this data was last updated.
@@ -3697,7 +3882,6 @@ declare module PlayFabClientModels {
         Permission?: string;
         // Data stored for the specified group data key.
         Value?: string;
-
     }
 
     type SourceType = "Admin"
@@ -3721,7 +3905,6 @@ declare module PlayFabClientModels {
         Region: string;
         // player statistic for others to use in finding this game. May be null for no stat-based matching
         StatisticName?: string;
-
     }
 
     export interface StartGameResult extends PlayFabModule.IPlayFabResultCommon {
@@ -3741,7 +3924,6 @@ declare module PlayFabClientModels {
         ServerPublicDNSName?: string;
         // unique identifier for the server
         Ticket?: string;
-
     }
 
     export interface StartPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3751,7 +3933,6 @@ declare module PlayFabClientModels {
         Items: ItemPurchaseRequest[];
         // Store through which to purchase items. If not set, prices will be pulled from the catalog itself.
         StoreId?: string;
-
     }
 
     export interface StartPurchaseResult extends PlayFabModule.IPlayFabResultCommon {
@@ -3763,7 +3944,6 @@ declare module PlayFabClientModels {
         PaymentOptions?: PaymentOption[];
         // Current virtual currency totals for the user.
         VirtualCurrencyBalances?: { [key: string]: number };
-
     }
 
     export interface StatisticModel {
@@ -3773,7 +3953,6 @@ declare module PlayFabClientModels {
         Value: number;
         // Statistic version (0 if not a versioned statistic)
         Version: number;
-
     }
 
     export interface StatisticNameVersion {
@@ -3781,7 +3960,6 @@ declare module PlayFabClientModels {
         StatisticName: string;
         // the version of the statistic to be returned
         Version: number;
-
     }
 
     export interface StatisticUpdate {
@@ -3792,7 +3970,6 @@ declare module PlayFabClientModels {
         // for updates to an existing statistic value for a player, the version of the statistic when it was loaded. Null when
         // setting the statistic value for the first time.
         Version?: number;
-
     }
 
     export interface StatisticValue {
@@ -3802,7 +3979,6 @@ declare module PlayFabClientModels {
         Value: number;
         // for updates to an existing statistic value for a player, the version of the statistic when it was loaded
         Version: number;
-
     }
 
     export interface SteamPlayFabIdPair {
@@ -3810,7 +3986,6 @@ declare module PlayFabClientModels {
         PlayFabId?: string;
         // Unique Steam identifier for a user.
         SteamStringId?: string;
-
     }
 
     export interface StoreItem {
@@ -3825,7 +4000,6 @@ declare module PlayFabClientModels {
         RealCurrencyPrices?: { [key: string]: number };
         // Override prices for this item in virtual currencies and "RM" (the base Real Money purchase price, in USD pennies)
         VirtualCurrencyPrices?: { [key: string]: number };
-
     }
 
     export interface StoreMarketingModel {
@@ -3835,7 +4009,6 @@ declare module PlayFabClientModels {
         DisplayName?: string;
         // Custom data about a store.
         Metadata?: any;
-
     }
 
     export interface SubscriptionModel {
@@ -3853,7 +4026,6 @@ declare module PlayFabClientModels {
         SubscriptionItemId?: string;
         // The provider for this subscription. Apple or Google Play are supported today.
         SubscriptionProvider?: string;
-
     }
 
     type SubscriptionProviderStatus = "NoError"
@@ -3870,13 +4042,11 @@ declare module PlayFabClientModels {
         Amount: number;
         // Name of the virtual currency which is to be decremented.
         VirtualCurrency: string;
-
     }
 
     export interface TagModel {
         // Full value of the tag, including namespace
         TagValue?: string;
-
     }
 
     type TitleActivationStatus = "None"
@@ -3894,7 +4064,6 @@ declare module PlayFabClientModels {
         Timestamp: string;
         // Title of the news item.
         Title?: string;
-
     }
 
     export interface TradeInfo {
@@ -3924,7 +4093,6 @@ declare module PlayFabClientModels {
         Status?: string;
         // The identifier for this trade.
         TradeId?: string;
-
     }
 
     type TradeStatus = "Invalid"
@@ -3961,7 +4129,6 @@ declare module PlayFabClientModels {
         Variables?: Variable[];
         // List of the experiment variants.
         Variants?: string[];
-
     }
 
     export interface TwitchPlayFabIdPair {
@@ -3969,147 +4136,94 @@ declare module PlayFabClientModels {
         PlayFabId?: string;
         // Unique Twitch identifier for a user.
         TwitchId?: string;
-
     }
 
     export interface UninkOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
         // A name that identifies which configured OpenID Connect provider relationship to use. Maximum 100 characters.
         ConnectionId: string;
-
     }
 
     export interface UnlinkAndroidDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Android device identifier for the user's device. If not specified, the most recently signed in Android Device ID will be
         // used.
         AndroidDeviceId?: string;
-
     }
 
-    export interface UnlinkAndroidDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {
+    export interface UnlinkAndroidDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    }
-
-    export interface UnlinkAppleRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
+    export interface UnlinkAppleRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
     export interface UnlinkCustomIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Custom unique identifier for the user, generated by the title. If not specified, the most recently signed in Custom ID
         // will be used.
         CustomId?: string;
-
     }
 
-    export interface UnlinkCustomIDResult extends PlayFabModule.IPlayFabResultCommon {
+    export interface UnlinkCustomIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    }
+    export interface UnlinkFacebookAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
-    export interface UnlinkFacebookAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
-
-    export interface UnlinkFacebookAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface UnlinkFacebookAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlinkFacebookInstantGamesIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Facebook Instant Games identifier for the user. If not specified, the most recently signed in ID will be used.
         FacebookInstantGamesId?: string;
-
     }
 
-    export interface UnlinkFacebookInstantGamesIdResult extends PlayFabModule.IPlayFabResultCommon {
+    export interface UnlinkFacebookInstantGamesIdResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    }
+    export interface UnlinkGameCenterAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
-    export interface UnlinkGameCenterAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+    export interface UnlinkGameCenterAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    }
+    export interface UnlinkGoogleAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
-    export interface UnlinkGameCenterAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
-
-    export interface UnlinkGoogleAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
-
-    export interface UnlinkGoogleAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface UnlinkGoogleAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlinkIOSDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Vendor-specific iOS identifier for the user's device. If not specified, the most recently signed in iOS Device ID will
         // be used.
         DeviceId?: string;
-
     }
 
-    export interface UnlinkIOSDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {
+    export interface UnlinkIOSDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    }
+    export interface UnlinkKongregateAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
-    export interface UnlinkKongregateAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
-
-    export interface UnlinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface UnlinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlinkNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Nintendo Switch Device identifier for the user. If not specified, the most recently signed in device ID will be used.
         NintendoSwitchDeviceId?: string;
-
     }
 
-    export interface UnlinkNintendoSwitchDeviceIdResult extends PlayFabModule.IPlayFabResultCommon {
+    export interface UnlinkNintendoSwitchDeviceIdResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    }
+    export interface UnlinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
-    export interface UnlinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+    export interface UnlinkPSNAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    }
+    export interface UnlinkSteamAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
-    export interface UnlinkPSNAccountResult extends PlayFabModule.IPlayFabResultCommon {
+    export interface UnlinkSteamAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    }
+    export interface UnlinkTwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
 
-    export interface UnlinkSteamAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
-
-    export interface UnlinkSteamAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
-
-    export interface UnlinkTwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
-
-    }
-
-    export interface UnlinkTwitchAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface UnlinkTwitchAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlinkWindowsHelloAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // SHA256 hash of the PublicKey generated by Windows Hello.
         PublicKeyHint: string;
-
     }
 
-    export interface UnlinkWindowsHelloAccountResponse extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface UnlinkWindowsHelloAccountResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlinkXboxAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Token provided by the Xbox Live SDK/XDK method GetTokenAndSignatureAsync("POST", "https://playfabapi.com/", "").
         XboxToken?: string;
-
     }
 
-    export interface UnlinkXboxAccountResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface UnlinkXboxAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlockContainerInstanceRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Specifies the catalog version that should be used to determine container contents. If unspecified, uses catalog
@@ -4122,7 +4236,6 @@ declare module PlayFabClientModels {
         // ItemInstanceId of the key that will be consumed by unlocking this container. If the container requires a key, this
         // parameter is required.
         KeyItemInstanceId?: string;
-
     }
 
     export interface UnlockContainerItemRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4133,7 +4246,6 @@ declare module PlayFabClientModels {
         CharacterId?: string;
         // Catalog ItemId of the container type to unlock.
         ContainerItemId: string;
-
     }
 
     export interface UnlockContainerItemResult extends PlayFabModule.IPlayFabResultCommon {
@@ -4145,13 +4257,11 @@ declare module PlayFabClientModels {
         UnlockedWithItemInstanceId?: string;
         // Virtual currency granted to the player as a result of unlocking the container.
         VirtualCurrency?: { [key: string]: number };
-
     }
 
     export interface UpdateAvatarUrlRequest extends PlayFabModule.IPlayFabRequestCommon {
         // URL of the avatar image. If empty, it removes the existing avatar URL.
         ImageUrl: string;
-
     }
 
     export interface UpdateCharacterDataRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4165,14 +4275,12 @@ declare module PlayFabClientModels {
         KeysToRemove?: string[];
         // Permission to be applied to all user data keys written in this request. Defaults to "private" if not set.
         Permission?: string;
-
     }
 
     export interface UpdateCharacterDataResult extends PlayFabModule.IPlayFabResultCommon {
         // Indicates the current version of the data that has been set. This is incremented with every set call for that type of
         // data (read-only, internal, etc). This version can be provided in Get calls to find updated data.
         DataVersion: number;
-
     }
 
     export interface UpdateCharacterStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4180,22 +4288,16 @@ declare module PlayFabClientModels {
         CharacterId: string;
         // Statistics to be updated with the provided values, in the Key(string), Value(int) pattern.
         CharacterStatistics?: { [key: string]: number };
-
     }
 
-    export interface UpdateCharacterStatisticsResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface UpdateCharacterStatisticsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UpdatePlayerStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Statistics to be updated with the provided values
         Statistics: StatisticUpdate[];
-
     }
 
-    export interface UpdatePlayerStatisticsResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface UpdatePlayerStatisticsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UpdateSharedGroupDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
@@ -4208,12 +4310,9 @@ declare module PlayFabClientModels {
         Permission?: string;
         // Unique identifier for the shared group.
         SharedGroupId: string;
-
     }
 
-    export interface UpdateSharedGroupDataResult extends PlayFabModule.IPlayFabResultCommon {
-
-    }
+    export interface UpdateSharedGroupDataResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UpdateUserDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
@@ -4225,31 +4324,29 @@ declare module PlayFabClientModels {
         // Permission to be applied to all user data keys written in this request. Defaults to "private" if not set. This is used
         // for requests by one player for information about another player; those requests will only return Public keys.
         Permission?: string;
-
     }
 
     export interface UpdateUserDataResult extends PlayFabModule.IPlayFabResultCommon {
         // Indicates the current version of the data that has been set. This is incremented with every set call for that type of
         // data (read-only, internal, etc). This version can be provided in Get calls to find updated data.
         DataVersion: number;
-
     }
 
     export interface UpdateUserTitleDisplayNameRequest extends PlayFabModule.IPlayFabRequestCommon {
         // New title display name for the user - must be between 3 and 25 characters.
         DisplayName: string;
-
     }
 
     export interface UpdateUserTitleDisplayNameResult extends PlayFabModule.IPlayFabResultCommon {
         // Current title display name for the user (this will be the original display name if the rename attempt failed).
         DisplayName?: string;
-
     }
 
     export interface UserAccountInfo {
         // User Android device information, if an Android device has been linked
         AndroidDeviceInfo?: UserAndroidDeviceInfo;
+        // Sign in with Apple account information, if an Apple account has been linked
+        AppleAccountInfo?: UserAppleIdInfo;
         // Timestamp indicating when the user account was created
         Created: string;
         // Custom ID information, if a custom ID has been assigned
@@ -4267,6 +4364,8 @@ declare module PlayFabClientModels {
         // User Kongregate account information, if a Kongregate account has been linked
         KongregateInfo?: UserKongregateInfo;
         // Nintendo Switch account information, if a Nintendo Switch account has been linked
+        NintendoSwitchAccountInfo?: number;
+        // Nintendo Switch device information, if a Nintendo Switch device has been linked
         NintendoSwitchDeviceIdInfo?: number;
         // OpenID Connect information, if any OpenID Connect accounts have been linked
         OpenIdInfo?: UserOpenIdInfo[];
@@ -4288,19 +4387,21 @@ declare module PlayFabClientModels {
         WindowsHelloInfo?: UserWindowsHelloInfo;
         // User XBox account information, if a XBox account has been linked
         XboxInfo?: UserXboxInfo;
-
     }
 
     export interface UserAndroidDeviceInfo {
         // Android device ID
         AndroidDeviceId?: string;
+    }
 
+    export interface UserAppleIdInfo {
+        // Apple subject ID
+        AppleSubjectId?: string;
     }
 
     export interface UserCustomIdInfo {
         // Custom ID
         CustomId?: string;
-
     }
 
     type UserDataPermission = "Private"
@@ -4314,7 +4415,6 @@ declare module PlayFabClientModels {
         Permission?: string;
         // Data stored for the specified user data key.
         Value?: string;
-
     }
 
     export interface UserFacebookInfo {
@@ -4322,19 +4422,16 @@ declare module PlayFabClientModels {
         FacebookId?: string;
         // Facebook full name
         FullName?: string;
-
     }
 
     export interface UserFacebookInstantGamesIdInfo {
         // Facebook Instant Games ID
         FacebookInstantGamesId?: string;
-
     }
 
     export interface UserGameCenterInfo {
         // Gamecenter identifier
         GameCenterId?: string;
-
     }
 
     export interface UserGoogleInfo {
@@ -4348,13 +4445,11 @@ declare module PlayFabClientModels {
         GoogleLocale?: string;
         // Name of the Google account user
         GoogleName?: string;
-
     }
 
     export interface UserIosDeviceInfo {
         // iOS device ID
         IosDeviceId?: string;
-
     }
 
     export interface UserKongregateInfo {
@@ -4362,13 +4457,16 @@ declare module PlayFabClientModels {
         KongregateId?: string;
         // Kongregate Username
         KongregateName?: string;
+    }
 
+    export interface UserNintendoSwitchAccountIdInfo {
+        // Nintendo Switch account subject ID
+        NintendoSwitchAccountSubjectId?: string;
     }
 
     export interface UserNintendoSwitchDeviceIdInfo {
         // Nintendo Switch Device ID
         NintendoSwitchDeviceId?: string;
-
     }
 
     export interface UserOpenIdInfo {
@@ -4378,7 +4476,6 @@ declare module PlayFabClientModels {
         Issuer?: string;
         // OpenID Subject
         Subject?: string;
-
     }
 
     type UserOrigination = "Organic"
@@ -4402,12 +4499,13 @@ declare module PlayFabClientModels {
         | "ServerCustomId"
         | "NintendoSwitchDeviceId"
         | "FacebookInstantGamesId"
-        | "OpenIdConnect";
+        | "OpenIdConnect"
+        | "Apple"
+        | "NintendoSwitchAccount";
 
     export interface UserPrivateAccountInfo {
         // user email address
         Email?: string;
-
     }
 
     export interface UserPsnInfo {
@@ -4415,7 +4513,6 @@ declare module PlayFabClientModels {
         PsnAccountId?: string;
         // PSN online ID
         PsnOnlineId?: string;
-
     }
 
     export interface UserSettings {
@@ -4425,7 +4522,6 @@ declare module PlayFabClientModels {
         GatherFocusInfo: boolean;
         // Boolean for whether this player is eligible for ad tracking.
         NeedsAttribution: boolean;
-
     }
 
     export interface UserSteamInfo {
@@ -4439,7 +4535,6 @@ declare module PlayFabClientModels {
         SteamId?: string;
         // Steam display name
         SteamName?: string;
-
     }
 
     export interface UserTitleInfo {
@@ -4461,7 +4556,6 @@ declare module PlayFabClientModels {
         Origination?: string;
         // Title player account entity for this user
         TitlePlayerAccount?: EntityKey;
-
     }
 
     export interface UserTwitchInfo {
@@ -4469,7 +4563,6 @@ declare module PlayFabClientModels {
         TwitchId?: string;
         // Twitch Username
         TwitchUserName?: string;
-
     }
 
     export interface UserWindowsHelloInfo {
@@ -4477,13 +4570,11 @@ declare module PlayFabClientModels {
         WindowsHelloDeviceName?: string;
         // Windows Hello Public Key Hash
         WindowsHelloPublicKeyHash?: string;
-
     }
 
     export interface UserXboxInfo {
         // XBox user ID
         XboxUserId?: string;
-
     }
 
     export interface ValidateAmazonReceiptRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4497,13 +4588,11 @@ declare module PlayFabClientModels {
         ReceiptId: string;
         // AmazonId of the user making the purchase as returned by the Amazon App Store in-app purchase API
         UserId: string;
-
     }
 
     export interface ValidateAmazonReceiptResult extends PlayFabModule.IPlayFabResultCommon {
         // Fulfilled inventory items and recorded purchases in fulfillment of the validated receipt transactions.
         Fulfillments?: PurchaseReceiptFulfillment[];
-
     }
 
     export interface ValidateGooglePlayPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4517,13 +4606,11 @@ declare module PlayFabClientModels {
         ReceiptJson: string;
         // Signature returned by the Google Play IAB API.
         Signature: string;
-
     }
 
     export interface ValidateGooglePlayPurchaseResult extends PlayFabModule.IPlayFabResultCommon {
         // Fulfilled inventory items and recorded purchases in fulfillment of the validated receipt transactions.
         Fulfillments?: PurchaseReceiptFulfillment[];
-
     }
 
     export interface ValidateIOSReceiptRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4535,13 +4622,11 @@ declare module PlayFabClientModels {
         PurchasePrice: number;
         // Base64 encoded receipt data, passed back by the App Store as a result of a successful purchase.
         ReceiptData: string;
-
     }
 
     export interface ValidateIOSReceiptResult extends PlayFabModule.IPlayFabResultCommon {
         // Fulfilled inventory items and recorded purchases in fulfillment of the validated receipt transactions.
         Fulfillments?: PurchaseReceiptFulfillment[];
-
     }
 
     export interface ValidateWindowsReceiptRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4553,13 +4638,11 @@ declare module PlayFabClientModels {
         PurchasePrice: number;
         // XML Receipt returned by the Windows App Store in-app purchase API
         Receipt: string;
-
     }
 
     export interface ValidateWindowsReceiptResult extends PlayFabModule.IPlayFabResultCommon {
         // Fulfilled inventory items and recorded purchases in fulfillment of the validated receipt transactions.
         Fulfillments?: PurchaseReceiptFulfillment[];
-
     }
 
     export interface ValueToDateModel {
@@ -4571,7 +4654,6 @@ declare module PlayFabClientModels {
         // Total value of the purchases in a string representation of decimal monetary units. For example, '9.99' indicates nine
         // dollars and ninety-nine cents when Currency is 'USD'.
         TotalValueAsDecimal?: string;
-
     }
 
     export interface Variable {
@@ -4579,7 +4661,6 @@ declare module PlayFabClientModels {
         Name: string;
         // Value of the variable.
         Value?: string;
-
     }
 
     export interface VirtualCurrencyRechargeTime {
@@ -4591,7 +4672,6 @@ declare module PlayFabClientModels {
         RechargeTime: string;
         // Time remaining (in seconds) before the next recharge increment of the virtual currency.
         SecondsToRecharge: number;
-
     }
 
     export interface WriteClientCharacterEventRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4604,7 +4684,6 @@ declare module PlayFabClientModels {
         EventName: string;
         // The time (in UTC) associated with this event. The value defaults to the current time.
         Timestamp?: string;
-
     }
 
     export interface WriteClientPlayerEventRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4615,14 +4694,12 @@ declare module PlayFabClientModels {
         EventName: string;
         // The time (in UTC) associated with this event. The value defaults to the current time.
         Timestamp?: string;
-
     }
 
     export interface WriteEventResponse extends PlayFabModule.IPlayFabResultCommon {
         // The unique identifier of the event. The values of this identifier consist of ASCII characters and are not constrained to
         // any particular format.
         EventId?: string;
-
     }
 
     export interface WriteTitleEventRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4633,7 +4710,6 @@ declare module PlayFabClientModels {
         EventName: string;
         // The time (in UTC) associated with this event. The value defaults to the current time.
         Timestamp?: string;
-
     }
 
     export interface XboxLiveAccountPlayFabIdPair {
@@ -4641,8 +4717,6 @@ declare module PlayFabClientModels {
         PlayFabId?: string;
         // Unique Xbox Live identifier for a user.
         XboxLiveAccountId?: string;
-
     }
-
 
 }
