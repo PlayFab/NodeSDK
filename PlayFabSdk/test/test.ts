@@ -15,6 +15,7 @@ const PlayFabCloudScript = pf.PlayFabCloudScript as PlayFabCloudScriptModule.IPl
 const PlayFabData = pf.PlayFabData as PlayFabDataModule.IPlayFabData;
 const PlayFabEvents = pf.PlayFabEvents as PlayFabEventsModule.IPlayFabEvents;
 const PlayFabExperimentation = pf.PlayFabExperimentation as PlayFabExperimentationModule.IPlayFabExperimentation;
+const PlayFabInsights = pf.PlayFabInsights as PlayFabInsightsModule.IPlayFabInsights;
 const PlayFabGroups = pf.PlayFabGroups as PlayFabGroupsModule.IPlayFabGroups;
 const PlayFabLocalization = pf.PlayFabLocalization as PlayFabLocalizationModule.IPlayFabLocalization;
 const PlayFabMultiplayer = pf.PlayFabMultiplayer as PlayFabMultiplayerModule.IPlayFabMultiplayer;

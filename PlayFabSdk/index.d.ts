@@ -8,6 +8,7 @@
 /// <reference path="Scripts/typings/PlayFab/PlayFabData.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabEvents.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabExperimentation.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabInsights.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabGroups.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabLocalization.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabMultiplayer.d.ts" />
@@ -25,6 +26,7 @@ export const PlayFabCloudScript: PlayFabCloudScriptModule.IPlayFabCloudScript;
 export const PlayFabData: PlayFabDataModule.IPlayFabData;
 export const PlayFabEvents: PlayFabEventsModule.IPlayFabEvents;
 export const PlayFabExperimentation: PlayFabExperimentationModule.IPlayFabExperimentation;
+export const PlayFabInsights: PlayFabInsightsModule.IPlayFabInsights;
 export const PlayFabGroups: PlayFabGroupsModule.IPlayFabGroups;
 export const PlayFabLocalization: PlayFabLocalizationModule.IPlayFabLocalization;
 export const PlayFabMultiplayer: PlayFabMultiplayerModule.IPlayFabMultiplayer;
