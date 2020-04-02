@@ -2259,6 +2259,7 @@ declare module PlayFabAdminModels {
         | "ExportQuerySchemaMissingRequiredColumns"
         | "ExportCannotParseQuery"
         | "ExportControlCommandsNotAllowed"
+        | "ExportQueryMissingTableReference"
         | "TitleNotEnabledForParty"
         | "PartyVersionNotFound"
         | "MultiplayerServerBuildReferencedByMatchmakingQueue"
@@ -2276,6 +2277,7 @@ declare module PlayFabAdminModels {
         | "ExperimentationTreatmentAssignmentDisabled"
         | "ExperimentationInvalidDuration"
         | "ExperimentationMaxExperimentsReached"
+        | "ExperimentationExperimentSchedulingInProgress"
         | "MaxActionDepthExceeded"
         | "TitleNotOnUpdatedPricingPlan"
         | "SnapshotNotFound";
