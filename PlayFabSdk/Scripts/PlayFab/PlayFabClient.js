@@ -299,6 +299,23 @@ exports.GetAccountInfo = function (request, callback) {
     );
 };
 
+exports.GetAdPlacements = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/GetAdPlacements",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.GetAllUsersCharacters = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1347,6 +1364,23 @@ exports.LinkKongregate = function (request, callback) {
     );
 };
 
+exports.LinkNintendoSwitchAccount = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/LinkNintendoSwitchAccount",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.LinkNintendoSwitchDeviceId = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1680,6 +1714,29 @@ exports.LoginWithKongregate = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/LoginWithKongregate",
+        request,
+        null,
+        null,
+        function (error, result) {
+            if (result != null && result.data != null) {
+                PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+                PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
+                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
+            }
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.LoginWithNintendoSwitchAccount = function (request, callback) {
+    request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
+    if (request.TitleId == null) {
+        throw "Must be have PlayFab.settings.titleId set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/LoginWithNintendoSwitchAccount",
         request,
         null,
         null,
@@ -2113,6 +2170,23 @@ exports.RemoveSharedGroupMembers = function (request, callback) {
     );
 };
 
+exports.ReportAdActivity = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/ReportAdActivity",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.ReportDeviceInfo = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -2153,6 +2227,23 @@ exports.RestoreIOSPurchases = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/RestoreIOSPurchases",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.RewardAdActivity = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/RewardAdActivity",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,
@@ -2405,6 +2496,23 @@ exports.UnlinkKongregate = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/UnlinkKongregate",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UnlinkNintendoSwitchAccount = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/UnlinkNintendoSwitchAccount",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,

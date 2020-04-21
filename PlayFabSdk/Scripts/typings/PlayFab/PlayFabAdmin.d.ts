@@ -2198,6 +2198,7 @@ declare module PlayFabAdminModels {
         | "PartyRequestsThrottledFromRateLimiter"
         | "XboxServiceTooManyRequests"
         | "NintendoSwitchNotEnabledForTitle"
+        | "RequestMultiplayerServersThrottledFromRateLimiter"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"

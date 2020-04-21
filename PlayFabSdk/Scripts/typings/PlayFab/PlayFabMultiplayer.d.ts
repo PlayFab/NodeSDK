@@ -100,6 +100,12 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.DeleteCertificateRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.EmptyResponse> | null,
         ): void;
+        // Deletes a container image repository.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deletecontainerimagerepository
+        DeleteContainerImageRepository(
+            request: PlayFabMultiplayerModels.DeleteContainerImageRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.EmptyResponse> | null,
+        ): void;
         // Deletes a remote user to log on to a VM for a multiplayer server build.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deleteremoteuser
         DeleteRemoteUser(
@@ -789,6 +795,11 @@ declare module PlayFabMultiplayerModels {
     export interface DeleteCertificateRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The name of the certificate.
         Name: string;
+    }
+
+    export interface DeleteContainerImageRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The container image repository we want to delete.
+        ImageName?: string;
     }
 
     export interface DeleteRemoteUserRequest extends PlayFabModule.IPlayFabRequestCommon {
