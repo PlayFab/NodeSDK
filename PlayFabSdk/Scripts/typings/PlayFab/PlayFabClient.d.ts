@@ -120,6 +120,12 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.GetAccountInfoRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetAccountInfoResult> | null,
         ): void;
+        // Returns a list of ad placements and a reward for each
+        // https://docs.microsoft.com/rest/api/playfab/client/advertising/getadplacements
+        GetAdPlacements(
+            request: PlayFabClientModels.GetAdPlacementsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetAdPlacementsResult> | null,
+        ): void;
         // Lists all of the characters that belong to a specific user. CharacterIds are not globally unique; characterId must be
         // evaluated with the parent PlayFabId to guarantee uniqueness.
         // https://docs.microsoft.com/rest/api/playfab/client/characters/getalluserscharacters
@@ -520,6 +526,12 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.LinkKongregateAccountRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkKongregateAccountResult> | null,
         ): void;
+        // Links the Nintendo Switch account associated with the token to the user's PlayFab account.
+        // https://docs.microsoft.com/rest/api/playfab/client/account-management/linknintendoswitchaccount
+        LinkNintendoSwitchAccount(
+            request: PlayFabClientModels.LinkNintendoSwitchAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResult> | null,
+        ): void;
         // Links the NintendoSwitchDeviceId to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linknintendoswitchdeviceid
         LinkNintendoSwitchDeviceId(
@@ -630,6 +642,12 @@ declare module PlayFabClientModule {
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithkongregate
         LoginWithKongregate(
             request: PlayFabClientModels.LoginWithKongregateRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
+        ): void;
+        // Signs in the user with a Nintendo Switch Account identity token.
+        // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithnintendoswitchaccount
+        LoginWithNintendoSwitchAccount(
+            request: PlayFabClientModels.LoginWithNintendoSwitchAccountRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
         ): void;
         // Signs the user in using a Nintendo Switch Device ID, returning a session identifier that can subsequently be used for
@@ -781,6 +799,12 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.RemoveSharedGroupMembersRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.RemoveSharedGroupMembersResult> | null,
         ): void;
+        // Report player's ad activity
+        // https://docs.microsoft.com/rest/api/playfab/client/advertising/reportadactivity
+        ReportAdActivity(
+            request: PlayFabClientModels.ReportAdActivityRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.ReportAdActivityResult> | null,
+        ): void;
         // Write a PlayStream event to describe the provided player device information. This API method is not designed to be
         // called directly by developers. Each PlayFab client SDK will eventually report this information automatically.
         // https://docs.microsoft.com/rest/api/playfab/client/analytics/reportdeviceinfo
@@ -800,6 +824,12 @@ declare module PlayFabClientModule {
         RestoreIOSPurchases(
             request: PlayFabClientModels.RestoreIOSPurchasesRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.RestoreIOSPurchasesResult> | null,
+        ): void;
+        // Reward player's ad activity
+        // https://docs.microsoft.com/rest/api/playfab/client/advertising/rewardadactivity
+        RewardAdActivity(
+            request: PlayFabClientModels.RewardAdActivityRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.RewardAdActivityResult> | null,
         ): void;
         // Forces an email to be sent to the registered email address for the user's account, with a link allowing the user to
         // change the password.If an account recovery email template ID is provided, an email using the custom email template will
@@ -896,6 +926,12 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.UnlinkKongregateAccountRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkKongregateAccountResult> | null,
         ): void;
+        // Unlinks the related Nintendo Switch account from the user's PlayFab account.
+        // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinknintendoswitchaccount
+        UnlinkNintendoSwitchAccount(
+            request: PlayFabClientModels.UnlinkNintendoSwitchAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse> | null,
+        ): void;
         // Unlinks the related NintendoSwitchDeviceId from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinknintendoswitchdeviceid
         UnlinkNintendoSwitchDeviceId(
@@ -906,7 +942,7 @@ declare module PlayFabClientModule {
         // between a title and an Open ID Connect provider.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkopenidconnect
         UnlinkOpenIdConnect(
-            request: PlayFabClientModels.UninkOpenIdConnectRequest | null,
+            request: PlayFabClientModels.UnlinkOpenIdConnectRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse> | null,
         ): void;
         // Unlinks the related PSN account from the user's PlayFab account
@@ -1074,6 +1110,11 @@ declare module PlayFabClientModels {
         Trade?: TradeInfo;
     }
 
+    type AdActivity = "Opened"
+        | "Closed"
+        | "Start"
+        | "End";
+
     export interface AdCampaignAttributionModel {
         // UTC time stamp of attribution
         AttributedAt: string;
@@ -1141,6 +1182,45 @@ declare module PlayFabClientModels {
         Amount: number;
         // Name of the virtual currency which is to be incremented.
         VirtualCurrency: string;
+    }
+
+    export interface AdPlacementDetails {
+        // Placement unique ID
+        PlacementId?: string;
+        // Placement name
+        PlacementName?: string;
+        // If placement has viewing limits indicates how many views are left
+        PlacementViewsRemaining?: number;
+        // If placement has viewing limits indicates when they will next reset
+        PlacementViewsResetMinutes?: number;
+        // Optional URL to a reward asset
+        RewardAssetUrl?: string;
+        // Reward description
+        RewardDescription?: string;
+        // Reward unique ID
+        RewardId?: string;
+        // Reward name
+        RewardName?: string;
+    }
+
+    export interface AdRewardItemGranted {
+        // Catalog ID
+        CatalogId?: string;
+        // Catalog item display name
+        DisplayName?: string;
+        // Inventory instance ID
+        InstanceId?: string;
+        // Item ID
+        ItemId?: string;
+    }
+
+    export interface AdRewardResults {
+        // Array of the items granted to the player
+        GrantedItems?: AdRewardItemGranted[];
+        // Dictionary of virtual currencies that were granted to the player
+        GrantedVirtualCurrencies?: { [key: string]: number };
+        // Dictionary of statistics that were modified for the player
+        IncrementedStatistics?: { [key: string]: number };
     }
 
     export interface AndroidDevicePushNotificationRegistrationRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2042,6 +2122,18 @@ declare module PlayFabClientModels {
         AccountInfo?: UserAccountInfo;
     }
 
+    export interface GetAdPlacementsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The current AppId to use
+        AppId: string;
+        // Using the name or unique identifier, filter the result for get a specific placement.
+        Identifier?: NameIdentifier;
+    }
+
+    export interface GetAdPlacementsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Array of results
+        AdPlacements?: AdPlacementDetails[];
+    }
+
     export interface GetCatalogItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Which catalog is being requested. If null, uses the default catalog.
         CatalogVersion?: string;
@@ -2923,6 +3015,16 @@ declare module PlayFabClientModels {
 
     export interface LinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
+    export interface LinkNintendoSwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // ID of the Nintendo Switch environment. If null, defaults to the production environment.
+        EnvironmentId?: string;
+        // If another user is already linked to a specific Nintendo Switch account, unlink the other user and re-link.
+        ForceLink?: boolean;
+        // The JSON Web token (JWT) returned by Nintendo after login. Used to validate the request and find the user ID (Nintendo
+        // Switch subject) to link with.
+        IdentityToken: string;
+    }
+
     export interface LinkNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // If another user is already linked to the Nintendo Switch Device ID, unlink the other user and re-link.
         ForceLink?: boolean;
@@ -3238,6 +3340,24 @@ declare module PlayFabClientModels {
         TitleId?: string;
     }
 
+    export interface LoginWithNintendoSwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Automatically create a PlayFab account if one is not currently linked to this ID.
+        CreateAccount?: boolean;
+        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        EncryptedRequest?: string;
+        // ID of the Nintendo Switch environment. If null, defaults to the production environment.
+        EnvironmentId?: string;
+        // The JSON Web token (JWT) returned by Nintendo after login.
+        IdentityToken: string;
+        // Flags for which pieces of info to return for the user.
+        InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
+        // Player secret that is used to verify API request signatures (Enterprise Only).
+        PlayerSecret?: string;
+        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
+        // title has been selected.
+        TitleId?: string;
+    }
+
     export interface LoginWithNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
@@ -3444,6 +3564,13 @@ declare module PlayFabClientModels {
         PlayFabId?: string;
         // Name of the virtual currency which was modified.
         VirtualCurrency?: string;
+    }
+
+    export interface NameIdentifier {
+        // Id Identifier, if present
+        Id?: string;
+        // Name Identifier, if present
+        Name?: string;
     }
 
     export interface NintendoSwitchPlayFabIdPair {
@@ -3809,6 +3936,17 @@ declare module PlayFabClientModels {
 
     export interface RemoveSharedGroupMembersResult extends PlayFabModule.IPlayFabResultCommon {}
 
+    export interface ReportAdActivityRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Type of activity, may be Opened, Closed, Start or End
+        Activity: string;
+        // Unique ID of the placement to report for
+        PlacementId: string;
+        // Unique ID of the reward the player was offered
+        RewardId: string;
+    }
+
+    export interface ReportAdActivityResult extends PlayFabModule.IPlayFabResultCommon {}
+
     export interface ReportPlayerClientRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional additional comment by reporting player.
         Comment?: string;
@@ -3831,6 +3969,30 @@ declare module PlayFabClientModels {
     export interface RestoreIOSPurchasesResult extends PlayFabModule.IPlayFabResultCommon {
         // Fulfilled inventory items and recorded purchases in fulfillment of the validated receipt transactions.
         Fulfillments?: PurchaseReceiptFulfillment[];
+    }
+
+    export interface RewardAdActivityRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Placement unique ID
+        PlacementId: string;
+        // Reward unique ID
+        RewardId: string;
+    }
+
+    export interface RewardAdActivityResult extends PlayFabModule.IPlayFabResultCommon {
+        // PlayStream Event ID that was generated by this reward (all subsequent events are associated with this event identifier)
+        AdActivityEventId?: string;
+        // Debug results from the grants
+        DebugResults?: string[];
+        // Id of the placement the reward was for
+        PlacementId?: string;
+        // Name of the placement the reward was for
+        PlacementName?: string;
+        // If placement has viewing limits indicates how many views are left
+        PlacementViewsRemaining?: number;
+        // If placement has viewing limits indicates when they will next reset
+        PlacementViewsResetMinutes?: number;
+        // Reward results
+        RewardResults?: AdRewardResults;
     }
 
     export interface ScriptExecutionError {
@@ -4138,11 +4300,6 @@ declare module PlayFabClientModels {
         TwitchId?: string;
     }
 
-    export interface UninkOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // A name that identifies which configured OpenID Connect provider relationship to use. Maximum 100 characters.
-        ConnectionId: string;
-    }
-
     export interface UnlinkAndroidDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Android device identifier for the user's device. If not specified, the most recently signed in Android Device ID will be
         // used.
@@ -4192,12 +4349,19 @@ declare module PlayFabClientModels {
 
     export interface UnlinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
+    export interface UnlinkNintendoSwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+
     export interface UnlinkNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Nintendo Switch Device identifier for the user. If not specified, the most recently signed in device ID will be used.
         NintendoSwitchDeviceId?: string;
     }
 
     export interface UnlinkNintendoSwitchDeviceIdResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface UnlinkOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // A name that identifies which configured OpenID Connect provider relationship to use. Maximum 100 characters.
+        ConnectionId: string;
+    }
 
     export interface UnlinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
 

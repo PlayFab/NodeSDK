@@ -228,6 +228,20 @@ exports.DeleteCertificate = function (request, callback) {
     );
 };
 
+exports.DeleteContainerImageRepository = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/DeleteContainerImageRepository",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.DeleteRemoteUser = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/DeleteRemoteUser",
@@ -606,6 +620,9 @@ exports.ListPartyQosServers = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Please use ListQosServersForTitle instead. 
+ */
 exports.ListQosServers = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/ListQosServers",
