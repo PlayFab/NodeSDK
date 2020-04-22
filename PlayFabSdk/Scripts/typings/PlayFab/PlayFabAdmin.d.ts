@@ -2456,7 +2456,7 @@ declare module PlayFabAdminModels {
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
-        ProfileConstraints?: number;
+        ProfileConstraints?: PlayerProfileViewConstraints;
     }
 
     export interface GetPlayerProfileResult extends PlayFabModule.IPlayFabResultCommon {
@@ -3941,9 +3941,9 @@ declare module PlayFabAdminModels {
         // User Kongregate account information, if a Kongregate account has been linked
         KongregateInfo?: UserKongregateInfo;
         // Nintendo Switch account information, if a Nintendo Switch account has been linked
-        NintendoSwitchAccountInfo?: number;
+        NintendoSwitchAccountInfo?: UserNintendoSwitchAccountIdInfo;
         // Nintendo Switch device information, if a Nintendo Switch device has been linked
-        NintendoSwitchDeviceIdInfo?: number;
+        NintendoSwitchDeviceIdInfo?: UserNintendoSwitchDeviceIdInfo;
         // OpenID Connect information, if any OpenID Connect accounts have been linked
         OpenIdInfo?: UserOpenIdInfo[];
         // Unique identifier for the user account

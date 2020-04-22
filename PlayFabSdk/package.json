@@ -1,6 +1,6 @@
 {
     "name": "playfab-sdk",
-    "version": "2.46.200421",
+    "version": "2.46.200422",
     "description": "Playfab SDK for node.js applications",
     "license": "Apache-2.0",
     "devDependencies": {
@@ -14,7 +14,9 @@
     "main": "./index.js",
     "files": [
         "Scripts/**/*",
-        "test/**/*"
+        "test/**/*",
+        "index.js",
+        "index.d.ts"
     ],
     "scripts": {
         "test": ".\\test\\run.bat",

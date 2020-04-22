@@ -2237,7 +2237,7 @@ declare module PlayFabClientModels {
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
-        ProfileConstraints?: number;
+        ProfileConstraints?: PlayerProfileViewConstraints;
         // Statistic used to rank players for this leaderboard.
         StatisticName: string;
         // The version of the leaderboard to get.
@@ -2265,7 +2265,7 @@ declare module PlayFabClientModels {
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
-        ProfileConstraints?: number;
+        ProfileConstraints?: PlayerProfileViewConstraints;
         // Position in the leaderboard to start this listing (defaults to the first entry).
         StartPosition: number;
         // Statistic used to rank friends for this leaderboard.
@@ -2284,7 +2284,7 @@ declare module PlayFabClientModels {
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
-        ProfileConstraints?: number;
+        ProfileConstraints?: PlayerProfileViewConstraints;
         // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
         XboxToken?: string;
     }
@@ -2318,7 +2318,7 @@ declare module PlayFabClientModels {
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
-        ProfileConstraints?: number;
+        ProfileConstraints?: PlayerProfileViewConstraints;
         // Statistic used to rank players for this leaderboard.
         StatisticName: string;
         // The version of the leaderboard to get.
@@ -2352,7 +2352,7 @@ declare module PlayFabClientModels {
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
-        ProfileConstraints?: number;
+        ProfileConstraints?: PlayerProfileViewConstraints;
         // Position in the leaderboard to start this listing (defaults to the first entry).
         StartPosition: number;
         // Statistic used to rank players for this leaderboard.
@@ -2423,7 +2423,7 @@ declare module PlayFabClientModels {
         // Specific statistics to retrieve. Leave null to get all keys. Has no effect if GetPlayerStatistics is false
         PlayerStatisticNames?: string[];
         // Specifies the properties to return from the player profile. Defaults to returning the player's display name.
-        ProfileConstraints?: number;
+        ProfileConstraints?: PlayerProfileViewConstraints;
         // Specific keys to search for in the custom data. Leave null to get all keys. Has no effect if GetTitleData is false
         TitleDataKeys?: string[];
         // Specific keys to search for in the custom data. Leave null to get all keys. Has no effect if GetUserData is false
@@ -2476,7 +2476,7 @@ declare module PlayFabClientModels {
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
-        ProfileConstraints?: number;
+        ProfileConstraints?: PlayerProfileViewConstraints;
     }
 
     export interface GetPlayerProfileResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2609,7 +2609,7 @@ declare module PlayFabClientModels {
 
     export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Nintendo Switch Device identifiers to PlayFab identifiers.
-        Data?: number[];
+        Data?: NintendoSwitchPlayFabIdPair[];
     }
 
     export interface GetPlayFabIDsFromPSNAccountIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4528,9 +4528,9 @@ declare module PlayFabClientModels {
         // User Kongregate account information, if a Kongregate account has been linked
         KongregateInfo?: UserKongregateInfo;
         // Nintendo Switch account information, if a Nintendo Switch account has been linked
-        NintendoSwitchAccountInfo?: number;
+        NintendoSwitchAccountInfo?: UserNintendoSwitchAccountIdInfo;
         // Nintendo Switch device information, if a Nintendo Switch device has been linked
-        NintendoSwitchDeviceIdInfo?: number;
+        NintendoSwitchDeviceIdInfo?: UserNintendoSwitchDeviceIdInfo;
         // OpenID Connect information, if any OpenID Connect accounts have been linked
         OpenIdInfo?: UserOpenIdInfo[];
         // Unique identifier for the user account
