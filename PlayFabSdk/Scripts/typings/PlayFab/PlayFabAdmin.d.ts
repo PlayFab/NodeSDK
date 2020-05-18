@@ -2199,6 +2199,8 @@ declare module PlayFabAdminModels {
         | "XboxServiceTooManyRequests"
         | "NintendoSwitchNotEnabledForTitle"
         | "RequestMultiplayerServersThrottledFromRateLimiter"
+        | "TitleDataInstanceNotFound"
+        | "DuplicateTitleDataOverrideInstanceName"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2279,6 +2281,7 @@ declare module PlayFabAdminModels {
         | "ExperimentationInvalidDuration"
         | "ExperimentationMaxExperimentsReached"
         | "ExperimentationExperimentSchedulingInProgress"
+        | "ExperimentationExistingCodelessScheduled"
         | "MaxActionDepthExceeded"
         | "TitleNotOnUpdatedPricingPlan"
         | "SnapshotNotFound";

@@ -4371,7 +4371,11 @@ declare module PlayFabClientModels {
 
     export interface UnlinkSteamAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface UnlinkTwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkTwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Valid token issued by Twitch. Used to specify which twitch account to unlink from the profile. By default it uses the
+        // one that is present on the profile.
+        AccessToken?: string;
+    }
 
     export interface UnlinkTwitchAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 

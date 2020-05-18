@@ -2255,6 +2255,8 @@ declare module PlayFabServerModels {
         | "XboxServiceTooManyRequests"
         | "NintendoSwitchNotEnabledForTitle"
         | "RequestMultiplayerServersThrottledFromRateLimiter"
+        | "TitleDataInstanceNotFound"
+        | "DuplicateTitleDataOverrideInstanceName"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2335,6 +2337,7 @@ declare module PlayFabServerModels {
         | "ExperimentationInvalidDuration"
         | "ExperimentationMaxExperimentsReached"
         | "ExperimentationExperimentSchedulingInProgress"
+        | "ExperimentationExistingCodelessScheduled"
         | "MaxActionDepthExceeded"
         | "TitleNotOnUpdatedPricingPlan"
         | "SnapshotNotFound";
