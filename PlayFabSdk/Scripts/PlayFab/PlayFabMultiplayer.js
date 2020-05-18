@@ -340,6 +340,20 @@ exports.GetMatch = function (request, callback) {
     );
 };
 
+exports.GetMatchmakingQueue = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Match/GetMatchmakingQueue",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.GetMatchmakingTicket = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Match/GetMatchmakingTicket",
@@ -578,6 +592,20 @@ exports.ListContainerImageTags = function (request, callback) {
     );
 };
 
+exports.ListMatchmakingQueues = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Match/ListMatchmakingQueues",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.ListMatchmakingTicketsForPlayer = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Match/ListMatchmakingTicketsForPlayer",
@@ -679,6 +707,20 @@ exports.ListVirtualMachineSummaries = function (request, callback) {
     );
 };
 
+exports.RemoveMatchmakingQueue = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Match/RemoveMatchmakingQueue",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.RequestMultiplayerServer = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/RequestMultiplayerServer",
@@ -696,6 +738,20 @@ exports.RequestMultiplayerServer = function (request, callback) {
 exports.RolloverContainerRegistryCredentials = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/RolloverContainerRegistryCredentials",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.SetMatchmakingQueue = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Match/SetMatchmakingQueue",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
