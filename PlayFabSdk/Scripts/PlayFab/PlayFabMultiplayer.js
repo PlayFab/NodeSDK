@@ -638,8 +638,8 @@ exports.ListPartyQosServers = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/ListPartyQosServers",
         request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
+        null,
+        null,
         function (error, result) {
             if (callback != null) {
                 callback(error, result);
