@@ -1,7 +1,7 @@
 declare module PlayFabEventsModule {
     export interface IPlayFabEvents {
         settings: PlayFabModule.IPlayFabSettings;
-        // Write batches of entity based events to PlayStream. The namespace of the Event must start with 'com.playfab.events.'
+        // Write batches of entity based events to PlayStream. The namespace of the Event must be 'custom' or start with 'custom.'.
         // https://docs.microsoft.com/rest/api/playfab/events/playstream-events/writeevents
         WriteEvents(
             request: PlayFabEventsModels.WriteEventsRequest | null,
