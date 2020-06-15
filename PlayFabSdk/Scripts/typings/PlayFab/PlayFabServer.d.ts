@@ -2255,8 +2255,8 @@ declare module PlayFabServerModels {
         | "XboxServiceTooManyRequests"
         | "NintendoSwitchNotEnabledForTitle"
         | "RequestMultiplayerServersThrottledFromRateLimiter"
-        | "TitleDataInstanceNotFound"
-        | "DuplicateTitleDataOverrideInstanceName"
+        | "TitleDataOverrideNotFound"
+        | "DuplicateKeys"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2922,6 +2922,8 @@ declare module PlayFabServerModels {
     export interface GetTitleDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Specific keys to search for in the title data (leave null to get all keys)
         Keys?: string[];
+        // Name of the override.
+        OverrideLabel?: string;
     }
 
     export interface GetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {
