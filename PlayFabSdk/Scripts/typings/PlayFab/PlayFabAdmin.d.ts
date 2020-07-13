@@ -695,6 +695,8 @@ declare module PlayFabAdminModule {
 
 declare module PlayFabAdminModels {
     export interface AbortTaskInstanceRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // ID of a task instance that is being aborted.
         TaskInstanceId: string;
     }
@@ -754,6 +756,8 @@ declare module PlayFabAdminModels {
     export interface AddLocalizedNewsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Localized body text of the news.
         Body: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Language of the news item.
         Language: string;
         // Unique id of the updated news item.
@@ -767,6 +771,8 @@ declare module PlayFabAdminModels {
     export interface AddNewsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Default body text of the news.
         Body: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Time this news was published. If not set, defaults to now.
         Timestamp?: string;
         // Default title (headline) of the news item.
@@ -779,6 +785,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface AddPlayerTagRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
         // Unique tag for player profile.
@@ -796,6 +804,8 @@ declare module PlayFabAdminModels {
         CommandLineTemplate?: string;
         // developer comment(s) for this build
         Comment?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // path to the game server executable. Defaults to gameserver.exe
         ExecutablePath?: string;
         // maximum number of game server instances that can run on a single host machine
@@ -834,6 +844,8 @@ declare module PlayFabAdminModels {
         // Amount to be added to the user balance of the specified virtual currency. Maximum VC balance is Int32 (2,147,483,647).
         // Any increase over this value will be discarded.
         Amount: number;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // PlayFab unique identifier of the user whose virtual currency balance is to be increased.
         PlayFabId: string;
         // Name of the virtual currency which is to be incremented.
@@ -888,6 +900,8 @@ declare module PlayFabAdminModels {
     export interface BanUsersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // List of ban requests to be applied. Maximum 100.
         Bans: BanRequest[];
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
     }
 
     export interface BanUsersResult extends PlayFabModule.IPlayFabResultCommon {
@@ -1326,6 +1340,8 @@ declare module PlayFabAdminModels {
         | "ZW";
 
     export interface CreateActionsOnPlayerSegmentTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Description the task
         Description?: string;
         // Whether the schedule is active. Inactive schedule will not trigger task execution.
@@ -1339,6 +1355,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface CreateCloudScriptTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Description the task
         Description?: string;
         // Whether the schedule is active. Inactive schedule will not trigger task execution.
@@ -1352,6 +1370,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface CreateInsightsScheduledScalingTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Description the task
         Description?: string;
         // Whether the schedule is active. Inactive schedule will not trigger task execution.
@@ -1393,6 +1413,8 @@ declare module PlayFabAdminModels {
     export interface CreatePlayerStatisticDefinitionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // the aggregation method to use in updating the statistic (defaults to last)
         AggregationMethod?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // unique name of the statistic
         StatisticName: string;
         // interval at which the values of the statistic for all players are reset (resets begin at the next interval boundary)
@@ -1614,6 +1636,8 @@ declare module PlayFabAdminModels {
     export interface DeleteStoreRequest extends PlayFabModule.IPlayFabRequestCommon {
         // catalog version of the store to delete. If null, uses the default catalog.
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // unqiue identifier for the store which is to be deleted
         StoreId: string;
     }
@@ -2201,6 +2225,7 @@ declare module PlayFabAdminModels {
         | "RequestMultiplayerServersThrottledFromRateLimiter"
         | "TitleDataOverrideNotFound"
         | "DuplicateKeys"
+        | "WasNotCreatedWithCloudRoot"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2454,6 +2479,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface GetPlayerProfileRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
@@ -2483,6 +2510,8 @@ declare module PlayFabAdminModels {
     export interface GetPlayersInSegmentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Continuation token if retrieving subsequent pages of results.
         ContinuationToken?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Maximum number of profiles to load. Default is 1,000. Maximum is 10,000.
         MaxBatchSize?: number;
         // Number of seconds to keep the continuation token active. After token expiration it is not possible to continue paging
@@ -2502,6 +2531,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface GetPlayersSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
     }
@@ -2514,6 +2545,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface GetPlayerStatisticVersionsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // unique name of the statistic
         StatisticName?: string;
     }
@@ -2524,6 +2557,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface GetPlayerTagsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Optional namespace to filter results by
         Namespace?: string;
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
@@ -2713,6 +2748,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface GetUserInventoryRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
     }
@@ -2772,6 +2809,8 @@ declare module PlayFabAdminModels {
     export interface GrantItemsToUsersRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version from which items are to be granted.
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Array of items to grant and the users to whom the items are to be granted.
         ItemGrants: ItemGrant[];
     }
@@ -2786,6 +2825,8 @@ declare module PlayFabAdminModels {
         Amount: number;
         // Which catalog is being updated. If null, uses the default catalog.
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The item which needs more availability.
         ItemId: string;
     }
@@ -2793,6 +2834,8 @@ declare module PlayFabAdminModels {
     export interface IncrementLimitedEditionItemAvailabilityResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface IncrementPlayerStatisticVersionRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // unique name of the statistic
         StatisticName?: string;
     }
@@ -2982,6 +3025,8 @@ declare module PlayFabAdminModels {
         CommandLineTemplate?: string;
         // developer comment(s) for this build
         Comment?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // path to the game server executable. Defaults to gameserver.exe
         ExecutablePath?: string;
         // maximum number of game server instances that can run on a single host machine
@@ -3330,6 +3375,8 @@ declare module PlayFabAdminModels {
         | "Australia";
 
     export interface RemovePlayerTagRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
         // Unique tag for player profile.
@@ -3353,6 +3400,8 @@ declare module PlayFabAdminModels {
     export interface ResetCharacterStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
     }
@@ -3360,6 +3409,8 @@ declare module PlayFabAdminModels {
     export interface ResetCharacterStatisticsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface ResetPasswordRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The new password for the player.
         Password: string;
         // The token of the player requesting the password reset.
@@ -3369,6 +3420,8 @@ declare module PlayFabAdminModels {
     export interface ResetPasswordResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface ResetUserStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
     }
@@ -3468,6 +3521,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface RunTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Provide either the task ID or the task name to run a task.
         Identifier?: NameIdentifier;
     }
@@ -3516,6 +3571,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface SendAccountRecoveryEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // User email address attached to their account
         Email: string;
         // The email template id of the account recovery email template to send.
@@ -3534,6 +3591,8 @@ declare module PlayFabAdminModels {
     export interface SetPlayerSecretResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetPublishedRevisionRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Revision to make the current published revision
         Revision: number;
         // Version number
@@ -3684,6 +3743,8 @@ declare module PlayFabAdminModels {
     export interface SubtractUserVirtualCurrencyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Amount to be subtracted from the user balance of the specified virtual currency.
         Amount: number;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // PlayFab unique identifier of the user whose virtual currency balance is to be decreased.
         PlayFabId: string;
         // Name of the virtual currency which is to be decremented.
@@ -3764,6 +3825,8 @@ declare module PlayFabAdminModels {
         Catalog?: CatalogItem[];
         // Which catalog is being updated. If null, uses the default catalog.
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Should this catalog be set as the default catalog. Defaults to true. If there is currently no default catalog, this will
         // always set it.
         SetAsDefaultCatalog?: boolean;
@@ -3772,6 +3835,8 @@ declare module PlayFabAdminModels {
     export interface UpdateCatalogItemsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UpdateCloudScriptRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // PlayFab user ID of the developer initiating the request.
         DeveloperPlayFabId?: string;
         // List of Cloud Script files to upload to create the new revision. Must have at least one file.
@@ -3845,6 +3910,8 @@ declare module PlayFabAdminModels {
     export interface UpdateRandomResultTablesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // which catalog is being updated. If null, update the current default catalog version
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // array of random result tables to make available (Note: specifying an existing TableId will result in overwriting that
         // table, while any others will be added to the available set)
         Tables?: RandomResultTable[];
@@ -3855,6 +3922,8 @@ declare module PlayFabAdminModels {
     export interface UpdateStoreItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version of the store to update. If null, uses the default catalog.
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Additional data about the store
         MarketingData?: StoreMarketingModel;
         // Array of store items - references to catalog items, with specific pricing - to be added
@@ -3866,6 +3935,8 @@ declare module PlayFabAdminModels {
     export interface UpdateStoreItemsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UpdateTaskRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Description the task
         Description?: string;
         // Specify either the task ID or the name of the task to be updated.
@@ -3883,6 +3954,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface UpdateUserDataRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
@@ -3902,6 +3975,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface UpdateUserInternalDataRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
@@ -3913,6 +3988,8 @@ declare module PlayFabAdminModels {
     }
 
     export interface UpdateUserTitleDisplayNameRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // New title display name for the user - must be between 3 and 25 characters
         DisplayName: string;
         // PlayFab unique identifier of the user whose title specific display name is to be changed
