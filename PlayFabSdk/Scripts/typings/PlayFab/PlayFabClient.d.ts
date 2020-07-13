@@ -1148,6 +1148,8 @@ declare module PlayFabClientModels {
     export interface AddGenericIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface AddOrUpdateContactEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The new contact email to associate with the player.
         EmailAddress: string;
     }
@@ -1164,6 +1166,8 @@ declare module PlayFabClientModels {
     export interface AddSharedGroupMembersResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface AddUsernamePasswordRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // User email address attached to their account
         Email: string;
         // Password for the PlayFab account (6-100 characters)
@@ -1180,6 +1184,8 @@ declare module PlayFabClientModels {
     export interface AddUserVirtualCurrencyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Amount to be added to the user balance of the specified virtual currency.
         Amount: number;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Name of the virtual currency which is to be incremented.
         VirtualCurrency: string;
     }
@@ -1401,6 +1407,8 @@ declare module PlayFabClientModels {
     }
 
     export interface ConfirmPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Purchase order identifier returned from StartPurchase.
         OrderId: string;
     }
@@ -1419,6 +1427,8 @@ declare module PlayFabClientModels {
         CharacterId?: string;
         // Number of uses to consume from the item.
         ConsumeCount: number;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique instance identifier of the item to be consumed.
         ItemInstanceId: string;
     }
@@ -1433,6 +1443,8 @@ declare module PlayFabClientModels {
     export interface ConsumePSNEntitlementsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Which catalog to match granted entitlements against. If null, defaults to title default catalog
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Id of the PSN service label to consume entitlements from
         ServiceLabel: number;
     }
@@ -1445,6 +1457,8 @@ declare module PlayFabClientModels {
     export interface ConsumeXboxEntitlementsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version to use
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Token provided by the Xbox Live SDK/XDK method GetTokenAndSignatureAsync("POST", "https://playfabapi.com/", "").
         XboxToken: string;
     }
@@ -1951,6 +1965,8 @@ declare module PlayFabClientModels {
     }
 
     export interface ExecuteCloudScriptRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The name of the CloudScript function to execute
         FunctionName: string;
         // Object that is passed in to the function as the first argument
@@ -2171,6 +2187,8 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
     }
 
     export interface GetCharacterInventoryResult extends PlayFabModule.IPlayFabResultCommon {
@@ -2226,6 +2244,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetFriendLeaderboardAroundPlayerRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Indicates whether Facebook friends should be included in the response. Default is true.
         IncludeFacebookFriends?: boolean;
         // Indicates whether Steam service friends should be included in the response. Default is true.
@@ -2256,6 +2276,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetFriendLeaderboardRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Indicates whether Facebook friends should be included in the response. Default is true.
         IncludeFacebookFriends?: boolean;
         // Indicates whether Steam service friends should be included in the response. Default is true.
@@ -2277,6 +2299,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetFriendsListRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Indicates whether Facebook friends should be included in the response. Default is true.
         IncludeFacebookFriends?: boolean;
         // Indicates whether Steam service friends should be included in the response. Default is true.
@@ -2311,6 +2335,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetLeaderboardAroundPlayerRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Maximum number of entries to retrieve. Default 10, maximum 100.
         MaxResultsCount?: number;
         // PlayFab unique identifier of the user to center the leaderboard around. If null will center on the logged in user.
@@ -2347,6 +2373,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetLeaderboardRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Maximum number of entries to retrieve. Default 10, maximum 100.
         MaxResultsCount?: number;
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
@@ -2393,6 +2421,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetPlayerCombinedInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters: GetPlayerCombinedInfoRequestParams;
         // PlayFabId of the user whose data will be returned. If not filled included, we return the data for the calling player.
@@ -2471,6 +2501,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetPlayerProfileRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId?: string;
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
@@ -2493,6 +2525,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetPlayerStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // statistics to return (current version will be returned for each)
         StatisticNames?: string[];
         // statistics to return, if StatisticNames is not set (only statistics which have a version matching that provided will be
@@ -2506,6 +2540,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetPlayerStatisticVersionsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // unique name of the statistic
         StatisticName?: string;
     }
@@ -2516,6 +2552,8 @@ declare module PlayFabClientModels {
     }
 
     export interface GetPlayerTagsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Optional namespace to filter results by
         Namespace?: string;
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
@@ -2803,7 +2841,10 @@ declare module PlayFabClientModels {
         DataVersion: number;
     }
 
-    export interface GetUserInventoryRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface GetUserInventoryRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface GetUserInventoryResult extends PlayFabModule.IPlayFabResultCommon {
         // Array of inventory items belonging to the user.
@@ -2839,6 +2880,8 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Non-unique display name of the character being granted (1-40 characters in length).
         CharacterName: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Catalog item identifier of the item in the user's inventory that corresponds to the character in the catalog to be
         // created.
         ItemId: string;
@@ -2911,6 +2954,8 @@ declare module PlayFabClientModels {
         AndroidDevice?: string;
         // Android device identifier for the user's device.
         AndroidDeviceId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the device, unlink the other user and re-link.
         ForceLink?: boolean;
         // Specific Operating System version for the user's device.
@@ -2920,6 +2965,8 @@ declare module PlayFabClientModels {
     export interface LinkAndroidDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkAppleRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to a specific Apple account, unlink the other user and re-link.
         ForceLink?: boolean;
         // The JSON Web token (JWT) returned by Apple after login. Represented as the identityToken field in the authorization
@@ -2930,6 +2977,8 @@ declare module PlayFabClientModels {
     export interface LinkCustomIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Custom unique identifier for the user, generated by the title.
         CustomId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the custom ID, unlink the other user and re-link.
         ForceLink?: boolean;
     }
@@ -2950,6 +2999,8 @@ declare module PlayFabClientModels {
     export interface LinkFacebookAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique identifier from Facebook for the user.
         AccessToken: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
     }
@@ -2957,6 +3008,8 @@ declare module PlayFabClientModels {
     export interface LinkFacebookAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkFacebookInstantGamesIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Facebook Instant Games signature for the user.
         FacebookInstantGamesSignature: string;
         // If another user is already linked to the Facebook Instant Games ID, unlink the other user and re-link.
@@ -2966,6 +3019,8 @@ declare module PlayFabClientModels {
     export interface LinkFacebookInstantGamesIdResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkGameCenterAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
         // Game Center identifier for the player account to be linked.
@@ -2984,6 +3039,8 @@ declare module PlayFabClientModels {
     export interface LinkGameCenterAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkGoogleAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
         // Server authentication code obtained on the client by calling getServerAuthCode()
@@ -2994,6 +3051,8 @@ declare module PlayFabClientModels {
     export interface LinkGoogleAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkIOSDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Vendor-specific iOS identifier for the user's device.
         DeviceId: string;
         // Specific model of the user's device.
@@ -3009,6 +3068,8 @@ declare module PlayFabClientModels {
     export interface LinkKongregateAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Valid session auth ticket issued by Kongregate
         AuthTicket: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
         // Numeric user ID assigned by Kongregate
@@ -3018,6 +3079,8 @@ declare module PlayFabClientModels {
     export interface LinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkNintendoServiceAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to a specific Nintendo Switch account, unlink the other user and re-link.
         ForceLink?: boolean;
         // The JSON Web token (JWT) returned by Nintendo after login. Used to validate the request and find the user ID (Nintendo
@@ -3026,6 +3089,8 @@ declare module PlayFabClientModels {
     }
 
     export interface LinkNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the Nintendo Switch Device ID, unlink the other user and re-link.
         ForceLink?: boolean;
         // Nintendo Switch unique identifier for the user's device.
@@ -3037,6 +3102,8 @@ declare module PlayFabClientModels {
     export interface LinkOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
         // A name that identifies which configured OpenID Connect provider relationship to use. Maximum 100 characters.
         ConnectionId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to a specific OpenId Connect user, unlink the other user and re-link.
         ForceLink?: boolean;
         // The JSON Web token (JWT) returned by the identity provider after login. Represented as the id_token field in the
@@ -3047,6 +3114,8 @@ declare module PlayFabClientModels {
     export interface LinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Authentication code provided by the PlayStation Network.
         AuthCode: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
         // Id of the PSN issuer environment. If null, defaults to 256 (production)
@@ -3058,6 +3127,8 @@ declare module PlayFabClientModels {
     export interface LinkPSNAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkSteamAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
         // Authentication token for the user, returned as a byte array from Steam, and converted to a string (for example, the byte
@@ -3070,6 +3141,8 @@ declare module PlayFabClientModels {
     export interface LinkTwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Valid token issued by Twitch
         AccessToken: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
     }
@@ -3077,6 +3150,8 @@ declare module PlayFabClientModels {
     export interface LinkTwitchAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkWindowsHelloAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Device name.
         DeviceName?: string;
         // If another user is already linked to the account, unlink the other user and re-link.
@@ -3090,6 +3165,8 @@ declare module PlayFabClientModels {
     export interface LinkWindowsHelloAccountResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkXboxAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
         // Token provided by the Xbox Live SDK/XDK method GetTokenAndSignatureAsync("POST", "https://playfabapi.com/", "").
@@ -3170,6 +3247,8 @@ declare module PlayFabClientModels {
         AndroidDeviceId?: string;
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3186,6 +3265,8 @@ declare module PlayFabClientModels {
     export interface LoginWithAppleRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // The JSON Web token (JWT) returned by Apple after login. Represented as the identityToken field in the authorization
@@ -3205,6 +3286,8 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // Custom unique identifier for the user, generated by the title.
         CustomId?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3217,6 +3300,8 @@ declare module PlayFabClientModels {
     }
 
     export interface LoginWithEmailAddressRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Email address for the account.
         Email: string;
         // Flags for which pieces of info to return for the user.
@@ -3231,6 +3316,8 @@ declare module PlayFabClientModels {
     export interface LoginWithFacebookInstantGamesIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Facebook Instant Games signature for the user.
@@ -3249,6 +3336,8 @@ declare module PlayFabClientModels {
         AccessToken: string;
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3263,6 +3352,8 @@ declare module PlayFabClientModels {
     export interface LoginWithGameCenterRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3288,6 +3379,8 @@ declare module PlayFabClientModels {
     export interface LoginWithGoogleAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3305,6 +3398,8 @@ declare module PlayFabClientModels {
     export interface LoginWithIOSDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Vendor-specific iOS identifier for the user's device.
         DeviceId?: string;
         // Specific model of the user's device.
@@ -3327,6 +3422,8 @@ declare module PlayFabClientModels {
         AuthTicket?: string;
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3343,6 +3440,8 @@ declare module PlayFabClientModels {
     export interface LoginWithNintendoServiceAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // The JSON Web token (JWT) returned by Nintendo after login.
@@ -3359,6 +3458,8 @@ declare module PlayFabClientModels {
     export interface LoginWithNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3377,6 +3478,8 @@ declare module PlayFabClientModels {
         ConnectionId: string;
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // The JSON Web token (JWT) returned by the identity provider after login. Represented as the id_token field in the
@@ -3392,6 +3495,8 @@ declare module PlayFabClientModels {
     }
 
     export interface LoginWithPlayFabRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Password for the PlayFab account (6-100 characters)
@@ -3408,6 +3513,8 @@ declare module PlayFabClientModels {
         AuthCode?: string;
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3426,6 +3533,8 @@ declare module PlayFabClientModels {
     export interface LoginWithSteamRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3445,6 +3554,8 @@ declare module PlayFabClientModels {
         AccessToken?: string;
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3459,6 +3570,8 @@ declare module PlayFabClientModels {
     export interface LoginWithWindowsHelloRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The signed response from the user for the Challenge.
         ChallengeSignature: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // SHA256 hash of the PublicKey generated by Windows Hello.
@@ -3471,6 +3584,8 @@ declare module PlayFabClientModels {
     export interface LoginWithXboxRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
@@ -3497,6 +3612,8 @@ declare module PlayFabClientModels {
         BuildVersion?: string;
         // Character to use for stats based matching. Leave null to use account stats.
         CharacterId?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Game mode to match make against. [Note: Required if LobbyId is not specified]
         GameMode?: string;
         // Lobby identifier to match make against. This is used to select a specific Game Server Instance.
@@ -3596,6 +3713,8 @@ declare module PlayFabClientModels {
     export interface PayForPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Currency to use to fund the purchase.
         Currency: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Purchase order identifier returned from StartPurchase.
         OrderId: string;
         // Payment provider to use to fund the purchase.
@@ -3759,6 +3878,8 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique identifier of the item to purchase.
         ItemId: string;
         // Price the client expects to pay for the item (in case a new catalog or store was uploaded, with new prices).
@@ -3805,6 +3926,8 @@ declare module PlayFabClientModels {
         CharacterId?: string;
         // Generated coupon code to redeem.
         CouponCode: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
     }
 
     export interface RedeemCouponResult extends PlayFabModule.IPlayFabResultCommon {
@@ -3852,6 +3975,8 @@ declare module PlayFabClientModels {
     export interface RegisterForIOSPushNotificationResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface RegisterPlayFabUserRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // An optional parameter for setting the display name for this title (3-25 characters).
         DisplayName?: string;
         // User email address attached to their account
@@ -3890,6 +4015,8 @@ declare module PlayFabClientModels {
     }
 
     export interface RegisterWithWindowsHelloRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Device name.
         DeviceName?: string;
         // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
@@ -3907,7 +4034,10 @@ declare module PlayFabClientModels {
         UserName?: string;
     }
 
-    export interface RemoveContactEmailRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface RemoveContactEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface RemoveContactEmailResult extends PlayFabModule.IPlayFabResultCommon {}
 
@@ -3937,6 +4067,8 @@ declare module PlayFabClientModels {
     export interface ReportAdActivityRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Type of activity, may be Opened, Closed, Start or End
         Activity: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique ID of the placement to report for
         PlacementId: string;
         // Unique ID of the reward the player was offered
@@ -3948,6 +4080,8 @@ declare module PlayFabClientModels {
     export interface ReportPlayerClientRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Optional additional comment by reporting player.
         Comment?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique PlayFab identifier of the reported player.
         ReporteeId: string;
     }
@@ -3960,6 +4094,8 @@ declare module PlayFabClientModels {
     export interface RestoreIOSPurchasesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version of the restored items. If null, defaults to primary catalog.
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Base64 encoded receipt data, passed back by the App Store as a result of a successful purchase.
         ReceiptData: string;
     }
@@ -3970,6 +4106,8 @@ declare module PlayFabClientModels {
     }
 
     export interface RewardAdActivityRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Placement unique ID
         PlacementId: string;
         // Reward unique ID
@@ -4004,6 +4142,8 @@ declare module PlayFabClientModels {
     }
 
     export interface SendAccountRecoveryEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // User email address attached to their account
         Email: string;
         // The email template id of the account recovery email template to send.
@@ -4059,6 +4199,8 @@ declare module PlayFabClientModels {
         CharacterId?: string;
         // custom command line argument when starting game server process
         CustomCommandLineData?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // the title-defined game mode this server is to be running (defaults to 0 if there is only one mode)
         GameMode: string;
         // the region to associate this server with for match filtering
@@ -4089,6 +4231,8 @@ declare module PlayFabClientModels {
     export interface StartPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version for the items to be purchased. Defaults to most recent catalog.
         CatalogVersion?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Array of items to purchase.
         Items: ItemPurchaseRequest[];
         // Store through which to purchase items. If not set, prices will be pulled from the catalog itself.
@@ -4200,6 +4344,8 @@ declare module PlayFabClientModels {
     export interface SubtractUserVirtualCurrencyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Amount to be subtracted from the user balance of the specified virtual currency.
         Amount: number;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Name of the virtual currency which is to be decremented.
         VirtualCurrency: string;
     }
@@ -4302,40 +4448,60 @@ declare module PlayFabClientModels {
         // Android device identifier for the user's device. If not specified, the most recently signed in Android Device ID will be
         // used.
         AndroidDeviceId?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
     }
 
     export interface UnlinkAndroidDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface UnlinkAppleRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkAppleRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface UnlinkCustomIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Custom unique identifier for the user, generated by the title. If not specified, the most recently signed in Custom ID
         // will be used.
         CustomId?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
     }
 
     export interface UnlinkCustomIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface UnlinkFacebookAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkFacebookAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface UnlinkFacebookAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlinkFacebookInstantGamesIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Facebook Instant Games identifier for the user. If not specified, the most recently signed in ID will be used.
         FacebookInstantGamesId?: string;
     }
 
     export interface UnlinkFacebookInstantGamesIdResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface UnlinkGameCenterAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkGameCenterAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface UnlinkGameCenterAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface UnlinkGoogleAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkGoogleAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface UnlinkGoogleAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlinkIOSDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Vendor-specific iOS identifier for the user's device. If not specified, the most recently signed in iOS Device ID will
         // be used.
         DeviceId?: string;
@@ -4343,13 +4509,21 @@ declare module PlayFabClientModels {
 
     export interface UnlinkIOSDeviceIDResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface UnlinkKongregateAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkKongregateAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface UnlinkKongregateAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface UnlinkNintendoServiceAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkNintendoServiceAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface UnlinkNintendoSwitchDeviceIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Nintendo Switch Device identifier for the user. If not specified, the most recently signed in device ID will be used.
         NintendoSwitchDeviceId?: string;
     }
@@ -4359,13 +4533,21 @@ declare module PlayFabClientModels {
     export interface UnlinkOpenIdConnectRequest extends PlayFabModule.IPlayFabRequestCommon {
         // A name that identifies which configured OpenID Connect provider relationship to use. Maximum 100 characters.
         ConnectionId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
     }
 
-    export interface UnlinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface UnlinkPSNAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface UnlinkSteamAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkSteamAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface UnlinkSteamAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
@@ -4373,18 +4555,25 @@ declare module PlayFabClientModels {
         // Valid token issued by Twitch. Used to specify which twitch account to unlink from the profile. By default it uses the
         // one that is present on the profile.
         AccessToken?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
     }
 
     export interface UnlinkTwitchAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlinkWindowsHelloAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // SHA256 hash of the PublicKey generated by Windows Hello.
         PublicKeyHint: string;
     }
 
     export interface UnlinkWindowsHelloAccountResponse extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface UnlinkXboxAccountRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface UnlinkXboxAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface UnlinkXboxAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
@@ -4396,6 +4585,8 @@ declare module PlayFabClientModels {
         CharacterId?: string;
         // ItemInstanceId of the container to unlock.
         ContainerItemInstanceId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // ItemInstanceId of the key that will be consumed by unlocking this container. If the container requires a key, this
         // parameter is required.
         KeyItemInstanceId?: string;
@@ -4409,6 +4600,8 @@ declare module PlayFabClientModels {
         CharacterId?: string;
         // Catalog ItemId of the container type to unlock.
         ContainerItemId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
     }
 
     export interface UnlockContainerItemResult extends PlayFabModule.IPlayFabResultCommon {
@@ -4430,6 +4623,8 @@ declare module PlayFabClientModels {
     export interface UpdateCharacterDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
@@ -4451,11 +4646,15 @@ declare module PlayFabClientModels {
         CharacterId: string;
         // Statistics to be updated with the provided values, in the Key(string), Value(int) pattern.
         CharacterStatistics?: { [key: string]: number };
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
     }
 
     export interface UpdateCharacterStatisticsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UpdatePlayerStatisticsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Statistics to be updated with the provided values
         Statistics: StatisticUpdate[];
     }
@@ -4463,6 +4662,8 @@ declare module PlayFabClientModels {
     export interface UpdatePlayerStatisticsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UpdateSharedGroupDataRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
@@ -4478,6 +4679,8 @@ declare module PlayFabClientModels {
     export interface UpdateSharedGroupDataResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UpdateUserDataRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Key-value pairs to be written to the custom data. Note that keys are trimmed of whitespace, are limited in size, and may
         // not begin with a '!' character or be null.
         Data?: { [key: string]: string | null };
@@ -4496,6 +4699,8 @@ declare module PlayFabClientModels {
     }
 
     export interface UpdateUserTitleDisplayNameRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // New title display name for the user - must be between 3 and 25 characters.
         DisplayName: string;
     }
@@ -4745,6 +4950,8 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Currency used to pay for the purchase (ISO 4217 currency code).
         CurrencyCode?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Amount of the stated currency paid, in centesimal units.
         PurchasePrice: number;
         // ReceiptId returned by the Amazon App Store in-app purchase API
@@ -4763,6 +4970,8 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Currency used to pay for the purchase (ISO 4217 currency code).
         CurrencyCode?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Amount of the stated currency paid, in centesimal units.
         PurchasePrice?: number;
         // Original JSON string returned by the Google Play IAB API.
@@ -4781,6 +4990,8 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Currency used to pay for the purchase (ISO 4217 currency code).
         CurrencyCode?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Amount of the stated currency paid, in centesimal units.
         PurchasePrice: number;
         // Base64 encoded receipt data, passed back by the App Store as a result of a successful purchase.
@@ -4797,6 +5008,8 @@ declare module PlayFabClientModels {
         CatalogVersion?: string;
         // Currency used to pay for the purchase (ISO 4217 currency code).
         CurrencyCode: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Amount of the stated currency paid, in centesimal units.
         PurchasePrice: number;
         // XML Receipt returned by the Windows App Store in-app purchase API
@@ -4842,6 +5055,8 @@ declare module PlayFabClientModels {
         Body?: { [key: string]: any };
         // Unique PlayFab assigned ID for a specific character owned by a user
         CharacterId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The name of the event, within the namespace scoped to the title. The naming convention is up to the caller, but it
         // commonly follows the subject_verb_object pattern (e.g. player_logged_in).
         EventName: string;
@@ -4852,6 +5067,8 @@ declare module PlayFabClientModels {
     export interface WriteClientPlayerEventRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Custom data properties associated with the event. Each property consists of a name (string) and a value (JSON object).
         Body?: { [key: string]: any };
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The name of the event, within the namespace scoped to the title. The naming convention is up to the caller, but it
         // commonly follows the subject_verb_object pattern (e.g. player_logged_in).
         EventName: string;
@@ -4868,6 +5085,8 @@ declare module PlayFabClientModels {
     export interface WriteTitleEventRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Custom event properties. Each property consists of a name (string) and a value (JSON object).
         Body?: { [key: string]: any };
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The name of the event, within the namespace scoped to the title. The naming convention is up to the caller, but it
         // commonly follows the subject_verb_object pattern (e.g. player_logged_in).
         EventName: string;

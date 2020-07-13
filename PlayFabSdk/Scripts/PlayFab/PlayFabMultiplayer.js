@@ -102,6 +102,20 @@ exports.CreateBuildWithManagedContainer = function (request, callback) {
     );
 };
 
+exports.CreateBuildWithProcessBasedServer = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/CreateBuildWithProcessBasedServer",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.CreateMatchmakingTicket = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Match/CreateMatchmakingTicket",

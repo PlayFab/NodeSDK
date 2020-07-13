@@ -166,6 +166,8 @@ declare module PlayFabProfilesModels {
     }
 
     export interface GetEntityProfileRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Determines whether the objects will be returned as an escaped JSON string or as a un-escaped JSON object. Default is
         // JSON string.
         DataAsObject?: boolean;
@@ -179,6 +181,8 @@ declare module PlayFabProfilesModels {
     }
 
     export interface GetEntityProfilesRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Determines whether the objects will be returned as an escaped JSON string or as a un-escaped JSON object. Default is
         // JSON string.
         DataAsObject?: boolean;
@@ -191,7 +195,10 @@ declare module PlayFabProfilesModels {
         Profiles?: EntityProfileBody[];
     }
 
-    export interface GetGlobalPolicyRequest extends PlayFabModule.IPlayFabRequestCommon {}
+    export interface GetGlobalPolicyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
 
     export interface GetGlobalPolicyResponse extends PlayFabModule.IPlayFabResultCommon {
         // The permissions that govern access to all entities under this title or namespace.
@@ -199,6 +206,8 @@ declare module PlayFabProfilesModels {
     }
 
     export interface GetTitlePlayersFromMasterPlayerAccountIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Master player account ids.
         MasterPlayerAccountIds: string[];
         // Id of title to get players from.
@@ -218,6 +227,8 @@ declare module PlayFabProfilesModels {
         | "None";
 
     export interface SetEntityProfilePolicyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity: EntityKey;
         // The statements to include in the access policy.
@@ -231,6 +242,8 @@ declare module PlayFabProfilesModels {
     }
 
     export interface SetGlobalPolicyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The permissions that govern access to all entities under this title or namespace.
         Permissions?: EntityPermissionStatement[];
     }
@@ -238,6 +251,8 @@ declare module PlayFabProfilesModels {
     export interface SetGlobalPolicyResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetProfileLanguageRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
         // The expected version of a profile to perform this update on

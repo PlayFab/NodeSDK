@@ -42,6 +42,8 @@ declare module PlayFabAuthenticationModels {
     }
 
     export interface GetEntityTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
     }
@@ -78,6 +80,8 @@ declare module PlayFabAuthenticationModels {
         | "NintendoSwitchAccount";
 
     export interface ValidateEntityTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Client EntityToken
         EntityToken: string;
     }

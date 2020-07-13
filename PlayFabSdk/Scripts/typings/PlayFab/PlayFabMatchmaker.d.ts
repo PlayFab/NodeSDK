@@ -85,6 +85,8 @@ declare module PlayFabMatchmakerModels {
     }
 
     export interface PlayerJoinedRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique identifier of the Game Server Instance the user is joining. This must be a Game Server Instance started with the
         // Matchmaker/StartGame API.
         LobbyId: string;
@@ -95,6 +97,8 @@ declare module PlayFabMatchmakerModels {
     export interface PlayerJoinedResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface PlayerLeftRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Unique identifier of the Game Server Instance the user is leaving. This must be a Game Server Instance started with the
         // Matchmaker/StartGame API.
         LobbyId: string;
@@ -117,6 +121,8 @@ declare module PlayFabMatchmakerModels {
         Build: string;
         // Custom command line argument when starting game server process.
         CustomCommandLineData?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // HTTP endpoint URL for receiving game status events, if using an external matchmaker. When the game ends, PlayFab will
         // make a POST request to this URL with the X-SecretKey header set to the value of the game's secret and an
         // application/json body of { "EventName": "game_ended", "GameID": "<gameid>" }.
@@ -141,6 +147,8 @@ declare module PlayFabMatchmakerModels {
     }
 
     export interface UserInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // Minimum catalog version for which data is requested (filters the results to only contain inventory items which have a
         // catalog version of this or higher).
         MinCatalogVersion: number;
