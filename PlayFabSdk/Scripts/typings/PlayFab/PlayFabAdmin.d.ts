@@ -2708,7 +2708,8 @@ declare module PlayFabAdminModels {
     export interface GetTitleDataRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Specific keys to search for in the title data (leave null to get all keys)
         Keys?: string[];
-        // Name of the override.
+        // Name of the override. This value is ignored when used by the game client; otherwise, the overrides are applied
+        // automatically to the title data.
         OverrideLabel?: string;
     }
 
