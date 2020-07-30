@@ -426,7 +426,8 @@ declare module PlayFabMultiplayerModels {
         | "WestUs"
         | "ChinaEast2"
         | "ChinaNorth2"
-        | "SouthAfricaNorth";
+        | "SouthAfricaNorth"
+        | "CentralUsEuap";
 
     type AzureVmFamily = "A"
         | "Av2"
@@ -650,6 +651,8 @@ declare module PlayFabMultiplayerModels {
         GameAssetReferences?: AssetReferenceParams[];
         // The game certificates for the build.
         GameCertificateReferences?: GameCertificateReferenceParams[];
+        // The Linux instrumentation configuration for the build.
+        LinuxInstrumentationConfiguration?: LinuxInstrumentationConfiguration;
         // Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
         // Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
         Metadata?: { [key: string]: string | null };
@@ -686,6 +689,8 @@ declare module PlayFabMultiplayerModels {
         GameAssetReferences?: AssetReference[];
         // The game certificates for the build.
         GameCertificateReferences?: GameCertificateReference[];
+        // The Linux instrumentation configuration for this build.
+        LinuxInstrumentationConfiguration?: LinuxInstrumentationConfiguration;
         // The metadata of the build.
         Metadata?: { [key: string]: string | null };
         // The number of multiplayer servers to host on a single VM of the build.
@@ -799,6 +804,8 @@ declare module PlayFabMultiplayerModels {
         // The working directory for the game process. If this is not provided, the working directory will be set based on the
         // mount path of the game server executable.
         GameWorkingDirectory?: string;
+        // The instrumentation configuration for the build.
+        InstrumentationConfiguration?: InstrumentationConfiguration;
         // Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
         // Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
         Metadata?: { [key: string]: string | null };
@@ -839,6 +846,8 @@ declare module PlayFabMultiplayerModels {
         // The working directory for the game process. If this is not provided, the working directory will be set based on the
         // mount path of the game server executable.
         GameWorkingDirectory?: string;
+        // The instrumentation configuration for this build.
+        InstrumentationConfiguration?: InstrumentationConfiguration;
         // The metadata of the build.
         Metadata?: { [key: string]: string | null };
         // The number of multiplayer servers to host on a single VM of the build.
@@ -1484,6 +1493,11 @@ declare module PlayFabMultiplayerModels {
         SecondsBetweenExpansions: number;
     }
 
+    export interface LinuxInstrumentationConfiguration {
+        // Designates whether Linux instrumentation configuration will be enabled for this Build
+        IsEnabled: boolean;
+    }
+
     export interface ListAssetSummariesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -1623,7 +1637,7 @@ declare module PlayFabMultiplayerModels {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // Qos servers version
-        Version: string;
+        Version?: string;
     }
 
     export interface ListPartyQosServersResponse extends PlayFabModule.IPlayFabResultCommon {
