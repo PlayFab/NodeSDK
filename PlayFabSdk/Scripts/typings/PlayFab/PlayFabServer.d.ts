@@ -951,6 +951,8 @@ declare module PlayFabServerModels {
     }
 
     export interface AuthenticateSessionTicketResult extends PlayFabModule.IPlayFabResultCommon {
+        // Indicates if token was expired at request time.
+        IsSessionTicketExpired?: boolean;
         // Account info for the user whose session ticket was supplied.
         UserInfo?: UserAccountInfo;
     }
@@ -2274,6 +2276,7 @@ declare module PlayFabServerModels {
         | "TitleDataOverrideNotFound"
         | "DuplicateKeys"
         | "WasNotCreatedWithCloudRoot"
+        | "LegacyMultiplayerServersDeprecated"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
