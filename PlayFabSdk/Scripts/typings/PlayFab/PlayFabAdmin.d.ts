@@ -2245,6 +2245,7 @@ declare module PlayFabAdminModels {
         | "TitleDataOverrideNotFound"
         | "DuplicateKeys"
         | "WasNotCreatedWithCloudRoot"
+        | "LegacyMultiplayerServersDeprecated"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"

@@ -662,23 +662,6 @@ exports.ListPartyQosServers = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Please use ListQosServersForTitle instead. 
- */
-exports.ListQosServers = function (request, callback) {
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/MultiplayerServer/ListQosServers",
-        request,
-        null,
-        null,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.ListQosServersForTitle = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/ListQosServersForTitle",
