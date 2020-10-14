@@ -1,17 +1,41 @@
 declare module PlayFabExperimentationModule {
     export interface IPlayFabExperimentation {
         settings: PlayFabModule.IPlayFabSettings;
+        // Creates a new experiment exclusion group for a title.
+        // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/createexclusiongroup
+        CreateExclusionGroup(
+            request: PlayFabExperimentationModels.CreateExclusionGroupRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.CreateExclusionGroupResult> | null,
+        ): void;
         // Creates a new experiment for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/createexperiment
         CreateExperiment(
             request: PlayFabExperimentationModels.CreateExperimentRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.CreateExperimentResult> | null,
         ): void;
+        // Deletes an existing exclusion group for a title.
+        // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/deleteexclusiongroup
+        DeleteExclusionGroup(
+            request: PlayFabExperimentationModels.DeleteExclusionGroupRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse> | null,
+        ): void;
         // Deletes an existing experiment for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/deleteexperiment
         DeleteExperiment(
             request: PlayFabExperimentationModels.DeleteExperimentRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse> | null,
+        ): void;
+        // Gets the details of all exclusion groups for a title.
+        // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/getexclusiongroups
+        GetExclusionGroups(
+            request: PlayFabExperimentationModels.GetExclusionGroupsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.GetExclusionGroupsResult> | null,
+        ): void;
+        // Gets the details of all exclusion groups for a title.
+        // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/getexclusiongrouptraffic
+        GetExclusionGroupTraffic(
+            request: PlayFabExperimentationModels.GetExclusionGroupTrafficRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.GetExclusionGroupTrafficResult> | null,
         ): void;
         // Gets the details of all experiments for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/getexperiments
@@ -43,6 +67,12 @@ declare module PlayFabExperimentationModule {
             request: PlayFabExperimentationModels.StopExperimentRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse> | null,
         ): void;
+        // Updates an existing exclusion group for a title.
+        // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/updateexclusiongroup
+        UpdateExclusionGroup(
+            request: PlayFabExperimentationModels.UpdateExclusionGroupRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabExperimentationModels.EmptyResponse> | null,
+        ): void;
         // Updates an existing experiment for a title.
         // https://docs.microsoft.com/rest/api/playfab/experimentation/experimentation/updateexperiment
         UpdateExperiment(
@@ -62,13 +92,33 @@ declare module PlayFabExperimentationModels {
         | "Failed"
         | "Canceled";
 
+    export interface CreateExclusionGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Description of the exclusion group.
+        Description?: string;
+        // Friendly name of the exclusion group.
+        Name: string;
+    }
+
+    export interface CreateExclusionGroupResult extends PlayFabModule.IPlayFabResultCommon {
+        // Identifier of the exclusion group.
+        ExclusionGroupId?: string;
+    }
+
     export interface CreateExperimentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // Description of the experiment.
         Description?: string;
         // The duration of the experiment, in days.
-        Duration: number;
+        Duration?: number;
+        // When experiment should end.
+        EndDate?: string;
+        // Id of the exclusion group.
+        ExclusionGroupId?: string;
+        // Percentage of exclusion group traffic that will see this experiment.
+        ExclusionGroupTrafficAllocation?: number;
         // Type of experiment.
         ExperimentType?: string;
         // Friendly name of the experiment.
@@ -89,6 +139,13 @@ declare module PlayFabExperimentationModels {
         ExperimentId?: string;
     }
 
+    export interface DeleteExclusionGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The ID of the exclusion group to delete.
+        ExclusionGroupId: string;
+    }
+
     export interface DeleteExperimentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -105,11 +162,24 @@ declare module PlayFabExperimentationModels {
         Type?: string;
     }
 
+    export interface ExclusionGroupTrafficAllocation {
+        // Id of the experiment.
+        ExperimentId?: string;
+        // Percentage of exclusion group traffic that will see this experiment.
+        TrafficAllocation: number;
+    }
+
     export interface Experiment {
         // Description of the experiment.
         Description?: string;
         // The duration of the experiment, in days.
-        Duration: number;
+        Duration?: number;
+        // When experiment should end/was ended.
+        EndDate?: string;
+        // Id of the exclusion group for this experiment.
+        ExclusionGroupId?: string;
+        // Percentage of exclusion group traffic that will see this experiment.
+        ExclusionGroupTrafficAllocation?: number;
         // Type of experiment.
         ExperimentType?: string;
         // Id of the experiment.
@@ -129,6 +199,15 @@ declare module PlayFabExperimentationModels {
         Variants?: Variant[];
     }
 
+    export interface ExperimentExclusionGroup {
+        // Description of the exclusion group.
+        Description?: string;
+        // Id of the exclusion group.
+        ExclusionGroupId?: string;
+        // Friendly name of the exclusion group.
+        Name?: string;
+    }
+
     type ExperimentState = "New"
         | "Started"
         | "Stopped"
@@ -136,6 +215,28 @@ declare module PlayFabExperimentationModels {
 
     type ExperimentType = "Active"
         | "Snapshot";
+
+    export interface GetExclusionGroupsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
+
+    export interface GetExclusionGroupsResult extends PlayFabModule.IPlayFabResultCommon {
+        // List of exclusion groups for the title.
+        ExclusionGroups?: ExperimentExclusionGroup[];
+    }
+
+    export interface GetExclusionGroupTrafficRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The ID of the exclusion group.
+        ExclusionGroupId: string;
+    }
+
+    export interface GetExclusionGroupTrafficResult extends PlayFabModule.IPlayFabResultCommon {
+        // List of traffic allocations for the exclusion group.
+        TrafficAllocations?: ExclusionGroupTrafficAllocation[];
+    }
 
     export interface GetExperimentsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
@@ -251,13 +352,30 @@ declare module PlayFabExperimentationModels {
         Variants?: string[];
     }
 
+    export interface UpdateExclusionGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Description of the exclusion group.
+        Description?: string;
+        // The ID of the exclusion group to update.
+        ExclusionGroupId: string;
+        // Friendly name of the exclusion group.
+        Name: string;
+    }
+
     export interface UpdateExperimentRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // Description of the experiment.
         Description?: string;
         // The duration of the experiment, in days.
-        Duration: number;
+        Duration?: number;
+        // When experiment should end.
+        EndDate?: string;
+        // Id of the exclusion group.
+        ExclusionGroupId?: string;
+        // Percentage of exclusion group traffic that will see this experiment.
+        ExclusionGroupTrafficAllocation?: number;
         // Type of experiment.
         ExperimentType?: string;
         // Id of the experiment.

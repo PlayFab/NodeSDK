@@ -4,6 +4,20 @@ var PlayFab = require("./PlayFab.js");
 
 exports.settings = PlayFab.settings;
 
+exports.CreateExclusionGroup = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Experimentation/CreateExclusionGroup",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.CreateExperiment = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Experimentation/CreateExperiment",
@@ -18,9 +32,51 @@ exports.CreateExperiment = function (request, callback) {
     );
 };
 
+exports.DeleteExclusionGroup = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Experimentation/DeleteExclusionGroup",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.DeleteExperiment = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Experimentation/DeleteExperiment",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.GetExclusionGroups = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Experimentation/GetExclusionGroups",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.GetExclusionGroupTraffic = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Experimentation/GetExclusionGroupTraffic",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
@@ -91,6 +147,20 @@ exports.StartExperiment = function (request, callback) {
 exports.StopExperiment = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Experimentation/StopExperiment",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UpdateExclusionGroup = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Experimentation/UpdateExclusionGroup",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
