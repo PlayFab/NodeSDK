@@ -2280,7 +2280,6 @@ declare module PlayFabAdminModels {
         | "CatalogSearchParameterInvalid"
         | "CatalogFeatureDisabled"
         | "CatalogConfigInvalid"
-        | "CatalogUnauthorized"
         | "CatalogItemTypeInvalid"
         | "CatalogBadRequest"
         | "CatalogTooManyRequests"
@@ -2342,6 +2341,10 @@ declare module PlayFabAdminModels {
         | "SegmentManagementInvalidSegmentId"
         | "SegmentManagementInvalidInput"
         | "SegmentManagementInvalidSegmentName"
+        | "DeleteSegmentRateLimitExceeded"
+        | "CreateSegmentRateLimitExceeded"
+        | "UpdateSegmentRateLimitExceeded"
+        | "GetSegmentsRateLimitExceeded"
         | "SnapshotNotFound";
 
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {

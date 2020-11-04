@@ -2314,7 +2314,6 @@ declare module PlayFabServerModels {
         | "CatalogSearchParameterInvalid"
         | "CatalogFeatureDisabled"
         | "CatalogConfigInvalid"
-        | "CatalogUnauthorized"
         | "CatalogItemTypeInvalid"
         | "CatalogBadRequest"
         | "CatalogTooManyRequests"
@@ -2376,6 +2375,10 @@ declare module PlayFabServerModels {
         | "SegmentManagementInvalidSegmentId"
         | "SegmentManagementInvalidInput"
         | "SegmentManagementInvalidSegmentName"
+        | "DeleteSegmentRateLimitExceeded"
+        | "CreateSegmentRateLimitExceeded"
+        | "UpdateSegmentRateLimitExceeded"
+        | "GetSegmentsRateLimitExceeded"
         | "SnapshotNotFound";
 
     export interface GenericPlayFabIdPair {
