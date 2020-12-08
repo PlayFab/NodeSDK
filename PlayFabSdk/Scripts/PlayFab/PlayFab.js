@@ -4,7 +4,7 @@ var url = require("url");
 var https = require("https");
 
 exports.sdk_version = "2.59.201027";
-exports.buildIdentifier = "jbuild_nodesdk__sdk-genericslave-3_1";
+exports.buildIdentifier = "jbuild_nodesdk_sdk-genericslave-3_1";
 
 var settings = (exports.settings = {
     productionUrl: ".playfabapi.com",
