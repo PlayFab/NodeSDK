@@ -89,9 +89,9 @@ steps:
 
     ListenCsJCU
     
-    echo === publish if necessary ===
     if $isVersioned
     then
+      echo === publish if necessary ===
       cd "$WORKSPACE/sdks/$SdkName/PlayFabSdk"
       npm publish
     fi
