@@ -1,1 +1,1 @@
-npm install && npm run build && npm run test
+npm install && npm audit fix && npm run build && npm run test

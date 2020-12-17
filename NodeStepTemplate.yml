@@ -64,7 +64,8 @@ steps:
     WORKSPACE=$(pwd -W)
     # Hack attempt to get WORKSPACE into a sub-environment
     export WORKSPACE="$WORKSPACE"
-    
+    PF_TEST_TITLE_DATA_JSON="$WORKSPACE/JenkinsSdkSetupScripts/Creds/testTitleData.json"
+
     echo === load util.sh to find msbuild ===
     if [ -f "util.sh" ]; then
       . "./util.sh" 2> /dev/null
