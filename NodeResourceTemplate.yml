@@ -18,10 +18,6 @@ resources:
       type: github
       endpoint: GitHub_PlayFab
       name: PlayFab/SdkGenerator
-    - repository: NodeSDK
-      endpoint: GitHub_PlayFab
-      type: github
-      name: PlayFab/NodeSDK
 
 jobs:
 - job: NodeResourceTemplate

@@ -48,7 +48,7 @@ steps:
 - checkout: SdkGenerator
   clean: true
   path: s/SdkGenerator
-- checkout: NodeSdk
+- checkout: self
   clean: true
   submodules: true
   path: s/sdks/NodeSDK
@@ -68,20 +68,10 @@ steps:
     echo === PF_TEST_TITLE_DATA SHOULD BE HERE $PF_TEST_TITLE_DATA_JSON === 
 
     echo === load util.sh to find msbuild ===
-    if [ -f "util.sh" ]; then
-      . "./util.sh" 2> /dev/null
-    elif [ ! -z "$WORKSPACE" ]; then
-      . "$WORKSPACE/JenkinsSdkSetupScripts/JenkinsScripts/Pipeline/util.sh" 2> /dev/null
-    fi
-    
-    Find2019MsBuild || Find2017MsBuild
-    
-    . "$WORKSPACE/JenkinsSdkSetupScripts/JenkinsScripts/Pipeline/sdkUtil.sh" 2> /dev/null
-
+    . "$WORKSPACE/JenkinsSdkSetupScripts/JenkinsScripts/Pipeline/sdkUtil.sh"
     . "$WORKSPACE/JenkinsSdkSetupScripts/JenkinsScripts/Pipeline/testInit.sh"
 
     cd "$WORKSPACE\SDKGenerator\SDKBuildScripts"
-    targetSrc="js-node"
     . ./shared_build.sh
 
     echo === Execute $SdkName UnitTests ===
@@ -90,13 +80,11 @@ steps:
 
     ListenCsJCU
     
-    if [ $isVersioned = true ] ;
-    then
+    if [ $isVersioned = true ]; then
       echo === publish if necessary ===
       cd "$WORKSPACE/sdks/$SdkName/PlayFabSdk"
       npm publish
     fi
-
   displayName: 'Build/Test/Report'
 - task: PublishTestResults@2
   inputs:
