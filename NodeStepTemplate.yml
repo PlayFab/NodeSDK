@@ -76,7 +76,6 @@ steps:
     
     Find2019MsBuild || Find2017MsBuild
     
-
     . "$WORKSPACE/JenkinsSdkSetupScripts/JenkinsScripts/Pipeline/sdkUtil.sh" 2> /dev/null
 
     . "$WORKSPACE/JenkinsSdkSetupScripts/JenkinsScripts/Pipeline/testInit.sh"
@@ -91,7 +90,7 @@ steps:
 
     ListenCsJCU
     
-    if $isVersioned
+    if [ $isVersioned = true ] ;
     then
       echo === publish if necessary ===
       cd "$WORKSPACE/sdks/$SdkName/PlayFabSdk"
