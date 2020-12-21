@@ -8,8 +8,8 @@ exports.ExecuteEntityCloudScript = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/CloudScript/ExecuteEntityCloudScript",
         request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
+        null,
+        null,
         function (error, result) {
             if (callback != null) {
                 callback(error, result);
@@ -22,8 +22,8 @@ exports.ExecuteFunction = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/CloudScript/ExecuteFunction",
         request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
+        null,
+        null,
         function (error, result) {
             if (callback != null) {
                 callback(error, result);

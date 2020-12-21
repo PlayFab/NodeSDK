@@ -259,6 +259,23 @@ exports.CreatePlayerStatisticDefinition = function (request, callback) {
     );
 };
 
+exports.CreateSegment = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Admin/CreateSegment",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.DeleteContent = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -333,6 +350,23 @@ exports.DeletePlayerSharedSecret = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Admin/DeletePlayerSharedSecret",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.DeleteSegment = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Admin/DeleteSegment",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,
@@ -809,6 +843,23 @@ exports.GetRandomResultTables = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Admin/GetRandomResultTables",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.GetSegments = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Admin/GetSegments",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,
@@ -1761,6 +1812,23 @@ exports.UpdateRandomResultTables = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Admin/UpdateRandomResultTables",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UpdateSegment = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Admin/UpdateSegment",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,

@@ -246,6 +246,13 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.ListBuildSummariesRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListBuildSummariesResponse> | null,
         ): void;
+        // Lists summarized details of all multiplayer server builds for a title. Accepts tokens for title and if game client
+        // access is enabled, allows game client to request list of builds with player entity token.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listbuildsummariesv2
+        ListBuildSummariesV2(
+            request: PlayFabMultiplayerModels.ListBuildSummariesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListBuildSummariesResponse> | null,
+        ): void;
         // Lists multiplayer server game certificates for a title.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listcertificatesummaries
         ListCertificateSummaries(
