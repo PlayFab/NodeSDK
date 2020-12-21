@@ -550,9 +550,26 @@ exports.ListBuildAliases = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Please use ListBuildSummariesV2 instead. 
+ */
 exports.ListBuildSummaries = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/ListBuildSummaries",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.ListBuildSummariesV2 = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/ListBuildSummariesV2",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
