@@ -819,6 +819,20 @@ exports.UpdateBuildAlias = function (request, callback) {
     );
 };
 
+exports.UpdateBuildName = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/UpdateBuildName",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.UpdateBuildRegion = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/UpdateBuildRegion",
