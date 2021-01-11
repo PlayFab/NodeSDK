@@ -2463,6 +2463,7 @@ declare module PlayFabAdminModels {
         | "ExperimentationExclusionGroupInsufficientCapacity"
         | "ExperimentationExclusionGroupCannotDelete"
         | "ExperimentationExclusionGroupInvalidTrafficAllocation"
+        | "ExperimentationExclusionGroupInvalidName"
         | "MaxActionDepthExceeded"
         | "TitleNotOnUpdatedPricingPlan"
         | "SegmentManagementTitleNotInFlight"
@@ -3139,8 +3140,6 @@ declare module PlayFabAdminModels {
     }
 
     export interface LinkedUserAccountSegmentFilter {
-        // Login provider comparison.
-        Comparison?: string;
         // Login provider.
         LoginProvider?: string;
     }
