@@ -172,6 +172,20 @@ exports.CreateServerMatchmakingTicket = function (request, callback) {
     );
 };
 
+exports.CreateTitleMultiplayerServersQuotaChange = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/CreateTitleMultiplayerServersQuotaChange",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.DeleteAsset = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/DeleteAsset",
@@ -480,6 +494,20 @@ exports.GetTitleEnabledForMultiplayerServersStatus = function (request, callback
     );
 };
 
+exports.GetTitleMultiplayerServersQuotaChange = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/GetTitleMultiplayerServersQuotaChange",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.GetTitleMultiplayerServersQuotas = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/GetTitleMultiplayerServersQuotas",
@@ -539,23 +567,6 @@ exports.ListAssetSummaries = function (request, callback) {
 exports.ListBuildAliases = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/ListBuildAliases",
-        request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-/**
- * @deprecated Please use ListBuildSummariesV2 instead. 
- */
-exports.ListBuildSummaries = function (request, callback) {
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/MultiplayerServer/ListBuildSummaries",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
@@ -696,6 +707,20 @@ exports.ListQosServersForTitle = function (request, callback) {
 exports.ListServerBackfillTicketsForPlayer = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Match/ListServerBackfillTicketsForPlayer",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.ListTitleMultiplayerServersQuotaChanges = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/ListTitleMultiplayerServersQuotaChanges",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
