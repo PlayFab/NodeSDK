@@ -1214,6 +1214,9 @@ exports.GetUserReadOnlyData = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.GetWindowsHelloChallenge = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/GetWindowsHelloChallenge",
@@ -1500,6 +1503,9 @@ exports.LinkTwitch = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.LinkWindowsHello = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1925,6 +1931,9 @@ exports.LoginWithTwitch = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.LoginWithWindowsHello = function (request, callback) {
     request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) {
@@ -2113,6 +2122,9 @@ exports.RegisterPlayFabUser = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.RegisterWithWindowsHello = function (request, callback) {
     request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) {
@@ -2643,6 +2655,9 @@ exports.UnlinkTwitch = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.UnlinkWindowsHello = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
