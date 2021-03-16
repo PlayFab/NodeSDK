@@ -2290,6 +2290,7 @@ declare module PlayFabServerModels {
         | "VirtualCurrencyCurrentlyUnavailable"
         | "SteamUserNotFound"
         | "ElasticSearchOperationFailed"
+        | "NotImplemented"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
