@@ -248,8 +248,8 @@ declare module PlayFabMultiplayerModule {
         // game client to request list of builds with player entity token.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listbuildaliases
         ListBuildAliases(
-            request: PlayFabMultiplayerModels.MultiplayerEmptyRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListBuildAliasesForTitleResponse> | null,
+            request: PlayFabMultiplayerModels.ListBuildAliasesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListBuildAliasesResponse> | null,
         ): void;
         // Lists summarized details of all multiplayer server builds for a title. Accepts tokens for title and if game client
         // access is enabled, allows game client to request list of builds with player entity token.
@@ -529,10 +529,6 @@ declare module PlayFabMultiplayerModels {
         AliasName?: string;
         // Array of build selection criteria.
         BuildSelectionCriteria?: BuildSelectionCriterion[];
-        // The page size on the response.
-        PageSize: number;
-        // The skip token for the paged response.
-        SkipToken?: string;
     }
 
     export interface BuildAliasParams {
@@ -1399,6 +1395,8 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface GetMultiplayerServerDetailsResponse extends PlayFabModule.IPlayFabResultCommon {
+        // The identity of the build in which the server was allocated.
+        BuildId?: string;
         // The connected players in the multiplayer server.
         ConnectedPlayers?: ConnectedPlayer[];
         // The fully qualified domain name of the virtual machine that is hosting this multiplayer server.
@@ -1623,9 +1621,22 @@ declare module PlayFabMultiplayerModels {
         SkipToken?: string;
     }
 
-    export interface ListBuildAliasesForTitleResponse extends PlayFabModule.IPlayFabResultCommon {
+    export interface ListBuildAliasesRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The page size for the request.
+        PageSize?: number;
+        // The skip token for the paged request.
+        SkipToken?: string;
+    }
+
+    export interface ListBuildAliasesResponse extends PlayFabModule.IPlayFabResultCommon {
         // The list of build aliases for the title
         BuildAliases?: BuildAliasDetailsResponse[];
+        // The page size on the response.
+        PageSize: number;
+        // The skip token for the paged response.
+        SkipToken?: string;
     }
 
     export interface ListBuildSummariesRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1912,11 +1923,6 @@ declare module PlayFabMultiplayerModels {
         SecondsBetweenExpansions: number;
     }
 
-    export interface MultiplayerEmptyRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        CustomTags?: { [key: string]: string | null };
-    }
-
     export interface MultiplayerServerSummary {
         // The connected players in the multiplayer server.
         ConnectedPlayers?: ConnectedPlayer[];
@@ -2039,6 +2045,8 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface RequestMultiplayerServerResponse extends PlayFabModule.IPlayFabResultCommon {
+        // The identity of the build in which the server was allocated.
+        BuildId?: string;
         // The connected players in the multiplayer server.
         ConnectedPlayers?: ConnectedPlayer[];
         // The fully qualified domain name of the virtual machine that is hosting this multiplayer server.
@@ -2099,6 +2107,8 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface ServerDetails {
+        // The fully qualified domain name of the virtual machine that is hosting this multiplayer server.
+        Fqdn?: string;
         // The IPv4 address of the virtual machine that is hosting this multiplayer server.
         IPV4Address?: string;
         // The ports the multiplayer server uses.

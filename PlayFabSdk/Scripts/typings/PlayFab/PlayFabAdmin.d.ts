@@ -2342,7 +2342,7 @@ declare module PlayFabAdminModels {
         | "EvaluationModePlayerCountExceeded"
         | "GetPlayersInSegmentRateLimitExceeded"
         | "CloudScriptFunctionNameSizeExceeded"
-        | "InsightsManagementTitleInEvaluationMode"
+        | "PaidInsightsFeaturesNotEnabled"
         | "CloudScriptAzureFunctionsQueueRequestError"
         | "EvaluationModeTitleCountExceeded"
         | "InsightsManagementTitleNotInFlight"
@@ -2481,6 +2481,7 @@ declare module PlayFabAdminModels {
         | "CreateSegmentRateLimitExceeded"
         | "UpdateSegmentRateLimitExceeded"
         | "GetSegmentsRateLimitExceeded"
+        | "AsyncExportNotInFlight"
         | "SnapshotNotFound"
         | "InventoryApiNotImplemented";
 
