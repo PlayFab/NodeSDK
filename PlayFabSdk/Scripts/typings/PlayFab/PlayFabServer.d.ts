@@ -2268,7 +2268,7 @@ declare module PlayFabServerModels {
         | "EvaluationModePlayerCountExceeded"
         | "GetPlayersInSegmentRateLimitExceeded"
         | "CloudScriptFunctionNameSizeExceeded"
-        | "InsightsManagementTitleInEvaluationMode"
+        | "PaidInsightsFeaturesNotEnabled"
         | "CloudScriptAzureFunctionsQueueRequestError"
         | "EvaluationModeTitleCountExceeded"
         | "InsightsManagementTitleNotInFlight"
@@ -2407,6 +2407,7 @@ declare module PlayFabServerModels {
         | "CreateSegmentRateLimitExceeded"
         | "UpdateSegmentRateLimitExceeded"
         | "GetSegmentsRateLimitExceeded"
+        | "AsyncExportNotInFlight"
         | "SnapshotNotFound"
         | "InventoryApiNotImplemented";
 
