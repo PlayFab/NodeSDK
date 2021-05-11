@@ -465,7 +465,8 @@ declare module PlayFabMultiplayerModels {
         | "Ev4"
         | "Esv4"
         | "Dsv3"
-        | "Dsv2";
+        | "Dsv2"
+        | "NCasT4_v3";
 
     type AzureVmSize = "Standard_A1"
         | "Standard_A2"
@@ -517,7 +518,8 @@ declare module PlayFabMultiplayerModels {
         | "Standard_DS2_v2"
         | "Standard_DS3_v2"
         | "Standard_DS4_v2"
-        | "Standard_DS5_v2";
+        | "Standard_DS5_v2"
+        | "Standard_NC4as_T4_v3";
 
     export interface BuildAliasDetailsResponse extends PlayFabModule.IPlayFabResultCommon {
         // The guid string alias Id of the alias to be created or updated.
