@@ -226,7 +226,7 @@ exports.PlayFabApiTests = {
             if (count > 10) {
                 test.ok(false, "The advertisingId was not submitted properly");
                 test.done();
-            } else if (PlayFab.settings.advertisingIdType === PlayFab.settings.AD_TYPE_ANDROID_ID + "_Successful") test.done();
+            } else if (PlayFab.settings.advertisingIdType === PlayFab.settings.AD_TYPE_ANDROID_ID) test.done();
             else setTimeout(SimpleCallbackWrapper("finishAdvertId", finishAdvertId, test), 200);
         };
         const advertLoginCallback = (error: PlayFabModule.IPlayFabError, result: PlayFabModule.IPlayFabSuccessContainer<PlayFabClientModels.LoginResult>): void => {
