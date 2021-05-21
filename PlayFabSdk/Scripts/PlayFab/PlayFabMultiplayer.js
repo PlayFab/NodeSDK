@@ -172,20 +172,6 @@ exports.CreateServerMatchmakingTicket = function (request, callback) {
     );
 };
 
-exports.CreateTitleMultiplayerServersQuotaChange = function (request, callback) {
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/MultiplayerServer/CreateTitleMultiplayerServersQuotaChange",
-        request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.DeleteAsset = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/DeleteAsset",
@@ -494,20 +480,6 @@ exports.GetTitleEnabledForMultiplayerServersStatus = function (request, callback
     );
 };
 
-exports.GetTitleMultiplayerServersQuotaChange = function (request, callback) {
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/MultiplayerServer/GetTitleMultiplayerServersQuotaChange",
-        request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.GetTitleMultiplayerServersQuotas = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/GetTitleMultiplayerServersQuotas",
@@ -718,20 +690,6 @@ exports.ListServerBackfillTicketsForPlayer = function (request, callback) {
     );
 };
 
-exports.ListTitleMultiplayerServersQuotaChanges = function (request, callback) {
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/MultiplayerServer/ListTitleMultiplayerServersQuotaChanges",
-        request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.ListVirtualMachineSummaries = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/ListVirtualMachineSummaries",
@@ -833,20 +791,6 @@ exports.UntagContainerImage = function (request, callback) {
 exports.UpdateBuildAlias = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/UpdateBuildAlias",
-        request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-exports.UpdateBuildName = function (request, callback) {
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/MultiplayerServer/UpdateBuildName",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
