@@ -3,8 +3,8 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "2.68.210511";
-exports.buildIdentifier = "jbuild_nodesdk_sdk-generic-2_1";
+exports.sdk_version = "2.61.201217";
+exports.buildIdentifier = "jbuild_nodesdk_sdk-generic-1_2";
 
 var settings = (exports.settings = {
     productionUrl: ".playfabapi.com",
@@ -13,21 +13,13 @@ var settings = (exports.settings = {
     globalErrorHandler: null,
     developerSecretKey: null, // You must set this value for PlayFabSdk to work properly (Found in the Game Manager for your title, at the PlayFab Website)
     port: 443,
-    advertisingIdType: null, // Set this to the appropriate AD_TYPE_X constant below
-    advertisingIdValue: null, // Set this to corresponding device value
-
-    // disableAdvertising is provided for completeness, but changing it is not suggested
-    // Disabling this may prevent your advertising-related PlayFab marketplace partners from working correctly
-    disableAdvertising: false,
-    AD_TYPE_IDFA: "Idfa",
-    AD_TYPE_ANDROID_ID: "Adid",
 });
 
 var _internalSettings = (exports._internalSettings = {
     entityToken: null,
     sessionTicket: null,
     requestGetParams: {
-        sdk: "JavaScriptSDK-2.68.210511",
+        sdk: "JavaScriptSDK-2.61.201217",
     },
 });
 

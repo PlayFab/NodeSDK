@@ -154,8 +154,6 @@ exports.AttributeInstall = function (request, callback) {
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,
         function (error, result) {
-            // Modify advertisingIdType:  Prevents us from sending the id multiple times, and allows automated tests to determine id was sent successfully
-            PlayFab.settings.advertisingIdType += "_Successful";
             if (callback != null) {
                 callback(error, result);
             }
@@ -220,23 +218,6 @@ exports.ConsumeMicrosoftStoreEntitlements = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/ConsumeMicrosoftStoreEntitlements",
-        request,
-        "X-Authorization",
-        PlayFab._internalSettings.sessionTicket,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-exports.ConsumePS5Entitlements = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) {
-        throw "Must be logged in to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/ConsumePS5Entitlements",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,
@@ -1214,9 +1195,6 @@ exports.GetUserReadOnlyData = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Do not use
- */
 exports.GetWindowsHelloChallenge = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/GetWindowsHelloChallenge",
@@ -1503,9 +1481,6 @@ exports.LinkTwitch = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Do not use
- */
 exports.LinkWindowsHello = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1554,7 +1529,6 @@ exports.LoginWithAndroidDeviceID = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1577,7 +1551,6 @@ exports.LoginWithApple = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1600,7 +1573,6 @@ exports.LoginWithCustomID = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1623,7 +1595,6 @@ exports.LoginWithEmailAddress = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1646,7 +1617,6 @@ exports.LoginWithFacebook = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1669,7 +1639,6 @@ exports.LoginWithFacebookInstantGamesId = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1692,7 +1661,6 @@ exports.LoginWithGameCenter = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1715,7 +1683,6 @@ exports.LoginWithGoogleAccount = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1738,7 +1705,6 @@ exports.LoginWithIOSDeviceID = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1761,7 +1727,6 @@ exports.LoginWithKongregate = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1784,7 +1749,6 @@ exports.LoginWithNintendoServiceAccount = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1807,7 +1771,6 @@ exports.LoginWithNintendoSwitchDeviceId = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1830,7 +1793,6 @@ exports.LoginWithOpenIdConnect = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1853,7 +1815,6 @@ exports.LoginWithPlayFab = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1876,7 +1837,6 @@ exports.LoginWithPSN = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1899,7 +1859,6 @@ exports.LoginWithSteam = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1922,7 +1881,6 @@ exports.LoginWithTwitch = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1931,9 +1889,6 @@ exports.LoginWithTwitch = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Do not use
- */
 exports.LoginWithWindowsHello = function (request, callback) {
     request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) {
@@ -1948,7 +1903,6 @@ exports.LoginWithWindowsHello = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -1971,7 +1925,6 @@ exports.LoginWithXbox = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -2113,7 +2066,6 @@ exports.RegisterPlayFabUser = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -2122,9 +2074,6 @@ exports.RegisterPlayFabUser = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Do not use
- */
 exports.RegisterWithWindowsHello = function (request, callback) {
     request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) {
@@ -2139,7 +2088,6 @@ exports.RegisterWithWindowsHello = function (request, callback) {
             if (result != null && result.data != null) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-                exports._MultiStepClientLogin(result.data.SettingsForUser.NeedsAttribution);
             }
             if (callback != null) {
                 callback(error, result);
@@ -2655,9 +2603,6 @@ exports.UnlinkTwitch = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Do not use
- */
 exports.UnlinkWindowsHello = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -2981,21 +2926,3 @@ exports.WriteTitleEvent = function (request, callback) {
     );
 };
 
-exports._MultiStepClientLogin = function (needsAttribution) {
-    if (
-        needsAttribution &&
-        !PlayFab.settings.disableAdvertising &&
-        Boolean(PlayFab.settings.advertisingIdType) &&
-        Boolean(PlayFab.settings.advertisingIdValue)
-    ) {
-        var request = {};
-        if (PlayFab.settings.advertisingIdType === PlayFab.settings.AD_TYPE_IDFA) {
-            request.Idfa = PlayFab.settings.advertisingIdValue;
-        } else if (PlayFab.settings.advertisingIdType === PlayFab.settings.AD_TYPE_ANDROID_ID) {
-            request.Adid = PlayFab.settings.advertisingIdValue;
-        } else {
-            return;
-        }
-        exports.AttributeInstall(request);
-    }
-};
