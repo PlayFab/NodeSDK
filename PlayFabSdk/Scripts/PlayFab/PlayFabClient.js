@@ -229,6 +229,23 @@ exports.ConsumeMicrosoftStoreEntitlements = function (request, callback) {
     );
 };
 
+exports.ConsumePS5Entitlements = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/ConsumePS5Entitlements",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.ConsumePSNEntitlements = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1195,20 +1212,6 @@ exports.GetUserReadOnlyData = function (request, callback) {
     );
 };
 
-exports.GetWindowsHelloChallenge = function (request, callback) {
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/GetWindowsHelloChallenge",
-        request,
-        null,
-        null,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.GrantCharacterToUser = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1470,23 +1473,6 @@ exports.LinkTwitch = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/LinkTwitch",
-        request,
-        "X-Authorization",
-        PlayFab._internalSettings.sessionTicket,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-exports.LinkWindowsHello = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) {
-        throw "Must be logged in to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/LinkWindowsHello",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,
@@ -1889,28 +1875,6 @@ exports.LoginWithTwitch = function (request, callback) {
     );
 };
 
-exports.LoginWithWindowsHello = function (request, callback) {
-    request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
-    if (request.TitleId == null) {
-        throw "Must be have PlayFab.settings.titleId set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/LoginWithWindowsHello",
-        request,
-        null,
-        null,
-        function (error, result) {
-            if (result != null && result.data != null) {
-                PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
-                PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-            }
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.LoginWithXbox = function (request, callback) {
     request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) {
@@ -2059,28 +2023,6 @@ exports.RegisterPlayFabUser = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/RegisterPlayFabUser",
-        request,
-        null,
-        null,
-        function (error, result) {
-            if (result != null && result.data != null) {
-                PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
-                PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
-            }
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-exports.RegisterWithWindowsHello = function (request, callback) {
-    request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
-    if (request.TitleId == null) {
-        throw "Must be have PlayFab.settings.titleId set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/RegisterWithWindowsHello",
         request,
         null,
         null,
@@ -2592,23 +2534,6 @@ exports.UnlinkTwitch = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/UnlinkTwitch",
-        request,
-        "X-Authorization",
-        PlayFab._internalSettings.sessionTicket,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-exports.UnlinkWindowsHello = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) {
-        throw "Must be logged in to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/UnlinkWindowsHello",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,

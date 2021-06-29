@@ -76,6 +76,12 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.CreateServerMatchmakingTicketRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.CreateMatchmakingTicketResult> | null,
         ): void;
+        // Creates a request to change a title's multiplayer server quotas.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/createtitlemultiplayerserversquotachange
+        CreateTitleMultiplayerServersQuotaChange(
+            request: PlayFabMultiplayerModels.CreateTitleMultiplayerServersQuotaChangeRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.CreateTitleMultiplayerServersQuotaChangeResponse> | null,
+        ): void;
         // Deletes a multiplayer server game asset for a title.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deleteasset
         DeleteAsset(
@@ -124,7 +130,15 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.EnableMultiplayerServersForTitleRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.EnableMultiplayerServersForTitleResponse> | null,
         ): void;
-        // Gets the URL to upload assets to.
+        // Gets a URL that can be used to download the specified asset. A sample pre-authenticated url -
+        // https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=<startDate>&se=<endDate>&spr=https&sig=<sampleSig>&api-version=2017-07-29
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getassetdownloadurl
+        GetAssetDownloadUrl(
+            request: PlayFabMultiplayerModels.GetAssetDownloadUrlRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetAssetDownloadUrlResponse> | null,
+        ): void;
+        // Gets the URL to upload assets to. A sample pre-authenticated url -
+        // https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=<startDate>&se=<endDate>&spr=https&sig=<sampleSig>&api-version=2017-07-29
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getassetuploadurl
         GetAssetUploadUrl(
             request: PlayFabMultiplayerModels.GetAssetUploadUrlRequest | null,
@@ -208,6 +222,12 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.GetTitleEnabledForMultiplayerServersStatusRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetTitleEnabledForMultiplayerServersStatusResponse> | null,
         ): void;
+        // Gets a title's server quota change request.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/gettitlemultiplayerserversquotachange
+        GetTitleMultiplayerServersQuotaChange(
+            request: PlayFabMultiplayerModels.GetTitleMultiplayerServersQuotaChangeRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetTitleMultiplayerServersQuotaChangeResponse> | null,
+        ): void;
         // Gets the quotas for a title in relation to multiplayer servers.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/gettitlemultiplayerserversquotas
         GetTitleMultiplayerServersQuotas(
@@ -236,8 +256,8 @@ declare module PlayFabMultiplayerModule {
         // game client to request list of builds with player entity token.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listbuildaliases
         ListBuildAliases(
-            request: PlayFabMultiplayerModels.MultiplayerEmptyRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListBuildAliasesForTitleResponse> | null,
+            request: PlayFabMultiplayerModels.ListBuildAliasesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListBuildAliasesResponse> | null,
         ): void;
         // Lists summarized details of all multiplayer server builds for a title. Accepts tokens for title and if game client
         // access is enabled, allows game client to request list of builds with player entity token.
@@ -301,6 +321,12 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.ListServerBackfillTicketsForPlayerRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListServerBackfillTicketsForPlayerResult> | null,
         ): void;
+        // List all server quota change requests for a title.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listtitlemultiplayerserversquotachanges
+        ListTitleMultiplayerServersQuotaChanges(
+            request: PlayFabMultiplayerModels.ListTitleMultiplayerServersQuotaChangesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.ListTitleMultiplayerServersQuotaChangesResponse> | null,
+        ): void;
         // Lists virtual machines for a title.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listvirtualmachinesummaries
         ListVirtualMachineSummaries(
@@ -349,6 +375,12 @@ declare module PlayFabMultiplayerModule {
         UpdateBuildAlias(
             request: PlayFabMultiplayerModels.UpdateBuildAliasRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.BuildAliasDetailsResponse> | null,
+        ): void;
+        // Updates a multiplayer server build's name.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/updatebuildname
+        UpdateBuildName(
+            request: PlayFabMultiplayerModels.UpdateBuildNameRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.EmptyResponse> | null,
         ): void;
         // Updates a multiplayer server build's region. If the region is not yet created, it will be created
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/updatebuildregion
@@ -419,11 +451,14 @@ declare module PlayFabMultiplayerModels {
         | "SoutheastAsia"
         | "WestEurope"
         | "WestUs"
-        | "ChinaEast2"
-        | "ChinaNorth2"
         | "SouthAfricaNorth"
-        | "CentralUsEuap"
-        | "WestCentralUs";
+        | "WestCentralUs"
+        | "KoreaCentral"
+        | "FranceCentral"
+        | "WestUs2"
+        | "CentralIndia"
+        | "UaeNorth"
+        | "UkSouth";
 
     type AzureVmFamily = "A"
         | "Av2"
@@ -436,7 +471,10 @@ declare module PlayFabMultiplayerModels {
         | "Eav4"
         | "Easv4"
         | "Ev4"
-        | "Esv4";
+        | "Esv4"
+        | "Dsv3"
+        | "Dsv2"
+        | "NCasT4_v3";
 
     type AzureVmSize = "Standard_A1"
         | "Standard_A2"
@@ -471,7 +509,25 @@ declare module PlayFabMultiplayerModels {
         | "Standard_D2a_v4"
         | "Standard_D4a_v4"
         | "Standard_D8a_v4"
-        | "Standard_D16a_v4";
+        | "Standard_D16a_v4"
+        | "Standard_E2a_v4"
+        | "Standard_E4a_v4"
+        | "Standard_E8a_v4"
+        | "Standard_E16a_v4"
+        | "Standard_E2as_v4"
+        | "Standard_E4as_v4"
+        | "Standard_E8as_v4"
+        | "Standard_E16as_v4"
+        | "Standard_D2s_v3"
+        | "Standard_D4s_v3"
+        | "Standard_D8s_v3"
+        | "Standard_D16s_v3"
+        | "Standard_DS1_v2"
+        | "Standard_DS2_v2"
+        | "Standard_DS3_v2"
+        | "Standard_DS4_v2"
+        | "Standard_DS5_v2"
+        | "Standard_NC4as_T4_v3";
 
     export interface BuildAliasDetailsResponse extends PlayFabModule.IPlayFabResultCommon {
         // The guid string alias Id of the alias to be created or updated.
@@ -480,10 +536,6 @@ declare module PlayFabMultiplayerModels {
         AliasName?: string;
         // Array of build selection criteria.
         BuildSelectionCriteria?: BuildSelectionCriterion[];
-        // The page size on the response.
-        PageSize: number;
-        // The skip token for the paged response.
-        SkipToken?: string;
     }
 
     export interface BuildAliasParams {
@@ -631,6 +683,15 @@ declare module PlayFabMultiplayerModels {
         Total: number;
         // The AzureVmFamily
         VmFamily?: string;
+    }
+
+    export interface CoreCapacityChange {
+        // New quota core limit for the given vm family/region.
+        NewCoreLimit: number;
+        // Region to change.
+        Region: string;
+        // Virtual machine family to change.
+        VmFamily: string;
     }
 
     export interface CreateBuildAliasRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -956,6 +1017,28 @@ declare module PlayFabMultiplayerModels {
         QueueName: string;
     }
 
+    export interface CreateTitleMultiplayerServersQuotaChangeRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // A brief description of the requested changes.
+        ChangeDescription?: string;
+        // Changes to make to the titles cores quota.
+        Changes: CoreCapacityChange[];
+        // Email to be contacted by our team about this request. Only required when a request is not approved.
+        ContactEmail?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Additional information about this request that our team can use to better understand the requirements.
+        Notes?: string;
+        // When these changes would need to be in effect. Only required when a request is not approved.
+        StartDate?: string;
+    }
+
+    export interface CreateTitleMultiplayerServersQuotaChangeResponse extends PlayFabModule.IPlayFabResultCommon {
+        // Id of the change request that was created.
+        RequestId?: string;
+        // Determines if the request was approved or not. When false, our team is reviewing and may respond within 2 business days.
+        WasApproved: boolean;
+    }
+
     export interface CurrentServerStats {
         // The number of active multiplayer servers.
         Active: number;
@@ -1142,6 +1225,20 @@ declare module PlayFabMultiplayerModels {
         Name: string;
     }
 
+    export interface GetAssetDownloadUrlRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The asset's file name to get the download URL for.
+        FileName: string;
+    }
+
+    export interface GetAssetDownloadUrlResponse extends PlayFabModule.IPlayFabResultCommon {
+        // The asset's download URL.
+        AssetDownloadUrl?: string;
+        // The asset's file name to get the download URL for.
+        FileName?: string;
+    }
+
     export interface GetAssetUploadUrlRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -1319,6 +1416,8 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface GetMultiplayerServerDetailsResponse extends PlayFabModule.IPlayFabResultCommon {
+        // The identity of the build in which the server was allocated.
+        BuildId?: string;
         // The connected players in the multiplayer server.
         ConnectedPlayers?: ConnectedPlayer[];
         // The fully qualified domain name of the virtual machine that is hosting this multiplayer server.
@@ -1435,6 +1534,18 @@ declare module PlayFabMultiplayerModels {
         Status?: string;
     }
 
+    export interface GetTitleMultiplayerServersQuotaChangeRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Id of the change request to get.
+        RequestId: string;
+    }
+
+    export interface GetTitleMultiplayerServersQuotaChangeResponse extends PlayFabModule.IPlayFabResultCommon {
+        // The change request for this title.
+        Change?: QuotaChange;
+    }
+
     export interface GetTitleMultiplayerServersQuotasRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -1531,9 +1642,22 @@ declare module PlayFabMultiplayerModels {
         SkipToken?: string;
     }
 
-    export interface ListBuildAliasesForTitleResponse extends PlayFabModule.IPlayFabResultCommon {
+    export interface ListBuildAliasesRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The page size for the request.
+        PageSize?: number;
+        // The skip token for the paged request.
+        SkipToken?: string;
+    }
+
+    export interface ListBuildAliasesResponse extends PlayFabModule.IPlayFabResultCommon {
         // The list of build aliases for the title
         BuildAliases?: BuildAliasDetailsResponse[];
+        // The page size on the response.
+        PageSize: number;
+        // The skip token for the paged response.
+        SkipToken?: string;
     }
 
     export interface ListBuildSummariesRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1693,6 +1817,16 @@ declare module PlayFabMultiplayerModels {
         TicketIds: string[];
     }
 
+    export interface ListTitleMultiplayerServersQuotaChangesRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
+
+    export interface ListTitleMultiplayerServersQuotaChangesResponse extends PlayFabModule.IPlayFabResultCommon {
+        // All change requests for this title.
+        Changes?: QuotaChange[];
+    }
+
     export interface ListVirtualMachineSummariesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The guid string build ID of the virtual machines to list.
         BuildId: string;
@@ -1810,11 +1944,6 @@ declare module PlayFabMultiplayerModels {
         SecondsBetweenExpansions: number;
     }
 
-    export interface MultiplayerEmptyRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        CustomTags?: { [key: string]: string | null };
-    }
-
     export interface MultiplayerServerSummary {
         // The connected players in the multiplayer server.
         ConnectedPlayers?: ConnectedPlayer[];
@@ -1871,6 +2000,23 @@ declare module PlayFabMultiplayerModels {
         Source: string;
     }
 
+    export interface QuotaChange {
+        // A brief description of the requested changes.
+        ChangeDescription?: string;
+        // Requested changes to make to the titles cores quota.
+        Changes?: CoreCapacityChange[];
+        // Whether or not this request is pending a review.
+        IsPendingReview: boolean;
+        // Additional information about this request that our team can use to better understand the requirements.
+        Notes?: string;
+        // Id of the change request.
+        RequestId?: string;
+        // Comments by our team when a request is reviewed.
+        ReviewComments?: string;
+        // Whether or not this request was approved.
+        WasApproved: boolean;
+    }
+
     export interface RegionSelectionRule {
         // Controls how the Max Latency parameter expands over time. Only one expansion can be set per rule. When this is set,
         // MaxLatency is ignored.
@@ -1920,6 +2066,8 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface RequestMultiplayerServerResponse extends PlayFabModule.IPlayFabResultCommon {
+        // The identity of the build in which the server was allocated.
+        BuildId?: string;
         // The connected players in the multiplayer server.
         ConnectedPlayers?: ConnectedPlayer[];
         // The fully qualified domain name of the virtual machine that is hosting this multiplayer server.
@@ -1980,6 +2128,8 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface ServerDetails {
+        // The fully qualified domain name of the virtual machine that is hosting this multiplayer server.
+        Fqdn?: string;
         // The IPv4 address of the virtual machine that is hosting this multiplayer server.
         IPV4Address?: string;
         // The ports the multiplayer server uses.
@@ -2150,6 +2300,15 @@ declare module PlayFabMultiplayerModels {
         AliasName?: string;
         // Array of build selection criteria.
         BuildSelectionCriteria?: BuildSelectionCriterion[];
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
+
+    export interface UpdateBuildNameRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The guid string ID of the build we want to update the name of.
+        BuildId: string;
+        // The build name.
+        BuildName: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
     }
