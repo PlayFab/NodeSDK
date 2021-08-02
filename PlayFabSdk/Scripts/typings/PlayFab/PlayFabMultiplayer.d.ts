@@ -474,7 +474,9 @@ declare module PlayFabMultiplayerModels {
         | "Esv4"
         | "Dsv3"
         | "Dsv2"
-        | "NCasT4_v3";
+        | "NCasT4_v3"
+        | "Ddv4"
+        | "Ddsv4";
 
     type AzureVmSize = "Standard_A1"
         | "Standard_A2"
@@ -527,7 +529,15 @@ declare module PlayFabMultiplayerModels {
         | "Standard_DS3_v2"
         | "Standard_DS4_v2"
         | "Standard_DS5_v2"
-        | "Standard_NC4as_T4_v3";
+        | "Standard_NC4as_T4_v3"
+        | "Standard_D2d_v4"
+        | "Standard_D4d_v4"
+        | "Standard_D8d_v4"
+        | "Standard_D16d_v4"
+        | "Standard_D2ds_v4"
+        | "Standard_D4ds_v4"
+        | "Standard_D8ds_v4"
+        | "Standard_D16ds_v4";
 
     export interface BuildAliasDetailsResponse extends PlayFabModule.IPlayFabResultCommon {
         // The guid string alias Id of the alias to be created or updated.
@@ -1557,9 +1567,11 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface InstrumentationConfiguration {
-        // The list of processes to be monitored on a VM for this build. Providing processes will turn on performance metrics
-        // collection for this build. Process names should not include extensions. If the game server process is: GameServer.exe;
-        // then, ProcessesToMonitor = [ GameServer ]
+        // Designates whether windows instrumentation configuration will be enabled for this Build
+        IsEnabled?: boolean;
+        // This property is deprecated, use IsEnabled. The list of processes to be monitored on a VM for this build. Providing
+        // processes will turn on performance metrics collection for this build. Process names should not include extensions. If
+        // the game server process is: GameServer.exe; then, ProcessesToMonitor = [ GameServer ]
         ProcessesToMonitor?: string[];
     }
 
@@ -2177,11 +2189,11 @@ declare module PlayFabMultiplayerModels {
 
     export interface ShutdownMultiplayerServerRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The guid string build ID of the multiplayer server to delete.
-        BuildId: string;
+        BuildId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The region of the multiplayer server to shut down.
-        Region: string;
+        Region?: string;
         // A guid string session ID of the multiplayer server to shut down.
         SessionId: string;
     }
