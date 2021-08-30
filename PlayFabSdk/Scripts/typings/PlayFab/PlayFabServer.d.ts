@@ -2293,6 +2293,8 @@ declare module PlayFabServerModels {
         | "NotImplemented"
         | "PublisherNotFound"
         | "PublisherDeleted"
+        | "ApiDisabledForMigration"
+        | "ResourceNameUpdateNotAllowed"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2431,6 +2433,7 @@ declare module PlayFabServerModels {
         | "LobbyCurrentOwnerStillConnected"
         | "LobbyMemberIsNotOwner"
         | "EventSamplingInvalidRatio"
+        | "EventSamplingInvalidEventNamespace"
         | "EventSamplingInvalidEventName"
         | "EventSamplingRatioNotFound";
 
@@ -2652,8 +2655,6 @@ declare module PlayFabServerModels {
     }
 
     export interface GetLeaderboardForUsersCharactersRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Maximum number of entries to retrieve.
-        MaxResultsCount?: number;
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
         // Unique identifier for the title-specific statistic for the leaderboard.

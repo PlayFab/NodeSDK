@@ -2374,8 +2374,6 @@ declare module PlayFabClientModels {
     }
 
     export interface GetLeaderboardForUsersCharactersRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Maximum number of entries to retrieve.
-        MaxResultsCount?: number;
         // Unique identifier for the title-specific statistic for the leaderboard.
         StatisticName: string;
     }

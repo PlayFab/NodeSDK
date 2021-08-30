@@ -131,14 +131,14 @@ declare module PlayFabMultiplayerModule {
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.EnableMultiplayerServersForTitleResponse> | null,
         ): void;
         // Gets a URL that can be used to download the specified asset. A sample pre-authenticated url -
-        // https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=<startDate>&se=<endDate>&spr=https&sig=<sampleSig>&api-version=2017-07-29
+        // https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=startDate&se=endDate&spr=https&sig=sampleSig&api-version=2017-07-29
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getassetdownloadurl
         GetAssetDownloadUrl(
             request: PlayFabMultiplayerModels.GetAssetDownloadUrlRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetAssetDownloadUrlResponse> | null,
         ): void;
         // Gets the URL to upload assets to. A sample pre-authenticated url -
-        // https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=<startDate>&se=<endDate>&spr=https&sig=<sampleSig>&api-version=2017-07-29
+        // https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=startDate&se=endDate&spr=https&sig=sampleSig&api-version=2017-07-29
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/getassetuploadurl
         GetAssetUploadUrl(
             request: PlayFabMultiplayerModels.GetAssetUploadUrlRequest | null,
@@ -476,7 +476,8 @@ declare module PlayFabMultiplayerModels {
         | "Dsv2"
         | "NCasT4_v3"
         | "Ddv4"
-        | "Ddsv4";
+        | "Ddsv4"
+        | "HBv3";
 
     type AzureVmSize = "Standard_A1"
         | "Standard_A2"
@@ -537,7 +538,12 @@ declare module PlayFabMultiplayerModels {
         | "Standard_D2ds_v4"
         | "Standard_D4ds_v4"
         | "Standard_D8ds_v4"
-        | "Standard_D16ds_v4";
+        | "Standard_D16ds_v4"
+        | "Standard_HB120_16rs_v3"
+        | "Standard_HB120_32rs_v3"
+        | "Standard_HB120_64rs_v3"
+        | "Standard_HB120_96rs_v3"
+        | "Standard_HB120rs_v3";
 
     export interface BuildAliasDetailsResponse extends PlayFabModule.IPlayFabResultCommon {
         // The guid string alias Id of the alias to be created or updated.
