@@ -13,6 +13,7 @@ const PlayFabServer = pf.PlayFabServer as PlayFabServerModule.IPlayFabServer;
 const PlayFabAuthentication = pf.PlayFabAuthentication as PlayFabAuthenticationModule.IPlayFabAuthentication;
 const PlayFabCloudScript = pf.PlayFabCloudScript as PlayFabCloudScriptModule.IPlayFabCloudScript;
 const PlayFabData = pf.PlayFabData as PlayFabDataModule.IPlayFabData;
+const PlayFabEconomy = pf.PlayFabEconomy as PlayFabEconomyModule.IPlayFabEconomy;
 const PlayFabEvents = pf.PlayFabEvents as PlayFabEventsModule.IPlayFabEvents;
 const PlayFabExperimentation = pf.PlayFabExperimentation as PlayFabExperimentationModule.IPlayFabExperimentation;
 const PlayFabInsights = pf.PlayFabInsights as PlayFabInsightsModule.IPlayFabInsights;

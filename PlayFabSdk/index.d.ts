@@ -6,6 +6,7 @@
 /// <reference path="Scripts/typings/PlayFab/PlayFabAuthentication.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabCloudScript.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabData.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabEconomy.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabEvents.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabExperimentation.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabInsights.d.ts" />
@@ -24,6 +25,7 @@ export const PlayFabServer: PlayFabServerModule.IPlayFabServer;
 export const PlayFabAuthentication: PlayFabAuthenticationModule.IPlayFabAuthentication;
 export const PlayFabCloudScript: PlayFabCloudScriptModule.IPlayFabCloudScript;
 export const PlayFabData: PlayFabDataModule.IPlayFabData;
+export const PlayFabEconomy: PlayFabEconomyModule.IPlayFabEconomy;
 export const PlayFabEvents: PlayFabEventsModule.IPlayFabEvents;
 export const PlayFabExperimentation: PlayFabExperimentationModule.IPlayFabExperimentation;
 export const PlayFabInsights: PlayFabInsightsModule.IPlayFabInsights;

@@ -114,6 +114,12 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.DeleteMasterPlayerAccountRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteMasterPlayerAccountResult> | null,
         ): void;
+        // Deletes a player's subscription
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/deletemembershipsubscription
+        DeleteMembershipSubscription(
+            request: PlayFabAdminModels.DeleteMembershipSubscriptionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteMembershipSubscriptionResult> | null,
+        ): void;
         // Removes a relationship between a title and an OpenID Connect provider.
         // https://docs.microsoft.com/rest/api/playfab/admin/authentication/deleteopenidconnection
         DeleteOpenIdConnection(
@@ -559,6 +565,12 @@ declare module PlayFabAdminModule {
         SetCatalogItems(
             request: PlayFabAdminModels.UpdateCatalogItemsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateCatalogItemsResult> | null,
+        ): void;
+        // Sets the override expiration for a membership subscription
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/setmembershipoverride
+        SetMembershipOverride(
+            request: PlayFabAdminModels.SetMembershipOverrideRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetMembershipOverrideResult> | null,
         ): void;
         // Sets or resets the player's secret. Player secrets are used to sign API requests.
         // https://docs.microsoft.com/rest/api/playfab/admin/authentication/setplayersecret
@@ -1683,6 +1695,19 @@ declare module PlayFabAdminModels {
         TitleIds?: string[];
     }
 
+    export interface DeleteMembershipSubscriptionRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Id of the membership to apply the override expiration date to.
+        MembershipId: string;
+        // Unique PlayFab assigned ID of the user on whom the operation will be performed.
+        PlayFabId: string;
+        // Id of the subscription that should be deleted from the membership.
+        SubscriptionId: string;
+    }
+
+    export interface DeleteMembershipSubscriptionResult extends PlayFabModule.IPlayFabResultCommon {}
+
     export interface DeleteOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // unique name of the connection
         ConnectionId: string;
@@ -2374,6 +2399,7 @@ declare module PlayFabAdminModels {
         | "AzureTitleCreationInProgress"
         | "DuplicateAzureResourceId"
         | "TitleContraintsPublisherDeletion"
+        | "InvalidPlayerAccountPoolId"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2397,6 +2423,9 @@ declare module PlayFabAdminModels {
         | "MatchmakingBadRequest"
         | "PubSubFeatureNotEnabledForTitle"
         | "PubSubTooManyRequests"
+        | "PubSubConnectionHandleAccessDenied"
+        | "PubSubConnectionHandleInvalid"
+        | "PubSubSubscriptionLimitExceeded"
         | "TitleConfigNotFound"
         | "TitleConfigUpdateConflict"
         | "TitleConfigSerializationError"
@@ -2514,7 +2543,11 @@ declare module PlayFabAdminModels {
         | "EventSamplingInvalidRatio"
         | "EventSamplingInvalidEventNamespace"
         | "EventSamplingInvalidEventName"
-        | "EventSamplingRatioNotFound";
+        | "EventSamplingRatioNotFound"
+        | "EventSinkConnectionInvalid"
+        | "EventSinkConnectionUnauthorized"
+        | "EventSinkRegionInvalid"
+        | "OperationCanceled";
 
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
         // Parameter of this task instance
@@ -4338,6 +4371,8 @@ declare module PlayFabAdminModels {
         | "NintendoSwitchAccount";
 
     export interface SegmentModel {
+        // ResourceId of Segment resource
+        AzureResourceId?: string;
         // Segment description.
         Description?: string;
         // Segment actions for current entered segment players.
@@ -4396,6 +4431,19 @@ declare module PlayFabAdminModels {
 
     export interface SendAccountRecoveryEmailResult extends PlayFabModule.IPlayFabResultCommon {}
 
+    export interface SetMembershipOverrideRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Expiration time for the membership in DateTime format, will override any subscription expirations.
+        ExpirationTime: string;
+        // Id of the membership to apply the override expiration date to.
+        MembershipId: string;
+        // Unique PlayFab assigned ID of the user on whom the operation will be performed.
+        PlayFabId: string;
+    }
+
+    export interface SetMembershipOverrideResult extends PlayFabModule.IPlayFabResultCommon {}
+
     export interface SetPlayerSecretRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Player secret that is used to verify API request signatures (Enterprise Only).
         PlayerSecret?: string;
@@ -4437,14 +4485,24 @@ declare module PlayFabAdminModels {
     export interface SetTitleDataAndOverridesResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetTitleDataRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Id of azure resource
+        AzureResourceId?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // key we want to set a value on (note, this is additive - will only replace an existing key's value if they are the same
         // name.) Keys are trimmed of whitespace. Keys may not begin with the '!' character.
         Key: string;
+        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
+        // title has been selected.
+        TitleId?: string;
         // new value to set. Set to null to remove a value
         Value?: string;
     }
 
-    export interface SetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {}
+    export interface SetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {
+        // Id of azure resource
+        AzureResourceId?: string;
+    }
 
     export interface SetupPushNotificationRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Credential is the Private Key for APNS/APNS_SANDBOX, and the API Key for GCM

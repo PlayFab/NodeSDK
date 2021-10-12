@@ -32,6 +32,20 @@ exports.ExecuteFunction = function (request, callback) {
     );
 };
 
+exports.GetFunction = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/CloudScript/GetFunction",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.ListFunctions = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/CloudScript/ListFunctions",

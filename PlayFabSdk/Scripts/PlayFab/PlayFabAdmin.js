@@ -310,6 +310,23 @@ exports.DeleteMasterPlayerAccount = function (request, callback) {
     );
 };
 
+exports.DeleteMembershipSubscription = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Admin/DeleteMembershipSubscription",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.DeleteOpenIdConnection = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1523,6 +1540,23 @@ exports.SetCatalogItems = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Admin/SetCatalogItems",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.SetMembershipOverride = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Admin/SetMembershipOverride",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,

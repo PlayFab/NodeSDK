@@ -15,6 +15,12 @@ declare module PlayFabCloudScriptModule {
             request: PlayFabCloudScriptModels.ExecuteFunctionRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabCloudScriptModels.ExecuteFunctionResult> | null,
         ): void;
+        // Gets registered Azure Functions for a given title id and function name.
+        // https://docs.microsoft.com/rest/api/playfab/cloudscript/server-side-cloud-script/getfunction
+        GetFunction(
+            request: PlayFabCloudScriptModels.GetFunctionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabCloudScriptModels.GetFunctionResult> | null,
+        ): void;
         // Lists all currently registered Azure Functions for a given title.
         // https://docs.microsoft.com/rest/api/playfab/cloudscript/server-side-cloud-script/listfunctions
         ListFunctions(
@@ -468,6 +474,26 @@ declare module PlayFabCloudScriptModels {
         TriggerType?: string;
     }
 
+    export interface GetFunctionRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The name of the function to register
+        FunctionName: string;
+        // The Id of the parent Title
+        TitleId?: string;
+    }
+
+    export interface GetFunctionResult extends PlayFabModule.IPlayFabResultCommon {
+        // The connection string for the storage account containing the queue for a queue trigger Azure Function.
+        ConnectionString?: string;
+        // The URL to be invoked to execute an HTTP triggered function.
+        FunctionUrl?: string;
+        // The name of the queue for a queue trigger Azure Function.
+        QueueName?: string;
+        // The trigger type for the function.
+        TriggerType?: string;
+    }
+
     export interface HttpFunctionModel {
         // The name the function was registered under.
         FunctionName?: string;
@@ -693,15 +719,21 @@ declare module PlayFabCloudScriptModels {
     }
 
     export interface RegisterHttpFunctionRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The Id of the Azure Resource
+        AzureResourceId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The name of the function to register
         FunctionName: string;
         // Full URL for Azure Function that implements the function.
         FunctionUrl: string;
+        // The Id of the parent Title
+        TitleId?: string;
     }
 
     export interface RegisterQueuedFunctionRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The Id of the Azure Resource
+        AzureResourceId?: string;
         // A connection string for the storage account that hosts the queue for the Azure Function.
         ConnectionString: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
@@ -710,6 +742,8 @@ declare module PlayFabCloudScriptModels {
         FunctionName: string;
         // The name of the queue for the Azure Function.
         QueueName: string;
+        // The Id of the parent Title
+        TitleId?: string;
     }
 
     export interface ScriptExecutionError {
@@ -768,8 +802,10 @@ declare module PlayFabCloudScriptModels {
     export interface UnregisterFunctionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // The name of the function to unregister
+        // The name of the function to register
         FunctionName: string;
+        // The Id of the parent Title
+        TitleId?: string;
     }
 
     export interface ValueToDateModel {
