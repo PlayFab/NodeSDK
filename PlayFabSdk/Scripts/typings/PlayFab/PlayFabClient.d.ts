@@ -3020,7 +3020,8 @@ declare module PlayFabClientModels {
     export interface LinkGameCenterAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // If another user is already linked to the account, unlink the other user and re-link.
+        // If another user is already linked to the account, unlink the other user and re-link. If the current user is already
+        // linked, link both accounts
         ForceLink?: boolean;
         // Game Center identifier for the player account to be linked.
         GameCenterId: string;
@@ -3040,7 +3041,8 @@ declare module PlayFabClientModels {
     export interface LinkGoogleAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // If another user is already linked to the account, unlink the other user and re-link.
+        // If another user is already linked to the account, unlink the other user and re-link. If the current user is already
+        // linked, link both accounts
         ForceLink?: boolean;
         // Server authentication code obtained on the client by calling getServerAuthCode()
         // (https://developers.google.com/identity/sign-in/android/offline-access) from Google Play for the user.

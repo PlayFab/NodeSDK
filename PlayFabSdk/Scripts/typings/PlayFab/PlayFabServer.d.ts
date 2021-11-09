@@ -2299,7 +2299,12 @@ declare module PlayFabServerModels {
         | "DuplicateTitleNameForPublisher"
         | "AzureTitleCreationInProgress"
         | "DuplicateAzureResourceId"
-        | "TitleContraintsPublisherDeletion"
+        | "TitleConstraintsPublisherDeletion"
+        | "InvalidPlayerAccountPoolId"
+        | "PlayerAccountPoolNotFound"
+        | "PlayerAccountPoolDeleted"
+        | "TitleCleanupInProgress"
+        | "AzureResourceManagerNotSupportedInStamp"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2323,6 +2328,9 @@ declare module PlayFabServerModels {
         | "MatchmakingBadRequest"
         | "PubSubFeatureNotEnabledForTitle"
         | "PubSubTooManyRequests"
+        | "PubSubConnectionHandleAccessDenied"
+        | "PubSubConnectionHandleInvalid"
+        | "PubSubSubscriptionLimitExceeded"
         | "TitleConfigNotFound"
         | "TitleConfigUpdateConflict"
         | "TitleConfigSerializationError"
@@ -2440,7 +2448,11 @@ declare module PlayFabServerModels {
         | "EventSamplingInvalidRatio"
         | "EventSamplingInvalidEventNamespace"
         | "EventSamplingInvalidEventName"
-        | "EventSamplingRatioNotFound";
+        | "EventSamplingRatioNotFound"
+        | "EventSinkConnectionInvalid"
+        | "EventSinkConnectionUnauthorized"
+        | "EventSinkRegionInvalid"
+        | "OperationCanceled";
 
     export interface GenericPlayFabIdPair {
         // Unique generic service identifier for a user.
@@ -4165,14 +4177,24 @@ declare module PlayFabServerModels {
     export interface SetPublisherDataResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetTitleDataRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Id of azure resource
+        AzureResourceId?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // key we want to set a value on (note, this is additive - will only replace an existing key's value if they are the same
         // name.) Keys are trimmed of whitespace. Keys may not begin with the '!' character.
         Key: string;
+        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
+        // title has been selected.
+        TitleId?: string;
         // new value to set. Set to null to remove a value
         Value?: string;
     }
 
-    export interface SetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {}
+    export interface SetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {
+        // Id of azure resource
+        AzureResourceId?: string;
+    }
 
     export interface SharedGroupDataRecord {
         // Timestamp for when this data was last updated.

@@ -2239,6 +2239,9 @@ exports.SetPlayerSecret = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.StartGame = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
