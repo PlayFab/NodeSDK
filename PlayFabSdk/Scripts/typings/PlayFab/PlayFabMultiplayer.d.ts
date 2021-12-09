@@ -750,6 +750,8 @@ declare module PlayFabMultiplayerModels {
         // Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
         // Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
         Metadata?: { [key: string]: string | null };
+        // The configuration for the monitoring application on the build
+        MonitoringApplicationConfiguration?: MonitoringApplicationConfigurationParams;
         // The number of multiplayer servers to host on a single VM.
         MultiplayerServerCountPerVm: number;
         // The ports to map the build on.
@@ -787,6 +789,8 @@ declare module PlayFabMultiplayerModels {
         LinuxInstrumentationConfiguration?: LinuxInstrumentationConfiguration;
         // The metadata of the build.
         Metadata?: { [key: string]: string | null };
+        // The configuration for the monitoring application for the build
+        MonitoringApplicationConfiguration?: MonitoringApplicationConfiguration;
         // The number of multiplayer servers to host on a single VM of the build.
         MultiplayerServerCountPerVm: number;
         // The OS platform used for running the game process.
@@ -826,6 +830,8 @@ declare module PlayFabMultiplayerModels {
         // Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
         // Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
         Metadata?: { [key: string]: string | null };
+        // The configuration for the monitoring application on the build
+        MonitoringApplicationConfiguration?: MonitoringApplicationConfigurationParams;
         // The number of multiplayer servers to host on a single VM.
         MultiplayerServerCountPerVm: number;
         // The ports to map the build on.
@@ -864,6 +870,8 @@ declare module PlayFabMultiplayerModels {
         InstrumentationConfiguration?: InstrumentationConfiguration;
         // The metadata of the build.
         Metadata?: { [key: string]: string | null };
+        // The configuration for the monitoring application for the build
+        MonitoringApplicationConfiguration?: MonitoringApplicationConfiguration;
         // The number of multiplayer servers to host on a single VM of the build.
         MultiplayerServerCountPerVm: number;
         // The OS platform used for running the game process.
@@ -906,6 +914,8 @@ declare module PlayFabMultiplayerModels {
         // Metadata to tag the build. The keys are case insensitive. The build metadata is made available to the server through
         // Game Server SDK (GSDK).Constraints: Maximum number of keys: 30, Maximum key length: 50, Maximum value length: 100
         Metadata?: { [key: string]: string | null };
+        // The configuration for the monitoring application on the build
+        MonitoringApplicationConfiguration?: MonitoringApplicationConfigurationParams;
         // The number of multiplayer servers to host on a single VM.
         MultiplayerServerCountPerVm: number;
         // The OS platform used for running the game process.
@@ -950,6 +960,8 @@ declare module PlayFabMultiplayerModels {
         IsOSPreview?: boolean;
         // The metadata of the build.
         Metadata?: { [key: string]: string | null };
+        // The configuration for the monitoring application for the build
+        MonitoringApplicationConfiguration?: MonitoringApplicationConfiguration;
         // The number of multiplayer servers to host on a single VM of the build.
         MultiplayerServerCountPerVm: number;
         // The OS platform used for running the game process.
@@ -1968,6 +1980,28 @@ declare module PlayFabMultiplayerModels {
         MinOverrides?: OverrideDouble[];
         // How many seconds before this rule is expanded.
         SecondsBetweenExpansions: number;
+    }
+
+    export interface MonitoringApplicationConfiguration {
+        // Asset which contains the monitoring application files and scripts.
+        AssetReference: AssetReference;
+        // Execution script name, this will be the main executable for the monitoring application.
+        ExecutionScriptName: string;
+        // Installation script name, this will be run before the ExecutionScript.
+        InstallationScriptName?: string;
+        // Timespan the monitoring application will be kept alive when running from the start of the VM
+        OnStartRuntimeInMinutes?: number;
+    }
+
+    export interface MonitoringApplicationConfigurationParams {
+        // Asset which contains the monitoring application files and scripts.
+        AssetReference: AssetReferenceParams;
+        // Execution script name, this will be the main executable for the monitoring application.
+        ExecutionScriptName: string;
+        // Installation script name, this will be run before the ExecutionScript.
+        InstallationScriptName?: string;
+        // Timespan the monitoring application will be kept alive when running from the start of the VM
+        OnStartRuntimeInMinutes?: number;
     }
 
     export interface MultiplayerServerSummary {
