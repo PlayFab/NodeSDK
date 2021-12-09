@@ -200,6 +200,20 @@ exports.GetItemReviewSummary = function (request, callback) {
     );
 };
 
+exports.GetItems = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Catalog/GetItems",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.PublishDraftItem = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Catalog/PublishDraftItem",
