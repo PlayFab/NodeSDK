@@ -951,8 +951,6 @@ declare module PlayFabAdminModels {
         Expires?: string;
         // The IP address on which the ban was applied. May affect multiple players.
         IPAddress?: string;
-        // The MAC address on which the ban was applied. May affect multiple players.
-        MACAddress?: string;
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId?: string;
         // The reason why this ban was applied.
@@ -2412,7 +2410,6 @@ declare module PlayFabAdminModels {
         | "ApiNotEnabledForTitle"
         | "DuplicateTitleNameForPublisher"
         | "AzureTitleCreationInProgress"
-        | "DuplicateAzureResourceId"
         | "TitleConstraintsPublisherDeletion"
         | "InvalidPlayerAccountPoolId"
         | "PlayerAccountPoolNotFound"
@@ -2448,7 +2445,7 @@ declare module PlayFabAdminModels {
         | "MatchmakingBadRequest"
         | "PubSubFeatureNotEnabledForTitle"
         | "PubSubTooManyRequests"
-        | "PubSubConnectionHandleAccessDenied"
+        | "PubSubConnectionNotFoundForEntity"
         | "PubSubConnectionHandleInvalid"
         | "PubSubSubscriptionLimitExceeded"
         | "TitleConfigNotFound"
@@ -2572,7 +2569,9 @@ declare module PlayFabAdminModels {
         | "EventSinkConnectionInvalid"
         | "EventSinkConnectionUnauthorized"
         | "EventSinkRegionInvalid"
-        | "OperationCanceled";
+        | "OperationCanceled"
+        | "InvalidDisplayNameRandomSuffixLength"
+        | "AllowNonUniquePlayerDisplayNamesDisableNotAllowed";
 
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
         // Parameter of this task instance
