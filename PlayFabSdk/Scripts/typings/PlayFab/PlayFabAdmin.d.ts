@@ -2422,6 +2422,8 @@ declare module PlayFabAdminModels {
         | "GoogleServiceAccountFailedAuth"
         | "GoogleAPIServiceUnavailable"
         | "GoogleAPIServiceUnknownError"
+        | "NoValidIdentityForAad"
+        | "PlayerIdentityLinkNotFound"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"

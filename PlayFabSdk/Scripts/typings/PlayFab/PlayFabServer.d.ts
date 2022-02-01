@@ -2323,6 +2323,8 @@ declare module PlayFabServerModels {
         | "GoogleServiceAccountFailedAuth"
         | "GoogleAPIServiceUnavailable"
         | "GoogleAPIServiceUnknownError"
+        | "NoValidIdentityForAad"
+        | "PlayerIdentityLinkNotFound"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
