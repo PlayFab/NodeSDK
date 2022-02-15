@@ -2855,6 +2855,6 @@ exports.WriteTitleEvent = function (request, callback) {
 };
 
 exports.ForgetAllCredentials = function () {
-    PlayFab._internalSettings.sessionTicket == null;
+    PlayFab._internalSettings.sessionTicket = null;
 }
 
