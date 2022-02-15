@@ -1085,6 +1085,11 @@ declare module PlayFabAdminModels {
         Amount: number;
     }
 
+    type ChurnRiskLevel = "NoData"
+        | "LowRisk"
+        | "MediumRisk"
+        | "HighRisk";
+
     export interface CloudScriptFile {
         // Contents of the Cloud Script javascript. Must be string-escaped javascript.
         FileContents: string;
@@ -3456,6 +3461,27 @@ declare module PlayFabAdminModels {
         Resource: string;
     }
 
+    export interface PlayerChurnPredictionSegmentFilter {
+        // Comparison
+        Comparison?: string;
+        // RiskLevel
+        RiskLevel?: string;
+    }
+
+    export interface PlayerChurnPredictionTimeSegmentFilter {
+        // Comparison
+        Comparison?: string;
+        // DurationInDays
+        DurationInDays: number;
+    }
+
+    export interface PlayerChurnPreviousPredictionSegmentFilter {
+        // Comparison
+        Comparison?: string;
+        // RiskLevel
+        RiskLevel?: string;
+    }
+
     export interface PlayerLinkedAccount {
         // Linked account's email
         Email?: string;
@@ -3935,6 +3961,12 @@ declare module PlayFabAdminModels {
         LinkedUserAccountHasEmailFilter?: LinkedUserAccountHasEmailSegmentFilter;
         // Filter property for location.
         LocationFilter?: LocationSegmentFilter;
+        // Filter property for current player churn value.
+        PlayerChurnPredictionFilter?: PlayerChurnPredictionSegmentFilter;
+        // Filter property for player churn timespan.
+        PlayerChurnPredictionTimeFilter?: PlayerChurnPredictionTimeSegmentFilter;
+        // Filter property for previous player churn value.
+        PlayerChurnPreviousPredictionFilter?: PlayerChurnPreviousPredictionSegmentFilter;
         // Filter property for push notification.
         PushNotificationFilter?: PushNotificationSegmentFilter;
         // Filter property for statistics.
@@ -4397,8 +4429,6 @@ declare module PlayFabAdminModels {
         | "NintendoSwitchAccount";
 
     export interface SegmentModel {
-        // ResourceId of Segment resource
-        AzureResourceId?: string;
         // Segment description.
         Description?: string;
         // Segment actions for current entered segment players.
@@ -4511,15 +4541,11 @@ declare module PlayFabAdminModels {
     export interface SetTitleDataAndOverridesResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetTitleDataRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Id of azure resource
-        AzureResourceId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // key we want to set a value on (note, this is additive - will only replace an existing key's value if they are the same
         // name.) Keys are trimmed of whitespace. Keys may not begin with the '!' character.
         Key: string;
-        // System Data of the Azure Resource
-        SystemData?: AzureResourceSystemData;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;
@@ -4527,10 +4553,7 @@ declare module PlayFabAdminModels {
         Value?: string;
     }
 
-    export interface SetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {
-        // Id of azure resource
-        AzureResourceId?: string;
-    }
+    export interface SetTitleDataResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetupPushNotificationRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Credential is the Private Key for APNS/APNS_SANDBOX, and the API Key for GCM
