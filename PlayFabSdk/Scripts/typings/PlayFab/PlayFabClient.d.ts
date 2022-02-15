@@ -1075,7 +1075,9 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.WriteTitleEventRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.WriteEventResponse> | null,
         ): void;
-
+        // Deletes the internally stored SessionTicket.
+        ForgetAllCredentials() : void;
+        
     }
 }
 
