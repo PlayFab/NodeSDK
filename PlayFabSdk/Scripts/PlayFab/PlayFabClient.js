@@ -2854,3 +2854,7 @@ exports.WriteTitleEvent = function (request, callback) {
     );
 };
 
+exports.ForgetAllCredentials = function () {
+    PlayFab._internalSettings.sessionTicket == null;
+}
+
