@@ -55,26 +55,6 @@ exports.PlayerLeft = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Do not use
- */
-exports.StartGame = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Matchmaker/StartGame",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.UserInfo = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";

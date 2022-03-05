@@ -40,6 +40,7 @@ declare module PlayFabInsightsModule {
             callback: PlayFabModule.ApiCallback<PlayFabInsightsModels.InsightsOperationResponse> | null,
         ): void;
 
+
     }
 }
 

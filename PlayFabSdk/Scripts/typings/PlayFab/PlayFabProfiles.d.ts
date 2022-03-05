@@ -45,6 +45,7 @@ declare module PlayFabProfilesModule {
             callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.SetEntityProfilePolicyResponse> | null,
         ): void;
 
+
     }
 }
 

@@ -72,26 +72,6 @@ exports.AddPlayerTag = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Do not use
- */
-exports.AddServerBuild = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/AddServerBuild",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.AddUserVirtualCurrency = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -908,26 +888,6 @@ exports.GetServerBuildInfo = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Do not use
- */
-exports.GetServerBuildUploadUrl = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/GetServerBuildUploadUrl",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.GetStoreItems = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1257,26 +1217,6 @@ exports.ListVirtualCurrencyTypes = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Admin/ListVirtualCurrencyTypes",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-/**
- * @deprecated Do not use
- */
-exports.ModifyMatchmakerGameModes = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/ModifyMatchmakerGameModes",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,

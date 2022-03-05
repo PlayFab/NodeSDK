@@ -843,12 +843,6 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.SetPlayerSecretRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.SetPlayerSecretResult> | null,
         ): void;
-        // Start a new game server with a given configuration, add the current player and return the connection information.
-        // https://docs.microsoft.com/rest/api/playfab/client/matchmaking/startgame
-        StartGame(
-            request: PlayFabClientModels.StartGameRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabClientModels.StartGameResult> | null,
-        ): void;
         // Creates an order for a list of items from the title catalog
         // https://docs.microsoft.com/rest/api/playfab/client/player-item-management/startpurchase
         StartPurchase(
@@ -1075,6 +1069,10 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.WriteTitleEventRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.WriteEventResponse> | null,
         ): void;
+
+
+    // Deletes the internally stored SessionTicket.
+        ForgetAllCredentials() : void;
 
     }
 }
@@ -4162,42 +4160,6 @@ declare module PlayFabClientModels {
         | "Partner"
         | "Custom"
         | "API";
-
-    export interface StartGameRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // version information for the build of the game server which is to be started
-        BuildVersion: string;
-        // character to use for stats based matching. Leave null to use account stats
-        CharacterId?: string;
-        // custom command line argument when starting game server process
-        CustomCommandLineData?: string;
-        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        CustomTags?: { [key: string]: string | null };
-        // the title-defined game mode this server is to be running (defaults to 0 if there is only one mode)
-        GameMode: string;
-        // the region to associate this server with for match filtering
-        Region: string;
-        // player statistic for others to use in finding this game. May be null for no stat-based matching
-        StatisticName?: string;
-    }
-
-    export interface StartGameResult extends PlayFabModule.IPlayFabResultCommon {
-        // timestamp for when the server should expire, if applicable
-        Expires?: string;
-        // unique identifier for the lobby of the server started
-        LobbyID?: string;
-        // password required to log into the server
-        Password?: string;
-        // server IPV4 address
-        ServerIPV4Address?: string;
-        // server IPV6 address
-        ServerIPV6Address?: string;
-        // port on the server to be used for communication
-        ServerPort?: number;
-        // server public DNS name
-        ServerPublicDNSName?: string;
-        // unique identifier for the server
-        Ticket?: string;
-    }
 
     export interface StartPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version for the items to be purchased. Defaults to most recent catalog.

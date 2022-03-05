@@ -25,13 +25,6 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.AddPlayerTagRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.AddPlayerTagResult> | null,
         ): void;
-        // Adds the game server executable specified (previously uploaded - see GetServerBuildUploadUrl) to the set of those a
-        // client is permitted to request in a call to StartGame
-        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/addserverbuild
-        AddServerBuild(
-            request: PlayFabAdminModels.AddServerBuildRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.AddServerBuildResult> | null,
-        ): void;
         // Increments the specified virtual currency by the stated amount
         // https://docs.microsoft.com/rest/api/playfab/admin/player-item-management/adduservirtualcurrency
         AddUserVirtualCurrency(
@@ -334,13 +327,6 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.GetServerBuildInfoRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetServerBuildInfoResult> | null,
         ): void;
-        // Retrieves the pre-authorized URL for uploading a game server package containing a build (does not enable the build for
-        // use - see AddServerBuild)
-        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/getserverbuilduploadurl
-        GetServerBuildUploadUrl(
-            request: PlayFabAdminModels.GetServerBuildUploadURLRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetServerBuildUploadURLResult> | null,
-        ): void;
         // Retrieves the set of items defined for the specified store, including all prices defined
         // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/getstoreitems
         GetStoreItems(
@@ -460,12 +446,6 @@ declare module PlayFabAdminModule {
         ListVirtualCurrencyTypes(
             request: PlayFabAdminModels.ListVirtualCurrencyTypesRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ListVirtualCurrencyTypesResult> | null,
-        ): void;
-        // Updates the game server mode details for the specified game server executable
-        // https://docs.microsoft.com/rest/api/playfab/admin/matchmaking/modifymatchmakergamemodes
-        ModifyMatchmakerGameModes(
-            request: PlayFabAdminModels.ModifyMatchmakerGameModesRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ModifyMatchmakerGameModesResult> | null,
         ): void;
         // Updates the build details for the specified game server executable
         // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/modifyserverbuild
@@ -739,6 +719,7 @@ declare module PlayFabAdminModule {
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateUserTitleDisplayNameResult> | null,
         ): void;
 
+
     }
 }
 
@@ -853,51 +834,6 @@ declare module PlayFabAdminModels {
 
     export interface AddPlayerTagResult extends PlayFabModule.IPlayFabResultCommon {}
 
-    export interface AddServerBuildRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // server host regions in which this build should be running and available
-        ActiveRegions?: string[];
-        // unique identifier for the build executable
-        BuildId: string;
-        // appended to the end of the command line when starting game servers
-        CommandLineTemplate?: string;
-        // developer comment(s) for this build
-        Comment?: string;
-        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        CustomTags?: { [key: string]: string | null };
-        // path to the game server executable. Defaults to gameserver.exe
-        ExecutablePath?: string;
-        // maximum number of game server instances that can run on a single host machine
-        MaxGamesPerHost: number;
-        // minimum capacity of additional game server instances that can be started before the autoscaling service starts new host
-        // machines (given the number of current running host machines and game server instances)
-        MinFreeGameSlots: number;
-    }
-
-    export interface AddServerBuildResult extends PlayFabModule.IPlayFabResultCommon {
-        // array of regions where this build can used, when it is active
-        ActiveRegions?: string[];
-        // unique identifier for this build executable
-        BuildId?: string;
-        // appended to the end of the command line when starting game servers
-        CommandLineTemplate?: string;
-        // developer comment(s) for this build
-        Comment?: string;
-        // path to the game server executable. Defaults to gameserver.exe
-        ExecutablePath?: string;
-        // maximum number of game server instances that can run on a single host machine
-        MaxGamesPerHost: number;
-        // minimum capacity of additional game server instances that can be started before the autoscaling service starts new host
-        // machines (given the number of current running host machines and game server instances)
-        MinFreeGameSlots: number;
-        // the current status of the build validation and processing steps
-        Status?: string;
-        // time this build was last modified (or uploaded, if this build has never been modified)
-        Timestamp: string;
-        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
-        // title has been selected.
-        TitleId?: string;
-    }
-
     export interface AddUserVirtualCurrencyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Amount to be added to the user balance of the specified virtual currency. Maximum VC balance is Int32 (2,147,483,647).
         // Any increase over this value will be discarded.
@@ -924,21 +860,6 @@ declare module PlayFabAdminModels {
     }
 
     type AuthTokenType = "Email";
-
-    export interface AzureResourceSystemData {
-        // The timestamp of resource creation (UTC)
-        CreatedAt?: string;
-        // The identity that created the resource
-        CreatedBy?: string;
-        // The type of identity that created the resource
-        CreatedByType?: string;
-        // The type of identity that last modified the resource
-        LastModifiedAt?: string;
-        // The identity that last modified the resource
-        LastModifiedBy?: string;
-        // The type of identity that last modified the resource
-        LastModifiedByType?: string;
-    }
 
     export interface BanInfo {
         // The active state of this ban. Expired bans may still have this value set to true but they will have no effect.
@@ -2429,6 +2350,7 @@ declare module PlayFabAdminModels {
         | "GoogleAPIServiceUnknownError"
         | "NoValidIdentityForAad"
         | "PlayerIdentityLinkNotFound"
+        | "PhotonApplicationIdAlreadyInUse"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2925,16 +2847,6 @@ declare module PlayFabAdminModels {
         TitleId?: string;
     }
 
-    export interface GetServerBuildUploadURLRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // unique identifier of the game server build to upload
-        BuildId: string;
-    }
-
-    export interface GetServerBuildUploadURLResult extends PlayFabModule.IPlayFabResultCommon {
-        // pre-authorized URL for uploading the game server build package
-        URL?: string;
-    }
-
     export interface GetStoreItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version to store items from. Use default catalog version if null
         CatalogVersion?: string;
@@ -3345,15 +3257,6 @@ declare module PlayFabAdminModels {
         // The list of subscriptions that this player has for this membership
         Subscriptions?: SubscriptionModel[];
     }
-
-    export interface ModifyMatchmakerGameModesRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // previously uploaded build version for which game modes are being specified
-        BuildVersion: string;
-        // array of game modes (Note: this will replace all game modes for the indicated build version)
-        GameModes: GameModeInfo[];
-    }
-
-    export interface ModifyMatchmakerGameModesResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface ModifyServerBuildRequest extends PlayFabModule.IPlayFabRequestCommon {
         // array of regions where this build can used, when it is active
