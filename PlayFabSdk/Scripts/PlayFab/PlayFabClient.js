@@ -2239,26 +2239,6 @@ exports.SetPlayerSecret = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Do not use
- */
-exports.StartGame = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) {
-        throw "Must be logged in to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/StartGame",
-        request,
-        "X-Authorization",
-        PlayFab._internalSettings.sessionTicket,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.StartPurchase = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -2854,3 +2834,7 @@ exports.WriteTitleEvent = function (request, callback) {
     );
 };
 
+
+    exports.ForgetAllCredentials = function () {
+        PlayFab._internalSettings.sessionTicket = null;
+    }

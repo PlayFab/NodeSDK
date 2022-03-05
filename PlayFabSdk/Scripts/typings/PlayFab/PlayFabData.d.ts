@@ -44,6 +44,7 @@ declare module PlayFabDataModule {
             callback: PlayFabModule.ApiCallback<PlayFabDataModels.SetObjectsResponse> | null,
         ): void;
 
+
     }
 }
 

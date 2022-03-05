@@ -15,6 +15,7 @@ declare module PlayFabEventsModule {
             callback: PlayFabModule.ApiCallback<PlayFabEventsModels.WriteEventsResponse> | null,
         ): void;
 
+
     }
 }
 

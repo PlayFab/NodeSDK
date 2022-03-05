@@ -152,6 +152,7 @@ declare module PlayFabGroupsModule {
             callback: PlayFabModule.ApiCallback<PlayFabGroupsModels.UpdateGroupRoleResponse> | null,
         ): void;
 
+
     }
 }
 

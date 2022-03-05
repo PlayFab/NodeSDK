@@ -15,6 +15,7 @@ declare module PlayFabAuthenticationModule {
             callback: PlayFabModule.ApiCallback<PlayFabAuthenticationModels.ValidateEntityTokenResponse> | null,
         ): void;
 
+
     }
 }
 
