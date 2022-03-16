@@ -49,6 +49,12 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.CreateBuildWithProcessBasedServerRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.CreateBuildWithProcessBasedServerResponse> | null,
         ): void;
+        // Create a lobby.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/createlobby
+        CreateLobby(
+            request: PlayFabMultiplayerModels.CreateLobbyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.CreateLobbyResult> | null,
+        ): void;
         // Create a matchmaking ticket as a client.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/matchmaking/creatematchmakingticket
         CreateMatchmakingTicket(
@@ -118,6 +124,12 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.DeleteContainerImageRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.EmptyResponse> | null,
         ): void;
+        // Delete a lobby.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/deletelobby
+        DeleteLobby(
+            request: PlayFabMultiplayerModels.DeleteLobbyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.LobbyEmptyResult> | null,
+        ): void;
         // Deletes a remote user to log on to a VM for a multiplayer server build.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/deleteremoteuser
         DeleteRemoteUser(
@@ -129,6 +141,18 @@ declare module PlayFabMultiplayerModule {
         EnableMultiplayerServersForTitle(
             request: PlayFabMultiplayerModels.EnableMultiplayerServersForTitleRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.EnableMultiplayerServersForTitleResponse> | null,
+        ): void;
+        // Find lobbies which match certain criteria, and which friends are in.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/findfriendlobbies
+        FindFriendLobbies(
+            request: PlayFabMultiplayerModels.FindFriendLobbiesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.FindFriendLobbiesResult> | null,
+        ): void;
+        // Find all the lobbies that match certain criteria.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/findlobbies
+        FindLobbies(
+            request: PlayFabMultiplayerModels.FindLobbiesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.FindLobbiesResult> | null,
         ): void;
         // Gets a URL that can be used to download the specified asset. A sample pre-authenticated url -
         // https://sampleStorageAccount.blob.core.windows.net/gameassets/gameserver.zip?sv=2015-04-05&ss=b&srt=sco&sp=rw&st=startDate&se=endDate&spr=https&sig=sampleSig&api-version=2017-07-29
@@ -161,6 +185,12 @@ declare module PlayFabMultiplayerModule {
         GetContainerRegistryCredentials(
             request: PlayFabMultiplayerModels.GetContainerRegistryCredentialsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetContainerRegistryCredentialsResponse> | null,
+        ): void;
+        // Get a lobby.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/getlobby
+        GetLobby(
+            request: PlayFabMultiplayerModels.GetLobbyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetLobbyResult> | null,
         ): void;
         // Get a match.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/matchmaking/getmatch
@@ -234,11 +264,35 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.GetTitleMultiplayerServersQuotasRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.GetTitleMultiplayerServersQuotasResponse> | null,
         ): void;
+        // Send a notification to invite a player to a lobby.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/invitetolobby
+        InviteToLobby(
+            request: PlayFabMultiplayerModels.InviteToLobbyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.LobbyEmptyResult> | null,
+        ): void;
+        // Join an Arranged lobby.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/joinarrangedlobby
+        JoinArrangedLobby(
+            request: PlayFabMultiplayerModels.JoinArrangedLobbyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.JoinLobbyResult> | null,
+        ): void;
+        // Join a lobby.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/joinlobby
+        JoinLobby(
+            request: PlayFabMultiplayerModels.JoinLobbyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.JoinLobbyResult> | null,
+        ): void;
         // Join a matchmaking ticket.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/matchmaking/joinmatchmakingticket
         JoinMatchmakingTicket(
             request: PlayFabMultiplayerModels.JoinMatchmakingTicketRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.JoinMatchmakingTicketResult> | null,
+        ): void;
+        // Leave a lobby.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/leavelobby
+        LeaveLobby(
+            request: PlayFabMultiplayerModels.LeaveLobbyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.LobbyEmptyResult> | null,
         ): void;
         // Lists archived multiplayer server sessions for a build.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/listarchivedmultiplayerservers
@@ -339,6 +393,12 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.RemoveMatchmakingQueueRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.RemoveMatchmakingQueueResult> | null,
         ): void;
+        // Remove a member from a lobby.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/removemember
+        RemoveMember(
+            request: PlayFabMultiplayerModels.RemoveMemberFromLobbyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.LobbyEmptyResult> | null,
+        ): void;
         // Request a multiplayer server session. Accepts tokens for title and if game client access is enabled, allows game client
         // to request a server with player entity token.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/requestmultiplayerserver
@@ -363,6 +423,18 @@ declare module PlayFabMultiplayerModule {
         ShutdownMultiplayerServer(
             request: PlayFabMultiplayerModels.ShutdownMultiplayerServerRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.EmptyResponse> | null,
+        ): void;
+        // Subscribe to lobby resource notifications.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/subscribetolobbyresource
+        SubscribeToLobbyResource(
+            request: PlayFabMultiplayerModels.SubscribeToLobbyResourceRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.SubscribeToLobbyResourceResult> | null,
+        ): void;
+        // Unsubscribe from lobby notifications.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/unsubscribefromlobbyresource
+        UnsubscribeFromLobbyResource(
+            request: PlayFabMultiplayerModels.UnsubscribeFromLobbyResourceRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.LobbyEmptyResult> | null,
         ): void;
         // Untags a container image.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/untagcontainerimage
@@ -394,6 +466,12 @@ declare module PlayFabMultiplayerModule {
             request: PlayFabMultiplayerModels.UpdateBuildRegionsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.EmptyResponse> | null,
         ): void;
+        // Update a lobby.
+        // https://docs.microsoft.com/rest/api/playfab/multiplayer/lobby/updatelobby
+        UpdateLobby(
+            request: PlayFabMultiplayerModels.UpdateLobbyRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabMultiplayerModels.LobbyEmptyResult> | null,
+        ): void;
         // Uploads a multiplayer server game certificate.
         // https://docs.microsoft.com/rest/api/playfab/multiplayer/multiplayerserver/uploadcertificate
         UploadCertificate(
@@ -406,6 +484,10 @@ declare module PlayFabMultiplayerModule {
 }
 
 declare module PlayFabMultiplayerModels {
+    type AccessPolicy = "Public"
+        | "Friends"
+        | "Private";
+
     export interface AssetReference {
         // The asset's file name. This is a filename with the .zip, .tar, or .tar.gz extension.
         FileName?: string;
@@ -987,6 +1069,54 @@ declare module PlayFabMultiplayerModels {
         VmSize?: string;
     }
 
+    export interface CreateLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The policy indicating who is allowed to join the lobby, and the visibility to queries. May be 'Public', 'Friends' or
+        // 'Private'. Public means the lobby is both visible in queries and any player may join, including invited players. Friends
+        // means that users who are bidirectional friends of members in the lobby may search to find friend lobbies, to retrieve
+        // its connection string. Private means the lobby is not visible in queries, and a player must receive an invitation to
+        // join. Defaults to 'Public' on creation. Can only be changed by the lobby owner.
+        AccessPolicy?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The private key-value pairs which are only visible to members of the lobby. At most 30 key-value pairs may be stored
+        // here, keys are limited to 30 characters and values to 1000. The total size of all lobbyData values may not exceed 4096
+        // bytes. Keys are case sensitive.
+        LobbyData?: { [key: string]: string | null };
+        // The maximum number of players allowed in the lobby. The value must be between 2 and 128.
+        MaxPlayers: number;
+        // The member initially added to the lobby. Client must specify exactly one member, which is the creator's entity and
+        // member data. Member PubSubConnectionHandle must be null or empty. Game servers must not specify any members.
+        Members?: Member[];
+        // The lobby owner. Must be the calling entity.
+        Owner: EntityKey;
+        // The policy for how a new owner is chosen. May be 'Automatic', 'Manual' or 'None'. Can only be specified by clients. If
+        // client-owned and 'Automatic' - The Lobby service will automatically assign another connected owner when the current
+        // owner leaves or disconnects. The useConnections property must be true. If client - owned and 'Manual' - Ownership is
+        // protected as long as the current owner is connected. If the current owner leaves or disconnects any member may set
+        // themselves as the current owner. The useConnections property must be true. If client-owned and 'None' - Any member can
+        // set ownership. The useConnections property can be either true or false.
+        OwnerMigrationPolicy?: string;
+        // The public key-value pairs which allow queries to differentiate between lobbies. Queries will refer to these key-value
+        // pairs in their filter and order by clauses to retrieve lobbies fitting the specified criteria. At most 30 key-value
+        // pairs may be stored here. Keys are of the format string_key1, string_key2 ... string_key30 for string values, or
+        // number_key1, number_key2, ... number_key30 for numeric values.Numeric values are floats. Values can be at most 256
+        // characters long. The total size of all searchData values may not exceed 1024 bytes.
+        SearchData?: { [key: string]: string | null };
+        // A setting to control whether connections are used. Defaults to true. When true, notifications are sent to subscribed
+        // players, disconnect detection removes connectionHandles, only owner migration policies using connections are allowed,
+        // and lobbies must have at least one connected member to be searchable or be a server hosted lobby with a connected
+        // server. If false, then notifications are not sent, connections are not allowed, and lobbies do not need connections to
+        // be searchable.
+        UseConnections: boolean;
+    }
+
+    export interface CreateLobbyResult extends PlayFabModule.IPlayFabResultCommon {
+        // A field which indicates which lobby the user will be joining.
+        ConnectionString: string;
+        // Id to uniquely identify a lobby.
+        LobbyId: string;
+    }
+
     export interface CreateMatchmakingTicketRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The User who created this ticket.
         Creator: MatchmakingPlayer;
@@ -1170,6 +1300,13 @@ declare module PlayFabMultiplayerModels {
         ImageName?: string;
     }
 
+    export interface DeleteLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The id of the lobby.
+        LobbyId?: string;
+    }
+
     export interface DeleteRemoteUserRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The guid string build ID of the multiplayer server where the remote user is to delete.
         BuildId: string;
@@ -1244,6 +1381,70 @@ declare module PlayFabMultiplayerModels {
         Id: string;
         // Entity type. See https://docs.microsoft.com/gaming/playfab/features/data/entities/available-built-in-entity-types
         Type?: string;
+    }
+
+    export interface FindFriendLobbiesRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Controls whether this query should link to friends made on the Facebook network. Defaults to false
+        ExcludeFacebookFriends: boolean;
+        // Controls whether this query should link to friends made on the Steam network. Defaults to false
+        ExcludeSteamFriends: boolean;
+        // OData style string that contains one or more filters. The OR and grouping operators are not allowed.
+        Filter?: string;
+        // OData style string that contains sorting for this query. To sort by closest, a moniker `distance{number_key1 = 5}` can
+        // be used to sort by distance from the given number. This field only supports either one sort clause or one distance
+        // clause.
+        OrderBy?: string;
+        // Request pagination information.
+        Pagination?: PaginationRequest;
+        // Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab.
+        XboxToken?: string;
+    }
+
+    export interface FindFriendLobbiesResult extends PlayFabModule.IPlayFabResultCommon {
+        // Array of lobbies found that matched FindFriendLobbies request.
+        Lobbies: FriendLobbySummary[];
+        // Pagination response for FindFriendLobbies request.
+        Pagination: PaginationResponse;
+    }
+
+    export interface FindLobbiesRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // OData style string that contains one or more filters. The OR and grouping operators are not allowed.
+        Filter?: string;
+        // OData style string that contains sorting for this query. To sort by closest, a moniker `distance{number_key1 = 5}` can
+        // be used to sort by distance from the given number. This field only supports either one sort clause or one distance
+        // clause.
+        OrderBy?: string;
+        // Request pagination information.
+        Pagination?: PaginationRequest;
+    }
+
+    export interface FindLobbiesResult extends PlayFabModule.IPlayFabResultCommon {
+        // Array of lobbies found that matched FindLobbies request.
+        Lobbies: LobbySummary[];
+        // Pagination response for FindLobbies request.
+        Pagination: PaginationResponse;
+    }
+
+    export interface FriendLobbySummary {
+        // A string used to join the lobby.This field is populated by the Lobby service.Invites are performed by communicating this
+        // connectionString to other players.
+        ConnectionString: string;
+        // The current number of players in the lobby.
+        CurrentPlayers: number;
+        // Friends in Lobby.
+        Friends?: EntityKey[];
+        // Id to uniquely identify a lobby.
+        LobbyId: string;
+        // The maximum number of players allowed in the lobby.
+        MaxPlayers: number;
+        // The client or server entity which owns this lobby.
+        Owner: EntityKey;
+        // Search data.
+        SearchData?: { [key: string]: string | null };
     }
 
     export interface GameCertificateReference {
@@ -1368,6 +1569,18 @@ declare module PlayFabMultiplayerModels {
         Password?: string;
         // The username for accessing the container registry.
         Username?: string;
+    }
+
+    export interface GetLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The id of the lobby.
+        LobbyId?: string;
+    }
+
+    export interface GetLobbyResult extends PlayFabModule.IPlayFabResultCommon {
+        // The information pertaining to the requested lobby.
+        Lobby: Lobby;
     }
 
     export interface GetMatchmakingQueueRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1606,6 +1819,71 @@ declare module PlayFabMultiplayerModels {
         ProcessesToMonitor?: string[];
     }
 
+    export interface InviteToLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The entity invited to the lobby.
+        InviteeEntity?: EntityKey;
+        // The id of the lobby.
+        LobbyId?: string;
+        // The member entity sending the invite. Must be a member of the lobby.
+        MemberEntity?: EntityKey;
+    }
+
+    export interface JoinArrangedLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The policy indicating who is allowed to join the lobby, and the visibility to queries. May be 'Public', 'Friends' or
+        // 'Private'. Public means the lobby is both visible in queries and any player may join, including invited players. Friends
+        // means that users who are bidirectional friends of members in the lobby may search to find friend lobbies, to retrieve
+        // its connection string. Private means the lobby is not visible in queries, and a player must receive an invitation to
+        // join. Defaults to 'Public' on creation. Can only be changed by the lobby owner.
+        AccessPolicy?: string;
+        // A field which indicates which lobby the user will be joining. This field is opaque to everyone except the Lobby service
+        // and the creator of the arrangementString (Matchmaking). This string defines a unique identifier for the arranged lobby
+        // as well as the title and member the string is valid for. Arrangement strings have an expiration.
+        ArrangementString: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The maximum number of players allowed in the lobby. The value must be between 2 and 128.
+        MaxPlayers: number;
+        // The private key-value pairs used by the member to communicate information to other members and the owner. Visible to all
+        // members of the lobby. At most 30 key-value pairs may be stored here, keys are limited to 30 characters and values to
+        // 1000. The total size of all memberData values may not exceed 4096 bytes. Keys are case sensitive.
+        MemberData?: { [key: string]: string | null };
+        // The member entity who is joining the lobby. The first member to join will be the lobby owner.
+        MemberEntity: EntityKey;
+        // The policy for how a new owner is chosen. May be 'Automatic', 'Manual' or 'None'. Can only be specified by clients. If
+        // client-owned and 'Automatic' - The Lobby service will automatically assign another connected owner when the current
+        // owner leaves or disconnects. The useConnections property must be true. If client - owned and 'Manual' - Ownership is
+        // protected as long as the current owner is connected. If the current owner leaves or disconnects any member may set
+        // themselves as the current owner. The useConnections property must be true. If client-owned and 'None' - Any member can
+        // set ownership. The useConnections property can be either true or false.
+        OwnerMigrationPolicy?: string;
+        // A setting to control whether connections are used. Defaults to true. When true, notifications are sent to subscribed
+        // players, disconnect detection removes connectionHandles, only owner migration policies using connections are allowed,
+        // and lobbies must have at least one connected member to be searchable or be a server hosted lobby with a connected
+        // server. If false, then notifications are not sent, connections are not allowed, and lobbies do not need connections to
+        // be searchable.
+        UseConnections: boolean;
+    }
+
+    export interface JoinLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // A field which indicates which lobby the user will be joining. This field is opaque to everyone except the Lobby service.
+        ConnectionString?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The private key-value pairs used by the member to communicate information to other members and the owner. Visible to all
+        // members of the lobby. At most 30 key-value pairs may be stored here, keys are limited to 30 characters and values to
+        // 1000. The total size of all memberData values may not exceed 4096 bytes.Keys are case sensitive.
+        MemberData?: { [key: string]: string | null };
+        // The member entity who is joining the lobby.
+        MemberEntity?: EntityKey;
+    }
+
+    export interface JoinLobbyResult extends PlayFabModule.IPlayFabResultCommon {
+        // Successfully joined lobby's id.
+        LobbyId: string;
+    }
+
     export interface JoinMatchmakingTicketRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -1618,6 +1896,15 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface JoinMatchmakingTicketResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface LeaveLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The id of the lobby.
+        LobbyId?: string;
+        // The member entity leaving the lobby.
+        MemberEntity?: EntityKey;
+    }
 
     export interface LinearDifferenceRuleExpansion {
         // This value gets added to Difference at every expansion interval.
@@ -1892,6 +2179,55 @@ declare module PlayFabMultiplayerModels {
         VirtualMachines?: VirtualMachineSummary[];
     }
 
+    export interface Lobby {
+        // A setting indicating who is allowed to join this lobby, as well as see it in queries.
+        AccessPolicy: string;
+        // A number that increments once for each request that modifies the lobby.
+        ChangeNumber: number;
+        // A string used to join the lobby. This field is populated by the Lobby service. Invites are performed by communicating
+        // this connectionString to other players.
+        ConnectionString: string;
+        // Lobby data.
+        LobbyData?: { [key: string]: string | null };
+        // Id to uniquely identify a lobby.
+        LobbyId: string;
+        // The maximum number of players allowed in the lobby.
+        MaxPlayers: number;
+        // Array of all lobby members.
+        Members?: Member[];
+        // A setting indicating whether members are allowed to join this lobby. When Locked new members are prevented from joining.
+        MembershipLock: string;
+        // The client or server entity which owns this lobby.
+        Owner?: EntityKey;
+        // A setting indicating the owner migration policy. If server owned, this field is not present.
+        OwnerMigrationPolicy?: string;
+        // An opaque string stored on a SubscribeToLobbyResource call, which indicates the connection an owner or member has with
+        // PubSub.
+        PubSubConnectionHandle?: string;
+        // Search data.
+        SearchData?: { [key: string]: string | null };
+        // A flag which determines if connections are used. Defaults to true. Only set on create.
+        UseConnections: boolean;
+    }
+
+    export interface LobbyEmptyResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface LobbySummary {
+        // A string used to join the lobby.This field is populated by the Lobby service.Invites are performed by communicating this
+        // connectionString to other players.
+        ConnectionString: string;
+        // The current number of players in the lobby.
+        CurrentPlayers: number;
+        // Id to uniquely identify a lobby.
+        LobbyId: string;
+        // The maximum number of players allowed in the lobby.
+        MaxPlayers: number;
+        // The client or server entity which owns this lobby.
+        Owner: EntityKey;
+        // Search data.
+        SearchData?: { [key: string]: string | null };
+    }
+
     export interface MatchmakingPlayer {
         // The user's attributes custom to the title.
         Attributes?: MatchmakingPlayerAttributes;
@@ -1987,6 +2323,18 @@ declare module PlayFabMultiplayerModels {
         SecondsBetweenExpansions: number;
     }
 
+    export interface Member {
+        // Key-value pairs specific to member.
+        MemberData?: { [key: string]: string | null };
+        // The member entity key.
+        MemberEntity?: EntityKey;
+        // Opaque string, stored on a Subscribe call, which indicates the connection an owner or member has with PubSub.
+        PubSubConnectionHandle?: string;
+    }
+
+    type MembershipLock = "Unlocked"
+        | "Locked";
+
     export interface MonitoringApplicationConfiguration {
         // Asset which contains the monitoring application files and scripts.
         AssetReference: AssetReference;
@@ -2037,6 +2385,25 @@ declare module PlayFabMultiplayerModels {
     export interface OverrideUnsignedInt {
         // The custom expansion value.
         Value: number;
+    }
+
+    type OwnerMigrationPolicy = "None"
+        | "Automatic"
+        | "Manual"
+        | "Server";
+
+    export interface PaginationRequest {
+        // Continuation token returned as a result in a previous FindLobbies call. Cannot be specified by clients.
+        ContinuationToken?: string;
+        // The number of lobbies that should be retrieved. Cannot be specified by servers, clients may specify any value up to 50
+        PageSizeRequested?: number;
+    }
+
+    export interface PaginationResponse {
+        // Continuation token returned by server call. Not returned for clients
+        ContinuationToken?: string;
+        // The number of lobbies that matched the search request.
+        TotalMatchedLobbyCount?: number;
     }
 
     export interface Port {
@@ -2109,6 +2476,17 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface RemoveMatchmakingQueueResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface RemoveMemberFromLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The id of the lobby.
+        LobbyId?: string;
+        // The member entity to be removed from the lobby.
+        MemberEntity?: EntityKey;
+        // If true, removed member can never rejoin this lobby.
+        PreventRejoin: boolean;
+    }
 
     export interface RequestMultiplayerServerRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The identifiers of the build alias to use for the request.
@@ -2293,6 +2671,29 @@ declare module PlayFabMultiplayerModels {
         SecondsBetweenExpansions: number;
     }
 
+    export interface SubscribeToLobbyResourceRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The entity performing the subscription.
+        EntityKey: EntityKey;
+        // Opaque string, given to a client upon creating a connection with PubSub.
+        PubSubConnectionHandle: string;
+        // The name of the resource to subscribe to.
+        ResourceId: string;
+        // Version number for the subscription of this resource.
+        SubscriptionVersion: number;
+        // Subscription type.
+        Type: string;
+    }
+
+    export interface SubscribeToLobbyResourceResult extends PlayFabModule.IPlayFabResultCommon {
+        // Topic will be returned in all notifications that are the result of this subscription.
+        Topic: string;
+    }
+
+    type SubscriptionType = "LobbyChange"
+        | "LobbyInvite";
+
     export interface TeamDifferenceRule {
         // Description of the attribute used by this rule to match teams.
         Attribute: QueueRuleAttribute;
@@ -2345,6 +2746,21 @@ declare module PlayFabMultiplayerModels {
         CoreCapacities?: CoreCapacity[];
     }
 
+    export interface UnsubscribeFromLobbyResourceRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The entity which performed the subscription.
+        EntityKey: EntityKey;
+        // Opaque string, given to a client upon creating a connection with PubSub.
+        PubSubConnectionHandle: string;
+        // The name of the resource to unsubscribe from.
+        ResourceId: string;
+        // Version number passed for the subscription of this resource.
+        SubscriptionVersion: number;
+        // Subscription type.
+        Type: string;
+    }
+
     export interface UntagContainerImageRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -2390,6 +2806,66 @@ declare module PlayFabMultiplayerModels {
         BuildRegions: BuildRegionParams[];
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
+    }
+
+    export interface UpdateLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The policy indicating who is allowed to join the lobby, and the visibility to queries. May be 'Public', 'Friends' or
+        // 'Private'. Public means the lobby is both visible in queries and any player may join, including invited players. Friends
+        // means that users who are bidirectional friends of members in the lobby may search to find friend lobbies, to retrieve
+        // its connection string. Private means the lobby is not visible in queries, and a player must receive an invitation to
+        // join. Defaults to 'Public' on creation. Can only be changed by the lobby owner.
+        AccessPolicy?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The private key-value pairs which are only visible to members of the lobby. Optional. Sets or updates key-value pairs on
+        // the lobby. Only the current lobby owner can set lobby data. Keys may be an arbitrary string of at most 30 characters.
+        // The total size of all lobbyData values may not exceed 4096 bytes. Values are not individually limited. There can be up
+        // to 30 key-value pairs stored here. Keys are case sensitive.
+        LobbyData?: { [key: string]: string | null };
+        // The keys to delete from the lobby LobbyData. Optional. Behaves similar to searchDataToDelete, but applies to lobbyData.
+        LobbyDataToDelete?: string[];
+        // The id of the lobby.
+        LobbyId?: string;
+        // The maximum number of players allowed in the lobby. Updates the maximum allowed number of players in the lobby. Only the
+        // current lobby owner can set this. If set, the value must be greater than or equal to the number of members currently in
+        // the lobby.
+        MaxPlayers?: number;
+        // The private key-value pairs used by the member to communicate information to other members and the owner. Optional. Sets
+        // or updates new key-value pairs on the caller's member data. New keys will be added with their values and existing keys
+        // will be updated with the new values. Visible to all members of the lobby. At most 30 key-value pairs may be stored here,
+        // keys are limited to 30 characters and values to 1000. The total size of all memberData values may not exceed 4096 bytes.
+        // Keys are case sensitive. Servers cannot specifiy this.
+        MemberData?: { [key: string]: string | null };
+        // The keys to delete from the lobby MemberData. Optional. Deletes key-value pairs on the caller's member data. All the
+        // specified keys will be removed from the caller's member data. Keys that do not exist are a no-op. If the key to delete
+        // exists in the memberData (same request) it will result in a bad request. Servers cannot specifiy this.
+        MemberDataToDelete?: string[];
+        // The member entity whose data is being modified. Servers cannot specify this.
+        MemberEntity?: EntityKey;
+        // A setting indicating whether the lobby is locked. May be 'Unlocked' or 'Locked'. When Locked new members are not allowed
+        // to join. Defaults to 'Unlocked' on creation. Can only be changed by the lobby owner.
+        MembershipLock?: string;
+        // The lobby owner. Optional. Set to transfer ownership of the lobby. If client - owned and 'Automatic' - The Lobby service
+        // will automatically assign another connected owner when the current owner leaves or disconnects. useConnections must be
+        // true. If client - owned and 'Manual' - Ownership is protected as long as the current owner is connected. If the current
+        // owner leaves or disconnects any member may set themselves as the current owner. The useConnections property must be
+        // true. If client-owned and 'None' - Any member can set ownership. The useConnections property can be either true or
+        // false. For all client-owned lobbies when the owner leaves and a new owner can not be automatically selected - The owner
+        // field is set to null. For all client-owned lobbies when the owner disconnects and a new owner can not be automatically
+        // selected - The owner field remains unchanged and the current owner retains all owner abilities for the lobby. If
+        // server-owned (must be 'Server') - Any server can set ownership. The useConnections property must be true.
+        Owner?: EntityKey;
+        // The public key-value pairs which allow queries to differentiate between lobbies. Optional. Sets or updates key-value
+        // pairs on the lobby for use with queries. Only the current lobby owner can set search data. New keys will be added with
+        // their values and existing keys will be updated with the new values. There can be up to 30 key-value pairs stored here.
+        // Keys are of the format string_key1, string_key2... string_key30 for string values, or number_key1, number_key2, ...
+        // number_key30 for numeric values. Numeric values are floats. Values can be at most 256 characters long. The total size of
+        // all searchData values may not exceed 1024 bytes.Keys are case sensitive.
+        SearchData?: { [key: string]: string | null };
+        // The keys to delete from the lobby SearchData. Optional. Deletes key-value pairs on the lobby. Only the current lobby
+        // owner can delete search data. All the specified keys will be removed from the search data. Keys that do not exist in the
+        // lobby are a no-op.If the key to delete exists in the searchData (same request) it will result in a bad request.
+        SearchDataToDelete?: string[];
     }
 
     export interface UploadCertificateRequest extends PlayFabModule.IPlayFabRequestCommon {
