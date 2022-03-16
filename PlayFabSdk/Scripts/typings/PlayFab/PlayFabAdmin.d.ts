@@ -321,12 +321,6 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.GetSegmentsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetSegmentsResponse> | null,
         ): void;
-        // Retrieves the build details for the specified game server executable
-        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/getserverbuildinfo
-        GetServerBuildInfo(
-            request: PlayFabAdminModels.GetServerBuildInfoRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetServerBuildInfoResult> | null,
-        ): void;
         // Retrieves the set of items defined for the specified store, including all prices defined
         // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/getstoreitems
         GetStoreItems(
@@ -435,12 +429,6 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.ListOpenIdConnectionRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ListOpenIdConnectionResponse> | null,
         ): void;
-        // Retrieves the build details for all game server executables which are currently defined for the title
-        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/listserverbuilds
-        ListServerBuilds(
-            request: PlayFabAdminModels.ListBuildsRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.ListBuildsResult> | null,
-        ): void;
         // Retuns the list of all defined virtual currencies for the title
         // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/listvirtualcurrencytypes
         ListVirtualCurrencyTypes(
@@ -464,13 +452,6 @@ declare module PlayFabAdminModule {
         RemovePlayerTag(
             request: PlayFabAdminModels.RemovePlayerTagRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RemovePlayerTagResult> | null,
-        ): void;
-        // Removes the game server executable specified from the set of those a client is permitted to request in a call to
-        // StartGame
-        // https://docs.microsoft.com/rest/api/playfab/admin/custom-server-management/removeserverbuild
-        RemoveServerBuild(
-            request: PlayFabAdminModels.RemoveServerBuildRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RemoveServerBuildResult> | null,
         ): void;
         // Removes one or more virtual currencies from the set defined for the title.
         // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/removevirtualcurrencytypes
@@ -2498,6 +2479,10 @@ declare module PlayFabAdminModels {
         | "EventSinkConnectionInvalid"
         | "EventSinkConnectionUnauthorized"
         | "EventSinkRegionInvalid"
+        | "EventSinkLimitExceeded"
+        | "EventSinkSasTokenInvalid"
+        | "EventSinkNotFound"
+        | "EventSinkNameInvalid"
         | "OperationCanceled"
         | "InvalidDisplayNameRandomSuffixLength"
         | "AllowNonUniquePlayerDisplayNamesDisableNotAllowed";
@@ -2819,34 +2804,6 @@ declare module PlayFabAdminModels {
         Segments?: SegmentModel[];
     }
 
-    export interface GetServerBuildInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // unique identifier of the previously uploaded build executable for which information is being requested
-        BuildId: string;
-    }
-
-    export interface GetServerBuildInfoResult extends PlayFabModule.IPlayFabResultCommon {
-        // array of regions where this build can used, when it is active
-        ActiveRegions?: string[];
-        // unique identifier for this build executable
-        BuildId?: string;
-        // developer comment(s) for this build
-        Comment?: string;
-        // error message, if any, about this build
-        ErrorMessage?: string;
-        // maximum number of game server instances that can run on a single host machine
-        MaxGamesPerHost: number;
-        // minimum capacity of additional game server instances that can be started before the autoscaling service starts new host
-        // machines (given the number of current running host machines and game server instances)
-        MinFreeGameSlots: number;
-        // the current status of the build validation and processing steps
-        Status?: string;
-        // time this build was last modified (or uploaded, if this build has never been modified)
-        Timestamp: string;
-        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
-        // title has been selected.
-        TitleId?: string;
-    }
-
     export interface GetStoreItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version to store items from. Use default catalog version if null
         CatalogVersion?: string;
@@ -3157,13 +3114,6 @@ declare module PlayFabAdminModels {
     export interface LinkedUserAccountSegmentFilter {
         // Login provider.
         LoginProvider?: string;
-    }
-
-    export interface ListBuildsRequest extends PlayFabModule.IPlayFabRequestCommon {}
-
-    export interface ListBuildsResult extends PlayFabModule.IPlayFabResultCommon {
-        // array of uploaded game server builds
-        Builds?: GetServerBuildInfoResult[];
     }
 
     export interface ListOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {}
@@ -3659,13 +3609,6 @@ declare module PlayFabAdminModels {
     }
 
     export interface RemovePlayerTagResult extends PlayFabModule.IPlayFabResultCommon {}
-
-    export interface RemoveServerBuildRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // unique identifier of the previously uploaded build executable to be removed
-        BuildId: string;
-    }
-
-    export interface RemoveServerBuildResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface RemoveVirtualCurrencyTypesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // List of virtual currencies to delete

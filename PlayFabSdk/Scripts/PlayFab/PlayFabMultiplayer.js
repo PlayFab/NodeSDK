@@ -116,6 +116,20 @@ exports.CreateBuildWithProcessBasedServer = function (request, callback) {
     );
 };
 
+exports.CreateLobby = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/CreateLobby",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.CreateMatchmakingTicket = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Match/CreateMatchmakingTicket",
@@ -270,6 +284,20 @@ exports.DeleteContainerImageRepository = function (request, callback) {
     );
 };
 
+exports.DeleteLobby = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/DeleteLobby",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.DeleteRemoteUser = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/DeleteRemoteUser",
@@ -287,6 +315,34 @@ exports.DeleteRemoteUser = function (request, callback) {
 exports.EnableMultiplayerServersForTitle = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/EnableMultiplayerServersForTitle",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.FindFriendLobbies = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/FindFriendLobbies",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.FindLobbies = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/FindLobbies",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
@@ -357,6 +413,20 @@ exports.GetBuildAlias = function (request, callback) {
 exports.GetContainerRegistryCredentials = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/GetContainerRegistryCredentials",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.GetLobby = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/GetLobby",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
@@ -536,9 +606,65 @@ exports.GetTitleMultiplayerServersQuotas = function (request, callback) {
     );
 };
 
+exports.InviteToLobby = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/InviteToLobby",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.JoinArrangedLobby = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/JoinArrangedLobby",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.JoinLobby = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/JoinLobby",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.JoinMatchmakingTicket = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Match/JoinMatchmakingTicket",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.LeaveLobby = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/LeaveLobby",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
@@ -774,6 +900,20 @@ exports.RemoveMatchmakingQueue = function (request, callback) {
     );
 };
 
+exports.RemoveMember = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/RemoveMember",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.RequestMultiplayerServer = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/RequestMultiplayerServer",
@@ -819,6 +959,34 @@ exports.SetMatchmakingQueue = function (request, callback) {
 exports.ShutdownMultiplayerServer = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/ShutdownMultiplayerServer",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.SubscribeToLobbyResource = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/SubscribeToLobbyResource",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UnsubscribeFromLobbyResource = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/UnsubscribeFromLobbyResource",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
@@ -889,6 +1057,20 @@ exports.UpdateBuildRegion = function (request, callback) {
 exports.UpdateBuildRegions = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/UpdateBuildRegions",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UpdateLobby = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/UpdateLobby",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,

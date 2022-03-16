@@ -549,6 +549,12 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.RefreshGameServerInstanceHeartbeatRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.RefreshGameServerInstanceHeartbeatResult> | null,
         ): void;
+        // Inform the matchmaker that a new Game Server Instance is added.
+        // https://docs.microsoft.com/rest/api/playfab/server/matchmaking/registergame
+        RegisterGame(
+            request: PlayFabServerModels.RegisterGameRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.RegisterGameResponse> | null,
+        ): void;
         // Removes the specified friend from the the user's friend list
         // https://docs.microsoft.com/rest/api/playfab/server/friend-list-management/removefriend
         RemoveFriend(
@@ -2453,6 +2459,10 @@ declare module PlayFabServerModels {
         | "EventSinkConnectionInvalid"
         | "EventSinkConnectionUnauthorized"
         | "EventSinkRegionInvalid"
+        | "EventSinkLimitExceeded"
+        | "EventSinkSasTokenInvalid"
+        | "EventSinkNotFound"
+        | "EventSinkNameInvalid"
         | "OperationCanceled"
         | "InvalidDisplayNameRandomSuffixLength"
         | "AllowNonUniquePlayerDisplayNamesDisableNotAllowed";
@@ -3855,6 +3865,45 @@ declare module PlayFabServerModels {
     }
 
     export interface RefreshGameServerInstanceHeartbeatResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    type Region = "USCentral"
+        | "USEast"
+        | "EUWest"
+        | "Singapore"
+        | "Japan"
+        | "Brazil"
+        | "Australia";
+
+    export interface RegisterGameRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Unique identifier of the build running on the Game Server Instance.
+        Build: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Game Mode the Game Server instance is running. Note that this must be defined in the Game Modes tab in the PlayFab Game
+        // Manager, along with the Build ID (the same Game Mode can be defined for multiple Build IDs).
+        GameMode: string;
+        // Previous lobby id if re-registering an existing game.
+        LobbyId?: string;
+        // Region in which the Game Server Instance is running. For matchmaking using non-AWS region names, set this to any AWS
+        // region and use Tags (below) to specify your custom region.
+        Region: string;
+        // IPV4 address of the game server instance.
+        ServerIPV4Address?: string;
+        // IPV6 address (if any) of the game server instance.
+        ServerIPV6Address?: string;
+        // Port number for communication with the Game Server Instance.
+        ServerPort: string;
+        // Public DNS name (if any) of the server
+        ServerPublicDNSName?: string;
+        // Tags for the Game Server Instance
+        Tags?: { [key: string]: string | null };
+    }
+
+    export interface RegisterGameResponse extends PlayFabModule.IPlayFabResultCommon {
+        // Unique identifier generated for the Game Server Instance that is registered. If LobbyId is specified in request and the
+        // game still exists in PlayFab, the LobbyId in request is returned. Otherwise a new lobby id will be returned.
+        LobbyId?: string;
+    }
 
     export interface RemoveFriendRequest extends PlayFabModule.IPlayFabRequestCommon {
         // PlayFab identifier of the friend account which is to be removed.

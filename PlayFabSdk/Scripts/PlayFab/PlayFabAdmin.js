@@ -871,23 +871,6 @@ exports.GetSegments = function (request, callback) {
     );
 };
 
-exports.GetServerBuildInfo = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/GetServerBuildInfo",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.GetStoreItems = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1194,23 +1177,6 @@ exports.ListOpenIdConnection = function (request, callback) {
     );
 };
 
-exports.ListServerBuilds = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/ListServerBuilds",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.ListVirtualCurrencyTypes = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1268,23 +1234,6 @@ exports.RemovePlayerTag = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Admin/RemovePlayerTag",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-exports.RemoveServerBuild = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/RemoveServerBuild",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,
