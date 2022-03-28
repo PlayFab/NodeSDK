@@ -984,9 +984,37 @@ exports.SubscribeToLobbyResource = function (request, callback) {
     );
 };
 
+exports.SubscribeToMatchmakingResource = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Match/SubscribeToMatchmakingResource",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.UnsubscribeFromLobbyResource = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Lobby/UnsubscribeFromLobbyResource",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UnsubscribeFromMatchmakingResource = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Match/UnsubscribeFromMatchmakingResource",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
