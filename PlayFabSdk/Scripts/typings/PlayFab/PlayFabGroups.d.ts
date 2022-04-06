@@ -170,7 +170,7 @@ declare module PlayFabGroupsModels {
     export interface AcceptGroupInvitationRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // The entity to perform this action on.
+        // The optional entity to perform this action on. Defaults to the currently logged in entity.
         Entity?: EntityKey;
         // The identifier of the group
         Group: EntityKey;
@@ -193,7 +193,7 @@ declare module PlayFabGroupsModels {
         AutoAcceptOutstandingInvite?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // The entity to perform this action on.
+        // The optional entity to perform this action on. Defaults to the currently logged in entity.
         Entity?: EntityKey;
         // The identifier of the group
         Group: EntityKey;
@@ -235,7 +235,7 @@ declare module PlayFabGroupsModels {
     export interface CreateGroupRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // The entity to perform this action on.
+        // The optional entity to perform this action on. Defaults to the currently logged in entity.
         Entity?: EntityKey;
         // The name of the group. This is unique at the title level by default.
         GroupName: string;
@@ -489,7 +489,7 @@ declare module PlayFabGroupsModels {
     export interface ListMembershipOpportunitiesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // The entity to perform this action on.
+        // The optional entity to perform this action on. Defaults to the currently logged in entity.
         Entity?: EntityKey;
     }
 
@@ -503,7 +503,7 @@ declare module PlayFabGroupsModels {
     export interface ListMembershipRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // The entity to perform this action on.
+        // The optional entity to perform this action on. Defaults to the currently logged in entity.
         Entity?: EntityKey;
     }
 

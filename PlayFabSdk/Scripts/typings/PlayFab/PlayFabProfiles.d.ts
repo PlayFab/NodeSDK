@@ -172,7 +172,7 @@ declare module PlayFabProfilesModels {
         // Determines whether the objects will be returned as an escaped JSON string or as a un-escaped JSON object. Default is
         // JSON string.
         DataAsObject?: boolean;
-        // The entity to perform this action on.
+        // The optional entity to perform this action on. Defaults to the currently logged in entity.
         Entity?: EntityKey;
     }
 
@@ -199,6 +199,8 @@ declare module PlayFabProfilesModels {
     export interface GetGlobalPolicyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
+        // The optional entity to perform this action on. Defaults to the currently logged in entity.
+        Entity?: EntityKey;
     }
 
     export interface GetGlobalPolicyResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -254,7 +256,7 @@ declare module PlayFabProfilesModels {
     export interface SetProfileLanguageRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // The entity to perform this action on.
+        // The optional entity to perform this action on. Defaults to the currently logged in entity.
         Entity?: EntityKey;
         // The expected version of a profile to perform this update on
         ExpectedVersion?: number;
