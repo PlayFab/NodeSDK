@@ -121,7 +121,8 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.CreateSharedGroupRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.CreateSharedGroupResult> | null,
         ): void;
-        // Executes a CloudScript function, with the 'currentPlayerId' set to the PlayFab ID of the authenticated player.
+        // Executes a CloudScript function, with the 'currentPlayerId' set to the PlayFab ID of the authenticated player. The
+        // PlayFab ID is the entity ID of the player's master_player_account entity.
         // https://docs.microsoft.com/rest/api/playfab/client/server-side-cloud-script/executecloudscript
         ExecuteCloudScript(
             request: PlayFabClientModels.ExecuteCloudScriptRequest | null,
@@ -351,7 +352,13 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.GetPlayFabIDsFromKongregateIDsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromKongregateIDsResult> | null,
         ): void;
-        // Retrieves the unique PlayFab identifiers for the given set of Nintendo Switch identifiers.
+        // Retrieves the unique PlayFab identifiers for the given set of Nintendo Service Account identifiers.
+        // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromnintendoserviceaccountids
+        GetPlayFabIDsFromNintendoServiceAccountIds(
+            request: PlayFabClientModels.GetPlayFabIDsFromNintendoServiceAccountIdsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromNintendoServiceAccountIdsResult> | null,
+        ): void;
+        // Retrieves the unique PlayFab identifiers for the given set of Nintendo Switch Device identifiers.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromnintendoswitchdeviceids
         GetPlayFabIDsFromNintendoSwitchDeviceIds(
             request: PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest | null,
@@ -2649,6 +2656,16 @@ declare module PlayFabClientModels {
         Data?: KongregatePlayFabIdPair[];
     }
 
+    export interface GetPlayFabIDsFromNintendoServiceAccountIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique Nintendo Switch Account identifiers for which the title needs to get PlayFab identifiers.
+        NintendoAccountIds: string[];
+    }
+
+    export interface GetPlayFabIDsFromNintendoServiceAccountIdsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of Nintendo Switch Service Account identifiers to PlayFab identifiers.
+        Data?: NintendoServiceAccountPlayFabIdPair[];
+    }
+
     export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Nintendo Switch Device identifiers for which the title needs to get PlayFab identifiers.
         NintendoSwitchDeviceIds: string[];
@@ -3666,6 +3683,14 @@ declare module PlayFabClientModels {
         Id?: string;
         // Name Identifier, if present
         Name?: string;
+    }
+
+    export interface NintendoServiceAccountPlayFabIdPair {
+        // Unique Nintendo Switch Service Account identifier for a user.
+        NintendoServiceAccountId?: string;
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Nintendo Switch Service Account
+        // identifier.
+        PlayFabId?: string;
     }
 
     export interface NintendoSwitchPlayFabIdPair {
@@ -4857,6 +4882,8 @@ declare module PlayFabClientModels {
     export interface UserXboxInfo {
         // XBox user ID
         XboxUserId?: string;
+        // XBox user sandbox
+        XboxUserSandbox?: string;
     }
 
     export interface ValidateAmazonReceiptRequest extends PlayFabModule.IPlayFabRequestCommon {
