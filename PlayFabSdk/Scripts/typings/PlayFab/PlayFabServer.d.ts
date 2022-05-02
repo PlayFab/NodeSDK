@@ -115,7 +115,8 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.EvaluateRandomResultTableRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.EvaluateRandomResultTableResult> | null,
         ): void;
-        // Executes a CloudScript function, with the 'currentPlayerId' variable set to the specified PlayFabId parameter value.
+        // Executes a CloudScript function, with the 'currentPlayerId' set to the PlayFab ID of the authenticated player. The
+        // PlayFab ID is the entity ID of the player's master_player_account entity.
         // https://docs.microsoft.com/rest/api/playfab/server/server-side-cloud-script/executecloudscript
         ExecuteCloudScript(
             request: PlayFabServerModels.ExecuteCloudScriptServerRequest | null,
@@ -292,6 +293,12 @@ declare module PlayFabServerModule {
         GetPlayFabIDsFromGenericIDs(
             request: PlayFabServerModels.GetPlayFabIDsFromGenericIDsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromGenericIDsResult> | null,
+        ): void;
+        // Retrieves the unique PlayFab identifiers for the given set of Nintendo Service Account identifiers.
+        // https://docs.microsoft.com/rest/api/playfab/server/account-management/getplayfabidsfromnintendoserviceaccountids
+        GetPlayFabIDsFromNintendoServiceAccountIds(
+            request: PlayFabServerModels.GetPlayFabIDsFromNintendoServiceAccountIdsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromNintendoServiceAccountIdsResult> | null,
         ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Nintendo Switch Device identifiers.
         // https://docs.microsoft.com/rest/api/playfab/server/account-management/getplayfabidsfromnintendoswitchdeviceids
@@ -2465,6 +2472,8 @@ declare module PlayFabServerModels {
         | "EventSinkSasTokenInvalid"
         | "EventSinkNotFound"
         | "EventSinkNameInvalid"
+        | "EventSinkSasTokenPermissionInvalid"
+        | "EventSinkSecretInvalid"
         | "OperationCanceled"
         | "InvalidDisplayNameRandomSuffixLength"
         | "AllowNonUniquePlayerDisplayNamesDisableNotAllowed";
@@ -2932,6 +2941,16 @@ declare module PlayFabServerModels {
     export interface GetPlayFabIDsFromGenericIDsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of generic service identifiers to PlayFab identifiers.
         Data?: GenericPlayFabIdPair[];
+    }
+
+    export interface GetPlayFabIDsFromNintendoServiceAccountIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique Nintendo Switch Account identifiers for which the title needs to get PlayFab identifiers.
+        NintendoAccountIds: string[];
+    }
+
+    export interface GetPlayFabIDsFromNintendoServiceAccountIdsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of Nintendo Switch Service Account identifiers to PlayFab identifiers.
+        Data?: NintendoServiceAccountPlayFabIdPair[];
     }
 
     export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3559,6 +3578,14 @@ declare module PlayFabServerModels {
     }
 
     export interface MoveItemToUserFromCharacterResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface NintendoServiceAccountPlayFabIdPair {
+        // Unique Nintendo Switch Service Account identifier for a user.
+        NintendoServiceAccountId?: string;
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Nintendo Switch Service Account
+        // identifier.
+        PlayFabId?: string;
+    }
 
     export interface NintendoSwitchPlayFabIdPair {
         // Unique Nintendo Switch Device identifier for a user.
@@ -4815,6 +4842,8 @@ declare module PlayFabServerModels {
     export interface UserXboxInfo {
         // XBox user ID
         XboxUserId?: string;
+        // XBox user sandbox
+        XboxUserSandbox?: string;
     }
 
     export interface ValueToDateModel {
