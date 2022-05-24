@@ -592,6 +592,12 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.SetTitleDataRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetTitleDataResult> | null,
         ): void;
+        // Set and delete key-value pairs in a title internal data override instance.
+        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/settitleinternaldataandoverrides
+        SetTitleInternalDataAndOverrides(
+            request: PlayFabAdminModels.SetTitleDataAndOverridesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetTitleDataAndOverridesResult> | null,
+        ): void;
         // Sets the Amazon Resource Name (ARN) for iOS and Android push notifications. Documentation on the exact restrictions can
         // be found at: http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html. Currently, Amazon device
         // Messaging is not supported.
@@ -2516,6 +2522,9 @@ declare module PlayFabAdminModels {
         | "EventSinkNameInvalid"
         | "EventSinkSasTokenPermissionInvalid"
         | "EventSinkSecretInvalid"
+        | "EventSinkTenantNotFound"
+        | "EventSinkAadNotFound"
+        | "EventSinkDatabaseNotFound"
         | "OperationCanceled"
         | "InvalidDisplayNameRandomSuffixLength"
         | "AllowNonUniquePlayerDisplayNamesDisableNotAllowed";
@@ -4422,11 +4431,15 @@ declare module PlayFabAdminModels {
     export interface SetPublisherDataResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetTitleDataAndOverridesRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
         // List of titleData key-value pairs to set/delete. Use an empty value to delete an existing key; use a non-empty value to
         // create/update a key.
         KeyValues: TitleDataKeyValue[];
         // Name of the override.
         OverrideLabel?: string;
+        // Title Id
+        TitleId?: string;
     }
 
     export interface SetTitleDataAndOverridesResult extends PlayFabModule.IPlayFabResultCommon {}
