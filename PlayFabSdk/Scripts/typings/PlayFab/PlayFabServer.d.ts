@@ -2474,6 +2474,9 @@ declare module PlayFabServerModels {
         | "EventSinkNameInvalid"
         | "EventSinkSasTokenPermissionInvalid"
         | "EventSinkSecretInvalid"
+        | "EventSinkTenantNotFound"
+        | "EventSinkAadNotFound"
+        | "EventSinkDatabaseNotFound"
         | "OperationCanceled"
         | "InvalidDisplayNameRandomSuffixLength"
         | "AllowNonUniquePlayerDisplayNamesDisableNotAllowed";

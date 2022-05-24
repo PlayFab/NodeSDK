@@ -264,7 +264,7 @@ declare module PlayFabGroupsModels {
         // The identifier of the group
         Group: EntityKey;
         // The ID of the role. This must be unique within the group and cannot be changed. Role IDs must be between 1 and 64
-        // characters long.
+        // characters long and are restricted to a-Z, A-Z, 0-9, '(', ')', '_', '-' and '.'.
         RoleId: string;
         // The name of the role. This must be unique within the group and can be changed later. Role names must be between 1 and
         // 100 characters long

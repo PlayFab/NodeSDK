@@ -1619,6 +1619,20 @@ exports.SetTitleInternalData = function (request, callback) {
     );
 };
 
+exports.SetTitleInternalDataAndOverrides = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Admin/SetTitleInternalDataAndOverrides",
+        request,
+        null,
+        null,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.SetupPushNotification = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
