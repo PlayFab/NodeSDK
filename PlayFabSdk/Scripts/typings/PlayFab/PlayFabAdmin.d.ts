@@ -592,12 +592,6 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.SetTitleDataRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetTitleDataResult> | null,
         ): void;
-        // Set and delete key-value pairs in a title internal data override instance.
-        // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/settitleinternaldataandoverrides
-        SetTitleInternalDataAndOverrides(
-            request: PlayFabAdminModels.SetTitleDataAndOverridesRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetTitleDataAndOverridesResult> | null,
-        ): void;
         // Sets the Amazon Resource Name (ARN) for iOS and Android push notifications. Documentation on the exact restrictions can
         // be found at: http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html. Currently, Amazon device
         // Messaging is not supported.
@@ -2369,6 +2363,9 @@ declare module PlayFabAdminModels {
         | "PhotonApplicationIdAlreadyInUse"
         | "CloudScriptUnableToDeleteProductionRevision"
         | "CustomIdNotFound"
+        | "AutomationInvalidInput"
+        | "AutomationInvalidRuleName"
+        | "AutomationRuleAlreadyExists"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
