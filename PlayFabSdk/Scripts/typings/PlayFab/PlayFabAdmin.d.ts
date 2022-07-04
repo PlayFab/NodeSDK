@@ -2366,6 +2366,7 @@ declare module PlayFabAdminModels {
         | "AutomationInvalidInput"
         | "AutomationInvalidRuleName"
         | "AutomationRuleAlreadyExists"
+        | "AutomationRuleLimitExceeded"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -4436,8 +4437,6 @@ declare module PlayFabAdminModels {
         KeyValues: TitleDataKeyValue[];
         // Name of the override.
         OverrideLabel?: string;
-        // Title Id
-        TitleId?: string;
     }
 
     export interface SetTitleDataAndOverridesResult extends PlayFabModule.IPlayFabResultCommon {}
@@ -4448,9 +4447,6 @@ declare module PlayFabAdminModels {
         // key we want to set a value on (note, this is additive - will only replace an existing key's value if they are the same
         // name.) Keys are trimmed of whitespace. Keys may not begin with the '!' character.
         Key: string;
-        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
-        // title has been selected.
-        TitleId?: string;
         // new value to set. Set to null to remove a value
         Value?: string;
     }
