@@ -306,7 +306,7 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult> | null,
         ): void;
-        // Retrieves the unique PlayFab identifiers for the given set of PlayStation Network identifiers.
+        // Retrieves the unique PlayFab identifiers for the given set of PlayStation :tm: Network identifiers.
         // https://docs.microsoft.com/rest/api/playfab/server/account-management/getplayfabidsfrompsnaccountids
         GetPlayFabIDsFromPSNAccountIDs(
             request: PlayFabServerModels.GetPlayFabIDsFromPSNAccountIDsRequest | null,
@@ -318,6 +318,14 @@ declare module PlayFabServerModule {
         GetPlayFabIDsFromSteamIDs(
             request: PlayFabServerModels.GetPlayFabIDsFromSteamIDsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromSteamIDsResult> | null,
+        ): void;
+        // Retrieves the unique PlayFab identifiers for the given set of Twitch identifiers. The Twitch identifiers are the IDs for
+        // the user accounts, available as "_id" from the Twitch API methods (ex:
+        // https://github.com/justintv/Twitch-API/blob/master/v3_resources/users.md#get-usersuser).
+        // https://docs.microsoft.com/rest/api/playfab/server/account-management/getplayfabidsfromtwitchids
+        GetPlayFabIDsFromTwitchIDs(
+            request: PlayFabServerModels.GetPlayFabIDsFromTwitchIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromTwitchIDsResult> | null,
         ): void;
         // Retrieves the unique PlayFab identifiers for the given set of XboxLive identifiers.
         // https://docs.microsoft.com/rest/api/playfab/server/account-management/getplayfabidsfromxboxliveids
@@ -461,7 +469,7 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.GrantItemsToUsersRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GrantItemsToUsersResult> | null,
         ): void;
-        // Links the PlayStation Network account associated with the provided access code to the user's PlayFab account
+        // Links the PlayStation :tm: Network account associated with the provided access code to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/server/account-management/linkpsnaccount
         LinkPSNAccount(
             request: PlayFabServerModels.LinkPSNAccountRequest | null,
@@ -2993,6 +3001,16 @@ declare module PlayFabServerModels {
         Data?: SteamPlayFabIdPair[];
     }
 
+    export interface GetPlayFabIDsFromTwitchIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique Twitch identifiers (Twitch's _id) for which the title needs to get PlayFab identifiers.
+        TwitchIds: string[];
+    }
+
+    export interface GetPlayFabIDsFromTwitchIDsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of Twitch identifiers to PlayFab identifiers.
+        Data?: TwitchPlayFabIdPair[];
+    }
+
     export interface GetPlayFabIDsFromXboxLiveIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The ID of Xbox Live sandbox.
         Sandbox?: string;
@@ -4399,6 +4417,13 @@ declare module PlayFabServerModels {
         Variables?: Variable[];
         // List of the experiment variants.
         Variants?: string[];
+    }
+
+    export interface TwitchPlayFabIdPair {
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Twitch identifier.
+        PlayFabId?: string;
+        // Unique Twitch identifier for a user.
+        TwitchId?: string;
     }
 
     export interface UnlinkPSNAccountRequest extends PlayFabModule.IPlayFabRequestCommon {

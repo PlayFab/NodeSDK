@@ -92,8 +92,8 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.ConsumeMicrosoftStoreEntitlementsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.ConsumeMicrosoftStoreEntitlementsResponse> | null,
         ): void;
-        // Checks for any new PS5 entitlements. If any are found, they are consumed (if they're consumables) and added as PlayFab
-        // items
+        // Checks for any new consumable entitlements. If any are found, they are consumed (if they're consumables) and added as
+        // PlayFab items
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/consumeps5entitlements
         ConsumePS5Entitlements(
             request: PlayFabClientModels.ConsumePS5EntitlementsRequest | null,
@@ -364,7 +364,7 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult> | null,
         ): void;
-        // Retrieves the unique PlayFab identifiers for the given set of PlayStation Network identifiers.
+        // Retrieves the unique PlayFab identifiers for the given set of PlayStation :tm: Network identifiers.
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfrompsnaccountids
         GetPlayFabIDsFromPSNAccountIDs(
             request: PlayFabClientModels.GetPlayFabIDsFromPSNAccountIDsRequest | null,
@@ -562,7 +562,7 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.LinkOpenIdConnectRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResult> | null,
         ): void;
-        // Links the PlayStation Network account associated with the provided access code to the user's PlayFab account
+        // Links the PlayStation :tm: Network account associated with the provided access code to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkpsnaccount
         LinkPSNAccount(
             request: PlayFabClientModels.LinkPSNAccountRequest | null,
@@ -687,8 +687,8 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.LoginWithPlayFabRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
         ): void;
-        // Signs the user in using a PlayStation Network authentication code, returning a session identifier that can subsequently
-        // be used for API calls which require an authenticated user
+        // Signs the user in using a PlayStation :tm: Network authentication code, returning a session identifier that can
+        // subsequently be used for API calls which require an authenticated user
         // https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithpsn
         LoginWithPSN(
             request: PlayFabClientModels.LoginWithPSNRequest | null,
@@ -751,7 +751,7 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.RedeemCouponRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.RedeemCouponResult> | null,
         ): void;
-        // Uses the supplied OAuth code to refresh the internally cached player PSN auth token
+        // Uses the supplied OAuth code to refresh the internally cached player PSN :tm: auth token
         // https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/refreshpsnauthtoken
         RefreshPSNAuthToken(
             request: PlayFabClientModels.RefreshPSNAuthTokenRequest | null,
@@ -937,7 +937,7 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.UnlinkOpenIdConnectRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.EmptyResponse> | null,
         ): void;
-        // Unlinks the related PSN account from the user's PlayFab account
+        // Unlinks the related PSN :tm: account from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkpsnaccount
         UnlinkPSNAccount(
             request: PlayFabClientModels.UnlinkPSNAccountRequest | null,
