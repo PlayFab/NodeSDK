@@ -1694,6 +1694,28 @@ exports.LoginWithGoogleAccount = function (request, callback) {
     );
 };
 
+exports.LoginWithGooglePlayGamesServices = function (request, callback) {
+    request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
+    if (request.TitleId == null) {
+        throw "Must be have PlayFab.settings.titleId set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/LoginWithGooglePlayGamesServices",
+        request,
+        null,
+        null,
+        function (error, result) {
+            if (result != null && result.data != null) {
+                PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+                PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
+            }
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.LoginWithIOSDeviceID = function (request, callback) {
     request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
     if (request.TitleId == null) {

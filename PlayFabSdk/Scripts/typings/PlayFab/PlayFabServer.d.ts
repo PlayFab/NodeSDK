@@ -2333,6 +2333,7 @@ declare module PlayFabServerModels {
         | "AutomationInvalidRuleName"
         | "AutomationRuleAlreadyExists"
         | "AutomationRuleLimitExceeded"
+        | "InvalidGooglePlayGamesServerAuthCode"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -3461,7 +3462,8 @@ declare module PlayFabServerModels {
         | "FacebookInstantGames"
         | "OpenIdConnect"
         | "Apple"
-        | "NintendoSwitchAccount";
+        | "NintendoSwitchAccount"
+        | "GooglePlayGames";
 
     export interface LoginWithServerCustomIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
@@ -4666,6 +4668,8 @@ declare module PlayFabServerModels {
         GameCenterInfo?: UserGameCenterInfo;
         // User Google account information, if a Google account has been linked
         GoogleInfo?: UserGoogleInfo;
+        // User Google Play Games account information, if a Google Play Games account has been linked
+        GooglePlayGamesInfo?: UserGooglePlayGamesInfo;
         // User iOS device information, if an iOS device has been linked
         IosDeviceInfo?: UserIosDeviceInfo;
         // User Kongregate account information, if a Kongregate account has been linked
@@ -4752,6 +4756,15 @@ declare module PlayFabServerModels {
         GoogleName?: string;
     }
 
+    export interface UserGooglePlayGamesInfo {
+        // Avatar image url of the Google Play Games player
+        GooglePlayGamesPlayerAvatarImageUrl?: string;
+        // Display name of the Google Play Games player
+        GooglePlayGamesPlayerDisplayName?: string;
+        // Google Play Games player ID
+        GooglePlayGamesPlayerId?: string;
+    }
+
     export interface UserIosDeviceInfo {
         // iOS device ID
         IosDeviceId?: string;
@@ -4805,7 +4818,8 @@ declare module PlayFabServerModels {
         | "FacebookInstantGamesId"
         | "OpenIdConnect"
         | "Apple"
-        | "NintendoSwitchAccount";
+        | "NintendoSwitchAccount"
+        | "GooglePlayGames";
 
     export interface UserPrivateAccountInfo {
         // user email address

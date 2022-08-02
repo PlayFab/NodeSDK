@@ -2367,6 +2367,7 @@ declare module PlayFabAdminModels {
         | "AutomationInvalidRuleName"
         | "AutomationRuleAlreadyExists"
         | "AutomationRuleLimitExceeded"
+        | "InvalidGooglePlayGamesServerAuthCode"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -3221,7 +3222,8 @@ declare module PlayFabAdminModels {
         | "FacebookInstantGames"
         | "OpenIdConnect"
         | "Apple"
-        | "NintendoSwitchAccount";
+        | "NintendoSwitchAccount"
+        | "GooglePlayGames";
 
     export interface LogStatement {
         // Optional object accompanying the message as contextual information
@@ -4898,6 +4900,8 @@ declare module PlayFabAdminModels {
         GameCenterInfo?: UserGameCenterInfo;
         // User Google account information, if a Google account has been linked
         GoogleInfo?: UserGoogleInfo;
+        // User Google Play Games account information, if a Google Play Games account has been linked
+        GooglePlayGamesInfo?: UserGooglePlayGamesInfo;
         // User iOS device information, if an iOS device has been linked
         IosDeviceInfo?: UserIosDeviceInfo;
         // User Kongregate account information, if a Kongregate account has been linked
@@ -4984,6 +4988,15 @@ declare module PlayFabAdminModels {
         GoogleName?: string;
     }
 
+    export interface UserGooglePlayGamesInfo {
+        // Avatar image url of the Google Play Games player
+        GooglePlayGamesPlayerAvatarImageUrl?: string;
+        // Display name of the Google Play Games player
+        GooglePlayGamesPlayerDisplayName?: string;
+        // Google Play Games player ID
+        GooglePlayGamesPlayerId?: string;
+    }
+
     export interface UserIosDeviceInfo {
         // iOS device ID
         IosDeviceId?: string;
@@ -5037,7 +5050,8 @@ declare module PlayFabAdminModels {
         | "FacebookInstantGamesId"
         | "OpenIdConnect"
         | "Apple"
-        | "NintendoSwitchAccount";
+        | "NintendoSwitchAccount"
+        | "GooglePlayGames";
 
     export interface UserOriginationSegmentFilter {
         // User login provider.
