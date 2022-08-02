@@ -564,7 +564,8 @@ declare module PlayFabCloudScriptModels {
         | "FacebookInstantGames"
         | "OpenIdConnect"
         | "Apple"
-        | "NintendoSwitchAccount";
+        | "NintendoSwitchAccount"
+        | "GooglePlayGames";
 
     export interface LogStatement {
         // Optional object accompanying the message as contextual information
