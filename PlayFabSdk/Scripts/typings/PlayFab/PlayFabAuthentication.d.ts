@@ -1,6 +1,12 @@
 declare module PlayFabAuthenticationModule {
     export interface IPlayFabAuthentication {
         settings: PlayFabModule.IPlayFabSettings;
+        // Delete a game_server entity.
+        // https://docs.microsoft.com/rest/api/playfab/authentication/authentication/delete
+        Delete(
+            request: PlayFabAuthenticationModels.DeleteRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAuthenticationModels.EmptyResponse> | null,
+        ): void;
         // Method to exchange a legacy AuthenticationTicket or title SecretKey for an Entity Token or to refresh a still valid
         // Entity Token.
         // https://docs.microsoft.com/rest/api/playfab/authentication/authentication/getentitytoken
@@ -20,6 +26,15 @@ declare module PlayFabAuthenticationModule {
 }
 
 declare module PlayFabAuthenticationModels {
+    export interface DeleteRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The game_server entity to be removed.
+        Entity: EntityKey;
+    }
+
+    export interface EmptyResponse extends PlayFabModule.IPlayFabResultCommon {}
+
     export interface EntityKey {
         // Unique ID of the entity.
         Id: string;
