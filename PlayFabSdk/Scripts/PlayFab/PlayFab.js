@@ -4,7 +4,7 @@ var url = require("url");
 var https = require("https");
 
 exports.sdk_version = "2.104.220804";
-exports.buildIdentifier = "adobuild_nodesdk_116";
+exports.buildIdentifier = "default_manual_build";
 
 var settings = (exports.settings = {
     productionUrl: ".playfabapi.com",
