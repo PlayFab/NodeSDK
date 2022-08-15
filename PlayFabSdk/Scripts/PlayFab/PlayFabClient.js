@@ -875,6 +875,23 @@ exports.GetPlayFabIDsFromGoogleIDs = function (request, callback) {
     );
 };
 
+exports.GetPlayFabIDsFromGooglePlayGamesPlayerIDs = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromGooglePlayGamesPlayerIDs",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.GetPlayFabIDsFromKongregateIDs = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1354,6 +1371,23 @@ exports.LinkGoogleAccount = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/LinkGoogleAccount",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.LinkGooglePlayGamesServicesAccount = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/LinkGooglePlayGamesServicesAccount",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,
@@ -2420,6 +2454,23 @@ exports.UnlinkGoogleAccount = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/UnlinkGoogleAccount",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UnlinkGooglePlayGamesServicesAccount = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/UnlinkGooglePlayGamesServicesAccount",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,
