@@ -2368,6 +2368,7 @@ declare module PlayFabAdminModels {
         | "AutomationRuleAlreadyExists"
         | "AutomationRuleLimitExceeded"
         | "InvalidGooglePlayGamesServerAuthCode"
+        | "StorageAccountNotFound"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"

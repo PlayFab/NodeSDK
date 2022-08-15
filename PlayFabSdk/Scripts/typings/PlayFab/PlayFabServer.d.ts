@@ -2334,6 +2334,7 @@ declare module PlayFabServerModels {
         | "AutomationRuleAlreadyExists"
         | "AutomationRuleLimitExceeded"
         | "InvalidGooglePlayGamesServerAuthCode"
+        | "StorageAccountNotFound"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"

@@ -344,6 +344,14 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.GetPlayFabIDsFromGoogleIDsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromGoogleIDsResult> | null,
         ): void;
+        // Retrieves the unique PlayFab identifiers for the given set of Google Play Games identifiers. The Google Play Games
+        // identifiers are the IDs for the user accounts, available as "playerId" in the Google Play Games Services - Players API
+        // calls.
+        // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromgoogleplaygamesplayerids
+        GetPlayFabIDsFromGooglePlayGamesPlayerIDs(
+            request: PlayFabClientModels.GetPlayFabIDsFromGooglePlayGamesPlayerIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromGooglePlayGamesPlayerIDsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Kongregate identifiers. The Kongregate identifiers are the
         // IDs for the user accounts, available as "user_id" from the Kongregate API methods(ex:
         // http://developers.kongregate.com/docs/client/getUserId).
@@ -530,6 +538,13 @@ declare module PlayFabClientModule {
         LinkGoogleAccount(
             request: PlayFabClientModels.LinkGoogleAccountRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkGoogleAccountResult> | null,
+        ): void;
+        // Links the currently signed-in user account to their Google Play Games account, using their Google Play Games account
+        // credentials
+        // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkgoogleplaygamesservicesaccount
+        LinkGooglePlayGamesServicesAccount(
+            request: PlayFabClientModels.LinkGooglePlayGamesServicesAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.LinkGooglePlayGamesServicesAccountResult> | null,
         ): void;
         // Links the vendor-specific iOS device identifier to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/linkiosdeviceid
@@ -911,6 +926,12 @@ declare module PlayFabClientModule {
         UnlinkGoogleAccount(
             request: PlayFabClientModels.UnlinkGoogleAccountRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkGoogleAccountResult> | null,
+        ): void;
+        // Unlinks the related Google Play Games account from the user's PlayFab account.
+        // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkgoogleplaygamesservicesaccount
+        UnlinkGooglePlayGamesServicesAccount(
+            request: PlayFabClientModels.UnlinkGooglePlayGamesServicesAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.UnlinkGooglePlayGamesServicesAccountResult> | null,
         ): void;
         // Unlinks the related iOS device identifier from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkiosdeviceid
@@ -2652,6 +2673,16 @@ declare module PlayFabClientModels {
         Data?: GooglePlayFabIdPair[];
     }
 
+    export interface GetPlayFabIDsFromGooglePlayGamesPlayerIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique Google Play Games identifiers (Google+ user IDs) for which the title needs to get PlayFab identifiers.
+        GooglePlayGamesPlayerIDs: string[];
+    }
+
+    export interface GetPlayFabIDsFromGooglePlayGamesPlayerIDsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of Google Play Games identifiers to PlayFab identifiers.
+        Data?: GooglePlayGamesPlayFabIdPair[];
+    }
+
     export interface GetPlayFabIDsFromKongregateIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Kongregate identifiers (Kongregate's user_id) for which the title needs to get PlayFab identifiers.
         KongregateIDs: string[];
@@ -2895,6 +2926,13 @@ declare module PlayFabClientModels {
         PlayFabId?: string;
     }
 
+    export interface GooglePlayGamesPlayFabIdPair {
+        // Unique Google Play Games identifier for a user.
+        GooglePlayGamesPlayerId?: string;
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Google Play Games identifier.
+        PlayFabId?: string;
+    }
+
     export interface GrantCharacterToUserRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Catalog version from which items are to be granted.
         CatalogVersion?: string;
@@ -3071,6 +3109,19 @@ declare module PlayFabClientModels {
     }
 
     export interface LinkGoogleAccountResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface LinkGooglePlayGamesServicesAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // If another user is already linked to the account, unlink the other user and re-link. If the current user is already
+        // linked, link both accounts
+        ForceLink?: boolean;
+        // OAuth 2.0 server authentication code obtained on the client by calling the requestServerSideAccess()
+        // (https://developers.google.com/games/services/android/signin) Google Play Games client API.
+        ServerAuthCode: string;
+    }
+
+    export interface LinkGooglePlayGamesServicesAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface LinkIOSDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
@@ -4482,6 +4533,13 @@ declare module PlayFabClientModels {
     }
 
     export interface UnlinkGoogleAccountResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface UnlinkGooglePlayGamesServicesAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
+
+    export interface UnlinkGooglePlayGamesServicesAccountResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface UnlinkIOSDeviceIDRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
