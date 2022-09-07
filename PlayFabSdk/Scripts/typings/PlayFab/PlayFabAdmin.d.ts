@@ -859,6 +859,7 @@ declare module PlayFabAdminModels {
 
     type AuthTokenType = "Email";
 
+
     export interface BanInfo {
         // The active state of this ban. Expired bans may still have this value set to true but they will have no effect.
         Active: boolean;
@@ -888,8 +889,6 @@ declare module PlayFabAdminModels {
         DurationInHours?: number;
         // IP address to be banned. May affect multiple players.
         IPAddress?: string;
-        // MAC address to be banned. May affect multiple players.
-        MACAddress?: string;
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
         // The reason for this ban. Maximum 140 characters.
@@ -1005,6 +1004,7 @@ declare module PlayFabAdminModels {
     }
 
     type ChurnRiskLevel = "NoData"
+
         | "LowRisk"
         | "MediumRisk"
         | "HighRisk";
@@ -1055,6 +1055,7 @@ declare module PlayFabAdminModels {
     }
 
     type Conditionals = "Any"
+
         | "True"
         | "False";
 
@@ -1086,6 +1087,7 @@ declare module PlayFabAdminModels {
     }
 
     type ContinentCode = "AF"
+
         | "AN"
         | "AS"
         | "EU"
@@ -1094,6 +1096,7 @@ declare module PlayFabAdminModels {
         | "SA";
 
     type CountryCode = "AF"
+
         | "AX"
         | "AL"
         | "DZ"
@@ -1450,6 +1453,7 @@ declare module PlayFabAdminModels {
     }
 
     type Currency = "AED"
+
         | "AFN"
         | "ALL"
         | "AMD"
@@ -1709,6 +1713,7 @@ declare module PlayFabAdminModels {
     export interface DeleteTitleResult extends PlayFabModule.IPlayFabResultCommon {}
 
     type EffectType = "Allow"
+
         | "Deny";
 
     export interface EmailNotificationSegmentAction {
@@ -1719,6 +1724,7 @@ declare module PlayFabAdminModels {
     }
 
     type EmailVerificationStatus = "Unverified"
+
         | "Pending"
         | "Confirmed";
 
@@ -1818,6 +1824,7 @@ declare module PlayFabAdminModels {
     }
 
     type GameBuildStatus = "Available"
+
         | "Validating"
         | "InvalidBuildPackage"
         | "Processing"
@@ -1835,6 +1842,7 @@ declare module PlayFabAdminModels {
     }
 
     type GenericErrorCodes = "Success"
+
         | "UnkownError"
         | "InvalidParams"
         | "AccountNotFound"
@@ -2457,6 +2465,7 @@ declare module PlayFabAdminModels {
         | "PartyVersionNotFound"
         | "MultiplayerServerBuildReferencedByMatchmakingQueue"
         | "MultiplayerServerBuildReferencedByBuildAlias"
+        | "MultiplayerServerBuildAliasReferencedByMatchmakingQueue"
         | "ExperimentationExperimentStopped"
         | "ExperimentationExperimentRunning"
         | "ExperimentationExperimentNotFound"
@@ -3204,6 +3213,7 @@ declare module PlayFabAdminModels {
     }
 
     type LoginIdentityProvider = "Unknown"
+
         | "PlayFab"
         | "Custom"
         | "GameCenter"
@@ -3585,6 +3595,7 @@ declare module PlayFabAdminModels {
     }
 
     type PushNotificationPlatform = "ApplePushNotificationService"
+
         | "GoogleCloudMessaging";
 
     export interface PushNotificationRegistration {
@@ -3612,6 +3623,7 @@ declare module PlayFabAdminModels {
     }
 
     type PushSetupPlatform = "GCM"
+
         | "APNS"
         | "APNS_SANDBOX";
 
@@ -3648,6 +3660,7 @@ declare module PlayFabAdminModels {
     }
 
     type Region = "USCentral"
+
         | "USEast"
         | "EUWest"
         | "Singapore"
@@ -3703,6 +3716,7 @@ declare module PlayFabAdminModels {
     export interface ResetUserStatisticsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     type ResolutionOutcome = "Revoke"
+
         | "Reinstate"
         | "Manual";
 
@@ -3735,6 +3749,7 @@ declare module PlayFabAdminModels {
     }
 
     type ResultTableNodeType = "ItemId"
+
         | "TableId";
 
     export interface RevokeAllBansForUserRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3830,6 +3845,7 @@ declare module PlayFabAdminModels {
     }
 
     type ScheduledTaskType = "CloudScript"
+
         | "ActionsOnPlayerSegment"
         | "CloudScriptAzureFunctions"
         | "InsightsScheduledScaling";
@@ -3886,6 +3902,7 @@ declare module PlayFabAdminModels {
     }
 
     type SegmentCountryCode = "AF"
+
         | "AX"
         | "AL"
         | "DZ"
@@ -4136,6 +4153,7 @@ declare module PlayFabAdminModels {
         | "ZW";
 
     type SegmentCurrency = "AED"
+
         | "AFN"
         | "ALL"
         | "AMD"
@@ -4299,6 +4317,7 @@ declare module PlayFabAdminModels {
         | "ZWD";
 
     type SegmentFilterComparison = "GreaterThan"
+
         | "LessThan"
         | "EqualTo"
         | "NotEqualTo"
@@ -4309,6 +4328,7 @@ declare module PlayFabAdminModels {
         | "NotContains";
 
     type SegmentLoginIdentityProvider = "Unknown"
+
         | "PlayFab"
         | "Custom"
         | "GameCenter"
@@ -4353,6 +4373,7 @@ declare module PlayFabAdminModels {
     }
 
     type SegmentPushNotificationDevicePlatform = "ApplePushNotificationService"
+
         | "GoogleCloudMessaging";
 
     export interface SegmentTrigger {
@@ -4486,6 +4507,7 @@ declare module PlayFabAdminModels {
     }
 
     type SourceType = "Admin"
+
         | "BackEnd"
         | "GameClient"
         | "GameServer"
@@ -4494,6 +4516,7 @@ declare module PlayFabAdminModels {
         | "API";
 
     type StatisticAggregationMethod = "Last"
+
         | "Min"
         | "Max"
         | "Sum";
@@ -4508,6 +4531,7 @@ declare module PlayFabAdminModels {
     }
 
     type StatisticResetIntervalOption = "Never"
+
         | "Hour"
         | "Day"
         | "Week"
@@ -4527,12 +4551,14 @@ declare module PlayFabAdminModels {
     }
 
     type StatisticVersionArchivalStatus = "NotScheduled"
+
         | "Scheduled"
         | "Queued"
         | "InProgress"
         | "Complete";
 
     type StatisticVersionStatus = "Active"
+
         | "SnapshotPending"
         | "Snapshot"
         | "ArchivalPending"
@@ -4579,6 +4605,7 @@ declare module PlayFabAdminModels {
     }
 
     type SubscriptionProviderStatus = "NoError"
+
         | "Cancelled"
         | "UnknownError"
         | "BillingError"
@@ -4634,6 +4661,7 @@ declare module PlayFabAdminModels {
     }
 
     type TaskInstanceStatus = "Succeeded"
+
         | "Starting"
         | "InProgress"
         | "Failed"
@@ -4641,6 +4669,7 @@ declare module PlayFabAdminModels {
         | "Stalled";
 
     type TitleActivationStatus = "None"
+
         | "ActivatedTitleKey"
         | "PendingSteam"
         | "ActivatedSteam"
@@ -4670,8 +4699,6 @@ declare module PlayFabAdminModels {
         Expires?: string;
         // The updated IP address for the ban. Null for no change.
         IPAddress?: string;
-        // The updated MAC address for the ban. Null for no change.
-        MACAddress?: string;
         // Whether to make this ban permanent. Set to true to make this ban permanent. This will not modify Active state.
         Permanent?: boolean;
         // The updated reason for the ban to be updated. Maximum 140 characters. Null for no change.
@@ -4917,7 +4944,7 @@ declare module PlayFabAdminModels {
         PlayFabId?: string;
         // Personal information for the user which is considered more sensitive
         PrivateInfo?: UserPrivateAccountInfo;
-        // User PSN account information, if a PSN account has been linked
+        // User PlayStation :tm: Network account information, if a PlayStation :tm: Network account has been linked
         PsnInfo?: UserPsnInfo;
         // User Steam information, if a Steam account has been linked
         SteamInfo?: UserSteamInfo;
@@ -4947,6 +4974,7 @@ declare module PlayFabAdminModels {
     }
 
     type UserDataPermission = "Private"
+
         | "Public";
 
     export interface UserDataRecord {
@@ -5030,6 +5058,7 @@ declare module PlayFabAdminModels {
     }
 
     type UserOrigination = "Organic"
+
         | "Steam"
         | "Google"
         | "Amazon"
@@ -5065,9 +5094,9 @@ declare module PlayFabAdminModels {
     }
 
     export interface UserPsnInfo {
-        // PSN account ID
+        // PlayStation :tm: Network account ID
         PsnAccountId?: string;
-        // PSN online ID
+        // PlayStation :tm: Network online ID
         PsnOnlineId?: string;
     }
 
