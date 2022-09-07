@@ -51,6 +51,7 @@ declare module PlayFabProfilesModule {
 
 declare module PlayFabProfilesModels {
     type EffectType = "Allow"
+
         | "Deny";
 
     export interface EntityDataObject {
@@ -225,6 +226,7 @@ declare module PlayFabProfilesModels {
     }
 
     type OperationTypes = "Created"
+
         | "Updated"
         | "Deleted"
         | "None";

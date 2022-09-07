@@ -86,6 +86,7 @@ declare module PlayFabExperimentationModule {
 
 declare module PlayFabExperimentationModels {
     type AnalysisTaskState = "Waiting"
+
         | "ReadyForSubmission"
         | "SubmittingToPipeline"
         | "Running"
@@ -206,11 +207,13 @@ declare module PlayFabExperimentationModels {
     }
 
     type ExperimentState = "New"
+
         | "Started"
         | "Stopped"
         | "Deleted";
 
     type ExperimentType = "Active"
+
         | "Snapshot";
 
     export interface GetExclusionGroupsRequest extends PlayFabModule.IPlayFabRequestCommon {

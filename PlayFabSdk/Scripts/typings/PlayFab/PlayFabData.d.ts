@@ -200,6 +200,7 @@ declare module PlayFabDataModels {
     }
 
     type OperationTypes = "Created"
+
         | "Updated"
         | "Deleted"
         | "None";
