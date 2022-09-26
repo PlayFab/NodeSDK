@@ -4,6 +4,20 @@ var PlayFab = require("./PlayFab.js");
 
 exports.settings = PlayFab.settings;
 
+exports.AuthenticateGameServerWithCustomId = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/GameServerIdentity/AuthenticateGameServerWithCustomId",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.Delete = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/GameServerIdentity/Delete",
