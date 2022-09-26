@@ -1,6 +1,12 @@
 declare module PlayFabAuthenticationModule {
     export interface IPlayFabAuthentication {
         settings: PlayFabModule.IPlayFabSettings;
+        // Create a game_server entity token and return a new or existing game_server entity.
+        // https://docs.microsoft.com/rest/api/playfab/authentication/authentication/authenticategameserverwithcustomid
+        AuthenticateGameServerWithCustomId(
+            request: PlayFabAuthenticationModels.AuthenticateCustomIdRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAuthenticationModels.AuthenticateCustomIdResult> | null,
+        ): void;
         // Delete a game_server entity.
         // https://docs.microsoft.com/rest/api/playfab/authentication/authentication/delete
         Delete(
@@ -26,6 +32,21 @@ declare module PlayFabAuthenticationModule {
 }
 
 declare module PlayFabAuthenticationModels {
+    export interface AuthenticateCustomIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The customId used to create and retrieve game_server entity tokens. This is unique at the title level. CustomId must be
+        // between 32 and 100 characters.
+        CustomId: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+    }
+
+    export interface AuthenticateCustomIdResult extends PlayFabModule.IPlayFabResultCommon {
+        // The token generated used to set X-EntityToken for game_server calls.
+        EntityToken?: EntityTokenResponse;
+        // True if the account was newly created on this authentication.
+        NewlyCreated: boolean;
+    }
+
     export interface DeleteRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -55,6 +76,15 @@ declare module PlayFabAuthenticationModels {
         TitleId?: string;
         // The Title Player Account Id of the associated entity.
         TitlePlayerAccountId?: string;
+    }
+
+    export interface EntityTokenResponse {
+        // The entity id and type.
+        Entity?: EntityKey;
+        // The token used to set X-EntityToken for all entity based API calls.
+        EntityToken?: string;
+        // The time the token will expire, if it is an expiring token, in UTC.
+        TokenExpiration?: string;
     }
 
     export interface GetEntityTokenRequest extends PlayFabModule.IPlayFabRequestCommon {
