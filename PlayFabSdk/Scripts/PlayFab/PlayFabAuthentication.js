@@ -11,6 +11,9 @@ exports.AuthenticateGameServerWithCustomId = function (request, callback) {
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
         function (error, result) {
+            if (result != null && result.data != null ) {
+                PlayFab._internalSettings.entityToken = (result.data.hasOwnProperty("EntityToken") && result.data.EntityToken.hasOwnProperty("EntityToken")) ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
+            }
             if (callback != null) {
                 callback(error, result);
             }

@@ -2377,6 +2377,8 @@ declare module PlayFabAdminModels {
         | "AutomationRuleLimitExceeded"
         | "InvalidGooglePlayGamesServerAuthCode"
         | "StorageAccountNotFound"
+        | "PlayStreamConnectionFailed"
+        | "InvalidEventContents"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -4454,8 +4456,6 @@ declare module PlayFabAdminModels {
     export interface SetPublisherDataResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetTitleDataAndOverridesRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        CustomTags?: { [key: string]: string | null };
         // List of titleData key-value pairs to set/delete. Use an empty value to delete an existing key; use a non-empty value to
         // create/update a key.
         KeyValues: TitleDataKeyValue[];
@@ -4466,8 +4466,6 @@ declare module PlayFabAdminModels {
     export interface SetTitleDataAndOverridesResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetTitleDataRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        CustomTags?: { [key: string]: string | null };
         // key we want to set a value on (note, this is additive - will only replace an existing key's value if they are the same
         // name.) Keys are trimmed of whitespace. Keys may not begin with the '!' character.
         Key: string;
