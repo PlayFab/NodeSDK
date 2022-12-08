@@ -1,11 +1,11 @@
 {
     "name": "playfab-sdk",
-    "version": "2.114.221107",
+    "version": "2.115.221207",
     "description": "Playfab SDK for node.js applications",
     "license": "Apache-2.0",
     "devDependencies": {
         "@types/node": "^9.6.55",
-        "nodeunit": "0.9.1",
+        "nodeunit": "0.11.3",
         "prettier": "^2.0.1",
         "tslint": "^6.1.0",
         "tslint-config-prettier": "^1.18.0",

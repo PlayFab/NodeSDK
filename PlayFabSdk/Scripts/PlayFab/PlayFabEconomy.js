@@ -326,6 +326,20 @@ exports.GetMicrosoftStoreAccessTokens = function (request, callback) {
     );
 };
 
+exports.GetTransactionHistory = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Inventory/GetTransactionHistory",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.PublishDraftItem = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Catalog/PublishDraftItem",
