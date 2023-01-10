@@ -574,7 +574,10 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.UpdateStoreItemsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateStoreItemsResult> | null,
         ): void;
-        // Creates and updates the key-value store of custom title settings which can be read by the client
+        // Creates and updates the key-value store of custom title settings which can be read by the client. For example, a
+        // developer could choose to store values which modify the user experience, such as enemy spawn rates, weapon strengths,
+        // movement speeds, etc. This allows a developer to update the title without the need to create, test, and ship a new
+        // build.
         // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/settitledata
         SetTitleData(
             request: PlayFabAdminModels.SetTitleDataRequest | null,
@@ -586,7 +589,8 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.SetTitleDataAndOverridesRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.SetTitleDataAndOverridesResult> | null,
         ): void;
-        // Updates the key-value store of custom title settings which cannot be read by the client
+        // Updates the key-value store of custom title settings which cannot be read by the client. These values can be used to
+        // tweak settings used by game servers and Cloud Scripts without the need to update and re-deploy.
         // https://docs.microsoft.com/rest/api/playfab/admin/title-wide-data-management/settitleinternaldata
         SetTitleInternalData(
             request: PlayFabAdminModels.SetTitleDataRequest | null,
@@ -1001,6 +1005,13 @@ declare module PlayFabAdminModels {
     export interface CheckLimitedEditionItemAvailabilityResult extends PlayFabModule.IPlayFabResultCommon {
         // The amount of the specified resource remaining.
         Amount: number;
+    }
+
+    export interface ChurnPredictionSegmentFilter {
+        // Comparison
+        Comparison?: string;
+        // RiskLevel
+        RiskLevel?: string;
     }
 
     type ChurnRiskLevel = "NoData"
@@ -3874,6 +3885,8 @@ declare module PlayFabAdminModels {
         AdCampaignFilter?: AdCampaignSegmentFilter;
         // property for all player filter.
         AllPlayersFilter?: AllPlayersSegmentFilter;
+        // Filter property for player churn risk level.
+        ChurnPredictionFilter?: ChurnPredictionSegmentFilter;
         // Filter property for first login date.
         FirstLoginDateFilter?: FirstLoginDateSegmentFilter;
         // Filter property for first login timespan.
