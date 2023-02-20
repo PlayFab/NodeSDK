@@ -2395,6 +2395,7 @@ declare module PlayFabAdminModels {
         | "AnalysisSubscriptionFoundAlready"
         | "AnalysisSubscriptionManagementInvalidInput"
         | "InvalidGameCenterId"
+        | "InvalidNintendoSwitchAccountId"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
