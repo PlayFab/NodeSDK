@@ -3484,6 +3484,8 @@ declare module PlayFabClientModels {
         // OAuth 2.0 server authentication code obtained on the client by calling the getServerAuthCode()
         // (https://developers.google.com/identity/sign-in/android/offline-access) Google client API.
         ServerAuthCode?: string;
+        // Optional boolean to opt out of setting the MPA email when creating a Google account, defaults to true.
+        SetEmail?: boolean;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
         TitleId?: string;

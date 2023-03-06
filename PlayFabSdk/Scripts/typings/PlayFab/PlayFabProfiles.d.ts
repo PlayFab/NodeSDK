@@ -237,7 +237,7 @@ declare module PlayFabProfilesModels {
         // The entity to perform this action on.
         Entity: EntityKey;
         // The statements to include in the access policy.
-        Statements?: EntityPermissionStatement[];
+        Statements: EntityPermissionStatement[];
     }
 
     export interface SetEntityProfilePolicyResponse extends PlayFabModule.IPlayFabResultCommon {
