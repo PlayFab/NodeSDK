@@ -484,6 +484,9 @@ exports.GetContentDownloadUrl = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Please use MultiplayerServer/ListMultiplayerServers instead. 
+ */
 exports.GetCurrentGames = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -552,6 +555,9 @@ exports.GetFriendsList = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Please use MultiplayerServer/ListMultiplayerServers instead. 
+ */
 exports.GetGameServerRegions = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1970,6 +1976,9 @@ exports.LoginWithXbox = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Please use Match/CreateMatchmakingTicket instead. 
+ */
 exports.Matchmake = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";

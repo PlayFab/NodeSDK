@@ -1,7 +1,7 @@
 declare module PlayFabEconomyModule {
     export interface IPlayFabEconomy {
         settings: PlayFabModule.IPlayFabSettings;
-        // Add inventory items.
+        // Add inventory items. Up to 3500 stacks of items can be added to a single inventory collection. Stack size is uncapped.
         // https://docs.microsoft.com/rest/api/playfab/economy/inventory/addinventoryitems
         AddInventoryItems(
             request: PlayFabEconomyModels.AddInventoryItemsRequest | null,
@@ -13,7 +13,10 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.CreateDraftItemRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.CreateDraftItemResponse> | null,
         ): void;
-        // Creates one or more upload URLs which can be used by the client to upload raw file data.
+        // Creates one or more upload URLs which can be used by the client to upload raw file data. Content URls and uploaded
+        // content will be garbage collected after 24 hours if not attached to a draft or published item. Detailed pricing info
+        // around uploading content can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/pricing/meters/catalog-meters
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/createuploadurls
         CreateUploadUrls(
             request: PlayFabEconomyModels.CreateUploadUrlsRequest | null,
@@ -25,7 +28,8 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.DeleteEntityItemReviewsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.DeleteEntityItemReviewsResponse> | null,
         ): void;
-        // Delete an Inventory Collection
+        // Delete an Inventory Collection. More information about Inventory Collections can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/inventory/collections
         // https://docs.microsoft.com/rest/api/playfab/economy/inventory/deleteinventorycollection
         DeleteInventoryCollection(
             request: PlayFabEconomyModels.DeleteInventoryCollectionRequest | null,
@@ -43,43 +47,56 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.DeleteItemRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.DeleteItemResponse> | null,
         ): void;
-        // Execute a list of Inventory Operations
+        // Execute a list of Inventory Operations. A maximum list of 10 operations can be performed by a single request. There is
+        // also a limit to 250 items that can be modified/added in a single request. For example, adding a bundle with 50 items
+        // counts as 50 items modified. All operations must be done within a single inventory collection. This API has a reduced
+        // RPS compared to an individual inventory operation with Player Entities limited to 15 requests in 90 seconds and Title
+        // Entities limited to 500 requests in 10 seconds.
         // https://docs.microsoft.com/rest/api/playfab/economy/inventory/executeinventoryoperations
         ExecuteInventoryOperations(
             request: PlayFabEconomyModels.ExecuteInventoryOperationsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.ExecuteInventoryOperationsResponse> | null,
         ): void;
-        // Gets the configuration for the catalog.
+        // Gets the configuration for the catalog. Only Title Entities can call this API. There is a limit of 100 requests in 10
+        // seconds for this API. More information about the Catalog Config can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/settings
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getcatalogconfig
         GetCatalogConfig(
             request: PlayFabEconomyModels.GetCatalogConfigRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetCatalogConfigResponse> | null,
         ): void;
-        // Retrieves an item from the working catalog. This item represents the current working state of the item.
+        // Retrieves an item from the working catalog. This item represents the current working state of the item. GetDraftItem
+        // does not work off a cache of the Catalog and should be used when trying to get recent item updates. However, please note
+        // that item references data is cached and may take a few moments for changes to propagate.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getdraftitem
         GetDraftItem(
             request: PlayFabEconomyModels.GetDraftItemRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetDraftItemResponse> | null,
         ): void;
-        // Retrieves a paginated list of the items from the draft catalog.
+        // Retrieves a paginated list of the items from the draft catalog. Up to 50 IDs can be retrieved in a single request.
+        // GetDraftItems does not work off a cache of the Catalog and should be used when trying to get recent item updates.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getdraftitems
         GetDraftItems(
             request: PlayFabEconomyModels.GetDraftItemsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetDraftItemsResponse> | null,
         ): void;
-        // Retrieves a paginated list of the items from the draft catalog created by the Entity.
+        // Retrieves a paginated list of the items from the draft catalog created by the Entity. Up to 50 items can be returned at
+        // once. You can use continuation tokens to paginate through results that return greater than the limit.
+        // GetEntityDraftItems does not work off a cache of the Catalog and should be used when trying to get recent item updates.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getentitydraftitems
         GetEntityDraftItems(
             request: PlayFabEconomyModels.GetEntityDraftItemsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetEntityDraftItemsResponse> | null,
         ): void;
-        // Gets the submitted review for the specified item by the authenticated entity.
+        // Gets the submitted review for the specified item by the authenticated entity. Individual ratings and reviews data update
+        // in near real time with delays within a few seconds.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getentityitemreview
         GetEntityItemReview(
             request: PlayFabEconomyModels.GetEntityItemReviewRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetEntityItemReviewResponse> | null,
         ): void;
-        // Get Inventory Collection Ids
+        // Get Inventory Collection Ids. Up to 50 Ids can be returned at once. You can use continuation tokens to paginate through
+        // results that return greater than the limit. It can take a few seconds for new collection Ids to show up.
         // https://docs.microsoft.com/rest/api/playfab/economy/inventory/getinventorycollectionids
         GetInventoryCollectionIds(
             request: PlayFabEconomyModels.GetInventoryCollectionIdsRequest | null,
@@ -91,19 +108,25 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.GetInventoryItemsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetInventoryItemsResponse> | null,
         ): void;
-        // Retrieves an item from the public catalog.
+        // Retrieves an item from the public catalog. GetItem does not work off a cache of the Catalog and should be used when
+        // trying to get recent item updates. However, please note that item references data is cached and may take a few moments
+        // for changes to propagate.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitem
         GetItem(
             request: PlayFabEconomyModels.GetItemRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetItemResponse> | null,
         ): void;
-        // Search for a given item and return a set of bundles and stores containing the item
+        // Search for a given item and return a set of bundles and stores containing the item. Up to 50 items can be returned at
+        // once. You can use continuation tokens to paginate through results that return greater than the limit. This API is
+        // intended for tooling/automation scenarios and has a reduced RPS with Player Entities limited to 30 requests in 300
+        // seconds and Title Entities limited to 100 requests in 10 seconds.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitemcontainers
         GetItemContainers(
             request: PlayFabEconomyModels.GetItemContainersRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetItemContainersResponse> | null,
         ): void;
-        // Gets the moderation state for an item, including the concern category and string reason.
+        // Gets the moderation state for an item, including the concern category and string reason. More information about
+        // moderation states can be found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/ugc/moderation
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitemmoderationstate
         GetItemModerationState(
             request: PlayFabEconomyModels.GetItemModerationStateRequest | null,
@@ -115,19 +138,23 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.GetItemPublishStatusRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetItemPublishStatusResponse> | null,
         ): void;
-        // Get a paginated set of reviews associated with the specified item.
+        // Get a paginated set of reviews associated with the specified item. Individual ratings and reviews data update in near
+        // real time with delays within a few seconds.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitemreviews
         GetItemReviews(
             request: PlayFabEconomyModels.GetItemReviewsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetItemReviewsResponse> | null,
         ): void;
-        // Get a summary of all reviews associated with the specified item.
+        // Get a summary of all ratings and reviews associated with the specified item. Summary ratings data is cached with update
+        // data coming within 15 minutes.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitemreviewsummary
         GetItemReviewSummary(
             request: PlayFabEconomyModels.GetItemReviewSummaryRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetItemReviewSummaryResponse> | null,
         ): void;
-        // Retrieves items from the public catalog.
+        // Retrieves items from the public catalog. Up to 50 items can be returned at once. GetItems does not work off a cache of
+        // the Catalog and should be used when trying to get recent item updates. However, please note that item references data is
+        // cached and may take a few moments for changes to propagate.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitems
         GetItems(
             request: PlayFabEconomyModels.GetItemsRequest | null,
@@ -139,19 +166,24 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.GetMicrosoftStoreAccessTokensRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetMicrosoftStoreAccessTokensResponse> | null,
         ): void;
-        // Get transaction history.
+        // Get transaction history for a player. Up to 50 Events can be returned at once. You can use continuation tokens to
+        // paginate through results that return greater than the limit. Getting transaction history has a lower RPS limit than
+        // getting a Player's inventory with Player Entities having a limit of 30 requests in 300 seconds and Title Entities having
+        // a limit of 100 requests in 10 seconds.
         // https://docs.microsoft.com/rest/api/playfab/economy/inventory/gettransactionhistory
         GetTransactionHistory(
             request: PlayFabEconomyModels.GetTransactionHistoryRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetTransactionHistoryResponse> | null,
         ): void;
-        // Initiates a publish of an item from the working catalog to the public catalog.
+        // Initiates a publish of an item from the working catalog to the public catalog. You can use the GetItemPublishStatus API
+        // to track the state of the item publish.
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/publishdraftitem
         PublishDraftItem(
             request: PlayFabEconomyModels.PublishDraftItemRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.PublishDraftItemResponse> | null,
         ): void;
-        // Purchase an item or bundle
+        // Purchase an item or bundle. Up to 3500 stacks of items can be added to a single inventory collection. Stack size is
+        // uncapped.
         // https://docs.microsoft.com/rest/api/playfab/economy/inventory/purchaseinventoryitems
         PurchaseInventoryItems(
             request: PlayFabEconomyModels.PurchaseInventoryItemsRequest | null,
@@ -205,20 +237,25 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.ReportItemReviewRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.ReportItemReviewResponse> | null,
         ): void;
-        // Creates or updates a review for the specified item.
+        // Creates or updates a review for the specified item. More information around the caching surrounding item ratings and
+        // reviews can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/ratings#ratings-design-and-caching
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/reviewitem
         ReviewItem(
             request: PlayFabEconomyModels.ReviewItemRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.ReviewItemResponse> | null,
         ): void;
         // Executes a search against the public catalog using the provided search parameters and returns a set of paginated
-        // results.
+        // results. SearchItems uses a cache of the catalog with item updates taking up to a few minutes to propagate. You should
+        // use the GetItem API for when trying to immediately get recent item updates. More information about the Search API can be
+        // found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/search
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/searchitems
         SearchItems(
             request: PlayFabEconomyModels.SearchItemsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.SearchItemsResponse> | null,
         ): void;
-        // Sets the moderation state for an item, including the concern category and string reason.
+        // Sets the moderation state for an item, including the concern category and string reason. More information about
+        // moderation states can be found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/ugc/moderation
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/setitemmoderationstate
         SetItemModerationState(
             request: PlayFabEconomyModels.SetItemModerationStateRequest | null,
@@ -242,13 +279,17 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.TakedownItemReviewsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.TakedownItemReviewsResponse> | null,
         ): void;
-        // Transfer inventory items.
+        // Transfer inventory items. When transferring across collections, a 202 response indicates that the transfer is in
+        // progress and will complete soon. More information about item transfer scenarios can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/inventory/?tabs=inventory-game-manager#transfer-inventory-items
         // https://docs.microsoft.com/rest/api/playfab/economy/inventory/transferinventoryitems
         TransferInventoryItems(
             request: PlayFabEconomyModels.TransferInventoryItemsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.TransferInventoryItemsResponse> | null,
         ): void;
-        // Updates the configuration for the catalog.
+        // Updates the configuration for the catalog. Only Title Entities can call this API. There is a limit of 10 requests in 10
+        // seconds for this API. More information about the Catalog Config can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/settings
         // https://docs.microsoft.com/rest/api/playfab/economy/catalog/updatecatalogconfig
         UpdateCatalogConfig(
             request: PlayFabEconomyModels.UpdateCatalogConfigRequest | null,
@@ -275,6 +316,8 @@ declare module PlayFabEconomyModels {
     export interface AddInventoryItemsOperation {
         // The amount to add to the current item amount.
         Amount?: number;
+        // The duration to add to the current item expiration date.
+        DurationInSeconds?: number;
         // The inventory item the operation applies to.
         Item?: InventoryItemReference;
         // The values to apply to a stack newly created by this operation.
@@ -284,7 +327,8 @@ declare module PlayFabEconomyModels {
     export interface AddInventoryItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The amount to add for the current item.
         Amount?: number;
-        // The id of the entity's collection to perform this action on. (Default="default")
+        // The id of the entity's collection to perform this action on. (Default="default"). The number of inventory collections is
+        // unlimited.
         CollectionId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -292,9 +336,11 @@ declare module PlayFabEconomyModels {
         DurationInSeconds?: number;
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
-        // The Idempotency ID for this request.
+        // The Idempotency ID for this request. Idempotency IDs can be used to prevent operation replay in the medium term but will
+        // be garbage collected eventually.
         IdempotencyId?: string;
         // The inventory item the request applies to.
         Item?: InventoryItemReference;
@@ -303,7 +349,8 @@ declare module PlayFabEconomyModels {
     }
 
     export interface AddInventoryItemsResponse extends PlayFabModule.IPlayFabResultCommon {
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
         // The idempotency id used in the request.
         IdempotencyId?: string;
@@ -326,13 +373,15 @@ declare module PlayFabEconomyModels {
     }
 
     export interface CatalogConfig {
-        // A list of player entity keys that will have admin permissions.
+        // A list of player entity keys that will have admin permissions. There is a maximum of 64 entities that can be added.
         AdminEntities?: EntityKey[];
         // The set of configuration that only applies to catalog items.
         Catalog?: CatalogSpecificConfig;
-        // A list of deep link formats.
+        // A list of deep link formats. Up to 10 can be added.
         DeepLinkFormats?: DeepLinkFormat[];
-        // A list of display properties to index.
+        // A list of display properties to index. Up to 5 mappings can be added per Display Property Type. More info on display
+        // properties can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/content-types-tags-and-properties#displayproperties
         DisplayPropertyIndexInfos?: DisplayPropertyIndexInfo[];
         // The set of configuration that only applies to Files.
         File?: FileConfig;
@@ -340,18 +389,20 @@ declare module PlayFabEconomyModels {
         Image?: ImageConfig;
         // Flag defining whether catalog is enabled.
         IsCatalogEnabled: boolean;
-        // A list of Platforms that can be applied to catalog items.
+        // A list of Platforms that can be applied to catalog items. Each platform can have a maximum character length of 40 and up
+        // to 128 platforms can be listed.
         Platforms?: string[];
-        // A set of player entity keys that are allowed to review content.
+        // A set of player entity keys that are allowed to review content. There is a maximum of 64 entities that can be added.
         ReviewerEntities?: EntityKey[];
         // The set of configuration that only applies to user generated contents.
         UserGeneratedContent?: UserGeneratedContentSpecificConfig;
     }
 
     export interface CatalogItem {
-        // The alternate IDs associated with this item.
+        // The alternate IDs associated with this item. An alternate ID can be set to 'FriendlyId' or any of the supported
+        // marketplace names.
         AlternateIds?: CatalogAlternateId[];
-        // The set of contents associated with this item.
+        // The set of content/files associated with this item. Up to 100 files can be added to an item.
         Contents?: Content[];
         // The client-defined type of the item.
         ContentType?: string;
@@ -365,12 +416,13 @@ declare module PlayFabEconomyModels {
         // DefaultStackId can be a static stack id or '{guid}', which will generate a unique stack id for the item. If null,
         // Inventory's default stack id will be used.
         DefaultStackId?: string;
-        // A dictionary of localized descriptions. Key is language code and localized string is the value. The neutral locale is
-        // required.
+        // A dictionary of localized descriptions. Key is language code and localized string is the value. The NEUTRAL locale is
+        // required. Descriptions have a 10000 character limit per country code.
         Description?: { [key: string]: string | null };
-        // Game specific properties for display purposes. This is an arbitrary JSON blob.
+        // Game specific properties for display purposes. This is an arbitrary JSON blob. The Display Properties field has a 10000
+        // byte limit per item.
         DisplayProperties?: any;
-        // The user provided version of the item for display purposes.
+        // The user provided version of the item for display purposes. Maximum character length of 50.
         DisplayVersion?: string;
         // The date of when the item will cease to be available. If not provided then the product will be available indefinitely.
         EndDate?: string;
@@ -378,13 +430,16 @@ declare module PlayFabEconomyModels {
         ETag?: string;
         // The unique ID of the item.
         Id?: string;
-        // The images associated with this item. Images can be thumbnails or screenshots.
+        // The images associated with this item. Images can be thumbnails or screenshots. Up to 100 images can be added to an item.
+        // Only .png, .jpg, .gif, and .bmp file types can be uploaded
         Images?: Image[];
         // Indicates if the item is hidden.
         IsHidden?: boolean;
-        // The item references associated with this item.
+        // The item references associated with this item. For example, the items in a Bundle/Store/Subscription. Every item can
+        // have up to 50 item references.
         ItemReferences?: CatalogItemReference[];
-        // A dictionary of localized keywords. Key is language code and localized list of keywords is the value.
+        // A dictionary of localized keywords. Key is language code and localized list of keywords is the value. Keywords have a 50
+        // character limit per keyword and up to 32 keywords can be added per country code.
         Keywords?: { [key: string]: KeywordSet };
         // The date and time this item was last updated.
         LastModifiedDate?: string;
@@ -392,7 +447,7 @@ declare module PlayFabEconomyModels {
         Moderation?: ModerationState;
         // The platforms supported by this item.
         Platforms?: string[];
-        // The base price of this item.
+        // The prices the item can be purchased for.
         PriceOptions?: CatalogPriceOptions;
         // Rating summary for this item.
         Rating?: Rating;
@@ -400,10 +455,10 @@ declare module PlayFabEconomyModels {
         StartDate?: string;
         // Optional details for stores items.
         StoreDetails?: StoreDetails;
-        // The list of tags that are associated with this item.
+        // The list of tags that are associated with this item. Up to 32 tags can be added to an item.
         Tags?: string[];
-        // A dictionary of localized titles. Key is language code and localized string is the value. The neutral locale is
-        // required.
+        // A dictionary of localized titles. Key is language code and localized string is the value. The NEUTRAL locale is
+        // required. Titles have a 512 character limit per country code.
         Title?: { [key: string]: string | null };
         // The high-level type of the item. The following item types are supported: bundle, catalogItem, currency, store, ugc.
         Type?: string;
@@ -419,9 +474,9 @@ declare module PlayFabEconomyModels {
     }
 
     export interface CatalogPrice {
-        // The amounts of the catalog item price.
+        // The amounts of the catalog item price. Each price can have up to 15 item amounts.
         Amounts?: CatalogPriceAmount[];
-        // The per-unit duration this price can be used to purchase.
+        // The per-unit duration this price can be used to purchase. The maximum duration is 100 years.
         UnitDurationInSeconds?: number;
     }
 
@@ -443,7 +498,7 @@ declare module PlayFabEconomyModels {
     }
 
     export interface CatalogPriceOptions {
-        // Prices of the catalog item.
+        // Prices of the catalog item. An item can have up to 15 prices
         Prices?: CatalogPrice[];
     }
 
@@ -458,9 +513,11 @@ declare module PlayFabEconomyModels {
     }
 
     export interface CatalogSpecificConfig {
-        // The set of content types that will be used for validation.
+        // The set of content types that will be used for validation. Each content type can have a maximum character length of 40
+        // and up to 128 types can be listed.
         ContentTypes?: string[];
-        // The set of tags that will be used for validation.
+        // The set of tags that will be used for validation. Each tag can have a maximum character length of 32 and up to 1024 tags
+        // can be listed.
         Tags?: string[];
     }
 
@@ -479,13 +536,16 @@ declare module PlayFabEconomyModels {
     export interface Content {
         // The content unique ID.
         Id?: string;
-        // The maximum client version that this content is compatible with.
+        // The maximum client version that this content is compatible with. Client Versions can be up to 3 segments separated by
+        // periods(.) and each segment can have a maximum value of 65535.
         MaxClientVersion?: string;
-        // The minimum client version that this content is compatible with.
+        // The minimum client version that this content is compatible with. Client Versions can be up to 3 segments separated by
+        // periods(.) and each segment can have a maximum value of 65535.
         MinClientVersion?: string;
-        // The list of tags that are associated with this content.
+        // The list of tags that are associated with this content. Tags must be defined in the Catalog Config before being used in
+        // content.
         Tags?: string[];
-        // The client-defined type of the content.
+        // The client-defined type of the content. Content Types must be defined in the Catalog Config before being used.
         Type?: string;
         // The Azure CDN URL for retrieval of the catalog item binary content.
         Url?: string;
@@ -749,7 +809,7 @@ declare module PlayFabEconomyModels {
         CustomTags?: { [key: string]: string | null };
         // Metadata describing the new catalog item to be created.
         Item?: CatalogItem;
-        // Whether the item should be published immediately.
+        // Whether the item should be published immediately. This value is optional, defaults to false.
         Publish: boolean;
     }
 
@@ -800,7 +860,8 @@ declare module PlayFabEconomyModels {
         CustomTags?: { [key: string]: string | null };
         // The entity the request is about. Set to the caller by default.
         Entity?: EntityKey;
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
     }
 
@@ -812,15 +873,18 @@ declare module PlayFabEconomyModels {
     }
 
     export interface DeleteInventoryItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // The id of the entity's collection to perform this action on. (Default="default")
+        // The id of the entity's collection to perform this action on. (Default="default"). The number of inventory collections is
+        // unlimited.
         CollectionId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
-        // The Idempotency ID for this request.
+        // The Idempotency ID for this request. Idempotency IDs can be used to prevent operation replay in the medium term but will
+        // be garbage collected eventually.
         IdempotencyId?: string;
         // The inventory item the request applies to.
         Item?: InventoryItemReference;
@@ -870,23 +934,27 @@ declare module PlayFabEconomyModels {
     }
 
     export interface ExecuteInventoryOperationsRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // The id of the entity's collection to perform this action on. (Default="default")
+        // The id of the entity's collection to perform this action on. (Default="default"). The number of inventory collections is
+        // unlimited.
         CollectionId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
-        // The Idempotency ID for this request.
+        // The Idempotency ID for this request. Idempotency IDs can be used to prevent operation replay in the medium term but will
+        // be garbage collected eventually.
         IdempotencyId?: string;
         // The operations to run transactionally. The operations will be executed in-order sequentially and will succeed or fail as
-        // a batch.
+        // a batch. Up to 10 operations can be added.
         Operations?: InventoryOperation[];
     }
 
     export interface ExecuteInventoryOperationsResponse extends PlayFabModule.IPlayFabResultCommon {
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
         // The idempotency id used in the request.
         IdempotencyId?: string;
@@ -895,14 +963,17 @@ declare module PlayFabEconomyModels {
     }
 
     export interface FileConfig {
-        // The set of content types that will be used for validation.
+        // The set of content types that will be used for validation. Each content type can have a maximum character length of 40
+        // and up to 128 types can be listed.
         ContentTypes?: string[];
-        // The set of tags that will be used for validation.
+        // The set of tags that will be used for validation. Each tag can have a maximum character length of 32 and up to 1024 tags
+        // can be listed.
         Tags?: string[];
     }
 
     export interface FilterOptions {
-        // The OData filter utilized. Mutually exclusive with 'IncludeAllItems'.
+        // The OData filter utilized. Mutually exclusive with 'IncludeAllItems'. More info about Filter Complexity limits can be
+        // found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/search#limits
         Filter?: string;
         // The flag that overrides the filter and allows for returning all catalog items. Mutually exclusive with 'Filter'.
         IncludeAllItems?: boolean;
@@ -956,13 +1027,14 @@ declare module PlayFabEconomyModels {
         // An opaque token used to retrieve the next page of items created by the caller, if any are available. Should be null on
         // initial request.
         ContinuationToken?: string;
-        // Number of items to retrieve. Maximum page size is 10.
+        // Number of items to retrieve. This value is optional. Default value is 10.
         Count: number;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // OData Filter to specify ItemType.
+        // OData Filter to refine the items returned. CatalogItem properties 'type' can be used in the filter. For example: "type
+        // eq 'ugc'"
         Filter?: string;
     }
 
@@ -992,7 +1064,7 @@ declare module PlayFabEconomyModels {
     export interface GetInventoryCollectionIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // An opaque token used to retrieve the next page of collection ids, if any are available.
         ContinuationToken?: string;
-        // Number of items to retrieve. (Default = 10)
+        // Number of items to retrieve. This value is optional. The default value is 10
         Count: number;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -1013,20 +1085,22 @@ declare module PlayFabEconomyModels {
         // An opaque token used to retrieve the next page of items in the inventory, if any are available. Should be null on
         // initial request.
         ContinuationToken?: string;
-        // Number of items to retrieve. Maximum page size is 50. (Default=10)
+        // Number of items to retrieve. This value is optional. Maximum page size is 50. The default value is 10
         Count: number;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // The filters to limit what is returned to the client.
+        // OData Filter to refine the items returned. InventoryItem properties 'type', 'id', and 'stackId' can be used in the
+        // filter. For example: "type eq 'currency'"
         Filter?: string;
     }
 
     export interface GetInventoryItemsResponse extends PlayFabModule.IPlayFabResultCommon {
         // An opaque token used to retrieve the next page of items, if any are available.
         ContinuationToken?: string;
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
         // The requested inventory items.
         Items?: InventoryItem[];
@@ -1038,7 +1112,7 @@ declare module PlayFabEconomyModels {
         // An opaque token used to retrieve the next page of items in the inventory, if any are available. Should be null on
         // initial request.
         ContinuationToken?: string;
-        // Number of items to retrieve. Maximum page size is 25.
+        // Number of items to retrieve. This value is optional. Default value is 10.
         Count: number;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -1108,13 +1182,14 @@ declare module PlayFabEconomyModels {
         AlternateId?: CatalogAlternateId;
         // An opaque token used to retrieve the next page of items, if any are available.
         ContinuationToken?: string;
-        // Number of items to retrieve. Maximum page size is 200. If not specified, defaults to 10.
+        // Number of items to retrieve. This value is optional. Default value is 10.
         Count: number;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The unique ID of the item.
         Id?: string;
-        // An OData orderBy used to order the results of the query.
+        // An OData orderBy used to order the results of the query. Possible values are Helpfulness, Rating, and Submitted (For
+        // example: "Submitted desc")
         OrderBy?: string;
     }
 
@@ -1179,13 +1254,14 @@ declare module PlayFabEconomyModels {
         CollectionId?: string;
         // An opaque token used to retrieve the next page of items, if any are available. Should be null on initial request.
         ContinuationToken?: string;
-        // Number of items to retrieve. (Default = 10)
+        // Number of items to retrieve. This value is optional. The default value is 10
         Count: number;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // An OData filter used to refine the query.
+        // An OData filter used to refine the TransactionHistory. Transaction property 'timestamp' can be used in the filter. For
+        // example: "timestamp ge 'timestamp ge'" By default, a 6 month timespan from the current date is used.
         Filter?: string;
     }
 
@@ -1211,31 +1287,33 @@ declare module PlayFabEconomyModels {
     export interface Image {
         // The image unique ID.
         Id?: string;
-        // The client-defined tag associated with this image.
+        // The client-defined tag associated with this image. Tags must be defined in the Catalog Config before being used in
+        // images
         Tag?: string;
-        // The client-defined type of this image.
+        // Images can be defined as either a "thumbnail" or "screenshot". There can only be one "thumbnail" image per item.
         Type?: string;
         // The URL for retrieval of the image.
         Url?: string;
     }
 
     export interface ImageConfig {
-        // The set of tags that will be used for validation.
+        // The set of tags that will be used for validation. Each tag can have a maximum character length of 32 and up to 1024 tags
+        // can be listed.
         Tags?: string[];
     }
 
     export interface InitialValues {
-        // Game specific properties for display purposes.
+        // Game specific properties for display purposes. The Display Properties field has a 1000 byte limit.
         DisplayProperties?: any;
     }
 
     export interface InventoryItem {
         // The amount of the item.
         Amount?: number;
-        // Game specific properties for display purposes. This is an arbitrary JSON blob.
+        // Game specific properties for display purposes. This is an arbitrary JSON blob. The Display Properties field has a 1000
+        // byte limit.
         DisplayProperties?: any;
-        // Only used for subscriptions. The date of when the item will expire in UTC. If not provided then the product will be
-        // available indefinitely.
+        // Only used for subscriptions. The date of when the item will expire in UTC.
         ExpirationDate?: string;
         // The id of the item. This should correspond to the item id in the catalog.
         Id?: string;
@@ -1337,7 +1415,8 @@ declare module PlayFabEconomyModels {
     export interface PurchaseInventoryItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The amount to purchase.
         Amount?: number;
-        // The id of the entity's collection to perform this action on. (Default="default")
+        // The id of the entity's collection to perform this action on. (Default="default"). The number of inventory collections is
+        // unlimited.
         CollectionId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -1348,9 +1427,11 @@ declare module PlayFabEconomyModels {
         DurationInSeconds?: number;
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
-        // The Idempotency ID for this request.
+        // The Idempotency ID for this request. Idempotency IDs can be used to prevent operation replay in the medium term but will
+        // be garbage collected eventually.
         IdempotencyId?: string;
         // The inventory item the request applies to.
         Item?: InventoryItemReference;
@@ -1364,7 +1445,8 @@ declare module PlayFabEconomyModels {
     }
 
     export interface PurchaseInventoryItemsResponse extends PlayFabModule.IPlayFabResultCommon {
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
         // The idempotency id used in the request.
         IdempotencyId?: string;
@@ -1483,7 +1565,7 @@ declare module PlayFabEconomyModels {
     }
 
     export interface RedeemPlayStationStoreInventoryItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Authorization code provided by the PlayStation OAuth provider.
+        // Auth code returned by PlayStation :tm: Network OAuth system.
         AuthorizationCode?: string;
         // The id of the entity's collection to perform this action on. (Default="default")
         CollectionId?: string;
@@ -1491,6 +1573,8 @@ declare module PlayFabEconomyModels {
         CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
+        // Redirect URI supplied to PlayStation :tm: Network when requesting an auth code
+        RedirectUri?: string;
         // Optional Service Label to pass into the request.
         ServiceLabel?: string;
     }
@@ -1639,15 +1723,16 @@ declare module PlayFabEconomyModels {
     export interface SearchItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // An opaque token used to retrieve the next page of items, if any are available.
         ContinuationToken?: string;
-        // Number of items to retrieve. Maximum page size is 50. Default value is 10.
+        // Number of items to retrieve. This value is optional. Maximum page size is 50. Default value is 10.
         Count: number;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // An OData filter used to refine the search query.
+        // An OData filter used to refine the search query (For example: "type eq 'ugc'"). More info about Filter Complexity limits
+        // can be found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/search#limits
         Filter?: string;
-        // An OData orderBy used to order the results of the search query.
+        // An OData orderBy used to order the results of the search query. For example: "rating/average asc"
         OrderBy?: string;
         // The text to search for.
         Search?: string;
@@ -1731,7 +1816,8 @@ declare module PlayFabEconomyModels {
     export interface SubtractInventoryItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The amount to subtract for the current item.
         Amount?: number;
-        // The id of the entity's collection to perform this action on. (Default="default")
+        // The id of the entity's collection to perform this action on. (Default="default"). The number of inventory collections is
+        // unlimited.
         CollectionId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -1742,16 +1828,19 @@ declare module PlayFabEconomyModels {
         DurationInSeconds?: number;
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
-        // The Idempotency ID for this request.
+        // The Idempotency ID for this request. Idempotency IDs can be used to prevent operation replay in the medium term but will
+        // be garbage collected eventually.
         IdempotencyId?: string;
         // The inventory item the request applies to.
         Item?: InventoryItemReference;
     }
 
     export interface SubtractInventoryItemsResponse extends PlayFabModule.IPlayFabResultCommon {
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
         // The idempotency id used in the request.
         IdempotencyId?: string;
@@ -1857,7 +1946,8 @@ declare module PlayFabEconomyModels {
         GivingCollectionId?: string;
         // The entity the request is transferring from. Set to the caller by default.
         GivingEntity?: EntityKey;
-        // ETags are used for concurrency checking when updating resources (before transferring from).
+        // ETags are used for concurrency checking when updating resources (before transferring from). More information about using
+        // ETags can be found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         GivingETag?: string;
         // The inventory item the request is transferring from.
         GivingItem?: InventoryItemReference;
@@ -1874,7 +1964,8 @@ declare module PlayFabEconomyModels {
     }
 
     export interface TransferInventoryItemsResponse extends PlayFabModule.IPlayFabResultCommon {
-        // ETags are used for concurrency checking when updating resources (after transferring from).
+        // ETags are used for concurrency checking when updating resources (after transferring from). More information about using
+        // ETags can be found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         GivingETag?: string;
         // The ids of transactions that occurred as a result of the request's giving action.
         GivingTransactionIds?: string[];
@@ -1898,7 +1989,7 @@ declare module PlayFabEconomyModels {
         CustomTags?: { [key: string]: string | null };
         // Updated metadata describing the catalog item to be updated.
         Item?: CatalogItem;
-        // Whether the item should be published immediately.
+        // Whether the item should be published immediately. This value is optional, defaults to false.
         Publish: boolean;
     }
 
@@ -1913,22 +2004,26 @@ declare module PlayFabEconomyModels {
     }
 
     export interface UpdateInventoryItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // The id of the entity's collection to perform this action on. (Default="default")
+        // The id of the entity's collection to perform this action on. (Default="default"). The number of inventory collections is
+        // unlimited.
         CollectionId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
-        // The Idempotency ID for this request.
+        // The Idempotency ID for this request. Idempotency IDs can be used to prevent operation replay in the medium term but will
+        // be garbage collected eventually.
         IdempotencyId?: string;
         // The inventory item to update with the specified values.
         Item?: InventoryItem;
     }
 
     export interface UpdateInventoryItemsResponse extends PlayFabModule.IPlayFabResultCommon {
-        // ETags are used for concurrency checking when updating resources.
+        // ETags are used for concurrency checking when updating resources. More information about using ETags can be found here:
+        // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/etags
         ETag?: string;
         // The idempotency id used in the request.
         IdempotencyId?: string;
