@@ -60,6 +60,20 @@ exports.GetTitlePlayersFromMasterPlayerAccountIds = function (request, callback)
     );
 };
 
+exports.GetTitlePlayersFromXboxLiveIDs = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Profile/GetTitlePlayersFromXboxLiveIDs",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.SetGlobalPolicy = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Profile/SetGlobalPolicy",

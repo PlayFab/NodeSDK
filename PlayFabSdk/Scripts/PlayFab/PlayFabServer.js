@@ -259,6 +259,9 @@ exports.DeleteSharedGroup = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.DeregisterGame = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1296,6 +1299,23 @@ exports.LinkServerCustomId = function (request, callback) {
     );
 };
 
+exports.LinkSteamId = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/LinkSteamId",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.LinkXboxAccount = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1449,6 +1469,9 @@ exports.MoveItemToUserFromCharacter = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.NotifyMatchmakerPlayerLeft = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1483,6 +1506,9 @@ exports.RedeemCoupon = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.RedeemMatchmakerTicket = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1500,6 +1526,9 @@ exports.RedeemMatchmakerTicket = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.RefreshGameServerInstanceHeartbeat = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1517,6 +1546,9 @@ exports.RefreshGameServerInstanceHeartbeat = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.RegisterGame = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1789,6 +1821,9 @@ exports.SetFriendTags = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.SetGameServerInstanceData = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1806,6 +1841,9 @@ exports.SetGameServerInstanceData = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.SetGameServerInstanceState = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1823,6 +1861,9 @@ exports.SetGameServerInstanceState = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.SetGameServerInstanceTags = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1999,6 +2040,23 @@ exports.UnlinkServerCustomId = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Server/UnlinkServerCustomId",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UnlinkSteamId = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/UnlinkSteamId",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,

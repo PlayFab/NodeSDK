@@ -25,6 +25,12 @@ declare module PlayFabProfilesModule {
             request: PlayFabProfilesModels.GetTitlePlayersFromMasterPlayerAccountIdsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetTitlePlayersFromMasterPlayerAccountIdsResponse> | null,
         ): void;
+        // Retrieves the title player accounts associated with the given XUIDs.
+        // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/gettitleplayersfromxboxliveids
+        GetTitlePlayersFromXboxLiveIDs(
+            request: PlayFabProfilesModels.GetTitlePlayersFromXboxLiveIDsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetTitlePlayersFromProviderIDsResponse> | null,
+        ): void;
         // Sets the global title access policy
         // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setglobalpolicy
         SetGlobalPolicy(
@@ -223,6 +229,23 @@ declare module PlayFabProfilesModels {
         TitleId?: string;
         // Dictionary of master player ids mapped to title player entity keys and id pairs
         TitlePlayerAccounts?: { [key: string]: EntityKey };
+    }
+
+    export interface GetTitlePlayersFromProviderIDsResponse extends PlayFabModule.IPlayFabResultCommon {
+        // Dictionary of provider identifiers mapped to title_player_account lineage. Missing lineage indicates the player either
+        // doesn't exist or doesn't play the requested title.
+        TitlePlayerAccounts?: { [key: string]: EntityLineage };
+    }
+
+    export interface GetTitlePlayersFromXboxLiveIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Xbox Sandbox the players had on their Xbox tokens.
+        Sandbox: string;
+        // Optional ID of title to get players from, required if calling using a master_player_account.
+        TitleId?: string;
+        // List of Xbox Live XUIDs
+        XboxLiveIds: string[];
     }
 
     type OperationTypes = "Created"

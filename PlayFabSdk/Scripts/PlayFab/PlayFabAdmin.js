@@ -633,6 +633,9 @@ exports.GetDataReport = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Please use MultiplayerServer/GetMultiplayerSessionLogsBySessionId instead. 
+ */
 exports.GetMatchmakerGameInfo = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -650,6 +653,9 @@ exports.GetMatchmakerGameInfo = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.GetMatchmakerGameModes = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1228,6 +1234,9 @@ exports.ListVirtualCurrencyTypes = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.ModifyServerBuild = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
