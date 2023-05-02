@@ -2308,10 +2308,6 @@ declare module PlayFabClientModels {
         // Indicates which other platforms' friends should be included in the response. In HTTP, it is represented as a
         // comma-separated list of platforms.
         ExternalPlatformFriends?: string;
-        // Indicates whether Facebook friends should be included in the response. Default is true.
-        IncludeFacebookFriends?: boolean;
-        // Indicates whether Steam service friends should be included in the response. Default is true.
-        IncludeSteamFriends?: boolean;
         // Maximum number of entries to retrieve. Default 10, maximum 100.
         MaxResultsCount?: number;
         // PlayFab unique identifier of the user to center the leaderboard around. If null will center on the logged in user.
@@ -2343,10 +2339,6 @@ declare module PlayFabClientModels {
         // Indicates which other platforms' friends should be included in the response. In HTTP, it is represented as a
         // comma-separated list of platforms.
         ExternalPlatformFriends?: string;
-        // Indicates whether Facebook friends should be included in the response. Default is true.
-        IncludeFacebookFriends?: boolean;
-        // Indicates whether Steam service friends should be included in the response. Default is true.
-        IncludeSteamFriends?: boolean;
         // Maximum number of entries to retrieve. Default 10, maximum 100.
         MaxResultsCount?: number;
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
@@ -2369,10 +2361,6 @@ declare module PlayFabClientModels {
         // Indicates which other platforms' friends should be included in the response. In HTTP, it is represented as a
         // comma-separated list of platforms.
         ExternalPlatformFriends?: string;
-        // Indicates whether Facebook friends should be included in the response. Default is true.
-        IncludeFacebookFriends?: boolean;
-        // Indicates whether Steam service friends should be included in the response. Default is true.
-        IncludeSteamFriends?: boolean;
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
         // only the allowed client profile properties for the title may be requested. These allowed properties are configured in
         // the Game Manager "Client Profile Options" tab in the "Settings" section.
