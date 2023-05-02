@@ -1435,10 +1435,6 @@ declare module PlayFabMultiplayerModels {
     export interface FindFriendLobbiesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Controls whether this query should link to friends made on the Facebook network. Defaults to false
-        ExcludeFacebookFriends?: boolean;
-        // Controls whether this query should link to friends made on the Steam network. Defaults to false
-        ExcludeSteamFriends?: boolean;
         // Indicates which other platforms' friends this query should link to.
         ExternalPlatformFriends?: string;
         // OData style string that contains one or more filters. Only the following operators are supported: "and" (logical and),
@@ -1621,6 +1617,8 @@ declare module PlayFabMultiplayerModels {
         StartMultiplayerServerCommand?: string;
         // The VM size the build was created on.
         VmSize?: string;
+        // The configuration for the VmStartupScript feature for the build
+        VmStartupScriptConfiguration?: VmStartupScriptConfiguration;
     }
 
     export interface GetContainerRegistryCredentialsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3012,13 +3010,31 @@ declare module PlayFabMultiplayerModels {
     }
 
     export interface VmStartupScriptConfiguration {
+        // Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+        PortRequests?: VmStartupScriptPortRequest[];
         // Asset which contains the VmStartupScript script and any other required files.
         VmStartupScriptAssetReference: AssetReference;
     }
 
     export interface VmStartupScriptParams {
+        // Optional port requests (name/protocol) that will be used by the VmStartupScript. Max of 5 requests.
+        PortRequests?: VmStartupScriptPortRequestParams[];
         // Asset which contains the VmStartupScript script and any other required files.
         VmStartupScriptAssetReference: AssetReferenceParams;
+    }
+
+    export interface VmStartupScriptPortRequest {
+        // The name for the port.
+        Name: string;
+        // The protocol for the port.
+        Protocol: string;
+    }
+
+    export interface VmStartupScriptPortRequestParams {
+        // The name for the port.
+        Name: string;
+        // The protocol for the port.
+        Protocol: string;
     }
 
     export interface WindowsCrashDumpConfiguration {
