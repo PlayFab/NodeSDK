@@ -2555,6 +2555,7 @@ declare module PlayFabAdminModels {
         | "TelemetryKeyInvalid"
         | "TelemetryKeyCountOverLimit"
         | "TelemetryKeyDeactivated"
+        | "TelemetryKeyLongInsightsRetentionNotAllowed"
         | "EventSinkConnectionInvalid"
         | "EventSinkConnectionUnauthorized"
         | "EventSinkRegionInvalid"
