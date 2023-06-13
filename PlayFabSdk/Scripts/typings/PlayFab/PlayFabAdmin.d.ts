@@ -2491,6 +2491,7 @@ declare module PlayFabAdminModels {
         | "MultiplayerServerBuildReferencedByMatchmakingQueue"
         | "MultiplayerServerBuildReferencedByBuildAlias"
         | "MultiplayerServerBuildAliasReferencedByMatchmakingQueue"
+        | "PartySerializationError"
         | "ExperimentationExperimentStopped"
         | "ExperimentationExperimentRunning"
         | "ExperimentationExperimentNotFound"

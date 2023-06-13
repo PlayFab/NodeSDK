@@ -2494,6 +2494,7 @@ declare module PlayFabServerModels {
         | "MultiplayerServerBuildReferencedByMatchmakingQueue"
         | "MultiplayerServerBuildReferencedByBuildAlias"
         | "MultiplayerServerBuildAliasReferencedByMatchmakingQueue"
+        | "PartySerializationError"
         | "ExperimentationExperimentStopped"
         | "ExperimentationExperimentRunning"
         | "ExperimentationExperimentNotFound"
