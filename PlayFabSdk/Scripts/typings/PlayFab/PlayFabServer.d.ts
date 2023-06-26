@@ -2584,7 +2584,9 @@ declare module PlayFabServerModels {
         | "PlayerCustomPropertiesVersionMismatch"
         | "PlayerCustomPropertiesPropertyCountTooHigh"
         | "PlayerCustomPropertiesDuplicatePropertyName"
-        | "PlayerCustomPropertiesPropertyDoesNotExist";
+        | "PlayerCustomPropertiesPropertyDoesNotExist"
+        | "AddonAlreadyExists"
+        | "AddonDoesntExist";
 
     export interface GenericPlayFabIdPair {
         // Unique generic service identifier for a user.
