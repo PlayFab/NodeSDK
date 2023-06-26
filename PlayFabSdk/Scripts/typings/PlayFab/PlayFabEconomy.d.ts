@@ -460,7 +460,8 @@ declare module PlayFabEconomyModels {
         // A dictionary of localized titles. Key is language code and localized string is the value. The NEUTRAL locale is
         // required. Titles have a 512 character limit per country code.
         Title?: { [key: string]: string | null };
-        // The high-level type of the item. The following item types are supported: bundle, catalogItem, currency, store, ugc.
+        // The high-level type of the item. The following item types are supported: bundle, catalogItem, currency, store, ugc,
+        // subscription.
         Type?: string;
     }
 
@@ -1734,6 +1735,8 @@ declare module PlayFabEconomyModels {
         // An OData filter used to refine the search query (For example: "type eq 'ugc'"). More info about Filter Complexity limits
         // can be found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/search#limits
         Filter?: string;
+        // The locale to be returned in the result.
+        Language?: string;
         // An OData orderBy used to order the results of the search query. For example: "rating/average asc"
         OrderBy?: string;
         // The text to search for.
