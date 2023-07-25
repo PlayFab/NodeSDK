@@ -871,9 +871,6 @@ declare module PlayFabMultiplayerModels {
         RegionConfigurations: BuildRegionParams[];
         // The resource constraints to apply to each server on the VM (EXPERIMENTAL API)
         ServerResourceConstraints?: ServerResourceConstraintParams;
-        // DEPRECATED - this is always true. Assets are downloaded and uncompressed in memory, without the compressedversion being
-        // written first to disc.
-        UseStreamingForAssetDownloads?: boolean;
         // The VM size to create the build on.
         VmSize?: string;
         // The configuration for the VmStartupScript for the build
@@ -961,9 +958,6 @@ declare module PlayFabMultiplayerModels {
         ServerResourceConstraints?: ServerResourceConstraintParams;
         // The command to run when the multiplayer server is started, including any arguments.
         StartMultiplayerServerCommand: string;
-        // DEPRECATED - this is always true. Assets are downloaded and uncompressed in memory, without the compressedversion being
-        // written first to disc.
-        UseStreamingForAssetDownloads?: boolean;
         // The VM size to create the build on.
         VmSize?: string;
         // The configuration for the VmStartupScript for the build
@@ -1056,9 +1050,6 @@ declare module PlayFabMultiplayerModels {
         // The command to run when the multiplayer server is started, including any arguments. The path to any executable should be
         // relative to the root asset folder when unzipped.
         StartMultiplayerServerCommand: string;
-        // DEPRECATED - this is always true. Assets are downloaded and uncompressed in memory, without the compressedversion being
-        // written first to disc.
-        UseStreamingForAssetDownloads?: boolean;
         // The VM size to create the build on.
         VmSize?: string;
         // The configuration for the VmStartupScript for the build

@@ -1,7 +1,8 @@
 declare module PlayFabServerModule {
     export interface IPlayFabServer {
         settings: PlayFabModule.IPlayFabSettings;
-        // Increments the character's balance of the specified virtual currency by the stated amount
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Increments the character's balance of the specified virtual currency by the stated amount
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/addcharactervirtualcurrency
         AddCharacterVirtualCurrency(
             request: PlayFabServerModels.AddCharacterVirtualCurrencyRequest | null,
@@ -37,7 +38,8 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.AddSharedGroupMembersRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.AddSharedGroupMembersResult> | null,
         ): void;
-        // Increments the user's balance of the specified virtual currency by the stated amount
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Increments the user's balance of the specified virtual currency by the stated amount
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/adduservirtualcurrency
         AddUserVirtualCurrency(
             request: PlayFabServerModels.AddUserVirtualCurrencyRequest | null,
@@ -61,7 +63,9 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.BanUsersRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.BanUsersResult> | null,
         ): void;
-        // Consume uses of a consumable item. When all uses are consumed, it will be removed from the player's inventory.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Consume uses of a consumable item. When all uses are consumed, it will be removed from the player's
+        // inventory.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/consumeitem
         ConsumeItem(
             request: PlayFabServerModels.ConsumeItemRequest | null,
@@ -108,8 +112,10 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.DeregisterGameRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.DeregisterGameResponse> | null,
         ): void;
-        // Returns the result of an evaluation of a Random Result Table - the ItemId from the game Catalog which would have been
-        // added to the player inventory, if the Random Result Table were added via a Bundle or a call to UnlockContainer.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Returns the result of an evaluation of a Random Result Table - the ItemId from the game Catalog which would
+        // have been added to the player inventory, if the Random Result Table were added via a Bundle or a call to
+        // UnlockContainer.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/evaluaterandomresulttable
         EvaluateRandomResultTable(
             request: PlayFabServerModels.EvaluateRandomResultTableRequest | null,
@@ -136,7 +142,8 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.ListUsersCharactersRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.ListUsersCharactersResult> | null,
         ): void;
-        // Retrieves the specified version of the title's catalog of virtual goods, including all defined properties
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Retrieves the specified version of the title's catalog of virtual goods, including all defined properties
         // https://docs.microsoft.com/rest/api/playfab/server/title-wide-data-management/getcatalogitems
         GetCatalogItems(
             request: PlayFabServerModels.GetCatalogItemsRequest | null,
@@ -154,7 +161,8 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.GetCharacterDataRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetCharacterDataResult> | null,
         ): void;
-        // Retrieves the specified character's current inventory of virtual goods
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Retrieves the specified character's current inventory of virtual goods
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/getcharacterinventory
         GetCharacterInventory(
             request: PlayFabServerModels.GetCharacterInventoryRequest | null,
@@ -339,8 +347,9 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.GetPublisherDataRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPublisherDataResult> | null,
         ): void;
-        // Retrieves the configuration information for the specified random results tables for the title, including all ItemId
-        // values and weights
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Retrieves the configuration information for the specified random results tables for the title, including all
+        // ItemId values and weights
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/getrandomresulttables
         GetRandomResultTables(
             request: PlayFabServerModels.GetRandomResultTablesRequest | null,
@@ -360,7 +369,9 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.GetSharedGroupDataRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetSharedGroupDataResult> | null,
         ): void;
-        // Retrieves the set of items defined for the specified store, including all prices defined, for the specified player
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Retrieves the set of items defined for the specified store, including all prices defined, for the specified
+        // player
         // https://docs.microsoft.com/rest/api/playfab/server/title-wide-data-management/getstoreitems
         GetStoreItems(
             request: PlayFabServerModels.GetStoreItemsServerRequest | null,
@@ -414,7 +425,8 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.GetUserDataRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetUserDataResult> | null,
         ): void;
-        // Retrieves the specified user's current inventory of virtual goods
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Retrieves the specified user's current inventory of virtual goods
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/getuserinventory
         GetUserInventory(
             request: PlayFabServerModels.GetUserInventoryRequest | null,
@@ -451,19 +463,22 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.GrantCharacterToUserRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GrantCharacterToUserResult> | null,
         ): void;
-        // Adds the specified items to the specified character's inventory
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Adds the specified items to the specified character's inventory
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/grantitemstocharacter
         GrantItemsToCharacter(
             request: PlayFabServerModels.GrantItemsToCharacterRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GrantItemsToCharacterResult> | null,
         ): void;
-        // Adds the specified items to the specified user's inventory
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Adds the specified items to the specified user's inventory
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/grantitemstouser
         GrantItemsToUser(
             request: PlayFabServerModels.GrantItemsToUserRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GrantItemsToUserResult> | null,
         ): void;
-        // Adds the specified items to the specified user inventories
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Adds the specified items to the specified user inventories
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/grantitemstousers
         GrantItemsToUsers(
             request: PlayFabServerModels.GrantItemsToUsersRequest | null,
@@ -539,25 +554,29 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.LoginWithXboxIdRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.ServerLoginResult> | null,
         ): void;
-        // Modifies the number of remaining uses of a player's inventory item
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Modifies the number of remaining uses of a player's inventory item
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/modifyitemuses
         ModifyItemUses(
             request: PlayFabServerModels.ModifyItemUsesRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.ModifyItemUsesResult> | null,
         ): void;
-        // Moves an item from a character's inventory into another of the users's character's inventory.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Moves an item from a character's inventory into another of the users's character's inventory.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/moveitemtocharacterfromcharacter
         MoveItemToCharacterFromCharacter(
             request: PlayFabServerModels.MoveItemToCharacterFromCharacterRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.MoveItemToCharacterFromCharacterResult> | null,
         ): void;
-        // Moves an item from a user's inventory into their character's inventory.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Moves an item from a user's inventory into their character's inventory.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/moveitemtocharacterfromuser
         MoveItemToCharacterFromUser(
             request: PlayFabServerModels.MoveItemToCharacterFromUserRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.MoveItemToCharacterFromUserResult> | null,
         ): void;
-        // Moves an item from a character's inventory into the owning user's inventory.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Moves an item from a character's inventory into the owning user's inventory.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/moveitemtouserfromcharacter
         MoveItemToUserFromCharacter(
             request: PlayFabServerModels.MoveItemToUserFromCharacterRequest | null,
@@ -569,7 +588,8 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.NotifyMatchmakerPlayerLeftRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.NotifyMatchmakerPlayerLeftResult> | null,
         ): void;
-        // Adds the virtual goods associated with the coupon to the user's inventory. Coupons can be generated via the
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Adds the virtual goods associated with the coupon to the user's inventory. Coupons can be generated via the
         // Economy->Catalogs tab in the PlayFab Game Manager.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/redeemcoupon
         RedeemCoupon(
@@ -640,13 +660,15 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.RevokeBansRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.RevokeBansResult> | null,
         ): void;
-        // Revokes access to an item in a user's inventory
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Revokes access to an item in a user's inventory
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/revokeinventoryitem
         RevokeInventoryItem(
             request: PlayFabServerModels.RevokeInventoryItemRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.RevokeInventoryResult> | null,
         ): void;
-        // Revokes access for up to 25 items across multiple users and characters.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Revokes access for up to 25 items across multiple users and characters.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/revokeinventoryitems
         RevokeInventoryItems(
             request: PlayFabServerModels.RevokeInventoryItemsRequest | null,
@@ -734,15 +756,17 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.SetTitleDataRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.SetTitleDataResult> | null,
         ): void;
-        // Decrements the character's balance of the specified virtual currency by the stated amount. It is possible to make a VC
-        // balance negative with this API.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Decrements the character's balance of the specified virtual currency by the stated amount. It is possible to
+        // make a VC balance negative with this API.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/subtractcharactervirtualcurrency
         SubtractCharacterVirtualCurrency(
             request: PlayFabServerModels.SubtractCharacterVirtualCurrencyRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.ModifyCharacterVirtualCurrencyResult> | null,
         ): void;
-        // Decrements the user's balance of the specified virtual currency by the stated amount. It is possible to make a VC
-        // balance negative with this API.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Decrements the user's balance of the specified virtual currency by the stated amount. It is possible to make
+        // a VC balance negative with this API.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/subtractuservirtualcurrency
         SubtractUserVirtualCurrency(
             request: PlayFabServerModels.SubtractUserVirtualCurrencyRequest | null,
@@ -784,17 +808,19 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.UnlinkXboxAccountRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.UnlinkXboxAccountResult> | null,
         ): void;
-        // Opens a specific container (ContainerItemInstanceId), with a specific key (KeyItemInstanceId, when required), and
-        // returns the contents of the opened container. If the container (and key when relevant) are consumable (RemainingUses >
-        // 0), their RemainingUses will be decremented, consistent with the operation of ConsumeItem.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Opens a specific container (ContainerItemInstanceId), with a specific key (KeyItemInstanceId, when
+        // required), and returns the contents of the opened container. If the container (and key when relevant) are consumable
+        // (RemainingUses > 0), their RemainingUses will be decremented, consistent with the operation of ConsumeItem.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/unlockcontainerinstance
         UnlockContainerInstance(
             request: PlayFabServerModels.UnlockContainerInstanceRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.UnlockContainerItemResult> | null,
         ): void;
-        // Searches Player or Character inventory for any ItemInstance matching the given CatalogItemId, if necessary unlocks it
-        // using any appropriate key, and returns the contents of the opened container. If the container (and key when relevant)
-        // are consumable (RemainingUses > 0), their RemainingUses will be decremented, consistent with the operation of
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Searches Player or Character inventory for any ItemInstance matching the given CatalogItemId, if necessary
+        // unlocks it using any appropriate key, and returns the contents of the opened container. If the container (and key when
+        // relevant) are consumable (RemainingUses > 0), their RemainingUses will be decremented, consistent with the operation of
         // ConsumeItem.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/unlockcontaineritem
         UnlockContainerItem(
@@ -865,7 +891,8 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.UpdateUserInternalDataRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.UpdateUserDataResult> | null,
         ): void;
-        // Updates the key-value pair data tagged to the specified item, which is read-only from the client.
+        // _NOTE: This is a Legacy Economy API, and is in bugfix-only mode. All new Economy features are being developed only for
+        // version 2._ Updates the key-value pair data tagged to the specified item, which is read-only from the client.
         // https://docs.microsoft.com/rest/api/playfab/server/player-item-management/updateuserinventoryitemcustomdata
         UpdateUserInventoryItemCustomData(
             request: PlayFabServerModels.UpdateUserInventoryItemDataRequest | null,
