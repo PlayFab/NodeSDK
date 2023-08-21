@@ -805,7 +805,8 @@ declare module PlayFabEconomyModels {
         | "EH"
         | "YE"
         | "ZM"
-        | "ZW";
+        | "ZW"
+        | "Unknown";
 
     export interface CreateDraftItemRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
