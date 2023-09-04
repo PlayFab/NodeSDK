@@ -110,6 +110,12 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.DeleteMasterPlayerAccountRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteMasterPlayerAccountResult> | null,
         ): void;
+        // Deletes PlayStream and telemetry event data associated with the master player account from PlayFab storage
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/deletemasterplayereventdata
+        DeleteMasterPlayerEventData(
+            request: PlayFabAdminModels.DeleteMasterPlayerEventDataRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.DeleteMasterPlayerEventDataResult> | null,
+        ): void;
         // Deletes a player's subscription
         // https://docs.microsoft.com/rest/api/playfab/admin/account-management/deletemembershipsubscription
         DeleteMembershipSubscription(
@@ -1671,6 +1677,13 @@ declare module PlayFabAdminModels {
         TitleIds?: string[];
     }
 
+    export interface DeleteMasterPlayerEventDataRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Unique PlayFab assigned ID of the user on whom the operation will be performed.
+        PlayFabId: string;
+    }
+
+    export interface DeleteMasterPlayerEventDataResult extends PlayFabModule.IPlayFabResultCommon {}
+
     export interface DeleteMembershipSubscriptionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -2426,6 +2439,7 @@ declare module PlayFabAdminModels {
         | "NamespaceMismatch"
         | "InvalidServiceConfiguration"
         | "InvalidNamespaceMismatch"
+        | "LeaderboardColumnLengthMismatch"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -4432,7 +4446,8 @@ declare module PlayFabAdminModels {
         | "FacebookInstantGames"
         | "OpenIdConnect"
         | "Apple"
-        | "NintendoSwitchAccount";
+        | "NintendoSwitchAccount"
+        | "GooglePlayGames";
 
     export interface SegmentModel {
         // Segment description.

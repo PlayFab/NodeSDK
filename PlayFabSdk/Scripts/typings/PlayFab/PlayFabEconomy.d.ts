@@ -279,8 +279,11 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.TakedownItemReviewsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.TakedownItemReviewsResponse> | null,
         ): void;
-        // Transfer inventory items. When transferring across collections, a 202 response indicates that the transfer is in
-        // progress and will complete soon. More information about item transfer scenarios can be found here:
+        // Transfer inventory items. When transferring across collections, a 202 response indicates that the transfer did not
+        // complete within the timeframe of the request. You can identify the pending operations by looking for OperationStatus =
+        // 'InProgress'. You can check on the operation status at anytime within 30 days of the request by passing the
+        // TransactionToken to the GetInventoryOperationStatus API. More information about item transfer scenarios can be found
+        // here:
         // https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/inventory/?tabs=inventory-game-manager#transfer-inventory-items
         // https://docs.microsoft.com/rest/api/playfab/economy/inventory/transferinventoryitems
         TransferInventoryItems(
@@ -1463,6 +1466,8 @@ declare module PlayFabEconomyModels {
 
     export interface PurchaseOverride {}
 
+    export interface PurchaseOverridesInfo {}
+
     export interface PurchasePriceAmount {
         // The amount of the inventory item to use in the purchase .
         Amount: number;
@@ -1980,6 +1985,9 @@ declare module PlayFabEconomyModels {
         GivingTransactionIds?: string[];
         // The idempotency id for the request.
         IdempotencyId?: string;
+        // The transfer operation status. Possible values are 'InProgress' or 'Completed'. If the operation has completed, the
+        // response code will be 200. Otherwise, it will be 202.
+        OperationStatus?: string;
         // The ids of transactions that occurred as a result of the request's receiving action.
         ReceivingTransactionIds?: string[];
     }
