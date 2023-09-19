@@ -484,26 +484,6 @@ exports.GetContentDownloadUrl = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Please use MultiplayerServer/ListMultiplayerServers instead. 
- */
-exports.GetCurrentGames = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) {
-        throw "Must be logged in to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/GetCurrentGames",
-        request,
-        "X-Authorization",
-        PlayFab._internalSettings.sessionTicket,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.GetFriendLeaderboard = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -544,26 +524,6 @@ exports.GetFriendsList = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/GetFriendsList",
-        request,
-        "X-Authorization",
-        PlayFab._internalSettings.sessionTicket,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-/**
- * @deprecated Please use MultiplayerServer/ListMultiplayerServers instead. 
- */
-exports.GetGameServerRegions = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) {
-        throw "Must be logged in to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/GetGameServerRegions",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,
@@ -1969,26 +1929,6 @@ exports.LoginWithXbox = function (request, callback) {
                 PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
                 PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
             }
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-/**
- * @deprecated Please use Match/CreateMatchmakingTicket instead. 
- */
-exports.Matchmake = function (request, callback) {
-    if (PlayFab._internalSettings.sessionTicket == null) {
-        throw "Must be logged in to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/Matchmake",
-        request,
-        "X-Authorization",
-        PlayFab._internalSettings.sessionTicket,
-        function (error, result) {
             if (callback != null) {
                 callback(error, result);
             }
