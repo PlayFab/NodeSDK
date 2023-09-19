@@ -650,46 +650,6 @@ exports.GetDataReport = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Please use MultiplayerServer/GetMultiplayerSessionLogsBySessionId instead. 
- */
-exports.GetMatchmakerGameInfo = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/GetMatchmakerGameInfo",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-/**
- * @deprecated Do not use
- */
-exports.GetMatchmakerGameModes = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/GetMatchmakerGameModes",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.GetPlayedTitleList = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1240,26 +1200,6 @@ exports.ListVirtualCurrencyTypes = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Admin/ListVirtualCurrencyTypes",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
-/**
- * @deprecated Do not use
- */
-exports.ModifyServerBuild = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/ModifyServerBuild",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,

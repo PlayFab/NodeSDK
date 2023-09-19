@@ -149,11 +149,24 @@ declare module PlayFabProfilesModels {
         Size: number;
     }
 
+    export interface EntityStatisticAttributeValue {
+        // Metadata associated with the Statistic.
+        Metadata?: string;
+        // Attribute name.
+        Name?: string;
+        // Attribute Statistic scores.
+        Scores?: number[];
+    }
+
     export interface EntityStatisticValue {
+        // Attribute Statistic values.
+        AttributeStatistics?: { [key: string]: EntityStatisticAttributeValue };
         // Metadata associated with the Statistic.
         Metadata?: string;
         // Statistic name
         Name?: string;
+        // Statistic scores
+        Scores?: number[];
         // Statistic value
         Value?: number;
         // Statistic version

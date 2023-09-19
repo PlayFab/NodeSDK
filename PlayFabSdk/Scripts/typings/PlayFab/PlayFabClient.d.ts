@@ -200,12 +200,6 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.GetContentDownloadUrlRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetContentDownloadUrlResult> | null,
         ): void;
-        // Get details about all current running game servers matching the given parameters.
-        // https://docs.microsoft.com/rest/api/playfab/client/matchmaking/getcurrentgames
-        GetCurrentGames(
-            request: PlayFabClientModels.CurrentGamesRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabClientModels.CurrentGamesResult> | null,
-        ): void;
         // Retrieves a list of ranked friends of the current player for the given statistic, starting from the indicated point in
         // the leaderboard
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getfriendleaderboard
@@ -226,12 +220,6 @@ declare module PlayFabClientModule {
         GetFriendsList(
             request: PlayFabClientModels.GetFriendsListRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetFriendsListResult> | null,
-        ): void;
-        // Get details about the regions hosting game servers matching the given parameters.
-        // https://docs.microsoft.com/rest/api/playfab/client/matchmaking/getgameserverregions
-        GetGameServerRegions(
-            request: PlayFabClientModels.GameServerRegionsRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GameServerRegionsResult> | null,
         ): void;
         // Retrieves a list of ranked users for the given statistic, starting from the indicated point in the leaderboard
         // https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getleaderboard
@@ -744,17 +732,6 @@ declare module PlayFabClientModule {
         LoginWithXbox(
             request: PlayFabClientModels.LoginWithXboxRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.LoginResult> | null,
-        ): void;
-        // Attempts to locate a game session matching the given parameters. If the goal is to match the player into a specific
-        // active session, only the LobbyId is required. Otherwise, the BuildVersion, GameMode, and Region are all required
-        // parameters. Note that parameters specified in the search are required (they are not weighting factors). If a slot is
-        // found in a server instance matching the parameters, the slot will be assigned to that player, removing it from the
-        // availabe set. In that case, the information on the game session will be returned, otherwise the Status returned will be
-        // GameNotFound.
-        // https://docs.microsoft.com/rest/api/playfab/client/matchmaking/matchmake
-        Matchmake(
-            request: PlayFabClientModels.MatchmakeRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabClientModels.MatchmakeResult> | null,
         ): void;
         // Opens a new outstanding trade. Note that a given item instance may only be in one open trade at a time.
         // https://docs.microsoft.com/rest/api/playfab/client/trading/opentrade
@@ -1439,14 +1416,6 @@ declare module PlayFabClientModels {
         | "Latest"
         | "Specific";
 
-    export interface CollectionFilter {
-        // List of Exclude rules, with any of which if a collection matches, it is excluded by the filter.
-        Excludes?: Container_Dictionary_String_String[];
-        // List of Include rules, with any of which if a collection matches, it is included by the filter, unless it is excluded by
-        // one of the Exclude rule
-        Includes?: Container_Dictionary_String_String[];
-    }
-
     export interface ConfirmPurchaseRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -1544,11 +1513,6 @@ declare module PlayFabClientModels {
         Name?: string;
         // The verification status of the email
         VerificationStatus?: string;
-    }
-
-    export interface Container_Dictionary_String_String {
-        // Content of data
-        Data?: { [key: string]: string | null };
     }
 
     type ContinentCode = "AF"
@@ -1987,28 +1951,6 @@ declare module PlayFabClientModels {
         | "ZMW"
         | "ZWD";
 
-    export interface CurrentGamesRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Build to match against.
-        BuildVersion?: string;
-        // Game mode to look for.
-        GameMode?: string;
-        // Region to check for Game Server Instances.
-        Region?: string;
-        // Statistic name to find statistic-based matches.
-        StatisticName?: string;
-        // Filter to include and/or exclude Game Server Instances associated with certain tags.
-        TagFilter?: CollectionFilter;
-    }
-
-    export interface CurrentGamesResult extends PlayFabModule.IPlayFabResultCommon {
-        // number of games running
-        GameCount: number;
-        // array of games found
-        Games?: GameInfo[];
-        // total number of players across all servers
-        PlayerCount: number;
-    }
-
     export interface DeviceInfoRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Information posted to the PlayStream Event. Currently arbitrary, and specific to the environment sending it.
         Info?: { [key: string]: any };
@@ -2137,58 +2079,6 @@ declare module PlayFabClientModels {
         GameCenterId?: string;
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Game Center identifier.
         PlayFabId?: string;
-    }
-
-    export interface GameInfo {
-        // build version this server is running
-        BuildVersion?: string;
-        // game mode this server is running
-        GameMode?: string;
-        // game session custom data
-        GameServerData?: string;
-        // game specific string denoting server configuration
-        GameServerStateEnum?: string;
-        // last heartbeat of the game server instance, used in external game server provider mode
-        LastHeartbeat?: string;
-        // unique lobby identifier for this game server
-        LobbyID?: string;
-        // maximum players this server can support
-        MaxPlayers?: number;
-        // array of current player IDs on this server
-        PlayerUserIds?: string[];
-        // region to which this server is associated
-        Region?: string;
-        // duration in seconds this server has been running
-        RunTime: number;
-        // IPV4 address of the server
-        ServerIPV4Address?: string;
-        // IPV6 address of the server
-        ServerIPV6Address?: string;
-        // port number to use for non-http communications with the server
-        ServerPort?: number;
-        // Public DNS name (if any) of the server
-        ServerPublicDNSName?: string;
-        // stastic used to match this game in player statistic matchmaking
-        StatisticName?: string;
-        // game session tags
-        Tags?: { [key: string]: string | null };
-    }
-
-    type GameInstanceState = "Open"
-
-        | "Closed";
-
-    export interface GameServerRegionsRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // version of game server for which stats are being requested
-        BuildVersion: string;
-        // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
-        // title has been selected.
-        TitleId?: string;
-    }
-
-    export interface GameServerRegionsResult extends PlayFabModule.IPlayFabResultCommon {
-        // array of regions found matching the request parameters
-        Regions?: RegionInfo[];
     }
 
     export interface GenericPlayFabIdPair {
@@ -3726,55 +3616,6 @@ declare module PlayFabClientModels {
         Message?: string;
     }
 
-    export interface MatchmakeRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Build version to match against. [Note: Required if LobbyId is not specified]
-        BuildVersion?: string;
-        // Character to use for stats based matching. Leave null to use account stats.
-        CharacterId?: string;
-        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        CustomTags?: { [key: string]: string | null };
-        // Game mode to match make against. [Note: Required if LobbyId is not specified]
-        GameMode?: string;
-        // Lobby identifier to match make against. This is used to select a specific Game Server Instance.
-        LobbyId?: string;
-        // Region to match make against. [Note: Required if LobbyId is not specified]
-        Region?: string;
-        // Start a game session if one with an open slot is not found. Defaults to true.
-        StartNewIfNoneFound?: boolean;
-        // Player statistic to use in finding a match. May be null for no stat-based matching.
-        StatisticName?: string;
-        // Filter to include and/or exclude Game Server Instances associated with certain Tags
-        TagFilter?: CollectionFilter;
-    }
-
-    export interface MatchmakeResult extends PlayFabModule.IPlayFabResultCommon {
-        // timestamp for when the server will expire, if applicable
-        Expires?: string;
-        // unique lobby identifier of the server matched
-        LobbyID?: string;
-        // time in milliseconds the application is configured to wait on matchmaking results
-        PollWaitTimeMS?: number;
-        // IPV4 address of the server
-        ServerIPV4Address?: string;
-        // IPV6 address of the server
-        ServerIPV6Address?: string;
-        // port number to use for non-http communications with the server
-        ServerPort?: number;
-        // Public DNS name (if any) of the server
-        ServerPublicDNSName?: string;
-        // result of match making process
-        Status?: string;
-        // server authorization ticket (used by RedeemMatchmakerTicket to validate user insertion into the game)
-        Ticket?: string;
-    }
-
-    type MatchmakeStatus = "Complete"
-
-        | "Waiting"
-        | "GameNotFound"
-        | "NoAvailableSlots"
-        | "SessionClosed";
-
     export interface MembershipModel {
         // Whether this membership is active. That is, whether the MembershipExpiration time has been reached.
         IsActive: boolean;
@@ -4091,26 +3932,6 @@ declare module PlayFabClientModels {
         IssuerId?: number;
         // Redirect URI supplied to PlayStation :tm: Network when requesting an auth code
         RedirectUri: string;
-    }
-
-    type Region = "USCentral"
-
-        | "USEast"
-        | "EUWest"
-        | "Singapore"
-        | "Japan"
-        | "Brazil"
-        | "Australia";
-
-    export interface RegionInfo {
-        // indicates whether the server specified is available in this region
-        Available: boolean;
-        // name of the region
-        Name?: string;
-        // url to ping to get roundtrip time
-        PingUrl?: string;
-        // unique identifier for the region
-        Region?: string;
     }
 
     export interface RegisterForIOSPushNotificationRequest extends PlayFabModule.IPlayFabRequestCommon {
