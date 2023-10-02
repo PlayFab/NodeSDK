@@ -928,6 +928,20 @@ exports.RequestMultiplayerServer = function (request, callback) {
     );
 };
 
+exports.RequestPartyService = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Party/RequestPartyService",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.RolloverContainerRegistryCredentials = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/RolloverContainerRegistryCredentials",

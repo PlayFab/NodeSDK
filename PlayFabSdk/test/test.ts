@@ -8,7 +8,6 @@ import * as fs from "fs";
 const PlayFab = pf.PlayFab as PlayFabModule.IPlayFab;
 const PlayFabAdmin = pf.PlayFabAdmin as PlayFabAdminModule.IPlayFabAdmin;
 const PlayFabClient = pf.PlayFabClient as PlayFabClientModule.IPlayFabClient;
-const PlayFabMatchmaker = pf.PlayFabMatchmaker as PlayFabMatchmakerModule.IPlayFabMatchmaker;
 const PlayFabServer = pf.PlayFabServer as PlayFabServerModule.IPlayFabServer;
 const PlayFabAuthentication = pf.PlayFabAuthentication as PlayFabAuthenticationModule.IPlayFabAuthentication;
 const PlayFabCloudScript = pf.PlayFabCloudScript as PlayFabCloudScriptModule.IPlayFabCloudScript;
