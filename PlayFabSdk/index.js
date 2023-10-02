@@ -2,7 +2,6 @@ var PlayFab = require("./Scripts/PlayFab/PlayFab.js");
 
 var PlayFabAdmin = require("./Scripts/PlayFab/PlayFabAdmin.js");
 var PlayFabClient = require("./Scripts/PlayFab/PlayFabClient.js");
-var PlayFabMatchmaker = require("./Scripts/PlayFab/PlayFabMatchmaker.js");
 var PlayFabServer = require("./Scripts/PlayFab/PlayFabServer.js");
 var PlayFabAuthentication = require("./Scripts/PlayFab/PlayFabAuthentication.js");
 var PlayFabCloudScript = require("./Scripts/PlayFab/PlayFabCloudScript.js");
@@ -20,7 +19,6 @@ module.exports = {
     PlayFab : PlayFab,
     PlayFabAdmin : PlayFabAdmin,
     PlayFabClient : PlayFabClient,
-    PlayFabMatchmaker : PlayFabMatchmaker,
     PlayFabServer : PlayFabServer,
     PlayFabAuthentication : PlayFabAuthentication,
     PlayFabCloudScript : PlayFabCloudScript,

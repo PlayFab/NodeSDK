@@ -155,7 +155,7 @@ declare module PlayFabProfilesModels {
         // Attribute name.
         Name?: string;
         // Attribute Statistic scores.
-        Scores?: number[];
+        Scores?: string[];
     }
 
     export interface EntityStatisticValue {
@@ -166,7 +166,7 @@ declare module PlayFabProfilesModels {
         // Statistic name
         Name?: string;
         // Statistic scores
-        Scores?: number[];
+        Scores?: string[];
         // Statistic value
         Value?: number;
         // Statistic version

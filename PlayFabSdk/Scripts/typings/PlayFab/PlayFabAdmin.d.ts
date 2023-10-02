@@ -743,9 +743,30 @@ declare module PlayFabAdminModels {
         TaskInstanceId: string;
     }
 
+    export interface Action {
+        // Action content to ban player
+        BanPlayerContent?: BanPlayerContent;
+        // Action content to delete player
+        DeletePlayerContent?: DeletePlayerContent;
+        // Action content to execute cloud script
+        ExecuteCloudScriptContent?: ExecuteCloudScriptContent;
+        // Action content to execute azure function
+        ExecuteFunctionContent?: ExecuteFunctionContent;
+        // Action content to grant item
+        GrantItemContent?: GrantItemContent;
+        // Action content to grant virtual currency
+        GrantVirtualCurrencyContent?: GrantVirtualCurrencyContent;
+        // Action content to increment player statistic
+        IncrementPlayerStatisticContent?: IncrementPlayerStatisticContent;
+        // Action content to send push notification
+        PushNotificationContent?: PushNotificationContent;
+        // Action content to send email
+        SendEmailContent?: SendEmailContent;
+    }
+
     export interface ActionsOnPlayersInSegmentTaskParameter {
-        // ID of the action to perform on each player in segment.
-        ActionId: string;
+        // List of actions to perform on each player in a segment. Each action object can contain only one action type.
+        Actions?: Action[];
         // ID of the segment to perform actions on.
         SegmentId: string;
     }
@@ -889,6 +910,13 @@ declare module PlayFabAdminModels {
         PlayFabId?: string;
         // The reason why this ban was applied.
         Reason?: string;
+    }
+
+    export interface BanPlayerContent {
+        // Duration(in hours) to ban a player. If not provided, the player will be banned permanently.
+        BanDurationHours: number;
+        // Reason to ban a player
+        BanReason?: string;
     }
 
     export interface BanPlayerSegmentAction {
@@ -1684,6 +1712,8 @@ declare module PlayFabAdminModels {
         ConnectionId: string;
     }
 
+    export interface DeletePlayerContent {}
+
     export interface DeletePlayerRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
         PlayFabId: string;
@@ -1776,6 +1806,15 @@ declare module PlayFabAdminModels {
         GenerateFunctionExecutedEvents: boolean;
     }
 
+    export interface ExecuteCloudScriptContent {
+        // Arguments(JSON) to be passed into the cloudscript method
+        CloudScriptMethodArguments: string;
+        // Cloudscript method name
+        CloudScriptMethodName: string;
+        // Publish cloudscript results as playstream event
+        PublishResultsToPlayStream: boolean;
+    }
+
     export interface ExecuteCloudScriptResult {
         // Number of PlayFab API requests issued by the CloudScript function
         APIRequestsIssued: number;
@@ -1814,6 +1853,15 @@ declare module PlayFabAdminModels {
         FunctionParameter?: any;
         // Cloud script function parameter json text.
         FunctionParameterJson?: string;
+    }
+
+    export interface ExecuteFunctionContent {
+        // Arguments(JSON) to be passed into the cloudscript azure function
+        CloudScriptFunctionArguments: string;
+        // Cloudscript azure function name
+        CloudScriptFunctionName: string;
+        // Publish results from executing the azure function as playstream event
+        PublishResultsToPlayStream: boolean;
     }
 
     export interface ExportMasterPlayerDataRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2404,6 +2452,7 @@ declare module PlayFabAdminModels {
         | "InvalidServiceConfiguration"
         | "InvalidNamespaceMismatch"
         | "LeaderboardColumnLengthMismatch"
+        | "InvalidStatisticScore"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2548,6 +2597,12 @@ declare module PlayFabAdminModels {
         | "LobbyNewOwnerMustBeConnected"
         | "LobbyCurrentOwnerStillConnected"
         | "LobbyMemberIsNotOwner"
+        | "LobbyAssociatedServerMismatch"
+        | "LobbyAssociatedServerNotFound"
+        | "LobbyAssociatedToDifferentServer"
+        | "LobbyServerAlreadyAssociated"
+        | "LobbyIsNotClientOwned"
+        | "LobbyDoesNotUseConnections"
         | "EventSamplingInvalidRatio"
         | "EventSamplingInvalidEventNamespace"
         | "EventSamplingInvalidEventName"
@@ -3040,6 +3095,15 @@ declare module PlayFabAdminModels {
         UsesIncrementedBy?: number;
     }
 
+    export interface GrantItemContent {
+        // Publish cloudscript results as playstream event
+        CatalogVersion?: string;
+        // Publish cloudscript results as playstream event
+        ItemId?: string;
+        // Publish cloudscript results as playstream event
+        ItemQuantity: number;
+    }
+
     export interface GrantItemSegmentAction {
         // Item catalog id.
         CatelogId?: string;
@@ -3063,6 +3127,13 @@ declare module PlayFabAdminModels {
         ItemGrantResults?: GrantedItemInstance[];
     }
 
+    export interface GrantVirtualCurrencyContent {
+        // Amount of currency to be granted to a player
+        CurrencyAmount: number;
+        // Code of the currency to be granted to a player
+        CurrencyCode: string;
+    }
+
     export interface GrantVirtualCurrencySegmentAction {
         // Virtual currency amount.
         Amount: number;
@@ -3082,6 +3153,13 @@ declare module PlayFabAdminModels {
     }
 
     export interface IncrementLimitedEditionItemAvailabilityResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface IncrementPlayerStatisticContent {
+        // Amount(in whole number) to increase the player statistic by
+        StatisticChangeBy: number;
+        // Name of the player statistic to be incremented
+        StatisticName: string;
+    }
 
     export interface IncrementPlayerStatisticSegmentAction {
         // Increment value.
@@ -3563,6 +3641,15 @@ declare module PlayFabAdminModels {
         Status?: string;
         // version of the statistic
         Version: number;
+    }
+
+    export interface PushNotificationContent {
+        // Text of message to send.
+        Message?: string;
+        // Id of the push notification template.
+        PushNotificationTemplateId?: string;
+        // Subject of message to send (may not be displayed in all platforms)
+        Subject?: string;
     }
 
     type PushNotificationPlatform = "ApplePushNotificationService"
@@ -4374,6 +4461,11 @@ declare module PlayFabAdminModels {
     }
 
     export interface SendAccountRecoveryEmailResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface SendEmailContent {
+        // The email template id of the email template to send.
+        EmailTemplateId: string;
+    }
 
     export interface SetMembershipOverrideRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
