@@ -2560,6 +2560,7 @@ declare module PlayFabServerModels {
         | "EventSinkTenantNotFound"
         | "EventSinkAadNotFound"
         | "EventSinkDatabaseNotFound"
+        | "EventSinkTitleUnauthorized"
         | "OperationCanceled"
         | "InvalidDisplayNameRandomSuffixLength"
         | "AllowNonUniquePlayerDisplayNamesDisableNotAllowed"
@@ -2579,7 +2580,9 @@ declare module PlayFabServerModels {
         | "PlayerCustomPropertiesDuplicatePropertyName"
         | "PlayerCustomPropertiesPropertyDoesNotExist"
         | "AddonAlreadyExists"
-        | "AddonDoesntExist";
+        | "AddonDoesntExist"
+        | "CopilotDisabled"
+        | "CopilotInvalidRequest";
 
     export interface GenericPlayFabIdPair {
         // Unique generic service identifier for a user.

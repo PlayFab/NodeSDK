@@ -914,7 +914,7 @@ declare module PlayFabAdminModels {
 
     export interface BanPlayerContent {
         // Duration(in hours) to ban a player. If not provided, the player will be banned permanently.
-        BanDurationHours: number;
+        BanDurationHours?: number;
         // Reason to ban a player
         BanReason?: string;
     }
@@ -2628,6 +2628,7 @@ declare module PlayFabAdminModels {
         | "EventSinkTenantNotFound"
         | "EventSinkAadNotFound"
         | "EventSinkDatabaseNotFound"
+        | "EventSinkTitleUnauthorized"
         | "OperationCanceled"
         | "InvalidDisplayNameRandomSuffixLength"
         | "AllowNonUniquePlayerDisplayNamesDisableNotAllowed"
@@ -2647,7 +2648,9 @@ declare module PlayFabAdminModels {
         | "PlayerCustomPropertiesDuplicatePropertyName"
         | "PlayerCustomPropertiesPropertyDoesNotExist"
         | "AddonAlreadyExists"
-        | "AddonDoesntExist";
+        | "AddonDoesntExist"
+        | "CopilotDisabled"
+        | "CopilotInvalidRequest";
 
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
         // Parameter of this task instance
