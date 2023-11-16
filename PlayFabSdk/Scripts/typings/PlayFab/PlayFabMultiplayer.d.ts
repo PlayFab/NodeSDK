@@ -1122,7 +1122,7 @@ declare module PlayFabMultiplayerModels {
         AccessPolicy?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // The private key-value pairs which are only visible to members of the lobby. At most 30 key-value pairs may be stored
+        // The private key-value pairs which are visible to all entities in the lobby. At most 30 key-value pairs may be stored
         // here, keys are limited to 30 characters and values to 1000. The total size of all lobbyData values may not exceed 4096
         // bytes. Keys are case sensitive.
         LobbyData?: { [key: string]: string | null };
@@ -1928,7 +1928,7 @@ declare module PlayFabMultiplayerModels {
         // The maximum number of players allowed in the lobby. The value must be between 2 and 128.
         MaxPlayers: number;
         // The private key-value pairs used by the member to communicate information to other members and the owner. Visible to all
-        // members of the lobby. At most 30 key-value pairs may be stored here, keys are limited to 30 characters and values to
+        // entities in the lobby. At most 30 key-value pairs may be stored here, keys are limited to 30 characters and values to
         // 1000. The total size of all memberData values may not exceed 4096 bytes. Keys are case sensitive.
         MemberData?: { [key: string]: string | null };
         // The member entity who is joining the lobby. The first member to join will be the lobby owner.
@@ -1954,7 +1954,7 @@ declare module PlayFabMultiplayerModels {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
         // The private key-value pairs used by the member to communicate information to other members and the owner. Visible to all
-        // members of the lobby. At most 30 key-value pairs may be stored here, keys are limited to 30 characters and values to
+        // entities in the lobby. At most 30 key-value pairs may be stored here, keys are limited to 30 characters and values to
         // 1000. The total size of all memberData values may not exceed 4096 bytes.Keys are case sensitive.
         MemberData?: { [key: string]: string | null };
         // The member entity who is joining the lobby.
@@ -3037,7 +3037,7 @@ declare module PlayFabMultiplayerModels {
         AccessPolicy?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // The private key-value pairs which are only visible to members of the lobby. Optional. Sets or updates key-value pairs on
+        // The private key-value pairs which are visible to all entities in the lobby. Optional. Sets or updates key-value pairs on
         // the lobby. Only the current lobby owner can set lobby data. Keys may be an arbitrary string of at most 30 characters.
         // The total size of all lobbyData values may not exceed 4096 bytes. Values are not individually limited. There can be up
         // to 30 key-value pairs stored here. Keys are case sensitive.
@@ -3052,9 +3052,9 @@ declare module PlayFabMultiplayerModels {
         MaxPlayers?: number;
         // The private key-value pairs used by the member to communicate information to other members and the owner. Optional. Sets
         // or updates new key-value pairs on the caller's member data. New keys will be added with their values and existing keys
-        // will be updated with the new values. Visible to all members of the lobby. At most 30 key-value pairs may be stored here,
-        // keys are limited to 30 characters and values to 1000. The total size of all memberData values may not exceed 4096 bytes.
-        // Keys are case sensitive. Servers cannot specifiy this.
+        // will be updated with the new values. Visible to all entities in the lobby. At most 30 key-value pairs may be stored
+        // here, keys are limited to 30 characters and values to 1000. The total size of all memberData values may not exceed 4096
+        // bytes. Keys are case sensitive. Servers cannot specifiy this.
         MemberData?: { [key: string]: string | null };
         // The keys to delete from the lobby MemberData. Optional. Deletes key-value pairs on the caller's member data. All the
         // specified keys will be removed from the caller's member data. Keys that do not exist are a no-op. If the key to delete

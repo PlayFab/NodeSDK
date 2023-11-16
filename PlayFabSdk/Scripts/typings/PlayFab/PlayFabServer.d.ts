@@ -2387,6 +2387,7 @@ declare module PlayFabServerModels {
         | "InvalidNamespaceMismatch"
         | "LeaderboardColumnLengthMismatch"
         | "InvalidStatisticScore"
+        | "LeaderboardColumnsNotSpecified"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
