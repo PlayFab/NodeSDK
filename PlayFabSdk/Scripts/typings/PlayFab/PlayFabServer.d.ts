@@ -2532,10 +2532,10 @@ declare module PlayFabServerModels {
         | "LobbyNewOwnerMustBeConnected"
         | "LobbyCurrentOwnerStillConnected"
         | "LobbyMemberIsNotOwner"
-        | "LobbyAssociatedServerMismatch"
-        | "LobbyAssociatedServerNotFound"
-        | "LobbyAssociatedToDifferentServer"
-        | "LobbyServerAlreadyAssociated"
+        | "LobbyServerMismatch"
+        | "LobbyServerNotFound"
+        | "LobbyDifferentServerAlreadyJoined"
+        | "LobbyServerAlreadyJoined"
         | "LobbyIsNotClientOwned"
         | "LobbyDoesNotUseConnections"
         | "EventSamplingInvalidRatio"
@@ -2583,7 +2583,8 @@ declare module PlayFabServerModels {
         | "AddonAlreadyExists"
         | "AddonDoesntExist"
         | "CopilotDisabled"
-        | "CopilotInvalidRequest";
+        | "CopilotInvalidRequest"
+        | "TrueSkillUnauthorized";
 
     export interface GenericPlayFabIdPair {
         // Unique generic service identifier for a user.
