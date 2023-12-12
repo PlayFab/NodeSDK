@@ -831,6 +831,19 @@ declare module PlayFabAdminModels {
         Comparison?: string;
     }
 
+    export interface AddInventoryItemsV2SegmentAction {
+        // Amount of the item to be granted to a player
+        Amount?: number;
+        // The collection id for where the item will be granted in the player inventory
+        CollectionId?: string;
+        // The duration in seconds of the subscription to be granted to a player
+        DurationInSeconds?: number;
+        // The id of item to be granted to the player
+        ItemId?: string;
+        // The stack id for where the item will be granted in the player inventory
+        StackId?: string;
+    }
+
     export interface AddInventoryItemV2Content {
         // Amount of the item to be granted to a player
         Amount?: number;
@@ -1693,6 +1706,15 @@ declare module PlayFabAdminModels {
         Key: string;
     }
 
+    export interface DeleteInventoryItemsV2SegmentAction {
+        // The collection id for where the item will be removed from the player inventory
+        CollectionId?: string;
+        // The id of item to be removed from the player
+        ItemId?: string;
+        // The stack id for where the item will be removed from the player inventory
+        StackId?: string;
+    }
+
     export interface DeleteInventoryItemV2Content {
         // The collection id for where the item will be removed from the player inventory
         CollectionId?: string;
@@ -2484,6 +2506,7 @@ declare module PlayFabAdminModels {
         | "LeaderboardColumnLengthMismatch"
         | "InvalidStatisticScore"
         | "LeaderboardColumnsNotSpecified"
+        | "LeaderboardMaxSizeTooLarge"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2527,6 +2550,7 @@ declare module PlayFabAdminModels {
         | "CatalogItemTypeInvalid"
         | "CatalogBadRequest"
         | "CatalogTooManyRequests"
+        | "InvalidCatalogItemConfiguration"
         | "ExportInvalidStatusUpdate"
         | "ExportInvalidPrefix"
         | "ExportBlobContainerDoesNotExist"
@@ -4468,8 +4492,12 @@ declare module PlayFabAdminModels {
         | "GoogleCloudMessaging";
 
     export interface SegmentTrigger {
+        // Add inventory item v2 segment trigger action.
+        AddInventoryItemsV2Action?: AddInventoryItemsV2SegmentAction;
         // Ban player segment trigger action.
         BanPlayerAction?: BanPlayerSegmentAction;
+        // Delete inventory item v2 segment trigger action.
+        DeleteInventoryItemsV2Action?: DeleteInventoryItemsV2SegmentAction;
         // Delete player segment trigger action.
         DeletePlayerAction?: DeletePlayerSegmentAction;
         // Delete player statistic segment trigger action.
@@ -4488,6 +4516,8 @@ declare module PlayFabAdminModels {
         IncrementPlayerStatisticAction?: IncrementPlayerStatisticSegmentAction;
         // Push notification segment trigger action.
         PushNotificationAction?: PushNotificationSegmentAction;
+        // Subtract inventory item v2 segment trigger action.
+        SubtractInventoryItemsV2Action?: SubtractInventoryItemsV2SegmentAction;
     }
 
     export interface SendAccountRecoveryEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -4705,6 +4735,19 @@ declare module PlayFabAdminModels {
         | "CustomerDidNotAcceptPriceChange"
         | "FreeTrial"
         | "PaymentPending";
+
+    export interface SubtractInventoryItemsV2SegmentAction {
+        // Amount of the item to removed from the player
+        Amount?: number;
+        // The collection id for where the item will be removed from the player inventory
+        CollectionId?: string;
+        // The duration in seconds to be removed from the subscription in the players inventory
+        DurationInSeconds?: number;
+        // The id of item to be removed from the player
+        ItemId?: string;
+        // The stack id for where the item will be removed from the player inventory
+        StackId?: string;
+    }
 
     export interface SubtractInventoryItemV2Content {
         // Amount of the item to removed from the player

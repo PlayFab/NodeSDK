@@ -648,6 +648,20 @@ exports.JoinLobby = function (request, callback) {
     );
 };
 
+exports.JoinLobbyAsServer = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/JoinLobbyAsServer",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.JoinMatchmakingTicket = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Match/JoinMatchmakingTicket",
@@ -665,6 +679,20 @@ exports.JoinMatchmakingTicket = function (request, callback) {
 exports.LeaveLobby = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Lobby/LeaveLobby",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.LeaveLobbyAsServer = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/LeaveLobbyAsServer",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
@@ -1113,6 +1141,20 @@ exports.UpdateBuildRegions = function (request, callback) {
 exports.UpdateLobby = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Lobby/UpdateLobby",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UpdateLobbyAsServer = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Lobby/UpdateLobbyAsServer",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
