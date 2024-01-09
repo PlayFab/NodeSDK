@@ -2389,6 +2389,7 @@ declare module PlayFabServerModels {
         | "InvalidStatisticScore"
         | "LeaderboardColumnsNotSpecified"
         | "LeaderboardMaxSizeTooLarge"
+        | "InvalidAttributeStatisticsSpecified"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2564,6 +2565,8 @@ declare module PlayFabServerModels {
         | "EventSinkAadNotFound"
         | "EventSinkDatabaseNotFound"
         | "EventSinkTitleUnauthorized"
+        | "EventSinkInsufficientRoleAssignment"
+        | "EventSinkContainerNotFound"
         | "OperationCanceled"
         | "InvalidDisplayNameRandomSuffixLength"
         | "AllowNonUniquePlayerDisplayNamesDisableNotAllowed"
@@ -2586,7 +2589,23 @@ declare module PlayFabServerModels {
         | "AddonDoesntExist"
         | "CopilotDisabled"
         | "CopilotInvalidRequest"
-        | "TrueSkillUnauthorized";
+        | "TrueSkillUnauthorized"
+        | "TrueSkillBadRequest"
+        | "TrueSkillMatchResultAlreadySubmitted"
+        | "TrueSkillDuplicatePlayerInMatchResult"
+        | "TrueSkillInvalidRanksInMatchResult"
+        | "TrueSkillNoWinnerInMatchResult"
+        | "TrueSkillMissingRequiredConditionInMatchResult"
+        | "TrueSkillMissingRequiredEventInMatchResult"
+        | "TrueSkillUnknownEventInMatchResult"
+        | "TrueSkillUnknownConditionName"
+        | "TrueSkillUnknownConditionValue"
+        | "TrueSkillUnknownScenarioId"
+        | "TrueSkillUnknownModelId"
+        | "TrueSkillNoActiveModelInScenario"
+        | "StateShareUnauthorized"
+        | "StateShareStateNotFound"
+        | "StateShareLinkNotFound";
 
     export interface GenericPlayFabIdPair {
         // Unique generic service identifier for a user.
