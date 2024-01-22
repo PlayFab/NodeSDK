@@ -1987,10 +1987,6 @@ declare module PlayFabMultiplayerModels {
     export interface JoinLobbyAsServerResult extends PlayFabModule.IPlayFabResultCommon {
         // Successfully joined lobby's id.
         LobbyId: string;
-        // A setting that describes the state of the ServerData after JoinLobbyAsServer call is completed. It is "Initialized", the
-        // first time a server joins the lobby. It is "Ignored" in any subsequent JoinLobbyAsServer calls after it has been
-        // initialized. Any new server taking over should call UpdateLobbyAsServer to update ServerData fields.
-        ServerDataStatus: string;
     }
 
     export interface JoinLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2267,6 +2263,8 @@ declare module PlayFabMultiplayerModels {
         // Indicates that the response should contain Qos servers for all regions, including those where there are no builds
         // deployed for the title.
         IncludeAllRegions?: boolean;
+        // Indicates the Routing Preference used by the Qos servers. The default Routing Preference is Microsoft
+        RoutingPreference?: string;
     }
 
     export interface ListQosServersForTitleResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -2351,11 +2349,22 @@ declare module PlayFabMultiplayerModels {
         PubSubConnectionHandle?: string;
         // Search data.
         SearchData?: { [key: string]: string | null };
+        // Preview: Lobby joined server. This is not the server owner, rather the server that has joined a client owned lobby.
+        Server?: LobbyServer;
         // A flag which determines if connections are used. Defaults to true. Only set on create.
         UseConnections: boolean;
     }
 
     export interface LobbyEmptyResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface LobbyServer {
+        // Opaque string, stored on a Subscribe call, which indicates the connection a joined server has with PubSub.
+        PubSubConnectionHandle?: string;
+        // Key-value pairs specific to the joined server.
+        ServerData?: { [key: string]: string | null };
+        // The server entity key.
+        ServerEntity?: EntityKey;
+    }
 
     export interface LobbySummary {
         // A string used to join the lobby.This field is populated by the Lobby service.Invites are performed by communicating this
@@ -2793,10 +2802,6 @@ declare module PlayFabMultiplayerModels {
         ScheduleList?: Schedule[];
     }
 
-    type ServerDataStatus = "Initialized"
-
-        | "Ignored";
-
     export interface ServerDetails {
         // The fully qualified domain name of the virtual machine that is hosting this multiplayer server.
         Fqdn?: string;
@@ -3092,9 +3097,6 @@ declare module PlayFabMultiplayerModels {
         CustomTags?: { [key: string]: string | null };
         // The id of the lobby.
         LobbyId: string;
-        // The lobby server. Optional. Set a different server as the joined server of the lobby (there can only be 1 joined
-        // server). When changing the server the previous server will automatically be unsubscribed.
-        Server?: EntityKey;
         // The private key-value pairs which are visible to all entities in the lobby and modifiable by the joined server.
         // Optional. Sets or updates key-value pairs on the lobby. Only the current lobby lobby server can set serverData. Keys may
         // be an arbitrary string of at most 30 characters. The total size of all serverData values may not exceed 4096 bytes.
@@ -3105,6 +3107,9 @@ declare module PlayFabMultiplayerModels {
         // exist in the lobby are a no-op. If the key to delete exists in the serverData (same request) it will result in a bad
         // request.
         ServerDataToDelete?: string[];
+        // The lobby server. Optional. Set a different server as the joined server of the lobby (there can only be 1 joined
+        // server). When changing the server the previous server will automatically be unsubscribed.
+        ServerEntity?: EntityKey;
     }
 
     export interface UpdateLobbyRequest extends PlayFabModule.IPlayFabRequestCommon {
