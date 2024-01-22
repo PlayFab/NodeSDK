@@ -2508,6 +2508,8 @@ declare module PlayFabAdminModels {
         | "LeaderboardColumnsNotSpecified"
         | "LeaderboardMaxSizeTooLarge"
         | "InvalidAttributeStatisticsSpecified"
+        | "LeaderboardNotFound"
+        | "TokenSigningKeyNotFound"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
