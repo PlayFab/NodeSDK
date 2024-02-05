@@ -926,6 +926,23 @@ exports.GetPlayFabIDsFromPSNAccountIDs = function (request, callback) {
     );
 };
 
+exports.GetPlayFabIDsFromPSNOnlineIDs = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromPSNOnlineIDs",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.GetPlayFabIDsFromSteamIDs = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
