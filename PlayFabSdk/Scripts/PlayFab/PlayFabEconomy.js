@@ -116,6 +116,20 @@ exports.ExecuteInventoryOperations = function (request, callback) {
     );
 };
 
+exports.ExecuteTransferOperations = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Inventory/ExecuteTransferOperations",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.GetCatalogConfig = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Catalog/GetCatalogConfig",
@@ -203,6 +217,20 @@ exports.GetInventoryCollectionIds = function (request, callback) {
 exports.GetInventoryItems = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Inventory/GetInventoryItems",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.GetInventoryOperationStatus = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Inventory/GetInventoryOperationStatus",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
