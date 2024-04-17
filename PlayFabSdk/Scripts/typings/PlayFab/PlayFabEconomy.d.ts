@@ -1984,6 +1984,8 @@ declare module PlayFabEconomyModels {
         Amount?: number;
         // The duration modified in this transaction.
         DurationInSeconds?: number;
+        // The friendly id of the items in this transaction.
+        ItemFriendlyId?: string;
         // The item id of the items in this transaction.
         ItemId?: string;
         // The type of item that the operation occurred on.
@@ -1995,6 +1997,8 @@ declare module PlayFabEconomyModels {
     }
 
     export interface TransactionPurchaseDetails {
+        // The friendly id of the Store the item was purchased from or null.
+        StoreFriendlyId?: string;
         // The id of the Store the item was purchased from or null.
         StoreId?: string;
     }
