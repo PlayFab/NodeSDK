@@ -312,6 +312,20 @@ exports.DeleteRemoteUser = function (request, callback) {
     );
 };
 
+exports.DeleteSecret = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/DeleteSecret",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.EnableMultiplayerServersForTitle = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/EnableMultiplayerServersForTitle",
@@ -872,6 +886,20 @@ exports.ListQosServersForTitle = function (request, callback) {
     );
 };
 
+exports.ListSecretSummaries = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/ListSecretSummaries",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.ListServerBackfillTicketsForPlayer = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Match/ListServerBackfillTicketsForPlayer",
@@ -1169,6 +1197,20 @@ exports.UpdateLobbyAsServer = function (request, callback) {
 exports.UploadCertificate = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/MultiplayerServer/UploadCertificate",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UploadSecret = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/MultiplayerServer/UploadSecret",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,

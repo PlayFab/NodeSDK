@@ -46,6 +46,20 @@ exports.GetFunction = function (request, callback) {
     );
 };
 
+exports.ListEventHubFunctions = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/CloudScript/ListEventHubFunctions",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.ListFunctions = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/CloudScript/ListFunctions",
@@ -133,6 +147,20 @@ exports.PostFunctionResultForPlayerTriggeredAction = function (request, callback
 exports.PostFunctionResultForScheduledTask = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/CloudScript/PostFunctionResultForScheduledTask",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.RegisterEventHubFunction = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/CloudScript/RegisterEventHubFunction",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
