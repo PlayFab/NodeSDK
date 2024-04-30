@@ -411,6 +411,8 @@ declare module PlayFabEconomyModels {
         // A list of Platforms that can be applied to catalog items. Each platform can have a maximum character length of 40 and up
         // to 128 platforms can be listed.
         Platforms?: string[];
+        // The set of configuration that only applies to Ratings and Reviews.
+        Review?: ReviewConfig;
         // A set of player entity keys that are allowed to review content. There is a maximum of 128 entities that can be added.
         ReviewerEntities?: EntityKey[];
         // The set of configuration that only applies to user generated contents.
@@ -541,6 +543,11 @@ declare module PlayFabEconomyModels {
         // The set of tags that will be used for validation. Each tag can have a maximum character length of 32 and up to 1024 tags
         // can be listed.
         Tags?: string[];
+    }
+
+    export interface CategoryRatingConfig {
+        // Name of the category.
+        Name?: string;
     }
 
     type ConcernCategory = "None"
@@ -1670,7 +1677,7 @@ declare module PlayFabEconomyModels {
         CustomTags?: { [key: string]: string | null };
         // The entity to perform this action on.
         Entity?: EntityKey;
-        // Redirect URI supplied to PlayStation :tm: Network when requesting an auth code
+        // Redirect URI supplied to PlayStation :tm: Network when requesting an auth code.
         RedirectUri?: string;
         // Optional Service Label to pass into the request.
         ServiceLabel?: string;
@@ -1760,6 +1767,8 @@ declare module PlayFabEconomyModels {
     export interface ReportItemReviewResponse extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface Review {
+        // The star rating associated with each selected category in this review.
+        CategoryRatings?: { [key: string]: number };
         // The number of negative helpfulness votes for this review.
         HelpfulNegative: number;
         // The number of positive helpfulness votes for this review.
@@ -1786,6 +1795,11 @@ declare module PlayFabEconomyModels {
         Submitted: string;
         // The title of this review.
         Title?: string;
+    }
+
+    export interface ReviewConfig {
+        // A set of categories that can be applied toward ratings and reviews.
+        CategoryRatings?: CategoryRatingConfig[];
     }
 
     export interface ReviewItemRequest extends PlayFabModule.IPlayFabRequestCommon {
