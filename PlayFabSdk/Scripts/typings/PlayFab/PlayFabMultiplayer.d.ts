@@ -1472,7 +1472,8 @@ declare module PlayFabMultiplayerModels {
         | "SameEntityLoginProvider"
         | "DifferentEntityLoginProvider"
         | "AnyEntityLoginProvider"
-        | "AnyPlatformTypeAndEntityLoginProvider";
+        | "AnyPlatformTypeAndEntityLoginProvider"
+        | "OnlyServers";
 
     export interface DynamicStandbySettings {
         // List of auto standing by trigger values and corresponding standing by multiplier. Defaults to 1.5X at 50%, 3X at 25%,
