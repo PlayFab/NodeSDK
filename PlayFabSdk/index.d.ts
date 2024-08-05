@@ -10,6 +10,7 @@
 /// <reference path="Scripts/typings/PlayFab/PlayFabExperimentation.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabInsights.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabGroups.d.ts" />
+/// <reference path="Scripts/typings/PlayFab/PlayFabLeaderboards.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabLocalization.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabMultiplayer.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabProfiles.d.ts" />
@@ -28,6 +29,7 @@ export const PlayFabEvents: PlayFabEventsModule.IPlayFabEvents;
 export const PlayFabExperimentation: PlayFabExperimentationModule.IPlayFabExperimentation;
 export const PlayFabInsights: PlayFabInsightsModule.IPlayFabInsights;
 export const PlayFabGroups: PlayFabGroupsModule.IPlayFabGroups;
+export const PlayFabLeaderboards: PlayFabLeaderboardsModule.IPlayFabLeaderboards;
 export const PlayFabLocalization: PlayFabLocalizationModule.IPlayFabLocalization;
 export const PlayFabMultiplayer: PlayFabMultiplayerModule.IPlayFabMultiplayer;
 export const PlayFabProfiles: PlayFabProfilesModule.IPlayFabProfiles;
