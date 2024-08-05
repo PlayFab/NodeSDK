@@ -11,6 +11,7 @@ var PlayFabEvents = require("./Scripts/PlayFab/PlayFabEvents.js");
 var PlayFabExperimentation = require("./Scripts/PlayFab/PlayFabExperimentation.js");
 var PlayFabInsights = require("./Scripts/PlayFab/PlayFabInsights.js");
 var PlayFabGroups = require("./Scripts/PlayFab/PlayFabGroups.js");
+var PlayFabLeaderboards = require("./Scripts/PlayFab/PlayFabLeaderboards.js");
 var PlayFabLocalization = require("./Scripts/PlayFab/PlayFabLocalization.js");
 var PlayFabMultiplayer = require("./Scripts/PlayFab/PlayFabMultiplayer.js");
 var PlayFabProfiles = require("./Scripts/PlayFab/PlayFabProfiles.js");
@@ -28,6 +29,7 @@ module.exports = {
     PlayFabExperimentation : PlayFabExperimentation,
     PlayFabInsights : PlayFabInsights,
     PlayFabGroups : PlayFabGroups,
+    PlayFabLeaderboards : PlayFabLeaderboards,
     PlayFabLocalization : PlayFabLocalization,
     PlayFabMultiplayer : PlayFabMultiplayer,
     PlayFabProfiles : PlayFabProfiles,
