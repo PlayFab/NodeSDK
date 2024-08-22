@@ -1,145 +1,145 @@
-declare module PlayFabLeaderboardsModule {
-    export interface IPlayFabLeaderboards {
+declare module PlayFabProgressionModule {
+    export interface IPlayFabProgression {
         settings: PlayFabModule.IPlayFabSettings;
         // Creates a new leaderboard definition.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/leaderboards/createleaderboarddefinition
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/createleaderboarddefinition
         CreateLeaderboardDefinition(
-            request: PlayFabLeaderboardsModels.CreateLeaderboardDefinitionRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.EmptyResponse> | null,
+            request: PlayFabProgressionModels.CreateLeaderboardDefinitionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.EmptyResponse> | null,
         ): void;
         // Create a new entity statistic definition.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/createstatisticdefinition
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/createstatisticdefinition
         CreateStatisticDefinition(
-            request: PlayFabLeaderboardsModels.CreateStatisticDefinitionRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.EmptyResponse> | null,
+            request: PlayFabProgressionModels.CreateStatisticDefinitionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.EmptyResponse> | null,
         ): void;
         // Deletes a leaderboard definition.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/leaderboards/deleteleaderboarddefinition
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/deleteleaderboarddefinition
         DeleteLeaderboardDefinition(
-            request: PlayFabLeaderboardsModels.DeleteLeaderboardDefinitionRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.EmptyResponse> | null,
+            request: PlayFabProgressionModels.DeleteLeaderboardDefinitionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.EmptyResponse> | null,
         ): void;
         // Deletes the specified entries from the given leaderboard.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/leaderboards/deleteleaderboardentries
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/deleteleaderboardentries
         DeleteLeaderboardEntries(
-            request: PlayFabLeaderboardsModels.DeleteLeaderboardEntriesRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.EmptyResponse> | null,
+            request: PlayFabProgressionModels.DeleteLeaderboardEntriesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.EmptyResponse> | null,
         ): void;
         // Delete an entity statistic definition. Will delete all statistics on entity profiles and leaderboards.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/deletestatisticdefinition
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/deletestatisticdefinition
         DeleteStatisticDefinition(
-            request: PlayFabLeaderboardsModels.DeleteStatisticDefinitionRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.EmptyResponse> | null,
+            request: PlayFabProgressionModels.DeleteStatisticDefinitionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.EmptyResponse> | null,
         ): void;
         // Delete statistics on an entity profile. This will remove all rankings from associated leaderboards.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/deletestatistics
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/deletestatistics
         DeleteStatistics(
-            request: PlayFabLeaderboardsModels.DeleteStatisticsRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.DeleteStatisticsResponse> | null,
+            request: PlayFabProgressionModels.DeleteStatisticsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.DeleteStatisticsResponse> | null,
         ): void;
         // Get the friend leaderboard for the specified entity. A maximum of 100 friend entries are listed in the leaderboard.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/getfriendleaderboardforentity
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/getfriendleaderboardforentity
         GetFriendLeaderboardForEntity(
-            request: PlayFabLeaderboardsModels.GetFriendLeaderboardForEntityRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.GetEntityLeaderboardResponse> | null,
+            request: PlayFabProgressionModels.GetFriendLeaderboardForEntityRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetEntityLeaderboardResponse> | null,
         ): void;
         // Get the leaderboard for a specific entity type and statistic.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/getleaderboard
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/getleaderboard
         GetLeaderboard(
-            request: PlayFabLeaderboardsModels.GetEntityLeaderboardRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.GetEntityLeaderboardResponse> | null,
+            request: PlayFabProgressionModels.GetEntityLeaderboardRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetEntityLeaderboardResponse> | null,
         ): void;
         // Get the leaderboard around a specific entity.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/getleaderboardaroundentity
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/getleaderboardaroundentity
         GetLeaderboardAroundEntity(
-            request: PlayFabLeaderboardsModels.GetLeaderboardAroundEntityRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.GetEntityLeaderboardResponse> | null,
+            request: PlayFabProgressionModels.GetLeaderboardAroundEntityRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetEntityLeaderboardResponse> | null,
         ): void;
         // Gets the specified leaderboard definition.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/leaderboards/getleaderboarddefinition
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/getleaderboarddefinition
         GetLeaderboardDefinition(
-            request: PlayFabLeaderboardsModels.GetLeaderboardDefinitionRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.GetLeaderboardDefinitionResponse> | null,
+            request: PlayFabProgressionModels.GetLeaderboardDefinitionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetLeaderboardDefinitionResponse> | null,
         ): void;
         // Get the leaderboard limited to a set of entities.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/getleaderboardforentities
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/getleaderboardforentities
         GetLeaderboardForEntities(
-            request: PlayFabLeaderboardsModels.GetLeaderboardForEntitiesRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.GetEntityLeaderboardResponse> | null,
+            request: PlayFabProgressionModels.GetLeaderboardForEntitiesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetEntityLeaderboardResponse> | null,
         ): void;
         // Get current statistic definition information
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/getstatisticdefinition
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/getstatisticdefinition
         GetStatisticDefinition(
-            request: PlayFabLeaderboardsModels.GetStatisticDefinitionRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.GetStatisticDefinitionResponse> | null,
+            request: PlayFabProgressionModels.GetStatisticDefinitionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetStatisticDefinitionResponse> | null,
         ): void;
         // Get all current statistic definitions information
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/getstatisticdefinitions
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/getstatisticdefinitions
         GetStatisticDefinitions(
-            request: PlayFabLeaderboardsModels.GetStatisticDefinitionsRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.GetStatisticDefinitionsResponse> | null,
+            request: PlayFabProgressionModels.GetStatisticDefinitionsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetStatisticDefinitionsResponse> | null,
         ): void;
         // Gets statistics for the specified entity.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/getstatistics
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/getstatistics
         GetStatistics(
-            request: PlayFabLeaderboardsModels.GetStatisticsRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.GetStatisticsResponse> | null,
+            request: PlayFabProgressionModels.GetStatisticsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetStatisticsResponse> | null,
         ): void;
         // Gets statistics for the specified collection of entities.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/getstatisticsforentities
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/getstatisticsforentities
         GetStatisticsForEntities(
-            request: PlayFabLeaderboardsModels.GetStatisticsForEntitiesRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.GetStatisticsForEntitiesResponse> | null,
+            request: PlayFabProgressionModels.GetStatisticsForEntitiesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetStatisticsForEntitiesResponse> | null,
         ): void;
         // Increment a leaderboard version.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/leaderboards/incrementleaderboardversion
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/incrementleaderboardversion
         IncrementLeaderboardVersion(
-            request: PlayFabLeaderboardsModels.IncrementLeaderboardVersionRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.IncrementLeaderboardVersionResponse> | null,
+            request: PlayFabProgressionModels.IncrementLeaderboardVersionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.IncrementLeaderboardVersionResponse> | null,
         ): void;
         // Increment an entity statistic definition version.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/incrementstatisticversion
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/incrementstatisticversion
         IncrementStatisticVersion(
-            request: PlayFabLeaderboardsModels.IncrementStatisticVersionRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.IncrementStatisticVersionResponse> | null,
+            request: PlayFabProgressionModels.IncrementStatisticVersionRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.IncrementStatisticVersionResponse> | null,
         ): void;
         // Lists the leaderboard definitions defined for the Title.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/leaderboards/listleaderboarddefinitions
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/listleaderboarddefinitions
         ListLeaderboardDefinitions(
-            request: PlayFabLeaderboardsModels.ListLeaderboardDefinitionsRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.ListLeaderboardDefinitionsResponse> | null,
+            request: PlayFabProgressionModels.ListLeaderboardDefinitionsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.ListLeaderboardDefinitionsResponse> | null,
         ): void;
         // Get all current statistic definitions information
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/liststatisticdefinitions
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/liststatisticdefinitions
         ListStatisticDefinitions(
-            request: PlayFabLeaderboardsModels.ListStatisticDefinitionsRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.ListStatisticDefinitionsResponse> | null,
+            request: PlayFabProgressionModels.ListStatisticDefinitionsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.ListStatisticDefinitionsResponse> | null,
         ): void;
         // Unlinks a leaderboard definition from it's linked statistic definition.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/leaderboards/unlinkleaderboardfromstatistic
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/unlinkleaderboardfromstatistic
         UnlinkLeaderboardFromStatistic(
-            request: PlayFabLeaderboardsModels.UnlinkLeaderboardFromStatisticRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.EmptyResponse> | null,
+            request: PlayFabProgressionModels.UnlinkLeaderboardFromStatisticRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.EmptyResponse> | null,
         ): void;
         // Adds or updates entries on the specified leaderboard.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/leaderboards/updateleaderboardentries
+        // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/updateleaderboardentries
         UpdateLeaderboardEntries(
-            request: PlayFabLeaderboardsModels.UpdateLeaderboardEntriesRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.EmptyResponse> | null,
+            request: PlayFabProgressionModels.UpdateLeaderboardEntriesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.EmptyResponse> | null,
         ): void;
         // Update statistics on an entity profile. Depending on the statistic definition, this may result in entity being ranked on
         // various leaderboards.
-        // https://docs.microsoft.com/rest/api/playfab/leaderboards/statistics-and-leaderboards/updatestatistics
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/updatestatistics
         UpdateStatistics(
-            request: PlayFabLeaderboardsModels.UpdateStatisticsRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabLeaderboardsModels.UpdateStatisticsResponse> | null,
+            request: PlayFabProgressionModels.UpdateStatisticsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.UpdateStatisticsResponse> | null,
         ): void;
 
 
     }
 }
 
-declare module PlayFabLeaderboardsModels {
+declare module PlayFabProgressionModels {
     export interface CreateLeaderboardDefinitionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Leaderboard columns describing the sort directions, cannot be changed after creation.
         Columns: LeaderboardColumn[];

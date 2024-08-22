@@ -11,10 +11,12 @@ var PlayFabEvents = require("./Scripts/PlayFab/PlayFabEvents.js");
 var PlayFabExperimentation = require("./Scripts/PlayFab/PlayFabExperimentation.js");
 var PlayFabInsights = require("./Scripts/PlayFab/PlayFabInsights.js");
 var PlayFabGroups = require("./Scripts/PlayFab/PlayFabGroups.js");
-var PlayFabLeaderboards = require("./Scripts/PlayFab/PlayFabLeaderboards.js");
+var PlayFabProgression = require("./Scripts/PlayFab/PlayFabProgression.js");
 var PlayFabLocalization = require("./Scripts/PlayFab/PlayFabLocalization.js");
 var PlayFabMultiplayer = require("./Scripts/PlayFab/PlayFabMultiplayer.js");
 var PlayFabProfiles = require("./Scripts/PlayFab/PlayFabProfiles.js");
+var PlayFabMatchmaker = require("./Scripts/PlayFab/PlayFabMatchmaker.js");
+var PlayFabAddon = require("./Scripts/PlayFab/PlayFabAddon.js");
 
 module.exports = {
     PlayFab : PlayFab,
@@ -29,10 +31,12 @@ module.exports = {
     PlayFabExperimentation : PlayFabExperimentation,
     PlayFabInsights : PlayFabInsights,
     PlayFabGroups : PlayFabGroups,
-    PlayFabLeaderboards : PlayFabLeaderboards,
+    PlayFabProgression : PlayFabProgression,
     PlayFabLocalization : PlayFabLocalization,
     PlayFabMultiplayer : PlayFabMultiplayer,
     PlayFabProfiles : PlayFabProfiles,
+    PlayFabMatchmaker : PlayFabMatchmaker,
+    PlayFabAddon : PlayFabAddon,
     get settings() {
         return PlayFab.settings;
     },
