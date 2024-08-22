@@ -17,10 +17,12 @@ const PlayFabEvents = pf.PlayFabEvents as PlayFabEventsModule.IPlayFabEvents;
 const PlayFabExperimentation = pf.PlayFabExperimentation as PlayFabExperimentationModule.IPlayFabExperimentation;
 const PlayFabInsights = pf.PlayFabInsights as PlayFabInsightsModule.IPlayFabInsights;
 const PlayFabGroups = pf.PlayFabGroups as PlayFabGroupsModule.IPlayFabGroups;
-const PlayFabLeaderboards = pf.PlayFabLeaderboards as PlayFabLeaderboardsModule.IPlayFabLeaderboards;
+const PlayFabProgression = pf.PlayFabProgression as PlayFabProgressionModule.IPlayFabProgression;
 const PlayFabLocalization = pf.PlayFabLocalization as PlayFabLocalizationModule.IPlayFabLocalization;
 const PlayFabMultiplayer = pf.PlayFabMultiplayer as PlayFabMultiplayerModule.IPlayFabMultiplayer;
 const PlayFabProfiles = pf.PlayFabProfiles as PlayFabProfilesModule.IPlayFabProfiles;
+const PlayFabMatchmaker = pf.PlayFabMatchmaker as PlayFabMatchmakerModule.IPlayFabMatchmaker;
+const PlayFabAddon = pf.PlayFabAddon as PlayFabAddonModule.IPlayFabAddon;
 
 type IAction = () => void;
 

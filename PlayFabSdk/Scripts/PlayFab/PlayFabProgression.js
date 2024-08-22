@@ -1,4 +1,4 @@
-/// <reference path="../typings/PlayFab/PlayFabLeaderboards.d.ts" />
+/// <reference path="../typings/PlayFab/PlayFabProgression.d.ts" />
 
 var PlayFab = require("./PlayFab.js");
 
