@@ -3237,7 +3237,8 @@ declare module PlayFabClientModels {
         | "Apple"
         | "NintendoSwitchAccount"
         | "GooglePlayGames"
-        | "XboxMobileStore";
+        | "XboxMobileStore"
+        | "King";
 
     export interface LoginResult extends PlayFabModule.IPlayFabResultCommon {
         // If LoginTitlePlayerAccountEntity flag is set on the login request the title_player_account will also be logged in and
@@ -4832,7 +4833,8 @@ declare module PlayFabClientModels {
         | "Apple"
         | "NintendoSwitchAccount"
         | "GooglePlayGames"
-        | "XboxMobileStore";
+        | "XboxMobileStore"
+        | "King";
 
     export interface UserPrivateAccountInfo {
         // user email address

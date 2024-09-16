@@ -21,7 +21,6 @@ const PlayFabProgression = pf.PlayFabProgression as PlayFabProgressionModule.IPl
 const PlayFabLocalization = pf.PlayFabLocalization as PlayFabLocalizationModule.IPlayFabLocalization;
 const PlayFabMultiplayer = pf.PlayFabMultiplayer as PlayFabMultiplayerModule.IPlayFabMultiplayer;
 const PlayFabProfiles = pf.PlayFabProfiles as PlayFabProfilesModule.IPlayFabProfiles;
-const PlayFabMatchmaker = pf.PlayFabMatchmaker as PlayFabMatchmakerModule.IPlayFabMatchmaker;
 const PlayFabAddon = pf.PlayFabAddon as PlayFabAddonModule.IPlayFabAddon;
 
 type IAction = () => void;

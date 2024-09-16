@@ -14,7 +14,6 @@
 /// <reference path="Scripts/typings/PlayFab/PlayFabLocalization.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabMultiplayer.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabProfiles.d.ts" />
-/// <reference path="Scripts/typings/PlayFab/PlayFabMatchmaker.d.ts" />
 /// <reference path="Scripts/typings/PlayFab/PlayFabAddon.d.ts" />
 
 export const PlayFab: PlayFabModule.IPlayFab;
@@ -35,6 +34,5 @@ export const PlayFabProgression: PlayFabProgressionModule.IPlayFabProgression;
 export const PlayFabLocalization: PlayFabLocalizationModule.IPlayFabLocalization;
 export const PlayFabMultiplayer: PlayFabMultiplayerModule.IPlayFabMultiplayer;
 export const PlayFabProfiles: PlayFabProfilesModule.IPlayFabProfiles;
-export const PlayFabMatchmaker: PlayFabMatchmakerModule.IPlayFabMatchmaker;
 export const PlayFabAddon: PlayFabAddonModule.IPlayFabAddon;
 

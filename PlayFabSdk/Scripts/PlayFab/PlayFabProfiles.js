@@ -74,6 +74,20 @@ exports.GetTitlePlayersFromXboxLiveIDs = function (request, callback) {
     );
 };
 
+exports.SetDisplayName = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Profile/SetDisplayName",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.SetGlobalPolicy = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Profile/SetGlobalPolicy",

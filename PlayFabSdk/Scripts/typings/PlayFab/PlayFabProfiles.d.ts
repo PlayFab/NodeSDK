@@ -31,6 +31,12 @@ declare module PlayFabProfilesModule {
             request: PlayFabProfilesModels.GetTitlePlayersFromXboxLiveIDsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.GetTitlePlayersFromProviderIDsResponse> | null,
         ): void;
+        // Update the display name of the entity
+        // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setdisplayname
+        SetDisplayName(
+            request: PlayFabProfilesModels.SetDisplayNameRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProfilesModels.SetDisplayNameResponse> | null,
+        ): void;
         // Sets the global title access policy
         // https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setglobalpolicy
         SetGlobalPolicy(
@@ -240,6 +246,24 @@ declare module PlayFabProfilesModels {
         | "Updated"
         | "Deleted"
         | "None";
+
+    export interface SetDisplayNameRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The new value to be set on Entity Profile's display name
+        DisplayName?: string;
+        // The optional entity to perform this action on. Defaults to the currently logged in entity.
+        Entity?: EntityKey;
+        // The expected version of a profile to perform this update on
+        ExpectedVersion?: number;
+    }
+
+    export interface SetDisplayNameResponse extends PlayFabModule.IPlayFabResultCommon {
+        // The type of operation that occured on the profile's display name
+        OperationResult?: string;
+        // The updated version of the profile after the display name update
+        VersionNumber?: number;
+    }
 
     export interface SetEntityProfilePolicyRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
