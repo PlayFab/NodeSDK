@@ -15,7 +15,6 @@ var PlayFabProgression = require("./Scripts/PlayFab/PlayFabProgression.js");
 var PlayFabLocalization = require("./Scripts/PlayFab/PlayFabLocalization.js");
 var PlayFabMultiplayer = require("./Scripts/PlayFab/PlayFabMultiplayer.js");
 var PlayFabProfiles = require("./Scripts/PlayFab/PlayFabProfiles.js");
-var PlayFabMatchmaker = require("./Scripts/PlayFab/PlayFabMatchmaker.js");
 var PlayFabAddon = require("./Scripts/PlayFab/PlayFabAddon.js");
 
 module.exports = {
@@ -35,7 +34,6 @@ module.exports = {
     PlayFabLocalization : PlayFabLocalization,
     PlayFabMultiplayer : PlayFabMultiplayer,
     PlayFabProfiles : PlayFabProfiles,
-    PlayFabMatchmaker : PlayFabMatchmaker,
     PlayFabAddon : PlayFabAddon,
     get settings() {
         return PlayFab.settings;

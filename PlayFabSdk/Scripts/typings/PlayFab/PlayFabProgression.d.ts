@@ -73,12 +73,6 @@ declare module PlayFabProgressionModule {
             request: PlayFabProgressionModels.GetStatisticDefinitionRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetStatisticDefinitionResponse> | null,
         ): void;
-        // Get all current statistic definitions information
-        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/getstatisticdefinitions
-        GetStatisticDefinitions(
-            request: PlayFabProgressionModels.GetStatisticDefinitionsRequest | null,
-            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.GetStatisticDefinitionsResponse> | null,
-        ): void;
         // Gets statistics for the specified entity.
         // https://docs.microsoft.com/rest/api/playfab/progression/statistics/getstatistics
         GetStatistics(
@@ -373,16 +367,6 @@ declare module PlayFabProgressionModels {
         Version: number;
         // The version reset configuration for the leaderboard definition.
         VersionConfiguration?: VersionConfiguration;
-    }
-
-    export interface GetStatisticDefinitionsRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
-        CustomTags?: { [key: string]: string | null };
-    }
-
-    export interface GetStatisticDefinitionsResponse extends PlayFabModule.IPlayFabResultCommon {
-        // List of statistic definitions for the title.
-        StatisticDefinitions?: StatisticDefinition[];
     }
 
     export interface GetStatisticsForEntitiesRequest extends PlayFabModule.IPlayFabRequestCommon {

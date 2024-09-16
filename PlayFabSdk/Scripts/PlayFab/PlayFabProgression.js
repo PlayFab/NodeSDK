@@ -172,20 +172,6 @@ exports.GetStatisticDefinition = function (request, callback) {
     );
 };
 
-exports.GetStatisticDefinitions = function (request, callback) {
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Statistic/GetStatisticDefinitions",
-        request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.GetStatistics = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Statistic/GetStatistics",

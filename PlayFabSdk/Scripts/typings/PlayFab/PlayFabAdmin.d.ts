@@ -3505,7 +3505,8 @@ declare module PlayFabAdminModels {
         | "Apple"
         | "NintendoSwitchAccount"
         | "GooglePlayGames"
-        | "XboxMobileStore";
+        | "XboxMobileStore"
+        | "King";
 
     export interface LogStatement {
         // Optional object accompanying the message as contextual information
@@ -5361,7 +5362,8 @@ declare module PlayFabAdminModels {
         | "Apple"
         | "NintendoSwitchAccount"
         | "GooglePlayGames"
-        | "XboxMobileStore";
+        | "XboxMobileStore"
+        | "King";
 
     export interface UserOriginationSegmentFilter {
         // User login provider.
