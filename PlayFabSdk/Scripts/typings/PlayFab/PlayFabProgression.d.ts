@@ -37,7 +37,7 @@ declare module PlayFabProgressionModule {
             request: PlayFabProgressionModels.DeleteStatisticsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.DeleteStatisticsResponse> | null,
         ): void;
-        // Get the friend leaderboard for the specified entity. A maximum of 100 friend entries are listed in the leaderboard.
+        // Get the friend leaderboard for the specified entity. A maximum of 25 friend entries are listed in the leaderboard.
         // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/getfriendleaderboardforentity
         GetFriendLeaderboardForEntity(
             request: PlayFabProgressionModels.GetFriendLeaderboardForEntityRequest | null,
@@ -157,7 +157,7 @@ declare module PlayFabProgressionModels {
         CustomTags?: { [key: string]: string | null };
         // The entity type allowed to have score(s) for this statistic.
         EntityType?: string;
-        // Name of the statistic. Must be less than 50 characters. Restricted to a-Z, 0-9, '(', ')', '_', '-' and '.'.
+        // Name of the statistic. Must be less than 150 characters. Restricted to a-Z, 0-9, '(', ')', '_', '-' and '.'.
         Name: string;
         // The version reset configuration for the statistic definition.
         VersionConfiguration?: VersionConfiguration;
@@ -264,8 +264,10 @@ declare module PlayFabProgressionModels {
     }
 
     export interface GetEntityLeaderboardResponse extends PlayFabModule.IPlayFabResultCommon {
-        // Leaderboard columns describing the sort directions,
+        // Leaderboard columns describing the sort directions.
         Columns?: LeaderboardColumn[];
+        // The number of entries on the leaderboard.
+        EntryCount: number;
         // Individual entity rankings in the leaderboard, in sorted order by rank.
         Rankings?: EntityLeaderboardEntry[];
         // Version of the leaderboard being returned.
@@ -346,7 +348,7 @@ declare module PlayFabProgressionModels {
     export interface GetStatisticDefinitionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Name of the statistic. Must be less than 50 characters.
+        // Name of the statistic. Must be less than 150 characters.
         Name: string;
     }
 
