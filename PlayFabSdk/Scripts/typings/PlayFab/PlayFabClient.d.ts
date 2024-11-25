@@ -386,6 +386,13 @@ declare module PlayFabClientModule {
             request: PlayFabClientModels.GetPlayFabIDsFromSteamIDsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromSteamIDsResult> | null,
         ): void;
+        // Retrieves the unique PlayFab identifiers for the given set of Steam identifiers. The Steam identifiers are persona
+        // names.
+        // https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromsteamnames
+        GetPlayFabIDsFromSteamNames(
+            request: PlayFabClientModels.GetPlayFabIDsFromSteamNamesRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabClientModels.GetPlayFabIDsFromSteamNamesResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of Twitch identifiers. The Twitch identifiers are the IDs for
         // the user accounts, available as "_id" from the Twitch API methods (ex:
         // https://github.com/justintv/Twitch-API/blob/master/v3_resources/users.md#get-usersuser).
@@ -2688,6 +2695,17 @@ declare module PlayFabClientModels {
         Data?: SteamPlayFabIdPair[];
     }
 
+    export interface GetPlayFabIDsFromSteamNamesRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique Steam identifiers for which the title needs to get PlayFab identifiers. The array cannot exceed 2,000 in
+        // length.
+        SteamNames: string[];
+    }
+
+    export interface GetPlayFabIDsFromSteamNamesResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of Steam identifiers to PlayFab identifiers.
+        Data?: SteamNamePlayFabIdPair[];
+    }
+
     export interface GetPlayFabIDsFromTwitchIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Array of unique Twitch identifiers (Twitch's _id) for which the title needs to get PlayFab identifiers. The array cannot
         // exceed 2,000 in length.
@@ -4231,6 +4249,13 @@ declare module PlayFabClientModels {
         Value: number;
         // for updates to an existing statistic value for a player, the version of the statistic when it was loaded
         Version: number;
+    }
+
+    export interface SteamNamePlayFabIdPair {
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Steam identifier.
+        PlayFabId?: string;
+        // Unique Steam identifier for a user, also known as Steam persona name.
+        SteamName?: string;
     }
 
     export interface SteamPlayFabIdPair {

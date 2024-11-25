@@ -603,7 +603,9 @@ declare module PlayFabMultiplayerModels {
         | "CentralIndia"
         | "UaeNorth"
         | "UkSouth"
-        | "SwedenCentral";
+        | "SwedenCentral"
+        | "CanadaCentral"
+        | "MexicoCentral";
 
     type AzureVmFamily = "A"
 
