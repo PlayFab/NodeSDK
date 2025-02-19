@@ -471,6 +471,8 @@ declare module PlayFabEconomyModels {
         PriceOptions?: CatalogPriceOptions;
         // Rating summary for this item.
         Rating?: Rating;
+        // The real price the item was purchased for per marketplace.
+        RealMoneyPriceDetails?: RealMoneyPriceDetails;
         // The date of when the item will be available. If not provided then the product will appear immediately.
         StartDate?: string;
         // Optional details for stores items.
@@ -578,8 +580,6 @@ declare module PlayFabEconomyModels {
         // The Azure CDN URL for retrieval of the catalog item binary content.
         Url?: string;
     }
-
-    export interface ContentFeed {}
 
     type CountryCode = "AF"
 
@@ -1459,8 +1459,6 @@ declare module PlayFabEconomyModels {
         | "Approved"
         | "Rejected";
 
-    export interface PayoutDetails {}
-
     export interface Permissions {
         // The list of ids of Segments that the a player can be in to purchase from the store. When a value is provided, the player
         // must be in at least one of the segments listed for the purchase to be allowed.
@@ -1552,8 +1550,6 @@ declare module PlayFabEconomyModels {
         TransactionIds?: string[];
     }
 
-    export interface PurchaseOverride {}
-
     export interface PurchaseOverridesInfo {}
 
     export interface PurchasePriceAmount {
@@ -1582,7 +1578,20 @@ declare module PlayFabEconomyModels {
         TotalCount?: number;
     }
 
-    export interface RealMoneyPriceDetails {}
+    export interface RealMoneyPriceDetails {
+        // The 'AppleAppStore' price amount per CurrencyCode. 'USD' supported only.
+        AppleAppStorePrices?: { [key: string]: number };
+        // The 'GooglePlay' price amount per CurrencyCode. 'USD' supported only.
+        GooglePlayPrices?: { [key: string]: number };
+        // The 'MicrosoftStore' price amount per CurrencyCode. 'USD' supported only.
+        MicrosoftStorePrices?: { [key: string]: number };
+        // The 'NintendoEShop' price amount per CurrencyCode. 'USD' supported only.
+        NintendoEShopPrices?: { [key: string]: number };
+        // The 'PlayStationStore' price amount per CurrencyCode. 'USD' supported only.
+        PlayStationStorePrices?: { [key: string]: number };
+        // The 'Steam' price amount per CurrencyCode. 'USD' supported only.
+        SteamPrices?: { [key: string]: number };
+    }
 
     export interface RedeemAppleAppStoreInventoryItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The id of the entity's collection to perform this action on. (Default="default")
@@ -1784,8 +1793,6 @@ declare module PlayFabEconomyModels {
         Rating: number;
         // The ID of the author of the review.
         ReviewerEntity?: EntityKey;
-        // Deprecated. Use ReviewerEntity instead. This property will be removed in a future release.
-        ReviewerId?: string;
         // The ID of the review.
         ReviewId?: string;
         // The full text of this review.
@@ -1823,11 +1830,6 @@ declare module PlayFabEconomyModels {
         ItemId?: string;
         // The ID of the review to take down.
         ReviewId?: string;
-    }
-
-    export interface ScanResult {
-        // The URL of the item which failed the scan.
-        Url?: string;
     }
 
     export interface SearchItemsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -1909,11 +1911,6 @@ declare module PlayFabEconomyModels {
     }
 
     export interface SubmitItemReviewVoteResponse extends PlayFabModule.IPlayFabResultCommon {}
-
-    export interface SubscriptionDetails {
-        // The length of time that the subscription will last in seconds.
-        DurationInSeconds: number;
-    }
 
     export interface SubtractInventoryItemsOperation {
         // The amount to subtract from the current item amount.

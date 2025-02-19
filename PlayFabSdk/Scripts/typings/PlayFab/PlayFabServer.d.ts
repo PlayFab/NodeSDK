@@ -1064,7 +1064,7 @@ declare module PlayFabServerModels {
         PlayFabId?: string;
         // The reason why this ban was applied.
         Reason?: string;
-        // The family type of the suer that is included in the ban.
+        // The family type of the user that is included in the ban.
         UserFamilyType?: string;
     }
 
@@ -2446,6 +2446,8 @@ declare module PlayFabServerModels {
         | "UpdatingStatisticsUsingTransactionIdNotAvailableForFreeTier"
         | "TransactionAlreadyApplied"
         | "ReportDataNotRetrievedSuccessfully"
+        | "ResetIntervalCannotBeModified"
+        | "VersionIncrementRateExceeded"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2729,6 +2731,7 @@ declare module PlayFabServerModels {
         | "GameSaveDataStorageQuotaExceeded"
         | "GameSaveNewerManifestExists"
         | "GameSaveBaseVersionNotAvailable"
+        | "GameSaveManifestVersionQuarantined"
         | "StateShareForbidden"
         | "StateShareTitleNotInFlight"
         | "StateShareStateNotFound"
@@ -4464,7 +4467,7 @@ declare module PlayFabServerModels {
         InfoResultPayload?: GetPlayerCombinedInfoResultPayload;
         // The time of this user's previous login. If there was no previous login, then it's DateTime.MinValue
         LastLoginTime?: string;
-        // True if the account was newly created on this login.
+        // True if the master_player_account was newly created on this login.
         NewlyCreated: boolean;
         // Player's unique PlayFabId.
         PlayFabId?: string;

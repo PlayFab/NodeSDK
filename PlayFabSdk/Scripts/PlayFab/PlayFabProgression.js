@@ -270,9 +270,37 @@ exports.UnlinkLeaderboardFromStatistic = function (request, callback) {
     );
 };
 
+exports.UpdateLeaderboardDefinition = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Leaderboard/UpdateLeaderboardDefinition",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.UpdateLeaderboardEntries = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Leaderboard/UpdateLeaderboardEntries",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UpdateStatisticDefinition = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Statistic/UpdateStatisticDefinition",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
