@@ -3,7 +3,7 @@
 var url = require("url");
 var https = require("https");
 
-exports.sdk_version = "2.168.250214";
+exports.sdk_version = "2.169.250228";
 exports.buildIdentifier = "adobuild_nodesdk_8";
 
 var settings = (exports.settings = {
@@ -19,7 +19,7 @@ var _internalSettings = (exports._internalSettings = {
     entityToken: null,
     sessionTicket: null,
     requestGetParams: {
-        sdk: "JavaScriptSDK-2.168.250214",
+        sdk: "JavaScriptSDK-2.169.250228",
     },
 });
 
