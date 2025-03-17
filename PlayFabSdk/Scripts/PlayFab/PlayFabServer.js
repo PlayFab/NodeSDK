@@ -225,6 +225,23 @@ exports.DeletePlayer = function (request, callback) {
     );
 };
 
+exports.DeletePlayerCustomProperties = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/DeletePlayerCustomProperties",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.DeletePushNotificationTemplate = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -571,6 +588,23 @@ exports.GetPlayerCombinedInfo = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Server/GetPlayerCombinedInfo",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.GetPlayerCustomProperty = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/GetPlayerCustomProperty",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,
@@ -1381,6 +1415,23 @@ exports.LinkXboxAccount = function (request, callback) {
     );
 };
 
+exports.ListPlayerCustomProperties = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/ListPlayerCustomProperties",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.LoginWithPSN = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -2135,6 +2186,23 @@ exports.UpdateCharacterStatistics = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Server/UpdateCharacterStatistics",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UpdatePlayerCustomProperties = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/UpdatePlayerCustomProperties",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,
