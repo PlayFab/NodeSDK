@@ -790,6 +790,23 @@ exports.GetPlayerTrades = function (request, callback) {
     );
 };
 
+exports.GetPlayFabIDsFromBattleNetAccountIds = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromBattleNetAccountIds",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.GetPlayFabIDsFromFacebookIDs = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1331,6 +1348,23 @@ exports.LinkApple = function (request, callback) {
     );
 };
 
+exports.LinkBattleNet = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/LinkBattleNet",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.LinkCustomID = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
@@ -1632,6 +1666,28 @@ exports.LoginWithApple = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/LoginWithApple",
+        request,
+        null,
+        null,
+        function (error, result) {
+            if (result != null && result.data != null) {
+                PlayFab._internalSettings.sessionTicket = result.data.hasOwnProperty("SessionTicket") ? result.data.SessionTicket : PlayFab._internalSettings.sessionTicket;
+                PlayFab._internalSettings.entityToken = result.data.hasOwnProperty("EntityToken") ? result.data.EntityToken.EntityToken : PlayFab._internalSettings.entityToken;
+            }
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.LoginWithBattleNet = function (request, callback) {
+    request.TitleId = request.titleId != null ? request.TitleId : PlayFab.settings.titleId;
+    if (request.TitleId == null) {
+        throw "Must be have PlayFab.settings.titleId set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/LoginWithBattleNet",
         request,
         null,
         null,
@@ -2403,6 +2459,23 @@ exports.UnlinkApple = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Client/UnlinkApple",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.UnlinkBattleNet = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/UnlinkBattleNet",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,

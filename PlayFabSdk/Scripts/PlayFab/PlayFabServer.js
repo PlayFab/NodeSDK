@@ -718,6 +718,23 @@ exports.GetPlayerTags = function (request, callback) {
     );
 };
 
+exports.GetPlayFabIDsFromBattleNetAccountIds = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/GetPlayFabIDsFromBattleNetAccountIds",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.GetPlayFabIDsFromFacebookIDs = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1421,6 +1438,57 @@ exports.ListPlayerCustomProperties = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Server/ListPlayerCustomProperties",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.LoginWithAndroidDeviceID = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/LoginWithAndroidDeviceID",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.LoginWithCustomID = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/LoginWithCustomID",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.LoginWithIOSDeviceID = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Server/LoginWithIOSDeviceID",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,
