@@ -18,9 +18,37 @@ exports.CreateTelemetryKey = function (request, callback) {
     );
 };
 
+exports.DeleteDataConnection = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Event/DeleteDataConnection",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.DeleteTelemetryKey = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Event/DeleteTelemetryKey",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.GetDataConnection = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Event/GetDataConnection",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
@@ -46,9 +74,51 @@ exports.GetTelemetryKey = function (request, callback) {
     );
 };
 
+exports.ListDataConnections = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Event/ListDataConnections",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.ListTelemetryKeys = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Event/ListTelemetryKeys",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.SetDataConnection = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Event/SetDataConnection",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.SetDataConnectionActive = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Event/SetDataConnectionActive",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
