@@ -116,6 +116,20 @@ exports.CreateOrUpdateSteam = function (request, callback) {
     );
 };
 
+exports.CreateOrUpdateToxMod = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Addon/CreateOrUpdateToxMod",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.CreateOrUpdateTwitch = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Addon/CreateOrUpdateTwitch",
@@ -242,6 +256,20 @@ exports.DeleteSteam = function (request, callback) {
     );
 };
 
+exports.DeleteToxMod = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Addon/DeleteToxMod",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.DeleteTwitch = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Addon/DeleteTwitch",
@@ -357,6 +385,20 @@ exports.GetPSN = function (request, callback) {
 exports.GetSteam = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Addon/GetSteam",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.GetToxMod = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Addon/GetToxMod",
         request,
         "X-EntityToken",
         PlayFab._internalSettings.entityToken,
