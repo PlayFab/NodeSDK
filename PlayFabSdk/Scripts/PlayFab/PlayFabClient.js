@@ -1348,12 +1348,12 @@ exports.LinkApple = function (request, callback) {
     );
 };
 
-exports.LinkBattleNet = function (request, callback) {
+exports.LinkBattleNetAccount = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
     }
     PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/LinkBattleNet",
+        PlayFab.GetServerUrl() + "/Client/LinkBattleNetAccount",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,
@@ -2470,12 +2470,12 @@ exports.UnlinkApple = function (request, callback) {
     );
 };
 
-exports.UnlinkBattleNet = function (request, callback) {
+exports.UnlinkBattleNetAccount = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
     }
     PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Client/UnlinkBattleNet",
+        PlayFab.GetServerUrl() + "/Client/UnlinkBattleNetAccount",
         request,
         "X-Authorization",
         PlayFab._internalSettings.sessionTicket,
