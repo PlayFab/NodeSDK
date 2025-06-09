@@ -2874,6 +2874,9 @@ declare module PlayFabServerModels {
         | "GameSaveServiceNotEnabledForTitle"
         | "GameSaveServiceOnboardingPending"
         | "GameSaveManifestNotEligibleAsConflictingVersion"
+        | "GameSaveServiceUnavailable"
+        | "GameSaveConflict"
+        | "GameSaveManifestNotEligibleForRollback"
         | "StateShareForbidden"
         | "StateShareTitleNotInFlight"
         | "StateShareStateNotFound"
@@ -2891,7 +2894,8 @@ declare module PlayFabServerModels {
         | "VersionConfigurationCannotBeSpecifiedForLinkedStat"
         | "VersionConfigurationIsRequired"
         | "InvalidEntityTypeForAggregation"
-        | "MultiLevelAggregationNotAllowed";
+        | "MultiLevelAggregationNotAllowed"
+        | "AggregationTypeNotAllowedForLinkedStat";
 
     export interface GenericPlayFabIdPair {
         // Unique generic service identifier for a user.
