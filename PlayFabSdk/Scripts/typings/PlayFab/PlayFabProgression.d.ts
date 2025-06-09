@@ -242,9 +242,9 @@ declare module PlayFabProgressionModels {
     }
 
     export interface EntityStatistics {
-        // Entity key
+        // The entity for which the statistics are returned.
         EntityKey?: EntityKey;
-        // All statistics for the given entitykey
+        // The statistics for the given entity key.
         Statistics?: EntityStatisticValue[];
     }
 
@@ -401,6 +401,8 @@ declare module PlayFabProgressionModels {
         CustomTags?: { [key: string]: string | null };
         // Collection of Entity IDs to retrieve statistics for.
         Entities: EntityKey[];
+        // The list of statistics to return for the user. If set to null, the current version of all statistics are returned.
+        StatisticNames?: string[];
     }
 
     export interface GetStatisticsForEntitiesResponse extends PlayFabModule.IPlayFabResultCommon {
@@ -415,6 +417,8 @@ declare module PlayFabProgressionModels {
         CustomTags?: { [key: string]: string | null };
         // The optional entity to perform this action on. Defaults to the currently logged in entity.
         Entity?: EntityKey;
+        // The list of statistics to return for the user. If set to null, the current version of all statistics are returned.
+        StatisticNames?: string[];
     }
 
     export interface GetStatisticsResponse extends PlayFabModule.IPlayFabResultCommon {
