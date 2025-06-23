@@ -2800,8 +2800,8 @@ declare module PlayFabMultiplayerModels {
         // The preferred regions to request a multiplayer server from. The Multiplayer Service will iterate through the regions in
         // the specified order and allocate a server from the first one that has servers available.
         PreferredRegions: string[];
-        // Data encoded as a string that is passed to the game server when requested. This can be used to to communicate
-        // information such as game mode or map through the request flow.
+        // Data encoded as a string that is passed to the game server when requested. This can be used to communicate information
+        // such as game mode or map through the request flow. Maximum size is 8KB
         SessionCookie?: string;
         // A guid string session ID created track the multiplayer server session over its life.
         SessionId: string;
