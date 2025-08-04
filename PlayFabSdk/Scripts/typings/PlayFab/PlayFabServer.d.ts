@@ -2567,6 +2567,7 @@ declare module PlayFabServerModels {
         | "InvalidReportName"
         | "ResourceNotModified"
         | "StudioCreationLimitExceeded"
+        | "StudioDeletionInitiated"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2895,7 +2896,8 @@ declare module PlayFabServerModels {
         | "VersionConfigurationIsRequired"
         | "InvalidEntityTypeForAggregation"
         | "MultiLevelAggregationNotAllowed"
-        | "AggregationTypeNotAllowedForLinkedStat";
+        | "AggregationTypeNotAllowedForLinkedStat"
+        | "StoreMetricsRequestInvalidInput";
 
     export interface GenericPlayFabIdPair {
         // Unique generic service identifier for a user.
