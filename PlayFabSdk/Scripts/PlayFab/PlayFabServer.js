@@ -650,6 +650,9 @@ exports.GetPlayerSegments = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Do not use
+ */
 exports.GetPlayersInSegment = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
