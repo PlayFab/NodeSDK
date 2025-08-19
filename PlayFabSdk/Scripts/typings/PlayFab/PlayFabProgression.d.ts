@@ -155,6 +155,8 @@ declare module PlayFabProgressionModels {
         // The entity type being represented on the leaderboard. If it doesn't correspond to the PlayFab entity types, use
         // 'external' as the type.
         EntityType: string;
+        // [In Preview]: The configuration for the events emitted by this leaderboard. If not specified, no events will be emitted.
+        EventEmissionConfig?: LeaderboardEventEmissionConfig;
         // A name for the leaderboard, unique per title.
         Name: string;
         // Maximum number of entries on this leaderboard
@@ -174,6 +176,8 @@ declare module PlayFabProgressionModels {
         CustomTags?: { [key: string]: string | null };
         // The entity type allowed to have score(s) for this statistic.
         EntityType?: string;
+        // [In Preview]: Configurations for different Statistics events that can be emitted by the service.
+        EventEmissionConfig?: StatisticsEventEmissionConfig;
         // Name of the statistic. Must be less than 150 characters. Restricted to a-Z, 0-9, '(', ')', '_', '-' and '.'.
         Name: string;
         // The version reset configuration for the statistic definition.
@@ -259,6 +263,11 @@ declare module PlayFabProgressionModels {
         Version: number;
     }
 
+    type EventType = "None"
+
+        | "Telemetry"
+        | "PlayStream";
+
     type ExternalFriendSources = "None"
 
         | "Steam"
@@ -341,6 +350,8 @@ declare module PlayFabProgressionModels {
         // The entity type being represented on the leaderboard. If it doesn't correspond to the PlayFab entity types, use
         // 'external' as the type.
         EntityType: string;
+        // [In Preview]: The configuration for the events emitted by this leaderboard. If not specified, no events will be emitted.
+        EventEmissionConfig?: LeaderboardEventEmissionConfig;
         // Last time, in UTC, leaderboard version was incremented.
         LastResetTime?: string;
         // A name for the leaderboard, unique per title.
@@ -384,6 +395,8 @@ declare module PlayFabProgressionModels {
         Created: string;
         // The entity type that can have this statistic.
         EntityType?: string;
+        // [In Preview]: Configurations for different Statistics events that can be emitted by the service.
+        EventEmissionConfig?: StatisticsEventEmissionConfig;
         // Last time, in UTC, statistic version was incremented.
         LastResetTime?: string;
         // The list of leaderboards that are linked to this statistic definition.
@@ -472,6 +485,8 @@ declare module PlayFabProgressionModels {
         // The entity type being represented on the leaderboard. If it doesn't correspond to the PlayFab entity types, use
         // 'external' as the type.
         EntityType: string;
+        // [In Preview]: The configuration for the events emitted by this leaderboard. If not specified, no events will be emitted.
+        EventEmissionConfig?: LeaderboardEventEmissionConfig;
         // Last time, in UTC, leaderboard version was incremented.
         LastResetTime?: string;
         // A name for the leaderboard, unique per title.
@@ -482,6 +497,13 @@ declare module PlayFabProgressionModels {
         Version: number;
         // The version reset configuration for the leaderboard definition.
         VersionConfiguration: VersionConfiguration;
+    }
+
+    export interface LeaderboardEntityRankOnVersionEndConfig {
+        // The type of event to emit when the leaderboard version end.
+        EventType: string;
+        // The maximum number of entity to return on leaderboard version end. Range is 1 to 1000.
+        RankLimit: number;
     }
 
     export interface LeaderboardEntryUpdate {
@@ -495,9 +517,21 @@ declare module PlayFabProgressionModels {
         Scores?: string[];
     }
 
+    export interface LeaderboardEventEmissionConfig {
+        // This event emits the top ranks of the leaderboard when the leaderboard version end.
+        EntityRankOnVersionEndConfig?: LeaderboardEntityRankOnVersionEndConfig;
+        // This event is emitted when the leaderboard version end.
+        VersionEndConfig?: LeaderboardVersionEndConfig;
+    }
+
     type LeaderboardSortDirection = "Descending"
 
         | "Ascending";
+
+    export interface LeaderboardVersionEndConfig {
+        // The type of event to emit when the leaderboard version end.
+        EventType: string;
+    }
 
     export interface LinkedStatisticColumn {
         // The name of the statistic column that this leaderboard column is sourced from.
@@ -566,6 +600,8 @@ declare module PlayFabProgressionModels {
         Created: string;
         // The entity type that can have this statistic.
         EntityType?: string;
+        // [In Preview]: Configurations for different Statistics events that can be emitted by the service.
+        EventEmissionConfig?: StatisticsEventEmissionConfig;
         // Last time, in UTC, statistic version was incremented.
         LastResetTime?: string;
         // The list of leaderboards that are linked to this statistic definition.
@@ -581,6 +617,16 @@ declare module PlayFabProgressionModels {
     export interface StatisticDelete {
         // Name of the statistic, as originally configured.
         Name: string;
+    }
+
+    export interface StatisticsEventEmissionConfig {
+        // Emitted when statistics are updated.
+        UpdateEventConfig?: StatisticsUpdateEventConfig;
+    }
+
+    export interface StatisticsUpdateEventConfig {
+        // The event type to emit when statistics are updated.
+        EventType: string;
     }
 
     export interface StatisticUpdate {
@@ -610,6 +656,8 @@ declare module PlayFabProgressionModels {
     export interface UpdateLeaderboardDefinitionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
+        // [In Preview]: The configuration for the events emitted by this leaderboard. If not specified, no events will be emitted.
+        EventEmissionConfig?: LeaderboardEventEmissionConfig;
         // The name of the leaderboard to update the definition for.
         Name: string;
         // Maximum number of entries on this leaderboard
@@ -630,6 +678,8 @@ declare module PlayFabProgressionModels {
     export interface UpdateStatisticDefinitionRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
+        // [In Preview]: Configurations for different Statistics events that can be emitted by the service.
+        EventEmissionConfig?: StatisticsEventEmissionConfig;
         // Name of the statistic. Must be less than 150 characters. Restricted to a-Z, 0-9, '(', ')', '_', '-' and '.'.
         Name: string;
         // The version reset configuration for the statistic definition.

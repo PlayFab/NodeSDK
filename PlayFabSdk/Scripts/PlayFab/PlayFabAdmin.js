@@ -769,6 +769,9 @@ exports.GetPlayerSharedSecrets = function (request, callback) {
     );
 };
 
+/**
+ * @deprecated Please use ExportPlayersInSegment instead. 
+ */
 exports.GetPlayersInSegment = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
