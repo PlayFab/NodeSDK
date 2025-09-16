@@ -109,6 +109,12 @@ declare module PlayFabProgressionModule {
             request: PlayFabProgressionModels.ListStatisticDefinitionsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.ListStatisticDefinitionsResponse> | null,
         ): void;
+        // Unlinks an aggregation source from a statistic definition.
+        // https://docs.microsoft.com/rest/api/playfab/progression/statistics/unlinkaggregationsourcefromstatistic
+        UnlinkAggregationSourceFromStatistic(
+            request: PlayFabProgressionModels.UnlinkAggregationSourceFromStatisticRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabProgressionModels.EmptyResponse> | null,
+        ): void;
         // Unlinks a leaderboard definition from it's linked statistic definition.
         // https://docs.microsoft.com/rest/api/playfab/progression/leaderboards/unlinkleaderboardfromstatistic
         UnlinkLeaderboardFromStatistic(
@@ -642,6 +648,15 @@ declare module PlayFabProgressionModels {
         Scores?: string[];
         // Optional field to indicate the version of the statistic to set. When empty defaults to the statistic's current version.
         Version?: number;
+    }
+
+    export interface UnlinkAggregationSourceFromStatisticRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The name of the statistic to unlink.
+        Name: string;
+        // The name of the aggregation source statistic to unlink.
+        SourceStatisticName: string;
     }
 
     export interface UnlinkLeaderboardFromStatisticRequest extends PlayFabModule.IPlayFabRequestCommon {
