@@ -256,6 +256,20 @@ exports.ListStatisticDefinitions = function (request, callback) {
     );
 };
 
+exports.UnlinkAggregationSourceFromStatistic = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Statistic/UnlinkAggregationSourceFromStatistic",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.UnlinkLeaderboardFromStatistic = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Leaderboard/UnlinkLeaderboardFromStatistic",
