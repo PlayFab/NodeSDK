@@ -2649,6 +2649,8 @@ declare module PlayFabAdminModels {
         | "ResourceNotModified"
         | "StudioCreationLimitExceeded"
         | "StudioDeletionInitiated"
+        | "ProductDisabledForTitle"
+        | "PreconditionFailed"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2781,6 +2783,7 @@ declare module PlayFabAdminModels {
         | "AsyncExportNotFound"
         | "AsyncExportRateLimitExceeded"
         | "AnalyticsSegmentCountOverLimit"
+        | "GetPlayersInSegmentDeprecated"
         | "SnapshotNotFound"
         | "InventoryApiNotImplemented"
         | "InventoryCollectionDeletionDisallowed"
@@ -2978,7 +2981,13 @@ declare module PlayFabAdminModels {
         | "InvalidEntityTypeForAggregation"
         | "MultiLevelAggregationNotAllowed"
         | "AggregationTypeNotAllowedForLinkedStat"
-        | "StoreMetricsRequestInvalidInput";
+        | "OperationDeniedDueToDefinitionPolicy"
+        | "StatisticUpdateNotAllowedWhileLinked"
+        | "UnsupportedEntityType"
+        | "EntityTypeSpecifiedRequiresAggregationSource"
+        | "PlayFabErrorEventNotSupportedForEntityType"
+        | "StoreMetricsRequestInvalidInput"
+        | "StoreMetricsErrorRetrievingMetrics";
 
     export interface GetActionsOnPlayersInSegmentTaskInstanceResult extends PlayFabModule.IPlayFabResultCommon {
         // Parameter of this task instance

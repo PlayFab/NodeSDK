@@ -563,6 +563,12 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.LinkXboxAccountRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.LinkXboxAccountResult> | null,
         ): void;
+        // Links the Xbox Live account associated with the provided Xbox ID and Sandbox to the user's PlayFab account
+        // https://docs.microsoft.com/rest/api/playfab/server/account-management/linkxboxid
+        LinkXboxId(
+            request: PlayFabServerModels.LinkXboxIdRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.LinkXboxAccountResult> | null,
+        ): void;
         // Retrieves title-specific custom property values for a player.
         // https://docs.microsoft.com/rest/api/playfab/server/player-data-management/listplayercustomproperties
         ListPlayerCustomProperties(
@@ -2568,6 +2574,8 @@ declare module PlayFabServerModels {
         | "ResourceNotModified"
         | "StudioCreationLimitExceeded"
         | "StudioDeletionInitiated"
+        | "ProductDisabledForTitle"
+        | "PreconditionFailed"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2700,6 +2708,7 @@ declare module PlayFabServerModels {
         | "AsyncExportNotFound"
         | "AsyncExportRateLimitExceeded"
         | "AnalyticsSegmentCountOverLimit"
+        | "GetPlayersInSegmentDeprecated"
         | "SnapshotNotFound"
         | "InventoryApiNotImplemented"
         | "InventoryCollectionDeletionDisallowed"
@@ -2897,7 +2906,13 @@ declare module PlayFabServerModels {
         | "InvalidEntityTypeForAggregation"
         | "MultiLevelAggregationNotAllowed"
         | "AggregationTypeNotAllowedForLinkedStat"
-        | "StoreMetricsRequestInvalidInput";
+        | "OperationDeniedDueToDefinitionPolicy"
+        | "StatisticUpdateNotAllowedWhileLinked"
+        | "UnsupportedEntityType"
+        | "EntityTypeSpecifiedRequiresAggregationSource"
+        | "PlayFabErrorEventNotSupportedForEntityType"
+        | "StoreMetricsRequestInvalidInput"
+        | "StoreMetricsErrorRetrievingMetrics";
 
     export interface GenericPlayFabIdPair {
         // Unique generic service identifier for a user.
@@ -3929,7 +3944,7 @@ declare module PlayFabServerModels {
         CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
-        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Xbox Live identifier.
+        // PlayFab unique identifier of the user to link.
         PlayFabId: string;
         // Unique Steam identifier for a user.
         SteamId: string;
@@ -3942,13 +3957,26 @@ declare module PlayFabServerModels {
         CustomTags?: { [key: string]: string | null };
         // If another user is already linked to the account, unlink the other user and re-link.
         ForceLink?: boolean;
-        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Xbox Live identifier.
+        // PlayFab unique identifier of the user to link.
         PlayFabId: string;
         // Token provided by the Xbox Live SDK/XDK method GetTokenAndSignatureAsync("POST", "https://playfabapi.com/", "").
         XboxToken: string;
     }
 
     export interface LinkXboxAccountResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface LinkXboxIdRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // If another user is already linked to the account, unlink the other user and re-link.
+        ForceLink?: boolean;
+        // PlayFab unique identifier of the user to link.
+        PlayFabId: string;
+        // The id of Xbox Live sandbox.
+        Sandbox: string;
+        // Unique Xbox identifier for a user.
+        XboxId: string;
+    }
 
     export interface ListPlayerCustomPropertiesRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Unique PlayFab assigned ID of the user on whom the operation will be performed.
@@ -5021,7 +5049,7 @@ declare module PlayFabServerModels {
     export interface UnlinkXboxAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Xbox Live identifier.
+        // PlayFab unique identifier of the user to unlink.
         PlayFabId: string;
     }
 
