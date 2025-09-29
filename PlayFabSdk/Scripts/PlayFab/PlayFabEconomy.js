@@ -410,6 +410,20 @@ exports.RedeemAppleAppStoreInventoryItems = function (request, callback) {
     );
 };
 
+exports.RedeemAppleAppStoreWithJwsInventoryItems = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Inventory/RedeemAppleAppStoreWithJwsInventoryItems",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.RedeemGooglePlayInventoryItems = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Inventory/RedeemGooglePlayInventoryItems",
