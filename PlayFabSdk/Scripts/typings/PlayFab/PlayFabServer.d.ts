@@ -2576,6 +2576,7 @@ declare module PlayFabServerModels {
         | "StudioDeletionInitiated"
         | "ProductDisabledForTitle"
         | "PreconditionFailed"
+        | "CannotEnableAnonymousPlayerCreation"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"

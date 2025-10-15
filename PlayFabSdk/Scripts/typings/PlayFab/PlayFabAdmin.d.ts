@@ -2651,6 +2651,7 @@ declare module PlayFabAdminModels {
         | "StudioDeletionInitiated"
         | "ProductDisabledForTitle"
         | "PreconditionFailed"
+        | "CannotEnableAnonymousPlayerCreation"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
