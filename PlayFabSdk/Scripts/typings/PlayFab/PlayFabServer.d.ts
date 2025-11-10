@@ -2578,6 +2578,7 @@ declare module PlayFabServerModels {
         | "PreconditionFailed"
         | "CannotEnableAnonymousPlayerCreation"
         | "ParentCustomerAccountNotFound"
+        | "AccountLinkedToABannedPlayer"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
