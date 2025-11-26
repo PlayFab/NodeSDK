@@ -3284,6 +3284,10 @@ declare module PlayFabMultiplayerModels {
         // selected - The owner field remains unchanged and the current owner retains all owner abilities for the lobby. If
         // server-owned (must be 'Server') - Any server can set ownership. The useConnections property must be true.
         Owner?: EntityKey;
+        // A setting that controls whether only the lobby owner can send invites to join the lobby. When true, only the lobby owner
+        // can send invites. When false or not specified, any member can send invites. Will not modify current configuration if not
+        // specified. Restricted to client owned lobbies.
+        RestrictInvitesToLobbyOwner?: boolean;
         // The public key-value pairs which allow queries to differentiate between lobbies. Optional. Sets or updates key-value
         // pairs on the lobby for use with queries. Only the current lobby owner can set search data. New keys will be added with
         // their values and existing keys will be updated with the new values. There can be up to 30 key-value pairs stored here.
