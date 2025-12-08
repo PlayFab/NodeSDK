@@ -960,6 +960,23 @@ exports.GetPlayFabIDsFromNintendoSwitchDeviceIds = function (request, callback) 
     );
 };
 
+exports.GetPlayFabIDsFromOpenIdSubjectIdentifiers = function (request, callback) {
+    if (PlayFab._internalSettings.sessionTicket == null) {
+        throw "Must be logged in to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Client/GetPlayFabIDsFromOpenIdSubjectIdentifiers",
+        request,
+        "X-Authorization",
+        PlayFab._internalSettings.sessionTicket,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.GetPlayFabIDsFromPSNAccountIDs = function (request, callback) {
     if (PlayFab._internalSettings.sessionTicket == null) {
         throw "Must be logged in to call this method";
