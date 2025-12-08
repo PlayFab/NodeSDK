@@ -57,7 +57,7 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.AwardSteamAchievementRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.AwardSteamAchievementResult> | null,
         ): void;
-        // Bans users by PlayFab ID with optional IP address, or MAC address for the provided game.
+        // Bans users by PlayFab ID with optional IP address for the provided game.
         // https://docs.microsoft.com/rest/api/playfab/server/account-management/banusers
         BanUsers(
             request: PlayFabServerModels.BanUsersRequest | null,
@@ -326,6 +326,14 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromNintendoSwitchDeviceIdsResult> | null,
         ): void;
+        // Retrieves the unique PlayFab identifiers for the given set of OpenId subject identifiers. A OpenId subject identifier is
+        // the OpenId issuer plus the OpenId subject for the player, as specified by the title when the OpenId identifier was added
+        // to the player account.
+        // https://docs.microsoft.com/rest/api/playfab/server/account-management/getplayfabidsfromopenidsubjectidentifiers
+        GetPlayFabIDsFromOpenIdSubjectIdentifiers(
+            request: PlayFabServerModels.GetPlayFabIDsFromOpenIdsRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayFabIDsFromOpenIdsResult> | null,
+        ): void;
         // Retrieves the unique PlayFab identifiers for the given set of PlayStation :tm: Network identifiers.
         // https://docs.microsoft.com/rest/api/playfab/server/account-management/getplayfabidsfrompsnaccountids
         GetPlayFabIDsFromPSNAccountIDs(
@@ -557,6 +565,12 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.LinkSteamIdRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.LinkSteamIdResult> | null,
         ): void;
+        // Links the Twitch account associated with the token to the user's PlayFab account.
+        // https://docs.microsoft.com/rest/api/playfab/server/account-management/linktwitchaccount
+        LinkTwitchAccount(
+            request: PlayFabServerModels.LinkTwitchAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.EmptyResult> | null,
+        ): void;
         // Links the Xbox Live account associated with the provided access code to the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/server/account-management/linkxboxaccount
         LinkXboxAccount(
@@ -621,6 +635,12 @@ declare module PlayFabServerModule {
         // https://docs.microsoft.com/rest/api/playfab/server/authentication/loginwithsteamid
         LoginWithSteamId(
             request: PlayFabServerModels.LoginWithSteamIdRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.ServerLoginResult> | null,
+        ): void;
+        // Sign in the user with a Twitch access token
+        // https://docs.microsoft.com/rest/api/playfab/server/authentication/loginwithtwitch
+        LoginWithTwitch(
+            request: PlayFabServerModels.LoginWithTwitchRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.ServerLoginResult> | null,
         ): void;
         // Signs the user in using a Xbox Live Token from an external server backend, returning a session identifier that can
@@ -848,6 +868,12 @@ declare module PlayFabServerModule {
         UnlinkSteamId(
             request: PlayFabServerModels.UnlinkSteamIdRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.UnlinkSteamIdResult> | null,
+        ): void;
+        // Unlinks the related Twitch account from the user's PlayFab account.
+        // https://docs.microsoft.com/rest/api/playfab/server/account-management/unlinktwitchaccount
+        UnlinkTwitchAccount(
+            request: PlayFabServerModels.UnlinkTwitchAccountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.EmptyResult> | null,
         ): void;
         // Unlinks the related Xbox Live account from the user's PlayFab account
         // https://docs.microsoft.com/rest/api/playfab/server/account-management/unlinkxboxaccount
@@ -2916,6 +2942,7 @@ declare module PlayFabServerModels {
         | "UnsupportedEntityType"
         | "EntityTypeSpecifiedRequiresAggregationSource"
         | "PlayFabErrorEventNotSupportedForEntityType"
+        | "MetadataLengthExceeded"
         | "StoreMetricsRequestInvalidInput"
         | "StoreMetricsErrorRetrievingMetrics";
 
@@ -3433,6 +3460,17 @@ declare module PlayFabServerModels {
     export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsResult extends PlayFabModule.IPlayFabResultCommon {
         // Mapping of Nintendo Switch Device identifiers to PlayFab identifiers.
         Data?: NintendoSwitchPlayFabIdPair[];
+    }
+
+    export interface GetPlayFabIDsFromOpenIdsRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Array of unique OpenId Connect identifiers for which the title needs to get PlayFab identifiers. The array cannot exceed
+        // 10 in length.
+        OpenIdSubjectIdentifiers: OpenIdSubjectIdentifier[];
+    }
+
+    export interface GetPlayFabIDsFromOpenIdsResult extends PlayFabModule.IPlayFabResultCommon {
+        // Mapping of OpenId Connect identifiers to PlayFab identifiers.
+        Data?: OpenIdSubjectIdentifierPlayFabIdPair[];
     }
 
     export interface GetPlayFabIDsFromPSNAccountIDsRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3957,6 +3995,17 @@ declare module PlayFabServerModels {
 
     export interface LinkSteamIdResult extends PlayFabModule.IPlayFabResultCommon {}
 
+    export interface LinkTwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Twitch access token for authentication.
+        AccessToken: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // If another user is already linked to the account, unlink the other user and re-link.
+        ForceLink?: boolean;
+        // PlayFab unique identifier of the user to link.
+        PlayFabId: string;
+    }
+
     export interface LinkXboxAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
@@ -4146,6 +4195,21 @@ declare module PlayFabServerModels {
         SteamId: string;
     }
 
+    export interface LoginWithTwitchRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Twitch access token for authentication.
+        AccessToken: string;
+        // If true, create a new PlayFab account if one does not exist.
+        CreateAccount?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // Parameters for requesting additional player info.
+        InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
+        // Player secret for additional authentication.
+        PlayerSecret?: string;
+        // PlayFab unique identifier of the user.
+        PlayFabId: string;
+    }
+
     export interface LoginWithXboxIdRequest extends PlayFabModule.IPlayFabRequestCommon {
         // Automatically create a PlayFab account if one is not currently linked to this ID.
         CreateAccount?: boolean;
@@ -4276,6 +4340,20 @@ declare module PlayFabServerModels {
         // Unique Nintendo Switch Device identifier for a user.
         NintendoSwitchDeviceId?: string;
         // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Nintendo Switch Device identifier.
+        PlayFabId?: string;
+    }
+
+    export interface OpenIdSubjectIdentifier {
+        // The issuer URL for the OpenId Connect provider, or the override URL if an override exists.
+        Issuer: string;
+        // The unique subject identifier within the context of the issuer.
+        Subject: string;
+    }
+
+    export interface OpenIdSubjectIdentifierPlayFabIdPair {
+        // Unique OpenId Connect identifier for a user.
+        OpenIdSubjectIdentifier?: OpenIdSubjectIdentifier;
+        // Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the OpenId Connect identifier.
         PlayFabId?: string;
     }
 
@@ -5050,6 +5128,16 @@ declare module PlayFabServerModels {
     }
 
     export interface UnlinkSteamIdResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface UnlinkTwitchAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Valid token issued by Twitch. Used to specify which twitch account to unlink from the profile. By default it uses the
+        // one that is present on the profile.
+        AccessToken?: string;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // PlayFab unique identifier of the user to unlink.
+        PlayFabId: string;
+    }
 
     export interface UnlinkXboxAccountRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
