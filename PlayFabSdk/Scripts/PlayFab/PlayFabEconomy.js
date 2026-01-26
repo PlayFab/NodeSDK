@@ -340,20 +340,6 @@ exports.GetItems = function (request, callback) {
     );
 };
 
-exports.GetMicrosoftStoreAccessTokens = function (request, callback) {
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Inventory/GetMicrosoftStoreAccessTokens",
-        request,
-        "X-EntityToken",
-        PlayFab._internalSettings.entityToken,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.GetTransactionHistory = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Inventory/GetTransactionHistory",

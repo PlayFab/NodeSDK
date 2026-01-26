@@ -2699,6 +2699,7 @@ declare module PlayFabAdminModels {
         | "CatalogBadRequest"
         | "CatalogTooManyRequests"
         | "InvalidCatalogItemConfiguration"
+        | "LegacyEconomyDisabled"
         | "ExportInvalidStatusUpdate"
         | "ExportInvalidPrefix"
         | "ExportBlobContainerDoesNotExist"
