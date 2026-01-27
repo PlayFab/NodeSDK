@@ -27,6 +27,6 @@ declare module PlayFabModule {
     export interface IPlayFabResultCommon extends IPlayFabError {}
 
     export interface ApiCallback<TResult extends IPlayFabResultCommon> {
-        (error: IPlayFabError, result: IPlayFabSuccessContainer<TResult>): void;
+        (error: IPlayFabError | null, result: IPlayFabSuccessContainer<TResult> | null): void;
     }
 }
