@@ -23,6 +23,12 @@ declare module PlayFabServerModule {
             request: PlayFabServerModels.AddGenericIDRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.EmptyResult> | null,
         ): void;
+        // Adds or updates a contact email to the specified player's profile.
+        // https://docs.microsoft.com/rest/api/playfab/server/account-management/addorupdatecontactemail
+        AddOrUpdateContactEmail(
+            request: PlayFabServerModels.AddOrUpdateContactEmailRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.AddOrUpdateContactEmailResult> | null,
+        ): void;
         // Adds a given tag to a player profile. The tag's namespace is automatically generated based on the source of the tag.
         // https://docs.microsoft.com/rest/api/playfab/server/playstream/addplayertag
         AddPlayerTag(
@@ -1088,6 +1094,17 @@ declare module PlayFabServerModels {
         // PlayFabId of the user to link.
         PlayFabId: string;
     }
+
+    export interface AddOrUpdateContactEmailRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The new contact email to associate with the player.
+        EmailAddress: string;
+        // Unique PlayFab assigned ID of the user on whom the operation will be performed.
+        PlayFabId: string;
+    }
+
+    export interface AddOrUpdateContactEmailResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface AddPlayerTagRequest extends PlayFabModule.IPlayFabRequestCommon {
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
