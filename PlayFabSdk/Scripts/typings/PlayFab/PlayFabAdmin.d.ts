@@ -2994,6 +2994,7 @@ declare module PlayFabAdminModels {
         | "EntityTypeSpecifiedRequiresAggregationSource"
         | "PlayFabErrorEventNotSupportedForEntityType"
         | "MetadataLengthExceeded"
+        | "MaxQueryableVersionsExceeded"
         | "StoreMetricsRequestInvalidInput"
         | "StoreMetricsErrorRetrievingMetrics";
 

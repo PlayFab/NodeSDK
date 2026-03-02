@@ -2974,6 +2974,7 @@ declare module PlayFabServerModels {
         | "EntityTypeSpecifiedRequiresAggregationSource"
         | "PlayFabErrorEventNotSupportedForEntityType"
         | "MetadataLengthExceeded"
+        | "MaxQueryableVersionsExceeded"
         | "StoreMetricsRequestInvalidInput"
         | "StoreMetricsErrorRetrievingMetrics";
 
