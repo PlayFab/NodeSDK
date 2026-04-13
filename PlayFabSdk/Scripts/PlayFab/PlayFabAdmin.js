@@ -769,26 +769,6 @@ exports.GetPlayerSharedSecrets = function (request, callback) {
     );
 };
 
-/**
- * @deprecated Please use ExportPlayersInSegment instead. 
- */
-exports.GetPlayersInSegment = function (request, callback) {
-    if (PlayFab.settings.developerSecretKey == null) {
-        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
-    }
-    PlayFab.MakeRequest(
-        PlayFab.GetServerUrl() + "/Admin/GetPlayersInSegment",
-        request,
-        "X-SecretKey",
-        PlayFab.settings.developerSecretKey,
-        function (error, result) {
-            if (callback != null) {
-                callback(error, result);
-            }
-        },
-    );
-};
-
 exports.GetPlayerStatisticDefinitions = function (request, callback) {
     if (PlayFab.settings.developerSecretKey == null) {
         throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
@@ -1985,6 +1965,23 @@ exports.UpdateUserTitleDisplayName = function (request, callback) {
     }
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Admin/UpdateUserTitleDisplayName",
+        request,
+        "X-SecretKey",
+        PlayFab.settings.developerSecretKey,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
+exports.ValidateApiPolicy = function (request, callback) {
+    if (PlayFab.settings.developerSecretKey == null) {
+        throw "Must have PlayFab.settings.DeveloperSecretKey set to call this method";
+    }
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Admin/ValidateApiPolicy",
         request,
         "X-SecretKey",
         PlayFab.settings.developerSecretKey,
