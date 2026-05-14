@@ -178,9 +178,10 @@ declare module PlayFabEconomyModule {
             request: PlayFabEconomyModels.GetItemsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabEconomyModels.GetItemsResponse> | null,
         ): void;
-        // Get transaction history for a player. Up to 250 Events can be returned at once. You can use continuation tokens to
-        // paginate through results that return greater than the limit. Getting transaction history has a lower RPS limit than
-        // getting a Player's inventory with Player Entities having a limit of 30 requests in 300 seconds.
+        // Get transaction history for a player. Up to 50 Events can be returned at once (or 250 with response compression
+        // enabled). You can use continuation tokens to paginate through results that return greater than the limit. Getting
+        // transaction history has a lower RPS limit than getting a Player's inventory with Player Entities having a limit of 30
+        // requests in 300 seconds.
         // https://docs.microsoft.com/rest/api/playfab/economy/inventory/gettransactionhistory
         GetTransactionHistory(
             request: PlayFabEconomyModels.GetTransactionHistoryRequest | null,
@@ -1336,7 +1337,8 @@ declare module PlayFabEconomyModels {
         CollectionId?: string;
         // An opaque token used to retrieve the next page of items, if any are available. Should be null on initial request.
         ContinuationToken?: string;
-        // Number of items to retrieve. This value is optional. The default value is 10
+        // Number of items to retrieve. This value is optional. The default value is 10. The maximum value is 50, or 250 if
+        // response compression is enabled.
         Count: number;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
