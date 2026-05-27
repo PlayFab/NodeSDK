@@ -143,7 +143,8 @@ declare module PlayFabServerModule {
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.ExportPlayersInSegmentResult> | null,
         ): void;
         // Retrieves an array of player segment definitions. Results from this can be used in subsequent API calls such as
-        // GetPlayersInSegment which requires a Segment ID. While segment names can change the ID for that segment will not change.
+        // ExportPlayersInSegment which requires a Segment ID. While segment names can change the ID for that segment will not
+        // change.
         // https://docs.microsoft.com/rest/api/playfab/server/playstream/getallsegments
         GetAllSegments(
             request: PlayFabServerModels.GetAllSegmentsRequest | null,
@@ -400,6 +401,12 @@ declare module PlayFabServerModule {
         GetSegmentExport(
             request: PlayFabServerModels.GetPlayersInSegmentExportRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetPlayersInSegmentExportResponse> | null,
+        ): void;
+        // Returns the total number of players in a given segment.
+        // https://docs.microsoft.com/rest/api/playfab/server/playstream/getsegmentplayercount
+        GetSegmentPlayerCount(
+            request: PlayFabServerModels.GetSegmentPlayerCountRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabServerModels.GetSegmentPlayerCountResult> | null,
         ): void;
         // Retrieves the associated PlayFab account identifiers for the given set of server custom identifiers.
         // https://docs.microsoft.com/rest/api/playfab/server/account-management/getservercustomidsfromplayfabids
@@ -2520,7 +2527,6 @@ declare module PlayFabServerModels {
         | "InsightsManagementGetOperationStatusInvalidParameter"
         | "DuplicatePurchaseTransactionId"
         | "EvaluationModePlayerCountExceeded"
-        | "GetPlayersInSegmentRateLimitExceeded"
         | "CloudScriptFunctionNameSizeExceeded"
         | "PaidInsightsFeaturesNotEnabled"
         | "CloudScriptAzureFunctionsQueueRequestError"
@@ -2779,7 +2785,6 @@ declare module PlayFabServerModels {
         | "AsyncExportNotFound"
         | "AsyncExportRateLimitExceeded"
         | "AnalyticsSegmentCountOverLimit"
-        | "GetPlayersInSegmentRetired"
         | "GetSegmentPlayerCountNotInFlight"
         | "GetSegmentPlayerCountRateLimitExceeded"
         | "SnapshotNotFound"
@@ -2857,8 +2862,6 @@ declare module PlayFabServerModels {
         | "PlayerCustomPropertiesPropertyDoesNotExist"
         | "AddonAlreadyExists"
         | "AddonDoesntExist"
-        | "CopilotDisabled"
-        | "CopilotInvalidRequest"
         | "TrueSkillUnauthorized"
         | "TrueSkillInvalidTitleId"
         | "TrueSkillInvalidScenarioId"
@@ -3598,6 +3601,16 @@ declare module PlayFabServerModels {
     export interface GetRandomResultTablesResult extends PlayFabModule.IPlayFabResultCommon {
         // array of random result tables currently available
         Tables?: { [key: string]: RandomResultTableListing };
+    }
+
+    export interface GetSegmentPlayerCountRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // Unique identifier for the requested segment.
+        SegmentId: string;
+    }
+
+    export interface GetSegmentPlayerCountResult extends PlayFabModule.IPlayFabResultCommon {
+        // Count of profiles matching this segment.
+        ProfilesInSegment: number;
     }
 
     export interface GetSegmentResult {
