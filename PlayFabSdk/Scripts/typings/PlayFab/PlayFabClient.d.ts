@@ -3440,13 +3440,13 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Specific Operating System version for the user's device.
         OS?: string;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3458,7 +3458,7 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // The JSON Web token (JWT) returned by Apple after login. Represented as the identityToken field in the authorization
         // credential payload. If you choose to ignore the expiration date for identity tokens, you will receive an NotAuthorized
@@ -3466,7 +3466,7 @@ declare module PlayFabClientModels {
         IdentityToken: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3478,13 +3478,13 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // The JSON Web Token (JWT) returned by Battle.net after login
         IdentityToken: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3498,11 +3498,11 @@ declare module PlayFabClientModels {
         CustomId?: string;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3528,13 +3528,13 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Facebook Instant Games signature for the user.
         FacebookInstantGamesSignature: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3550,11 +3550,11 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3566,13 +3566,13 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Unique Game Center player id.
         PlayerId?: string;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // The URL for the public encryption key that will be used to verify the signature.
         PublicKeyUrl?: string;
@@ -3593,11 +3593,11 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // OAuth 2.0 server authentication code obtained on the client by calling the getServerAuthCode()
         // (https://developers.google.com/identity/sign-in/android/offline-access) Google client API.
@@ -3614,11 +3614,11 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // OAuth 2.0 server authentication code obtained on the client by calling the requestServerSideAccess()
         // (https://developers.google.com/games/services/android/signin) Google Play Games client API.
@@ -3637,13 +3637,13 @@ declare module PlayFabClientModels {
         DeviceId?: string;
         // Specific model of the user's device.
         DeviceModel?: string;
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Specific Operating System version for the user's device.
         OS?: string;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3657,13 +3657,13 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Numeric user ID assigned by Kongregate
         KongregateId?: string;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3675,13 +3675,13 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // The JSON Web token (JWT) returned by Nintendo after login.
         IdentityToken: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3693,13 +3693,13 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Nintendo Switch unique identifier for the user's device.
         NintendoSwitchDeviceId?: string;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3713,14 +3713,14 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // The JSON Web token (JWT) returned by the identity provider after login. Represented as the id_token field in the
         // identity provider's response.
         IdToken: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3748,13 +3748,13 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Id of the PlayStation :tm: Network issuer environment. If null, defaults to production environment.
         IssuerId?: number;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Redirect URI supplied to PlayStation :tm: Network when requesting an auth code
         RedirectUri?: string;
@@ -3768,11 +3768,11 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Authentication token for the user, returned as a byte array from Steam, and converted to a string (for example, the byte
         // 0x08 should become "08").
@@ -3792,11 +3792,11 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -3808,11 +3808,11 @@ declare module PlayFabClientModels {
         CreateAccount?: boolean;
         // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
         CustomTags?: { [key: string]: string | null };
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // Unique identifier for the title, found in the Settings > Game Properties section of the PlayFab developer site when a
         // title has been selected.
@@ -4187,13 +4187,13 @@ declare module PlayFabClientModels {
         DisplayName?: string;
         // User email address attached to their account
         Email?: string;
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
         // Flags for which pieces of info to return for the user.
         InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
         // Password for the PlayFab account (6-100 characters)
         Password?: string;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
         // An optional parameter that specifies whether both the username and email parameters are required. If true, both
         // parameters are required; if false, the user must supply either the username or email parameter. The default value is
@@ -4351,9 +4351,9 @@ declare module PlayFabClientModels {
     export interface SetFriendTagsResult extends PlayFabModule.IPlayFabResultCommon {}
 
     export interface SetPlayerSecretRequest extends PlayFabModule.IPlayFabRequestCommon {
-        // Base64 encoded body that is encrypted with the Title's public RSA key (Enterprise Only).
+        // Base64 encoded body that is encrypted with the Title's public RSA key.
         EncryptedRequest?: string;
-        // Player secret that is used to verify API request signatures (Enterprise Only).
+        // Player secret that is used to verify API request signatures.
         PlayerSecret?: string;
     }
 
