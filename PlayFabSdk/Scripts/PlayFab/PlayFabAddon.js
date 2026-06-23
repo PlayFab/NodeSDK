@@ -4,6 +4,20 @@ var PlayFab = require("./PlayFab.js");
 
 exports.settings = PlayFab.settings;
 
+exports.ConfigurePSNEventStreams = function (request, callback) {
+    PlayFab.MakeRequest(
+        PlayFab.GetServerUrl() + "/Addon/ConfigurePSNEventStreams",
+        request,
+        "X-EntityToken",
+        PlayFab._internalSettings.entityToken,
+        function (error, result) {
+            if (callback != null) {
+                callback(error, result);
+            }
+        },
+    );
+};
+
 exports.CreateOrUpdateApple = function (request, callback) {
     PlayFab.MakeRequest(
         PlayFab.GetServerUrl() + "/Addon/CreateOrUpdateApple",

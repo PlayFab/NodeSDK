@@ -3156,6 +3156,9 @@ declare module PlayFabServerModels {
         // Indicates which other platforms' friends should be included in the response. In HTTP, it is represented as a
         // comma-separated list of platforms.
         ExternalPlatformFriends?: string;
+        // If true, include friends from the same namespace even if they have not logged in to the current title. Defaults to
+        // false.
+        NamespaceWide?: boolean;
         // PlayFab identifier of the player whose friend list to get.
         PlayFabId: string;
         // If non-null, this determines which properties of the resulting player profiles to return. For API calls from the client,
