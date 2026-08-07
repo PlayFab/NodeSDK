@@ -71,6 +71,12 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.CreateInsightsScheduledScalingTaskRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.CreateTaskResult> | null,
         ): void;
+        // Bans an IP address or CIDR range for a title.
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/createipban
+        CreateIPBan(
+            request: PlayFabAdminModels.CreateIPBanRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.CreateIPBanResult> | null,
+        ): void;
         // Registers a relationship between a title and an Open ID Connect provider.
         // https://docs.microsoft.com/rest/api/playfab/admin/authentication/createopenidconnection
         CreateOpenIdConnection(
@@ -251,6 +257,18 @@ declare module PlayFabAdminModule {
         GetDataReport(
             request: PlayFabAdminModels.GetDataReportRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetDataReportResult> | null,
+        ): void;
+        // Gets all IP bans that apply to a specific IP address.
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/getipbansforip
+        GetIPBansForIP(
+            request: PlayFabAdminModels.GetIPBanRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetIPBanResult> | null,
+        ): void;
+        // Gets all IP bans for a title.
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/getipbansfortitle
+        GetIPBansForTitle(
+            request: PlayFabAdminModels.GetAllIPBansRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.GetAllIPBansResult> | null,
         ): void;
         // Get the list of titles that the player has played
         // https://docs.microsoft.com/rest/api/playfab/admin/account-management/getplayedtitlelist
@@ -543,6 +561,12 @@ declare module PlayFabAdminModule {
             request: PlayFabAdminModels.RevokeInventoryItemsRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RevokeInventoryItemsResult> | null,
         ): void;
+        // Revokes an active IP ban.
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/revokeipban
+        RevokeIPBan(
+            request: PlayFabAdminModels.RevokeIPBanRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.RevokeIPBanResult> | null,
+        ): void;
         // Run a task immediately regardless of its schedule.
         // https://docs.microsoft.com/rest/api/playfab/admin/scheduledtask/runtask
         RunTask(
@@ -651,6 +675,12 @@ declare module PlayFabAdminModule {
         UpdateCloudScript(
             request: PlayFabAdminModels.UpdateCloudScriptRequest | null,
             callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateCloudScriptResult> | null,
+        ): void;
+        // Updates an existing IP ban.
+        // https://docs.microsoft.com/rest/api/playfab/admin/account-management/updateipban
+        UpdateIPBan(
+            request: PlayFabAdminModels.UpdateIPBanRequest | null,
+            callback: PlayFabModule.ApiCallback<PlayFabAdminModels.UpdateIPBanResult> | null,
         ): void;
         // Modifies data and credentials for an existing relationship between a title and an Open ID Connect provider
         // https://docs.microsoft.com/rest/api/playfab/admin/authentication/updateopenidconnection
@@ -1487,6 +1517,23 @@ declare module PlayFabAdminModels {
         Parameter: InsightsScalingTaskParameter;
         // Cron expression for the run schedule of the task. The expression should be in UTC.
         Schedule?: string;
+    }
+
+    export interface CreateIPBanRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The UTC date and time when the IP ban expires. Leave this blank for a permanent ban. Must be later than the current time
+        // and no more than 100 years in the future.
+        Expires?: string;
+        // The IP address to be banned.
+        IPAddress: string;
+        // The reason for the IP ban. Maximum 140 characters.
+        Reason?: string;
+    }
+
+    export interface CreateIPBanResult extends PlayFabModule.IPlayFabResultCommon {
+        // Information on the ban that was created
+        IPBanData?: IPBanInfo;
     }
 
     export interface CreateOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -2642,6 +2689,9 @@ declare module PlayFabAdminModels {
         | "AccountLinkedToABannedPlayer"
         | "AzureSubscriptionNotEligibleForLinking"
         | "EntityIsNotAMember"
+        | "IPAddressNotFound"
+        | "PSNNextGenNotConfiguredForTitle"
+        | "InvalidNintendoIssuer"
         | "MatchmakingEntityInvalid"
         | "MatchmakingPlayerAttributesInvalid"
         | "MatchmakingQueueNotFound"
@@ -2959,6 +3009,7 @@ declare module PlayFabAdminModels {
         | "GameSaveTitleClientAnonymousAccountCreationNotDisabled"
         | "GameSaveTitleConfigNoUpdatesRequested"
         | "GameSavePlayerNotEligibleForTransfer"
+        | "GameSaveAlreadyAutoRolledBack"
         | "StateShareForbidden"
         | "StateShareTitleNotInFlight"
         | "StateShareStateNotFound"
@@ -2994,6 +3045,13 @@ declare module PlayFabAdminModels {
         Parameter?: ActionsOnPlayersInSegmentTaskParameter;
         // Status summary of the actions-on-players-in-segment task instance
         Summary?: ActionsOnPlayersInSegmentTaskSummary;
+    }
+
+    export interface GetAllIPBansRequest extends PlayFabModule.IPlayFabRequestCommon {}
+
+    export interface GetAllIPBansResult extends PlayFabModule.IPlayFabResultCommon {
+        // Information on all IP bans
+        IPBanData?: IPBanInfo[];
     }
 
     export interface GetAllSegmentsRequest extends PlayFabModule.IPlayFabRequestCommon {}
@@ -3091,6 +3149,16 @@ declare module PlayFabAdminModels {
         // The URL where the requested report can be downloaded. This can be any PlayFab generated reports. The full list of
         // reports can be found at: https://docs.microsoft.com/en-us/gaming/playfab/features/analytics/reports/quickstart.
         DownloadUrl?: string;
+    }
+
+    export interface GetIPBanRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The IP address of the ban to retrieve information on.
+        IPAddress: string;
+    }
+
+    export interface GetIPBanResult extends PlayFabModule.IPlayFabResultCommon {
+        // Information on the ban
+        IPBanData?: IPBanInfo[];
     }
 
     export interface GetPlayedTitleListRequest extends PlayFabModule.IPlayFabRequestCommon {
@@ -3527,6 +3595,21 @@ declare module PlayFabAdminModels {
     export interface InsightsScalingTaskParameter {
         // Insights Performance Level to scale to.
         Level: number;
+    }
+
+    export interface IPBanInfo {
+        // The active state of this ban.
+        Active: boolean;
+        // PlayFab Developer ID of who issued the ban. Null if ban issued via Title Secret Key.
+        BannedByDeveloperId?: string;
+        // The time when this IP ban was applied.
+        Created?: string;
+        // The time when this ban expires. Permanent bans do not have expiration date.
+        Expires?: string;
+        // The IP address on which the ban was applied.
+        IPAddress?: string;
+        // The reason why this IP ban was applied.
+        Reason?: string;
     }
 
     export interface ItemGrant {
@@ -4148,6 +4231,16 @@ declare module PlayFabAdminModels {
     }
 
     export interface RevokeInventoryResult extends PlayFabModule.IPlayFabResultCommon {}
+
+    export interface RevokeIPBanRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The IP address of the ban to be revoked.
+        IPAddress: string;
+    }
+
+    export interface RevokeIPBanResult extends PlayFabModule.IPlayFabResultCommon {
+        // Information on the ban that was revoked
+        IPBanData?: IPBanInfo;
+    }
 
     export interface RevokeItemError {
         // Specific error that was encountered.
@@ -5139,6 +5232,26 @@ declare module PlayFabAdminModels {
         Revision: number;
         // Cloud Script version updated
         Version: number;
+    }
+
+    export interface UpdateIPBanRequest extends PlayFabModule.IPlayFabRequestCommon {
+        // The updated active state for the IP ban. Null for no change.
+        Active?: boolean;
+        // The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.).
+        CustomTags?: { [key: string]: string | null };
+        // The updated expiration date for the IP ban. Null for no change.
+        Expires?: string;
+        // The IP address of the ban to be updated.
+        IPAddress: string;
+        // Whether to make this IP ban permanent. Set to true to make this IP ban permanent. This will not modify Active state.
+        Permanent?: boolean;
+        // The updated reason for the IP ban. Maximum 140 characters. Null for no change.
+        Reason?: string;
+    }
+
+    export interface UpdateIPBanResult extends PlayFabModule.IPlayFabResultCommon {
+        // Information on the ban that was created
+        IPBanData?: IPBanInfo;
     }
 
     export interface UpdateOpenIdConnectionRequest extends PlayFabModule.IPlayFabRequestCommon {
