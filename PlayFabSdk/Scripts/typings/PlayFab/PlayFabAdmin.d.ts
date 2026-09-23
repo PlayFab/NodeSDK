@@ -3010,6 +3010,8 @@ declare module PlayFabAdminModels {
         | "GameSaveTitleConfigNoUpdatesRequested"
         | "GameSavePlayerNotEligibleForTransfer"
         | "GameSaveAlreadyAutoRolledBack"
+        | "GameSaveManifestNotEligibleForRestore"
+        | "GameSaveManifestArchived"
         | "StateShareForbidden"
         | "StateShareTitleNotInFlight"
         | "StateShareStateNotFound"
@@ -5654,10 +5656,15 @@ declare module PlayFabAdminModels {
     }
 
     export interface UserPsnInfo {
+        // Id of the PlayStation :tm: Network issuer environment this account is keyed under. Supply this value as IssuerId when
+        // looking the account up.
+        IssuerId?: number;
         // PlayStation :tm: Network account ID
         PsnAccountId?: string;
         // PlayStation :tm: Network online ID
         PsnOnlineId?: string;
+        // PlayStation :tm: Network sandbox ID
+        PsnSandboxId?: string;
     }
 
     export interface UserServerCustomIdInfo {
